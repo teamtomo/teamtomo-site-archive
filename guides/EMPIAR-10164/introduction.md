@@ -6,7 +6,7 @@ a cryo-ET dataset of HIV-1 virus like particles (VLPs) from the
 [Briggs group](https://www2.mrc-lmb.cam.ac.uk/groups/briggs/).
 
 Data will be processed *ab initio*, highlighting many important concepts and 
-exposing you to powerful tools which will hope with your own data processing needs.
+exposing you to powerful tools which will help with your own data processing needs.
 
 ```{note}
 This subset was used to benchmark both 
