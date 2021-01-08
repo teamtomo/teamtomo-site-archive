@@ -1,9 +1,12 @@
-# EMPIAR-10164 (HIV VLPs)
-
-## Introduction
+# Introduction
 
 In this tutorial, we will reprocess a five tilt-series subset of 
-[*EMPIAR-10164*](https://www.ebi.ac.uk/pdbe/emdb/empiar/entry/10164/) *ab initio*, without using an external reference.
+[*EMPIAR-10164*](https://www.ebi.ac.uk/pdbe/emdb/empiar/entry/10164/), 
+a cryo-ET dataset of HIV-1 virus like particles (VLPs) from the 
+[Briggs group](https://www2.mrc-lmb.cam.ac.uk/groups/briggs/).
+
+Data will be processed *ab initio*, with the aim of highlighting many important concepts and 
+exposing you to powerful tools.
 
 ```{note}
 This subset was used to benchmark both 
@@ -13,14 +16,21 @@ and
 ```
 
 
-This processing will be carried out within the framework described [here](link to preprint).
+This processing will be carried out combing the 
+[Warp-RELION-M]() 
+pipeline with tools from 
+[Dynamo]().
+Combination of these tools yields a powerful, 
+flexible framework for *ab initio* and geometrical approaches to subtomogram averaging,
+benefitting from multi-particle refinement in [M]().
 
 From these five tilt-series this procedure can produce a 3.4$\AA$ reconstruction 
 of the HIV-1 CA-SP1 hexamer.
 
-### A note about scripting
+## A note about scripting
 As the software ecosystem for cryo-ET matures, some scripting is often required to achieve your goals. 
-This tutorial is provided with all necessary [scripts](../../../../scripts).
+This tutorial is provided with all necessary 
+[scripts](https://github.com/open-subtomo/open-subtomo/tree/master/guides/EMPIAR-10164/scripts).
 
 For illustrative purposes, the contents of these scripts will appear as `code blocks` in the tutorial when used. 
 
@@ -37,9 +47,9 @@ For general purpose scripting, we personally prefer `Python` for its wealth of o
 and 
 [educational resources](https://www.youtube.com/watch?v=5rNu16O3YNE&t=4103s).
 
-### Requirements and Setup
+## Requirements and Setup
 
-#### Hardware
+### Hardware
 
 1. A reasonably modern CPU. We used ...
 %% cpu brand and model, number of cores
@@ -51,7 +61,7 @@ and
 %% how big is the dataset, and how much room does the processed data take?
 
 
-#### Software
+### Software
 
 - Access to both Windows and Linux operative systems
 - MATLAB r2019a or later (with ??? tools, explain adding path)
@@ -62,7 +72,7 @@ and
 - `autoalign_dynamo`
 - scripts provided with this guide
 
-#### Downloading the data
+## Downloading the data
 The five tilt series subset of EMPIAR-10164 used for this guide should first be downloaded from 
 [EMPIAR](https://www.ebi.ac.uk/pdbe/emdb/empiar/entry/10164/). 
 
@@ -104,7 +114,7 @@ Files with the `.mdoc` extension are [SerialEM](https://bio3d.colorado.edu/Seria
 
 **Downloading the data may take a few hours. Start this early!**
 
-### Documentation links
+## Documentation links
 If you are looking for a more in-depth explanation of a parameter, setting or tool, you are encouraged to check out the documentation of any software packages we used.
 
 - **Warp**: [Warp user guide](http://www.warpem.com/warp/?page_id=51)
@@ -112,6 +122,6 @@ If you are looking for a more in-depth explanation of a parameter, setting or to
 - **Relion**: [RELION wiki](https://www3.mrc-lmb.cam.ac.uk/relion/index.php/Main_Page)
 
 
-### Next step
+## Next step
 Once the data is downloaded, click [here](preprocessing.md) to move on to preprocessing!
 
