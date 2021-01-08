@@ -1,0 +1,35 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+- file: index
+
+- part: General Principles
+  chapters:
+    - file: general-principles/general-principles
+
+- part: Guides
+  chapters:
+    - file: guides/EMPIAR-10164/introduction
+      title: EMPIAR-10164 (HIV VLPs)
+      sections:
+        - file: guides/EMPIAR-10164/preprocessing
+          title: Preprocessing
+        - file: guides/EMPIAR-10164/picking
+          title: Particle picking and initial model generation
+        - file: guides/EMPIAR-10164/relion
+          title: Particle pose optimisation in RELION
+        - file: guides/EMPIAR-10164/m
+          title: Multi particle refinement in M
+
+- part: Mini-tutorials
+  chapters:
+    - file: mini-tutorials/software-usage/index
+      sections:
+        - file: mini-tutorials/dynamo/index
+        - file: mini-tutorials/warp/index
+        - file: mini-tutorials/relion/index
+        - file: mini-tutorials/m/index
+    - file: mini-tutorials/programming/index
+      sections:
+        - file: mini-tutorials/python/index
+        - file: mini-tutorials/matlab/index
+
