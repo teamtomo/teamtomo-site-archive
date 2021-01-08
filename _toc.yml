@@ -1,0 +1,30 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+- file: index
+
+- part: General Principles
+  chapters:
+    - file: general-principles/general-principles
+
+- part: Guides
+  chapters:
+    - file: guides/EMPIAR-10164/introduction
+      sections:
+        - file: guides/EMPIAR-10164/preprocessing
+        - file: guides/EMPIAR-10164/picking
+        - file: guides/EMPIAR-10164/relion
+        - file: guides/EMPIAR-10164/m
+
+- part: Mini-tutorials
+  chapters:
+    - file: mini-tutorials/software-usage/index
+      sections:
+        - file: mini-tutorials/dynamo/index
+        - file: mini-tutorials/warp/index
+        - file: mini-tutorials/relion/index
+        - file: mini-tutorials/m/index
+    - file: mini-tutorials/programming/index
+      sections:
+        - file: mini-tutorials/python/index
+        - file: mini-tutorials/matlab/index
+

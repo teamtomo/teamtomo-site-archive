@@ -1,0 +1,76 @@
+#######################################################################################
+# Book settings
+title: "Open Subtomo" # The title of the book. Will be placed in the left navbar.
+logo: assets/logo.svg # A path to the book logo
+author: the open-subtomo contributors # The author of the book
+email: alisterburt@gmail.com
+copyright: "2021" # Copyright year to be placed in the footer
+only_build_toc_files: false
+
+execute:
+  execute_notebooks: cache
+
+parse:
+  myst_extended_syntax: true
+
+html:
+  favicon: images/favicon.ico
+  google_analytics_id: UA-52617120-7
+  home_page_in_navbar: false
+  use_edit_page_button: true
+  use_repository_button: true
+  use_issues_button: true
+  baseurl: https://jupyterbook.org/
+
+repository:
+  url: https://github.com/executablebooks/jupyter-book
+  branch: master
+  path_to_book: docs
+
+launch_buttons:
+  notebook_interface: "classic" # The interface interactive links will activate ["classic", "jupyterlab"]
+  binderhub_url: "https://mybinder.org"
+  colab_url: "https://colab.research.google.com"
+  thebe: true
+
+latex:
+  latex_engine: xelatex
+  latex_documents:
+    targetname: book.tex
+
+sphinx:
+  config:
+    nb_custom_formats:
+      .Rmd:
+        - jupytext.reads
+        - fmt: Rmd
+    # TODO: #917 this path will be the default in sphinx v4
+    # mathjax_path: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+    # However, it is incompatible with the mathjax config below for macros
+    mathjax_config:
+      TeX:
+        Macros:
+          "N": "\\mathbb{N}"
+          "floor": ["\\lfloor#1\\rfloor", 1]
+          "bmat": ["\\left[\\begin{array}"]
+          "emat": ["\\end{array}\\right]"]
+    latex_elements:
+        preamble: |
+          \newcommand\N{\mathbb{N}}
+          \newcommand\floor[1]{\lfloor#1\rfloor}
+          \newcommand{\bmat}{\left[\begin{array}}
+          \newcommand{\emat}{\end{array}\right]}
+    rediraffe_branch: 'master'
+    rediraffe_redirects:
+      content-types/index.md: file-types/index.md
+      content-types/markdown.md: file-types/markdown.md
+      content-types/notebooks.ipynb: file-types/notebooks.ipynb
+      content-types/myst-notebooks.md: file-types/myst-notebooks.md
+      content-types/jupytext.md: file-types/jupytext.Rmd
+      content-types/restructuredtext.md: file-types/restructuredtext.md
+    language: en
+
+#  extra_extensions:
+#    - sphinx_click.ext
+#    - sphinx_inline_tabs
+#    - sphinxext.rediraffe
