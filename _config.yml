@@ -1,0 +1,62 @@
+#######################################################################################
+# Book settings
+title: "Open Subtomo" # The title of the book. Will be placed in the left navbar.
+logo: assets/logo.svg # A path to the book logo
+author: the open-subtomo contributors # The author of the book
+email: alisterburt@gmail.com
+copyright: "2021" # Copyright year to be placed in the footer
+only_build_toc_files: false
+
+execute:
+  execute_notebooks: cache
+
+parse:
+  myst_extended_syntax: true
+
+html:
+  favicon: images/favicon.ico
+  home_page_in_navbar: true
+  use_edit_page_button: true
+  use_repository_button: true
+  use_issues_button: true
+#  baseurl: https://jupyterbook.org/
+
+repository:
+  url: https://github.com/open-subtomo/open-subtomo
+  branch: master
+  path_to_book: .
+
+launch_buttons:
+  notebook_interface: "classic" # The interface interactive links will activate ["classic", "jupyterlab"]
+  binderhub_url: "https://mybinder.org"
+  colab_url: "https://colab.research.google.com"
+  thebe: true
+
+latex:
+  latex_engine: xelatex
+  latex_documents:
+    targetname: book.tex
+
+sphinx:
+  config:
+    nb_custom_formats:
+      .Rmd:
+        - jupytext.reads
+        - fmt: Rmd
+    mathjax_config:
+      TeX:
+        Macros:
+          "N": "\\mathbb{N}"
+          "floor": ["\\lfloor#1\\rfloor", 1]
+          "bmat": ["\\left[\\begin{array}"]
+          "emat": ["\\end{array}\\right]"]
+    latex_elements:
+        preamble: |
+          \newcommand\N{\mathbb{N}}
+          \newcommand\floor[1]{\lfloor#1\rfloor}
+          \newcommand{\bmat}{\left[\begin{array}}
+          \newcommand{\emat}{\end{array}\right]}
+    language: en
+
+  extra_extensions:
+
