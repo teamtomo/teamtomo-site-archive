@@ -9,11 +9,16 @@
 - part: Guides
   chapters:
     - file: guides/EMPIAR-10164/introduction
+      title: EMPIAR-10164 (HIV VLPs)
       sections:
         - file: guides/EMPIAR-10164/preprocessing
+          title: Preprocessing
         - file: guides/EMPIAR-10164/picking
+          title: Particle picking and initial model generation
         - file: guides/EMPIAR-10164/relion
+          title: Particle pose optimisation in RELION
         - file: guides/EMPIAR-10164/m
+          title: Multi particle refinement in M
 
 - part: Mini-tutorials
   chapters:
