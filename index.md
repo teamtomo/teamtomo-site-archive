@@ -31,4 +31,9 @@ If you're new to cryo-ET and subtomogram averaging, check out our
 and data processing 
 [guides](guides/index).
 
-Looking for something specific? Check out our [mini-tutorials](mini-tutorials/mini-tutorials)
+Looking for something specific? 
+Check out our 
+[mini-tutorials](mini-tutorials/mini-tutorials) 
+and 
+[general principles](general-principles/general-principles)
+sections!
