@@ -19,6 +19,7 @@ html:
   use_edit_page_button: true
   use_repository_button: true
   use_issues_button: true
+  html_css_files: ["https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"]
 #  baseurl: https://jupyterbook.org/
 
 repository:
@@ -59,4 +60,5 @@ sphinx:
     language: en
 
   extra_extensions:
+    sphinx_inline_tabs
 
