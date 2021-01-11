@@ -5,6 +5,10 @@
 - part: General Principles
   chapters:
     - file: general-principles/general-principles
+    - file: general-principles/overviews/overviews
+    - file: general-principles/data-collection/introduction
+    - file: general-principles/image-processing/introduction
+    - file: general-principles/subtomogram-averaging/index
 
 - part: Guides
   chapters:
@@ -12,22 +16,24 @@
       title: EMPIAR-10164 (HIV VLPs)
       sections:
         - file: guides/EMPIAR-10164/preprocessing
-          title: Preprocessing
         - file: guides/EMPIAR-10164/picking
-          title: Particle picking and initial model generation
         - file: guides/EMPIAR-10164/relion
-          title: Particle pose optimisation in RELION
         - file: guides/EMPIAR-10164/m
-          title: Multi particle refinement in M
 
 - part: Mini-tutorials
   chapters:
     - file: mini-tutorials/software-usage/index
       sections:
-        - file: mini-tutorials/dynamo/index
-        - file: mini-tutorials/warp/index
-        - file: mini-tutorials/relion/index
-        - file: mini-tutorials/m/index
+        - file: mini-tutorials/software-usage/dynamo/index
+        - file: mini-tutorials/software-usage/emclarity/index
+        - file: mini-tutorials/software-usage/eman/index
+        - file: mini-tutorials/software-usage/relion/index
+        - file: mini-tutorials/software-usage/m/index
+        - file: mini-tutorials/software-usage/nova/index
+        - file: mini-tutorials/software-usage/stopgap/index
+        - file: mini-tutorials/software-usage/warp/index
+
+
     - file: mini-tutorials/programming/index
       sections:
         - file: mini-tutorials/python/index
