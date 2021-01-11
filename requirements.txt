@@ -1,3 +1,4 @@
 jupyter-book
 jupytext
 ghp-import
+sphinx_inline_tabs
