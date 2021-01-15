@@ -22,7 +22,9 @@
       title: EMPIAR-10164 (HIV VLPs)
       sections:
         - file: guides/EMPIAR-10164/preprocessing
-        - file: guides/EMPIAR-10164/picking
+        - file: guides/EMPIAR-10164/geometrical-picking
+        - file: guides/EMPIAR-10164/ini-model
+        - file: guides/EMPIAR-10164/particle-picking
         - file: guides/EMPIAR-10164/relion
         - file: guides/EMPIAR-10164/m
 
