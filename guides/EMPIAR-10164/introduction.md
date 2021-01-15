@@ -17,14 +17,14 @@ and
 
 
 This processing will be carried out combing the 
-[Warp-RELION-M]() 
+[Warp-RELION-M](http://www.warpem.com/warp/?page_id=827) 
 pipeline with tools from 
-[Dynamo]().
+[Dynamo](https://wiki.dynamo.biozentrum.unibas.ch/w/index.php/Main_Page).
 Combination of these tools yields a powerful, 
 flexible framework for *ab initio* and geometrical approaches to subtomogram averaging,
-benefitting from multi-particle refinement in [M]().
+benefitting from multi-particle refinement in [M](http://www.warpem.com/warp/?page_id=827).
 
-From these five tilt-series this procedure can produce a 3.4$\AA$ reconstruction 
+From these five tilt-series this procedure can produce a 3.4 Å reconstruction 
 of the HIV-1 CA-SP1 hexamer.
 
 ## A note about scripting
@@ -48,37 +48,35 @@ and
 [educational resources](https://www.youtube.com/watch?v=5rNu16O3YNE&t=4103s).
 
 ## Requirements and Setup
+```{tabbed} Hardware
+- A reasonably modern CPU. 
+- At least 32 GB RAM.
+- At least 1 NVIDIA graphics processing unit (GPU), with at least 8 GB of dedicated memory.
+- At least 10 GB of free disk space. To keep read/write times low, we recommend a Solid State Drive (SSD).
+```
 
-### Hardware
-
-1. A reasonably modern CPU. We used ...
-%% cpu brand and model, number of cores
-2. At least 32 GB random-access memory (RAM) to extract particle at 2.5 A/px. In order to extract at 1.7 A/px, we used a computer with 128 GB of RAM.
-%% correct? can we test if possible with 64? Also, fix angstrom symbol in latex.
-3. At least 1 NVIDIA graphics processing unit (GPU), with at least ? GB of dedicated memory. We used a computer with 2 NVIDIA Titan ?, each with ? GB of dedicated memory.
-%% which gpu? how much memory did we really need?
-4. At least ?GB of free disk space. To keep the read/write times low, we recommend to use a Solid State Drive (SSD).
-%% how big is the dataset, and how much room does the processed data take?
-
-
-### Software
-
-- Access to both Windows and Linux operative systems
-- MATLAB r2019a or later (with ??? tools, explain adding path)
-- Warp 1.0.9 or later
-- Relion 3.0.8 or later
-- Dynamo 1.1.478 or later
-- `dynamo2m`
-- `autoalign_dynamo`
-- scripts provided with this guide
+```{tabbed} Software
+- Access to both Windows and Linux operating systems
+- [MATLAB](https://fr.mathworks.com/products/matlab.html) r2019a or later
+- [IMOD](https://bio3d.colorado.edu/imod/) 
+- [Warp](www.warpem.com/) v1.0.9 or later
+- [Relion](https://www3.mrc-lmb.cam.ac.uk/relion/index.php?title=Main_Page) 3.0.8 or later
+- [Dynamo](https://wiki.dynamo.biozentrum.unibas.ch/w/index.php/Main_Page) 1.1.478 or later
+- [dynamo2m](https://github.com/alisterburt/dynamo2m)
+- [autoalign_dynamo](https://github.com/alisterburt/autoalign_dynamo)
+- [scripts](https://github.com/open-subtomo/open-subtomo/tree/master/guides/EMPIAR-10164/scripts) provided with this guide
+```
 
 ## Downloading the data
 The five tilt series subset of EMPIAR-10164 used for this guide should first be downloaded from 
 [EMPIAR](https://www.ebi.ac.uk/pdbe/emdb/empiar/entry/10164/). 
 
 For this purpose, we provide a simple shell script 
-([`download.sh`](../../../../scripts/download.sh)) together with this tutorial.
+([`download.sh`](https://github.com/open-subtomo/open-subtomo/blob/master/guides/EMPIAR-10164/scripts/download.sh)).
 
+`download.sh` organises files according to the directory structure expected by the rest of the guide.
+
+````{tabbed} shell script
 ```bash
 echo "Downloading the raw data. This may take a couple of hours!"
 echo
@@ -90,12 +88,11 @@ do
     wget --show-progress -m -q -nd -P ./mdoc ftp://ftp.ebi.ac.uk/empiar/world_availability/10164/data/mdoc-files/TS_${i}.mrc.mdoc;
     wget --show-progress -m -q -nd -P ./frames ftp://ftp.ebi.ac.uk/empiar/world_availability/10164/data/frames/TS_${i}_*.mrc;
 done
-
 ```
+````
 
-`download.sh` organises files according to the directory structure expected by the rest of the guide.
-
-```bash
+````{tabbed} directory structure
+```{code block} bash
 .
 ├── frames
 │   ├── TS_01_000_0.0.mrc
@@ -106,12 +103,17 @@ done
     ├── TS_02.mrc.mdoc
     └── ...
 ```
+````
 
+````{tabbed} file extensions
 Files with the `.mrc` extension are multi-frame micrographs for each tilt angle in a tilt series. 
+
 They are in the [MRC2014](https://www.ccpem.ac.uk/mrc_format/mrc2014.php) file format.
 
 Files with the `.mdoc` extension are [SerialEM](https://bio3d.colorado.edu/SerialEM/) metadata files.
 
+They contain metadata about images in a tilt-series.
+````
 **Downloading the data may take a few hours. Start this early!**
 
 ## Documentation links

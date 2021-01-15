@@ -1,4 +1,4 @@
-# Contributing
+# Guide to contributing
 
 We welcome contributions from anyone with anything useful to contribute!
 
@@ -18,7 +18,8 @@ mechanism on GitHub to manage contributions.
 
 ## Step by step guide
 ### Step 1 - forking the project
-A fork is your own online copy of an existing project on GitHub.
+The first step is 'forking' the project. A 'fork' is your own online copy of an existing project on GitHub.
+
 A guide to forking a project can be found [here](https://docs.github.com/en/free-pro-team@latest/github/getting-started-with-github/fork-a-repo).
 
 ### Step 2 - downloading the project
