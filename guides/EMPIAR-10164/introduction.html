@@ -1,0 +1,564 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Introduction &#8212; Open Subtomo</title>
+    
+  <link rel="stylesheet" href="../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/tabs.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"N": "\\mathbb{N}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}}, "tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Preprocessing" href="preprocessing.html" />
+    <link rel="prev" title="Image processing" href="../../general-principles/image-processing/introduction.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Open Subtomo</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <p class="caption collapsible-parent">
+ <span class="caption-text">
+  General Principles
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../general-principles/general-principles.html">
+   Summary
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../general-principles/overviews/overviews.html">
+   Overviews
+  </a>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../general-principles/subtomogram-averaging/index.html">
+   Subtomogram averaging
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../general-principles/subtomogram-averaging/preprocessing/index.html">
+     Preprocessing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../general-principles/subtomogram-averaging/particle-picking/index.html">
+     Particle picking
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../general-principles/subtomogram-averaging/refinement/index.html">
+     Refinement
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../general-principles/image-processing/introduction.html">
+   Image processing
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Guides
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="current reference internal" href="#">
+   EMPIAR-10164 (HIV VLPs)
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="preprocessing.html">
+     Preprocessing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="picking.html">
+     Particle picking and initial model generation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="relion.html">
+     Particle pose optimisation in RELION
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="m.html">
+     Multi-particle refinement in M
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Mini-tutorials
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../mini-tutorials/software-usage/index.html">
+   Cryo-ET software
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../mini-tutorials/software-usage/dynamo/index.html">
+     Dynamo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../mini-tutorials/software-usage/emclarity/index.html">
+     emClarity
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../mini-tutorials/software-usage/eman/index.html">
+     EMAN
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../mini-tutorials/software-usage/relion/index.html">
+     RELION
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../mini-tutorials/software-usage/m/index.html">
+     M
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../mini-tutorials/software-usage/nova/index.html">
+     Nova
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../mini-tutorials/software-usage/stopgap/index.html">
+     STOPGAP
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../mini-tutorials/software-usage/warp/index.html">
+     Warp
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../mini-tutorials/programming/index.html">
+   Programming
+  </a>
+  <ul class="simple collapse-ul">
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Contributing
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../contributing/contributing.html">
+   Guide to contributing
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/guides/EMPIAR-10164/introduction.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/open-subtomo/open-subtomo"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/open-subtomo/open-subtomo/issues/new?title=Issue%20on%20page%20%2Fguides/EMPIAR-10164/introduction.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/open-subtomo/open-subtomo/edit/master/./guides/EMPIAR-10164/introduction.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-note-about-scripting">
+   A note about scripting
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#requirements-and-setup">
+   Requirements and Setup
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#downloading-the-data">
+   Downloading the data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#documentation-links">
+   Documentation links
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#next-step">
+   Next step
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<p>In this tutorial, we will reprocess a five tilt-series subset of
+<a class="reference external" href="https://www.ebi.ac.uk/pdbe/emdb/empiar/entry/10164/"><em>EMPIAR-10164</em></a>,
+a cryo-ET dataset of HIV-1 virus like particles (VLPs) from the
+<a class="reference external" href="https://www2.mrc-lmb.cam.ac.uk/groups/briggs/">Briggs group</a>.</p>
+<p>Data will be processed <em>ab initio</em>, highlighting many important concepts and
+exposing you to powerful tools which will help with your own data processing needs.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This subset was used to benchmark both
+<a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S1047847717301272">NovaCTF</a>
+and
+<a class="reference external" href="https://www.nature.com/articles/s41592-019-0580-y">Warp</a>.</p>
+</div>
+<p>This processing will be carried out combing the
+<a class="reference external" href="http://www.warpem.com/warp/?page_id=827">Warp-RELION-M</a>
+pipeline with tools from
+<a class="reference external" href="https://wiki.dynamo.biozentrum.unibas.ch/w/index.php/Main_Page">Dynamo</a>.
+Combination of these tools yields a powerful,
+flexible framework for <em>ab initio</em> and geometrical approaches to subtomogram averaging,
+benefitting from multi-particle refinement in <a class="reference external" href="http://www.warpem.com/warp/?page_id=827">M</a>.</p>
+<p>From these five tilt-series this procedure can produce a 3.4 Å reconstruction
+of the HIV-1 CA-SP1 hexamer.</p>
+<div class="section" id="a-note-about-scripting">
+<h2>A note about scripting<a class="headerlink" href="#a-note-about-scripting" title="Permalink to this headline">¶</a></h2>
+<p>As the software ecosystem for cryo-ET matures, some scripting is often required to achieve your goals.
+This tutorial is provided with all necessary
+<a class="reference external" href="https://github.com/open-subtomo/open-subtomo/tree/master/guides/EMPIAR-10164/scripts">scripts</a>.</p>
+<p>For illustrative purposes, the contents of these scripts will appear as <code class="docutils literal notranslate"><span class="pre">code</span> <span class="pre">blocks</span></code> in the tutorial when used.</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% this is a comment</span>
+<span class="nb">disp</span><span class="p">(</span><span class="s">&#39;Hello World!&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Reading these blocks is intended to serve as a gentle introduction to MATLAB scripting for working with
+the powerful tools Dynamo has to offer.</p>
+<p>For general purpose scripting, we personally prefer <code class="docutils literal notranslate"><span class="pre">Python</span></code> for its wealth of open source
+<a class="reference external" href="https://www.scipy.org/">data science infrastructure</a>
+and
+<a class="reference external" href="https://www.youtube.com/watch?v=5rNu16O3YNE&amp;t=4103s">educational resources</a>.</p>
+</div>
+<div class="section" id="requirements-and-setup">
+<h2>Requirements and Setup<a class="headerlink" href="#requirements-and-setup" title="Permalink to this headline">¶</a></h2>
+<div class="tabbed-set docutils">
+<input checked="checked" id="5abb8713-53e7-4252-bb2d-5bee53c3090c" name="da8b85b4-7d58-4afe-a2a6-e3b838a83219" type="radio">
+</input><label class="tabbed-label" for="5abb8713-53e7-4252-bb2d-5bee53c3090c">
+Hardware</label><div class="tabbed-content docutils">
+<ul class="simple">
+<li><p>A reasonably modern CPU.</p></li>
+<li><p>At least 32 GB RAM.</p></li>
+<li><p>At least 1 NVIDIA graphics processing unit (GPU), with at least 8 GB of dedicated memory.</p></li>
+<li><p>At least 10 GB of free disk space. To keep read/write times low, we recommend a Solid State Drive (SSD).</p></li>
+</ul>
+</div>
+<input id="49575915-cffb-49c3-9ae0-a8410a11b631" name="da8b85b4-7d58-4afe-a2a6-e3b838a83219" type="radio">
+</input><label class="tabbed-label" for="49575915-cffb-49c3-9ae0-a8410a11b631">
+Software</label><div class="tabbed-content docutils">
+<ul class="simple">
+<li><p>Access to both Windows and Linux operating systems</p></li>
+<li><p><a class="reference external" href="https://fr.mathworks.com/products/matlab.html">MATLAB</a> r2019a or later</p></li>
+<li><p><a class="reference external" href="https://bio3d.colorado.edu/imod/">IMOD</a></p></li>
+<li><p><span class="xref myst">Warp</span> v1.0.9 or later</p></li>
+<li><p><a class="reference external" href="https://www3.mrc-lmb.cam.ac.uk/relion/index.php?title=Main_Page">Relion</a> 3.0.8 or later</p></li>
+<li><p><a class="reference external" href="https://wiki.dynamo.biozentrum.unibas.ch/w/index.php/Main_Page">Dynamo</a> 1.1.478 or later</p></li>
+<li><p><a class="reference external" href="https://github.com/alisterburt/dynamo2m">dynamo2m</a></p></li>
+<li><p><a class="reference external" href="https://github.com/alisterburt/autoalign_dynamo">autoalign_dynamo</a></p></li>
+<li><p><a class="reference external" href="https://github.com/open-subtomo/open-subtomo/tree/master/guides/EMPIAR-10164/scripts">scripts</a> provided with this guide</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="downloading-the-data">
+<h2>Downloading the data<a class="headerlink" href="#downloading-the-data" title="Permalink to this headline">¶</a></h2>
+<p>The five tilt series subset of EMPIAR-10164 used for this guide should first be downloaded from
+<a class="reference external" href="https://www.ebi.ac.uk/pdbe/emdb/empiar/entry/10164/">EMPIAR</a>.</p>
+<p>For this purpose, we provide a simple shell script
+(<a class="reference external" href="https://github.com/open-subtomo/open-subtomo/blob/master/guides/EMPIAR-10164/scripts/download.sh"><code class="docutils literal notranslate"><span class="pre">download.sh</span></code></a>).</p>
+<p><code class="docutils literal notranslate"><span class="pre">download.sh</span></code> organises files according to the directory structure expected by the rest of the guide.</p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="c9e60d5e-4cd6-4794-b541-f4ff5eac3b5a" name="99fc542b-3430-4179-8db0-684a081314cc" type="radio">
+</input><label class="tabbed-label" for="c9e60d5e-4cd6-4794-b541-f4ff5eac3b5a">
+shell script</label><div class="tabbed-content docutils">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="s2">&quot;Downloading the raw data. This may take a couple of hours!&quot;</span>
+<span class="nb">echo</span>
+<span class="nb">echo</span>
+<span class="k">for</span> i <span class="k">in</span> <span class="m">01</span> <span class="m">03</span> <span class="m">43</span> <span class="m">45</span> <span class="m">54</span><span class="p">;</span>
+<span class="k">do</span>
+    <span class="nb">echo</span> <span class="s2">&quot;====================================================&quot;</span>
+    <span class="nb">echo</span> <span class="s2">&quot;================= Downloading TS_</span><span class="si">${</span><span class="nv">i</span><span class="si">}</span><span class="s2"> ================&quot;</span>
+    wget --show-progress -m -q -nd -P ./mdoc ftp://ftp.ebi.ac.uk/empiar/world_availability/10164/data/mdoc-files/TS_<span class="si">${</span><span class="nv">i</span><span class="si">}</span>.mrc.mdoc<span class="p">;</span>
+    wget --show-progress -m -q -nd -P ./frames ftp://ftp.ebi.ac.uk/empiar/world_availability/10164/data/frames/TS_<span class="si">${</span><span class="nv">i</span><span class="si">}</span>_*.mrc<span class="p">;</span>
+<span class="k">done</span>
+</pre></div>
+</div>
+</div>
+<input id="5c0066f7-d731-45f0-b61c-0ae81f5f9106" name="99fc542b-3430-4179-8db0-684a081314cc" type="radio">
+</input><label class="tabbed-label" for="5c0066f7-d731-45f0-b61c-0ae81f5f9106">
+directory structure</label><div class="tabbed-content docutils">
+<div class="highlight-{code notranslate"><div class="highlight"><pre><span></span>.
+├── frames
+│   ├── TS_01_000_0.0.mrc
+│   ├── TS_01_001_3.0.mrc
+│   └── ...
+└── mdoc
+    ├── TS_01.mrc.mdoc
+    ├── TS_02.mrc.mdoc
+    └── ...
+</pre></div>
+</div>
+</div>
+<input id="92f6a561-b94d-4688-8f26-f8114e4a4ec6" name="99fc542b-3430-4179-8db0-684a081314cc" type="radio">
+</input><label class="tabbed-label" for="92f6a561-b94d-4688-8f26-f8114e4a4ec6">
+file extensions</label><div class="tabbed-content docutils">
+<p>Files with the <code class="docutils literal notranslate"><span class="pre">.mrc</span></code> extension are multi-frame micrographs for each tilt angle in a tilt series.</p>
+<p>They are in the <a class="reference external" href="https://www.ccpem.ac.uk/mrc_format/mrc2014.php">MRC2014</a> file format.</p>
+<p>Files with the <code class="docutils literal notranslate"><span class="pre">.mdoc</span></code> extension are <a class="reference external" href="https://bio3d.colorado.edu/SerialEM/">SerialEM</a> metadata files.</p>
+<p>They contain metadata about images in a tilt-series.</p>
+</div>
+</div>
+<p><strong>Downloading the data may take a few hours. Start this early!</strong></p>
+</div>
+<div class="section" id="documentation-links">
+<h2>Documentation links<a class="headerlink" href="#documentation-links" title="Permalink to this headline">¶</a></h2>
+<p>If you are looking for a more in-depth explanation of a parameter, setting or tool, you are encouraged to check out the documentation of any software packages we used.</p>
+<ul class="simple">
+<li><p><strong>Warp</strong>: <a class="reference external" href="http://www.warpem.com/warp/?page_id=51">Warp user guide</a></p></li>
+<li><p><strong>Dynamo</strong>: <a class="reference external" href="https://www.wiki.dynamo.biozentrum.unibas.ch/w/index.php/">Dynamo wiki</a></p></li>
+<li><p><strong>Relion</strong>: <a class="reference external" href="https://www3.mrc-lmb.cam.ac.uk/relion/index.php/Main_Page">RELION wiki</a></p></li>
+</ul>
+</div>
+<div class="section" id="next-step">
+<h2>Next step<a class="headerlink" href="#next-step" title="Permalink to this headline">¶</a></h2>
+<p>Once the data is downloaded, click <a class="reference internal" href="preprocessing.html"><span class="doc std std-doc">here</span></a> to move on to preprocessing!</p>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./guides/EMPIAR-10164"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="../../general-principles/image-processing/introduction.html" title="previous page">Image processing</a>
+    <a class='right-next' id="next-link" href="preprocessing.html" title="next page">Preprocessing</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By the open-subtomo contributors<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

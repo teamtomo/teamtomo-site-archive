@@ -1,0 +1,589 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Particle pose optimisation in RELION &#8212; Open Subtomo</title>
+    
+  <link rel="stylesheet" href="../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/tabs.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"N": "\\mathbb{N}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}}, "tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Multi-particle refinement in M" href="m.html" />
+    <link rel="prev" title="Particle picking and initial model generation" href="picking.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Open Subtomo</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <p class="caption collapsible-parent">
+ <span class="caption-text">
+  General Principles
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../general-principles/general-principles.html">
+   Summary
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../general-principles/overviews/overviews.html">
+   Overviews
+  </a>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../general-principles/subtomogram-averaging/index.html">
+   Subtomogram averaging
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../general-principles/subtomogram-averaging/preprocessing/index.html">
+     Preprocessing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../general-principles/subtomogram-averaging/particle-picking/index.html">
+     Particle picking
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../general-principles/subtomogram-averaging/refinement/index.html">
+     Refinement
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../general-principles/image-processing/introduction.html">
+   Image processing
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Guides
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="introduction.html">
+   EMPIAR-10164 (HIV VLPs)
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="preprocessing.html">
+     Preprocessing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="picking.html">
+     Particle picking and initial model generation
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Particle pose optimisation in RELION
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="m.html">
+     Multi-particle refinement in M
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Mini-tutorials
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../mini-tutorials/software-usage/index.html">
+   Cryo-ET software
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../mini-tutorials/software-usage/dynamo/index.html">
+     Dynamo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../mini-tutorials/software-usage/emclarity/index.html">
+     emClarity
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../mini-tutorials/software-usage/eman/index.html">
+     EMAN
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../mini-tutorials/software-usage/relion/index.html">
+     RELION
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../mini-tutorials/software-usage/m/index.html">
+     M
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../mini-tutorials/software-usage/nova/index.html">
+     Nova
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../mini-tutorials/software-usage/stopgap/index.html">
+     STOPGAP
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../mini-tutorials/software-usage/warp/index.html">
+     Warp
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../mini-tutorials/programming/index.html">
+   Programming
+  </a>
+  <ul class="simple collapse-ul">
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Contributing
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../contributing/contributing.html">
+   Guide to contributing
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/guides/EMPIAR-10164/relion.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/open-subtomo/open-subtomo"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/open-subtomo/open-subtomo/issues/new?title=Issue%20on%20page%20%2Fguides/EMPIAR-10164/relion.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/open-subtomo/open-subtomo/edit/master/./guides/EMPIAR-10164/relion.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#extract-subtomograms-in-warp-at-5-aa-px">
+   Extract subtomograms in Warp at 5
+   <span class="math notranslate nohighlight">
+    \(\AA/px\)
+   </span>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#generate-compatible-metadata">
+     Generate compatible metadata
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#extraction-in-warp">
+     Extraction in Warp
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#d-auto-refine-in-relion">
+   3D auto-refine in RELION
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#alignment-parameters">
+     Alignment parameters
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#subtomogram-extraction-at-1-6-aa-px">
+   Subtomogram extraction at 1.6
+   <span class="math notranslate nohighlight">
+    \(\AA/px\)
+   </span>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#refinement-mask">
+   Refinement Mask
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#refinement-at-1-6-aa-px">
+   Refinement at 1.6
+   <span class="math notranslate nohighlight">
+    \(\AA/px\)
+   </span>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#next-step">
+   Next step
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="particle-pose-optimisation-in-relion">
+<h1>Particle pose optimisation in RELION<a class="headerlink" href="#particle-pose-optimisation-in-relion" title="Permalink to this headline">¶</a></h1>
+<p>Now that we have a set of particles that appears to be free of duplicates and matches our geometrical understanding of the system we can proceed to refine our particle positions and orientations with the aim of producing a higher resolution average.</p>
+<p>In this section, we will</p>
+<ul class="simple">
+<li><p>Extract particles in Warp at 5Apx</p></li>
+<li><p>Align these particles by subtomogram averaging in RELION</p></li>
+<li><p>Extract particles in Warp at 1.6Apx</p></li>
+<li><p>Align these particles by subtomogram averaging in RELION</p></li>
+</ul>
+<blockquote>
+<div><p>Subtomogram averaging becomes very slow when performing refinements with lots of particles in larger boxes. Stepping the pixel size down gradually allows us to move more quickly and react to any problems which may come up when working on more complex data.</p>
+</div></blockquote>
+<blockquote>
+<div><p>We extracted at 1.6Apx rather than 1.35Apx due to memory limitations. Warp employs a defocus dependent mechanism to reduce the effects of CTF aliasing, the large number of particles per field-of-view is particularly demanding at such a small pixel size and can lead to memory issues. Unless extracting at a very small pixel size, you are unlikely to encounter these issues when working with your own data.</p>
+</div></blockquote>
+<div class="section" id="extract-subtomograms-in-warp-at-5-aa-px">
+<h2>Extract subtomograms in Warp at 5<span class="math notranslate nohighlight">\(\AA/px\)</span><a class="headerlink" href="#extract-subtomograms-in-warp-at-5-aa-px" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="generate-compatible-metadata">
+<h3>Generate compatible metadata<a class="headerlink" href="#generate-compatible-metadata" title="Permalink to this headline">¶</a></h3>
+<p>We need to convert our particle positions and orientations in the dynamo metadata into a format Warp understands, we will use the <code class="docutils literal notranslate"><span class="pre">dynamo2warp</span></code> script provided by the <code class="docutils literal notranslate"><span class="pre">dynamo2m</span></code> package. The script takes a <code class="docutils literal notranslate"><span class="pre">.tbl</span></code> file (which we generated at the end of the previous section) and a table map file. The table map file contains a mapping from particle indexes to file names, to match to the column 20 of the <code class="docutils literal notranslate"><span class="pre">.tbl</span></code> file. In our case, this file is located in <code class="docutils literal notranslate"><span class="pre">dynamo/oversampledData.Boxes/indices_column20.doc</span></code>.</p>
+<p>In a terminal, run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>dynamo2warp -i result_10Apx_nodup_neighbourcleaning.tbl -tm ../../../../oversampledData.Boxes/indices_column20.doc -o result_15Apx_nodup_neighbourcleaning_data.star
+</pre></div>
+</div>
+</div>
+<div class="section" id="extraction-in-warp">
+<h3>Extraction in Warp<a class="headerlink" href="#extraction-in-warp" title="Permalink to this headline">¶</a></h3>
+<p>We can now use the generated <code class="docutils literal notranslate"><span class="pre">.star</span></code> file to extract subtomograms in Warp. To start the extraction, make sure Warp is in <code class="docutils literal notranslate"><span class="pre">*.tomostar</span></code> mode, then click on the <code class="docutils literal notranslate"><span class="pre">Reconstruct</span> <span class="pre">sub-tomograms</span></code> button at the top of the screen in the <code class="docutils literal notranslate"><span class="pre">Overview</span></code> tab. A dialog will open: fill in the settings as follows:</p>
+<ul class="simple">
+<li><p>???</p></li>
+</ul>
+<p>When ready, click on <code class="docutils literal notranslate"><span class="pre">???</span></code>. To prepare the directory structure for relion, we will choose to put the output <code class="docutils literal notranslate"><span class="pre">.star</span></code> file inside a new <code class="docutils literal notranslate"><span class="pre">root/relion</span></code> folder and call it <code class="docutils literal notranslate"><span class="pre">subtomograms_5Apx.star</span></code>.</p>
+<p><img alt="extract subtomograms" src="https://i.ibb.co/KKMwDqJ/subtomo-extraction.png" /></p>
+<p>We extract in a box twice as large because we have halved the pixel spacing.</p>
+</div>
+</div>
+<div class="section" id="d-auto-refine-in-relion">
+<h2>3D auto-refine in RELION<a class="headerlink" href="#d-auto-refine-in-relion" title="Permalink to this headline">¶</a></h2>
+<p>We can now perform a gold standard automatic refinement of the whole dataset at 5<span class="math notranslate nohighlight">\(\AA/px\)</span> in RELION. Moving to RELION at this stage simplifies the workflow as Warp and M were designed to work directly with RELION.</p>
+<blockquote>
+<div><p>By default, Dynamo uses a binary wedge model to account for the sampling of information in Fourier space for each subtomogram. Warps CTF volumes are designed for use with RELION and should yield more accurate weighting of Fourier coefficients during reconstruction. A small summary of the authors opinions on the advantages and limitations of alignment procedures in each software package is provided as an appendix to this guide.</p>
+</div></blockquote>
+<p>Before alignment, we need to create an initial template map. We first select a random subset of particles with simple bash commands:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># keep the header</span>
+head subtomograms_5Apx.star -n <span class="m">30</span> &gt; random_subset_5Apx.star
+<span class="c1"># use 500 random particles</span>
+tail subtomograms_5Apx.star -n +31 <span class="p">|</span> shuf -n <span class="m">500</span> &gt;&gt; random_subset_5Apx.star
+</pre></div>
+</div>
+<p>Then, we use <em>relion_reconstruct</em> from the command line to average them. We need to make sure to appropriately weight the reconstruction according to the CTF volumes and tell the program that we are working with 3D images.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>relion_reconstruct --i random_subset_5Apx.star --o random_subset_5Apx.mrc --3d_rot --ctf
+</pre></div>
+</div>
+<blockquote>
+<div><p>This step also serves as a useful sanity check. The resulting reconstruction should look like the hexagonal lattice we have seen previously. If it doesn’t, something went wrong, check your parameters carefully for each step.</p>
+</div></blockquote>
+<div class="section" id="alignment-parameters">
+<h3>Alignment parameters<a class="headerlink" href="#alignment-parameters" title="Permalink to this headline">¶</a></h3>
+<p>To start the project, run <em>relion</em> from the <code class="docutils literal notranslate"><span class="pre">relion</span></code> directory.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>relion
+</pre></div>
+</div>
+<p>We then set up a 3D auto-refine job with the following parameters</p>
+<p><img alt="relion 1" src="https://i.ibb.co/Vm8yS3Y/relion-1.png" /></p>
+<p>We could use a mask at this stage, this can be useful when trying to optimise refinement of a subregion (such as the central hexamer). We will refine without a mask for now as this refinement serves only to make sure that the particles remain well centered and we expect to go significantly beyond 10A.
+<img alt="relion 2" src="https://i.ibb.co/FHMQ5Y5/relion-2.png" /></p>
+<p>We use a conservative initial lowpass of 30A to avoid overfitting</p>
+<p><img alt="relion 3" src="https://i.ibb.co/TW7FpqY/relion-3.png" /></p>
+<p><img alt="relion 4" src="https://i.ibb.co/PTQvLf3/relion-4.png" /></p>
+<p>We use a particle diameter here covering the whole box to continue making use of the signal from neighbouring hexamers to drive alignment, we will change this once we start aiming for more optimal refinements focussed on teh central hexamer.</p>
+<p><img alt="relion 5" src="https://i.ibb.co/tz5QxZG/relion-5.png" /></p>
+<p><img alt="relion 6" src="https://i.ibb.co/8D9Rw1D/relion-6.png" /></p>
+<p><img alt="relion 7" src="https://i.ibb.co/M8WBk0X/relion-7.png" /></p>
+<p>The specific computational parameters will depend upon the configuration of your computing resources. Here, we are running on a computer with</p>
+<ul class="simple">
+<li><p>4 x GeForce GTX 1080 TI GPUs</p></li>
+<li><p>16 x E5-2620 v4 2.10GHz CPUs (2 threads per core)</p></li>
+<li><p>256GB RAM</p></li>
+</ul>
+<p>Once ready, click on <code class="docutils literal notranslate"><span class="pre">Run!</span></code> to start processing. This will take several hours.</p>
+</div>
+</div>
+<div class="section" id="subtomogram-extraction-at-1-6-aa-px">
+<h2>Subtomogram extraction at 1.6<span class="math notranslate nohighlight">\(\AA/px\)</span><a class="headerlink" href="#subtomogram-extraction-at-1-6-aa-px" title="Permalink to this headline">¶</a></h2>
+<p>Once the alignment at 5<span class="math notranslate nohighlight">\(\AA/px\)</span> is done, we can repeat the procedure at a smaller pixel size allowing us to obtain a higher resolution reconstruction. We use Warp to reextract sutomograms at 1.6<span class="math notranslate nohighlight">\(\AA/px\)</span> using the <code class="docutils literal notranslate"><span class="pre">*_data.star</span></code> from the refinement at 5<span class="math notranslate nohighlight">\(\AA/px\)</span> then rerun the alignments in Relion.</p>
+<p>First, we need to reformat the output <code class="docutils literal notranslate"><span class="pre">.star</span></code> file from the Relion3.1 specification (currently not supported by Warp) to Relion3.0, using a command provided by <code class="docutils literal notranslate"><span class="pre">dynamo2m</span></code>. To do so, navigate to <code class="docutils literal notranslate"><span class="pre">relion/Refine3D/refine_5apx</span></code> and identify the last iteration number (for us, it was <code class="docutils literal notranslate"><span class="pre">it_023</span></code>) and run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>relion_star_downgrade -s run_it023_data.star
+</pre></div>
+</div>
+<p>From the new file, we can now extract subtomograms from Warp, similarly to how we did last time. This time, the input coordinates use 5<span class="math notranslate nohighlight">\(\AA/px\)</span> and the output should be scaled to 1.6<span class="math notranslate nohighlight">\(\AA/px\)</span>.</p>
+<p>Since now we want to be able to refine the central particle to high resolution, we should reduce the relative box size: this will prevent the small differences between neighbours to affect the alignment of the central particle. A box size of 128<span class="math notranslate nohighlight">\(px\)</span> is a bit smaller relatively to the previous one, while still big enough for our particle.</p>
+<blockquote>
+<div><p>If possible, it is better to keep the box size to powers of 2, to maximise computational efficiency.</p>
+</div></blockquote>
+<p>Save the file in the <code class="docutils literal notranslate"><span class="pre">relion</span></code> directory as <code class="docutils literal notranslate"><span class="pre">subtomograms_1.6Apx.star</span></code></p>
+<p><img alt="extract subtomograms 1.6" src="https://i.ibb.co/s9jN57s/subtomo-extraction-1-6.png" /></p>
+</div>
+<div class="section" id="refinement-mask">
+<h2>Refinement Mask<a class="headerlink" href="#refinement-mask" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>better focus for refinement</p></li>
+<li><p>must be soft edged to avoid FSC artifacts</p></li>
+</ul>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">dpkdev</span><span class="p">.</span><span class="n">legacy</span><span class="p">.</span><span class="n">dynamo_mapview</span><span class="p">()</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>dynamo low pass filter, central cylinder of 160A</p>
+<ul>
+<li><p>band 0-10. layer to see, apply, save (as mrc!)</p></li>
+</ul>
+</li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>relion_mask_create --i mask_1.6Apx_raw.mrc --angpix <span class="m">1</span>.6 --extend_inimask <span class="m">5</span> --width_soft_edge <span class="m">10</span> --o mask_1.6Apx.mrc
+relion_image_handler --i mask_1.6Apx.mrc --sym C6 --o mask_1.6Apx_c6.mrc
+</pre></div>
+</div>
+</div>
+<div class="section" id="refinement-at-1-6-aa-px">
+<h2>Refinement at 1.6<span class="math notranslate nohighlight">\(\AA/px\)</span><a class="headerlink" href="#refinement-at-1-6-aa-px" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="next-step">
+<h2>Next step<a class="headerlink" href="#next-step" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="m.html"><span class="doc std std-doc">Multi particle refinement in M</span></a></p></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./guides/EMPIAR-10164"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="picking.html" title="previous page">Particle picking and initial model generation</a>
+    <a class='right-next' id="next-link" href="m.html" title="next page">Multi-particle refinement in M</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By the open-subtomo contributors<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>
