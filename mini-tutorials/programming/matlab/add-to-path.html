@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>IMOD &#8212; Open Subtomo</title>
+    <title>Adding scripts/functions to your PATH in MATLAB &#8212; Open Subtomo</title>
     
   <link rel="stylesheet" href="../../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -184,52 +184,52 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1 collapsible-parent">
-  <a class="reference internal" href="../index.html">
+  <a class="reference internal" href="../../software-usage/index.html">
    Cryo-ET software
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2">
-    <a class="reference internal" href="../cryolo/index.html">
+    <a class="reference internal" href="../../software-usage/cryolo/index.html">
      crYOLO
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../dynamo/index.html">
+    <a class="reference internal" href="../../software-usage/dynamo/index.html">
      Dynamo
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../emclarity/index.html">
+    <a class="reference internal" href="../../software-usage/emclarity/index.html">
      emClarity
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../eman/index.html">
+    <a class="reference internal" href="../../software-usage/eman/index.html">
      EMAN
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../m/index.html">
+    <a class="reference internal" href="../../software-usage/m/index.html">
      M
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../nova/index.html">
+    <a class="reference internal" href="../../software-usage/nova/index.html">
      Nova
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../relion/index.html">
+    <a class="reference internal" href="../../software-usage/relion/index.html">
      RELION
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../stopgap/index.html">
+    <a class="reference internal" href="../../software-usage/stopgap/index.html">
      STOPGAP
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../warp/index.html">
+    <a class="reference internal" href="../../software-usage/warp/index.html">
      Warp
     </a>
    </li>
@@ -238,7 +238,7 @@
   </i>
  </li>
  <li class="toctree-l1 collapsible-parent">
-  <a class="reference internal" href="../../programming/index.html">
+  <a class="reference internal" href="../index.html">
    Programming
   </a>
   <ul class="simple collapse-ul">
@@ -298,7 +298,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../../_sources/mini-tutorials/software-usage/imod/index.md"><button type="button"
+        <a class="dropdown-buttons" href="../../../_sources/mini-tutorials/programming/matlab/add-to-path.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -318,10 +318,10 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/open-subtomo/open-subtomo.github.io/issues/new?title=Issue%20on%20page%20%2Fmini-tutorials/software-usage/imod/index.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/open-subtomo/open-subtomo.github.io/issues/new?title=Issue%20on%20page%20%2Fmini-tutorials/programming/matlab/add-to-path.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/open-subtomo/open-subtomo.github.io/edit/master/./mini-tutorials/software-usage/imod/index.md"><button
+        <a class="edit-button" href="https://github.com/open-subtomo/open-subtomo.github.io/edit/master/./mini-tutorials/programming/matlab/add-to-path.md"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -348,13 +348,19 @@
         
               <div>
                 
-  <div class="section" id="imod">
-<h1>IMOD<a class="headerlink" href="#imod" title="Permalink to this headline">¶</a></h1>
-<p><a class="reference external" href="https://bio3d.colorado.edu/imod/">IMOD</a> is a set of image processing, visualisation and modelling tools which has been
-actively developed for more than 25 years at the University of Colorado.</p>
-<p>The package was originally described <a class="reference external" href="https://doi.org/10.1006/jsbi.1996.0013">here</a>.
-The <a class="reference external" href="https://bio3d.colorado.edu/imod/doc/tomoguide.html">tomography guide</a>
-is an extremely complete resource for working with electron tomography data in IMOD.</p>
+  <div class="section" id="adding-scripts-functions-to-your-path-in-matlab">
+<h1>Adding scripts/functions to your PATH in <code class="docutils literal notranslate"><span class="pre">MATLAB</span></code><a class="headerlink" href="#adding-scripts-functions-to-your-path-in-matlab" title="Permalink to this headline">¶</a></h1>
+<p>The <code class="docutils literal notranslate"><span class="pre">PATH</span></code> variable contains a list of paths (directories on your system). This list of paths will be searched, in order, whenever you call a function or a script by name.</p>
+<p>If a file you want to run is not in a directory in your <code class="docutils literal notranslate"><span class="pre">PATH</span></code> variable, <code class="docutils literal notranslate"><span class="pre">MATLAB</span></code> will not know where to look for it.</p>
+<p>To add a directory to the <code class="docutils literal notranslate"><span class="pre">PATH</span></code>, use <code class="docutils literal notranslate"><span class="pre">addpath()</span></code> as follows</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">addpath</span><span class="p">(</span><span class="s">&#39;/directory/containing/my/script&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>While scripts can have any name, functions in <code class="docutils literal notranslate"><span class="pre">MATLAB</span></code> must have the same name as the file in which they are contained.</p>
+<p>e.g. for the function <code class="docutils literal notranslate"><span class="pre">my_function()</span></code> to be available it must be in a file called <code class="docutils literal notranslate"><span class="pre">my_function.m</span></code>.</p>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -370,7 +376,7 @@ is an extremely complete resource for working with electron tomography data in I
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./mini-tutorials/software-usage/imod"
+            path: "./mini-tutorials/programming/matlab"
         },
         predefinedOutput: true
     }

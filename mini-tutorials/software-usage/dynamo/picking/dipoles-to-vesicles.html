@@ -314,14 +314,14 @@
         aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
     <div class="dropdown-buttons sourcebuttons">
         <a class="repository-button"
-            href="https://github.com/open-subtomo/open-subtomo"><button type="button" class="btn btn-secondary topbarbtn"
+            href="https://github.com/open-subtomo/open-subtomo.github.io"><button type="button" class="btn btn-secondary topbarbtn"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/open-subtomo/open-subtomo/issues/new?title=Issue%20on%20page%20%2Fmini-tutorials/software-usage/dynamo/picking/dipoles-to-vesicles.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/open-subtomo/open-subtomo.github.io/issues/new?title=Issue%20on%20page%20%2Fmini-tutorials/software-usage/dynamo/picking/dipoles-to-vesicles.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/open-subtomo/open-subtomo/edit/master/./mini-tutorials/software-usage/dynamo/picking/dipoles-to-vesicles.md"><button
+        <a class="edit-button" href="https://github.com/open-subtomo/open-subtomo.github.io/edit/master/./mini-tutorials/software-usage/dynamo/picking/dipoles-to-vesicles.md"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -362,21 +362,15 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#create-a-dipoleset-model">
-   Create a
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     dipoleSet
-    </span>
-   </code>
-   model
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#annotate-your-vesicles">
-   Annotate your vesicles
+  <a class="reference internal nav-link" href="#tomogram-annotation">
+   Tomogram annotation
   </a>
   <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#general-approach">
+     General approach
+    </a>
+   </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#dtmslice-controls">
      <code class="docutils literal notranslate">
@@ -389,7 +383,7 @@
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#general">
-       General
+       general
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
@@ -403,6 +397,27 @@
       </a>
      </li>
     </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-a-dipoleset-model">
+     Create a
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       dipoleSet
+      </span>
+     </code>
+     model
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#picking-dipoles">
+     Picking dipoles
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#convert-dipoleset-models-into-oversampled-vesicle-models">
+     Convert dipoleSet models into oversampled Vesicle models
+    </a>
    </li>
   </ul>
  </li>
@@ -437,8 +452,38 @@ Center and edge points of a vesicle in a tomogram are easily annotated using the
 <li><p>a <code class="docutils literal notranslate"><span class="pre">Dynamo</span></code> catalogue containing your tomograms</p></li>
 </ul>
 </div>
+<div class="section" id="tomogram-annotation">
+<h2>Tomogram annotation<a class="headerlink" href="#tomogram-annotation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="general-approach">
+<h3>General approach<a class="headerlink" href="#general-approach" title="Permalink to this headline">¶</a></h3>
+<p>Spheres can be completely defined by only two values, their centre point and their radius. We will</p>
+<ol class="simple">
+<li><p>Create a <code class="docutils literal notranslate"><span class="pre">dipoleSet</span></code> model in each tomogram</p></li>
+<li><p>Convert these <code class="docutils literal notranslate"><span class="pre">dipoleSet</span></code> models into oversampled <code class="docutils literal notranslate"><span class="pre">vesicle</span></code> models</p></li>
+</ol>
+<p>Using the <code class="docutils literal notranslate"><span class="pre">dipoleSet</span></code> model let’s us quickly define a center and an edge point for many spherical objects</p>
+</div>
+<div class="section" id="dtmslice-controls">
+<h3><code class="docutils literal notranslate"><span class="pre">dtmslice</span></code> controls<a class="headerlink" href="#dtmslice-controls" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="general">
+<h4>general<a class="headerlink" href="#general" title="Permalink to this headline">¶</a></h4>
+<p>If you haven’t used <code class="docutils literal notranslate"><span class="pre">dtmslice</span></code> before, get familiar by reading <a class="reference internal" href="dtmslice-controls.html"><span class="doc std std-doc">this page</span></a> and playing with it for five minutes.</p>
+</div>
+<div class="section" id="dipoleset-specific">
+<h4><code class="docutils literal notranslate"><span class="pre">dipoleSet</span></code> specific<a class="headerlink" href="#dipoleset-specific" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">c</span></code> to set a center point for the current dipole</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">n</span></code> to set a north point for the current dipole</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Enter</span></code> to save the current dipole and move to the next one</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For a full guide on how to interact with <code class="docutils literal notranslate"><span class="pre">dipoleSet</span></code> models, check out the relevant <a class="reference external" href="https://wiki.dynamo.biozentrum.unibas.ch/w/index.php/Dipole_set_models">wiki page</a>.</p>
+</div>
+</div>
+</div>
 <div class="section" id="create-a-dipoleset-model">
-<h2>Create a <code class="docutils literal notranslate"><span class="pre">dipoleSet</span></code> model<a class="headerlink" href="#create-a-dipoleset-model" title="Permalink to this headline">¶</a></h2>
+<h3>Create a <code class="docutils literal notranslate"><span class="pre">dipoleSet</span></code> model<a class="headerlink" href="#create-a-dipoleset-model" title="Permalink to this headline">¶</a></h3>
 <ol class="simple">
 <li><p>open your tomogram in <code class="docutils literal notranslate"><span class="pre">dtmslice</span></code> from the <code class="docutils literal notranslate"><span class="pre">dcm</span></code> (<code class="docutils literal notranslate"><span class="pre">Dynamo</span></code> catalogue manager) GUI
 <code class="docutils literal notranslate"><span class="pre">View</span> <span class="pre">volume</span> <span class="pre">-&gt;</span> <span class="pre">Full</span> <span class="pre">tomogram</span> <span class="pre">file</span> <span class="pre">in</span> <span class="pre">tomoslice</span></code></p></li>
@@ -447,15 +492,90 @@ Center and edge points of a vesicle in a tomogram are easily annotated using the
 <img alt="create a dipole set model" src="../../../../_images/create_model.gif" /></p></li>
 </ol>
 </div>
-<div class="section" id="annotate-your-vesicles">
-<h2>Annotate your vesicles<a class="headerlink" href="#annotate-your-vesicles" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="dtmslice-controls">
-<h3><code class="docutils literal notranslate"><span class="pre">dtmslice</span></code> controls<a class="headerlink" href="#dtmslice-controls" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="general">
-<h4>General<a class="headerlink" href="#general" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="picking-dipoles">
+<h3>Picking dipoles<a class="headerlink" href="#picking-dipoles" title="Permalink to this headline">¶</a></h3>
+<p>Move the slice in the tomogram and roughly pick the center point of your sphere by moving the cursor to that point and pressing <code class="docutils literal notranslate"><span class="pre">c</span></code>.
+Then, move the cursor to a point on the surface of the same vescicle and press <code class="docutils literal notranslate"><span class="pre">n</span></code> (north) to define an edge point.</p>
+<p>A surface rendering of the defined sphere will appear; move the slice and look at the object from different orientations to make sure that the sphere matches your object well. When satisfied, hit <code class="docutils literal notranslate"><span class="pre">Enter</span></code> to move to the next vesicle</p>
+<div class="tip admonition">
+<p class="admonition-title">Hint</p>
+<p>Use the <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code> and <code class="docutils literal notranslate"><span class="pre">z</span></code> keys to change the orientation of the current slice</p>
 </div>
-<div class="section" id="dipoleset-specific">
-<h4><code class="docutils literal notranslate"><span class="pre">dipoleSet</span></code> specific<a class="headerlink" href="#dipoleset-specific" title="Permalink to this headline">¶</a></h4>
+<p><img alt="dipole picking" src="https://i.ibb.co/N1K4GW1/dipole-picking.png" /></p>
+<p>Once all the objects in a tomogram are picked, save the model by clicking on <code class="docutils literal notranslate"><span class="pre">Active</span> <span class="pre">Model</span> <span class="pre">-&gt;</span> <span class="pre">Save</span> <span class="pre">active</span> <span class="pre">model</span> <span class="pre">into</span> <span class="pre">catalogue</span> <span class="pre">(disk)</span></code> or clicking the floppy disk icon in the menu bar.</p>
+<p>Close the tomoslice window and repeat this process for each tomogram in your dataset.</p>
+<blockquote>
+<div><p>If Dynamo asks what to do with the model in pool memory and you already saved the model, choose to delete it. Dynamo may show some elements of the previous <code class="docutils literal notranslate"><span class="pre">dipoleSet</span></code> model when opening a new tomogram. This is a visualisation bug, and does not affect the creation of a new model.</p>
+</div></blockquote>
+</div>
+<div class="section" id="convert-dipoleset-models-into-oversampled-vesicle-models">
+<h3>Convert dipoleSet models into oversampled Vesicle models<a class="headerlink" href="#convert-dipoleset-models-into-oversampled-vesicle-models" title="Permalink to this headline">¶</a></h3>
+<p>Once all the dipole models are picked, we can convert them into oversampled <code class="docutils literal notranslate"><span class="pre">Vesicle</span></code> models. For this, we will use the <code class="docutils literal notranslate"><span class="pre">dipoles2vescicles</span></code> function provided <a class="reference external" href="https://gist.github.com/alisterburt/818c604af41050532a378afb93ae556f">here</a>. The function generates a Dynamo <code class="docutils literal notranslate"><span class="pre">Vescicle</span></code> model for every dipole in each <code class="docutils literal notranslate"><span class="pre">dipoleSet</span></code> model in a catalogue.</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="nf">dipoles2vesicles</span><span class="p">(</span>catalogue_name, distance_between_particles<span class="p">)</span><span class="w"></span>
+<span class="c">%%% to be run in the folder which holds your catalogue</span>
+<span class="c">%%%</span>
+<span class="c">%%% catalogue name - name of catalogue containing your dipoleSet models</span>
+<span class="c">%%% distance_between_particles - expected distance between particles in px</span>
+<span class="c">%%% (output points will be oversampled relative to this value)</span>
+<span class="c">%%%</span>
+<span class="c">%%% if you want to restart - !rm */*/*/*/*rawVesicle*.omd</span>
+    <span class="n">p</span> <span class="p">=</span> <span class="p">[</span><span class="n">catalogue_name</span><span class="p">,</span><span class="s">&#39;/tomograms/*/models/*.omd&#39;</span><span class="p">];</span>
+    <span class="n">model_files</span> <span class="p">=</span> <span class="n">dir</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+
+    <span class="n">for</span> <span class="s">model_idx</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="nb">length</span><span class="p">(</span><span class="n">model_files</span><span class="p">)</span>
+        <span class="n">current_file</span> <span class="p">=</span> <span class="n">model_files</span><span class="p">(</span><span class="n">model_idx</span><span class="p">)</span>
+        <span class="n">model_file</span> <span class="p">=</span> <span class="n">fullfile</span><span class="p">(</span><span class="n">current_file</span><span class="p">.</span><span class="n">folder</span><span class="p">,</span> <span class="n">current_file</span><span class="p">.</span><span class="n">name</span><span class="p">)</span>
+        <span class="n">fprintf</span><span class="p">(</span><span class="s">&#39;Now reading %s\n&#39;</span><span class="p">,</span> <span class="n">model_file</span><span class="p">);</span>
+        <span class="n">vesicles_from_dipoles</span><span class="p">(</span><span class="n">model_file</span><span class="p">,</span> <span class="n">distance_between_particles</span><span class="p">)</span>
+    <span class="n">end</span>
+<span class="s">end</span>
+
+
+<span class="k">function</span><span class="w"> </span><span class="nf">vesicles_from_dipoles</span><span class="p">(</span>model_file, expected_inter_particle_distance<span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">ds</span> <span class="p">=</span> <span class="n">dread</span><span class="p">(</span><span class="n">model_file</span><span class="p">);</span>
+
+    <span class="c">% checks the number of individual dipoles</span>
+    <span class="nb">disp</span><span class="p">(</span><span class="n">sprintf</span><span class="p">(</span><span class="s">&#39;Found %d dipoles in the set&#39;</span><span class="p">,</span><span class="nb">length</span><span class="p">(</span><span class="n">ds</span><span class="p">.</span><span class="n">dipoles</span><span class="p">)));</span>
+
+    <span class="c">% loops on all the dipoles present in the set</span>
+    <span class="n">for</span> <span class="s">i=1:length(ds.dipoles)</span><span class="p">;</span>
+
+        <span class="c">% selects the i-th individual dipole in the set</span>
+        <span class="n">dipole</span> <span class="p">=</span> <span class="n">ds</span><span class="p">.</span><span class="n">dipoles</span><span class="p">{</span><span class="nb">i</span><span class="p">};</span>
+
+        <span class="c">% creates a vesicle model   </span>
+        <span class="n">v</span> <span class="p">=</span> <span class="n">dmodels</span><span class="p">.</span><span class="n">vesicle</span><span class="p">();</span>
+
+        <span class="c">% prepares a name for each individual dipole</span>
+        <span class="n">v</span><span class="p">.</span><span class="n">name</span> <span class="p">=</span> <span class="n">sprintf</span><span class="p">(</span><span class="s">&#39;%s_rawVesicle_%d&#39;</span><span class="p">,</span><span class="n">ds</span><span class="p">.</span><span class="n">name</span><span class="p">,</span><span class="nb">i</span><span class="p">);</span>
+
+        <span class="c">% links the created model with the catalogued volume </span>
+        <span class="c">% of the dipole set module</span>
+        <span class="n">v</span><span class="p">.</span><span class="n">cvolume</span> <span class="p">=</span> <span class="n">ds</span><span class="p">.</span><span class="n">cvolume</span><span class="p">;</span>
+
+        <span class="c">% initiates the vesicle model</span>
+        <span class="n">v</span><span class="p">.</span><span class="n">center</span> <span class="p">=</span> <span class="n">dipole</span><span class="p">.</span><span class="n">center</span><span class="p">;</span>
+        <span class="n">v</span><span class="p">.</span><span class="n">radius</span> <span class="p">=</span> <span class="n">norm</span><span class="p">(</span><span class="n">dipole</span><span class="p">.</span><span class="n">center</span> <span class="o">-</span> <span class="n">dipole</span><span class="p">.</span><span class="n">north</span><span class="p">);</span>
+        
+        <span class="c">% add in info about average distance between particle positions on</span>
+        <span class="c">% surface</span>
+        <span class="n">v</span><span class="p">.</span><span class="n">separation</span> <span class="p">=</span> <span class="n">expected_inter_particle_distance</span> <span class="o">/</span> <span class="mf">1.5</span><span class="p">;</span>
+        <span class="n">v</span><span class="p">.</span><span class="n">updateCrop</span><span class="p">();</span>
+
+        <span class="c">% saves the model back into the catalogue</span>
+        <span class="n">v</span><span class="p">.</span><span class="n">saveInCatalogue</span><span class="p">();</span>
+
+    <span class="n">end</span>
+<span class="s">end</span>
+</pre></div>
+</div>
+<p>To generate the <code class="docutils literal notranslate"><span class="pre">Vesicle</span></code> models from a catalogue called <code class="docutils literal notranslate"><span class="pre">catalogue</span></code> with an expected inter-particle distance of <code class="docutils literal notranslate"><span class="pre">7.5</span></code>  we would run the following command from the folder containing the catalogue:</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">dipoles2vescicles</span><span class="p">(</span><span class="s">&#39;catalogue&#39;</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you aren’t sure how to use the provided function, check out <a class="reference internal" href="../../../programming/matlab/add-to-path.html"><span class="doc std std-doc">this page</span></a></p>
 </div>
 </div>
 </div>

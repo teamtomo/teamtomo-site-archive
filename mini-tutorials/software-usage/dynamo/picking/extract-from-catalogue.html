@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>dtmslice viewing controls &#8212; Open Subtomo</title>
+    <title>Extracting particles from a catalogue &#8212; Open Subtomo</title>
     
   <link rel="stylesheet" href="../../../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -298,7 +298,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../../../_sources/mini-tutorials/software-usage/dynamo/picking/dtmslice-controls.md"><button type="button"
+        <a class="dropdown-buttons" href="../../../../_sources/mini-tutorials/software-usage/dynamo/picking/extract-from-catalogue.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -318,10 +318,10 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/open-subtomo/open-subtomo.github.io/issues/new?title=Issue%20on%20page%20%2Fmini-tutorials/software-usage/dynamo/picking/dtmslice-controls.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/open-subtomo/open-subtomo.github.io/issues/new?title=Issue%20on%20page%20%2Fmini-tutorials/software-usage/dynamo/picking/extract-from-catalogue.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/open-subtomo/open-subtomo.github.io/edit/master/./mini-tutorials/software-usage/dynamo/picking/dtmslice-controls.md"><button
+        <a class="edit-button" href="https://github.com/open-subtomo/open-subtomo.github.io/edit/master/./mini-tutorials/software-usage/dynamo/picking/extract-from-catalogue.md"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -347,46 +347,34 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#overview">
-   Overview
+  <a class="reference internal nav-link" href="#prerequisites">
+   Prerequisites
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#viewing-controls">
-   Viewing controls
+  <a class="reference internal nav-link" href="#open-the-catalogue">
+   Open the catalogue
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#general-control">
-     General control
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#moving-a-slice">
-     Moving a slice
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#thickness">
-     Thickness
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#projection-direction">
-     Projection direction
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#scene-perspective">
-     Scene perspective
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#saving-slices">
-     Saving slices
-    </a>
-   </li>
-  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#select-your-tomograms">
+   Select your tomograms
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#open-the-volume-list-manager">
+   Open the volume list manager
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#create-a-volume-list-file">
+   Create a volume list file
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#extract-your-particles">
+   Extract your particles
+  </a>
  </li>
 </ul>
 
@@ -399,58 +387,55 @@
         
               <div>
                 
-  <div class="section" id="dtmslice-viewing-controls">
-<h1><code class="docutils literal notranslate"><span class="pre">dtmslice</span></code> viewing controls<a class="headerlink" href="#dtmslice-viewing-controls" title="Permalink to this headline">¶</a></h1>
-<p><code class="docutils literal notranslate"><span class="pre">dtmslice</span></code> is a 3D tomogram viewer with many powerful annotation tools -
-see the documentation <a class="reference external" href="https://wiki.dynamo.biozentrum.unibas.ch/w/index.php/Dtmslice">here</a>.</p>
-<p>This document explains the basics of visualising a tomogram in <code class="docutils literal notranslate"><span class="pre">dtmslice</span></code></p>
-<div class="section" id="overview">
-<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">dtmslice</span></code> depicts a 2D slice of a 3D volume at its position within the 3D volume.</p>
-<p><img alt="dtmslice overview" src="../../../../_images/overview.png" /></p>
-<p>Important parameters of the slice are</p>
+  <div class="section" id="extracting-particles-from-a-catalogue">
+<h1>Extracting particles from a catalogue<a class="headerlink" href="#extracting-particles-from-a-catalogue" title="Permalink to this headline">¶</a></h1>
+<p>This mini-tutorial will explain how to extract a set of particles from multiple tomograms in a <code class="docutils literal notranslate"><span class="pre">Dynamo</span></code> catalogue.</p>
+<div class="section" id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>the <code class="docutils literal notranslate"><span class="pre">position</span></code> of the slice</p></li>
-<li><p>the <code class="docutils literal notranslate"><span class="pre">thickness</span></code> of the slice</p></li>
-<li><p>the projection direction of the slice</p></li>
-<li><p>the <code class="docutils literal notranslate"><span class="pre">opacity</span></code> of the slice</p></li>
+<li><p>a <code class="docutils literal notranslate"><span class="pre">Dynamo</span></code> catalogue containing your tomograms</p></li>
+<li><p><a class="reference external" href="https://wiki.dynamo.biozentrum.unibas.ch/w/index.php/Model">models</a> for the particles you wish to extract saved in the catalogue</p></li>
 </ul>
+<p>If you have been picking your particles/supporting geometries in <code class="docutils literal notranslate"><span class="pre">dtmslice</span></code>, opened from the catalogue manager (<code class="docutils literal notranslate"><span class="pre">dcm</span></code>) then you’re ready to go!</p>
 </div>
-<div class="section" id="viewing-controls">
-<h2>Viewing controls<a class="headerlink" href="#viewing-controls" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="general-control">
-<h3>General control<a class="headerlink" href="#general-control" title="Permalink to this headline">¶</a></h3>
-<p>Some parameters can be controlled from the <code class="docutils literal notranslate"><span class="pre">Shown</span> <span class="pre">slice</span></code> controls on the left hand side of <code class="docutils literal notranslate"><span class="pre">dtmslice</span></code></p>
-<p><img alt="shown slice controls" src="../../../../_images/shown-slice.png" /></p>
+<div class="section" id="open-the-catalogue">
+<h2>Open the catalogue<a class="headerlink" href="#open-the-catalogue" title="Permalink to this headline">¶</a></h2>
+<p>Open your catalogue in <code class="docutils literal notranslate"><span class="pre">dcm</span></code></p>
 </div>
-<div class="section" id="moving-a-slice">
-<h3>Moving a slice<a class="headerlink" href="#moving-a-slice" title="Permalink to this headline">¶</a></h3>
-<p>A slice can be moved along it’s projection direction by <code class="docutils literal notranslate"><span class="pre">left-click</span></code> + dragging the mouse
-or using the mouse wheel.</p>
-<p><img alt="moving a slice" src="../../../../_images/move-slice.gif" /></p>
+<div class="section" id="select-your-tomograms">
+<h2>Select your tomograms<a class="headerlink" href="#select-your-tomograms" title="Permalink to this headline">¶</a></h2>
+<p>Select the tomograms you would like to crop from (or use the select all button)</p>
+<p><img alt="select volumes" src="../../../../_images/select-all-volumes.gif" /></p>
 </div>
-<div class="section" id="thickness">
-<h3>Thickness<a class="headerlink" href="#thickness" title="Permalink to this headline">¶</a></h3>
-<p>A <code class="docutils literal notranslate"><span class="pre">thickness</span></code> of 10 means that the displayed slice will be an average over 10 slices
-along the projection direction.</p>
+<div class="section" id="open-the-volume-list-manager">
+<h2>Open the volume list manager<a class="headerlink" href="#open-the-volume-list-manager" title="Permalink to this headline">¶</a></h2>
+<p>The volume list manager can create volume list (<code class="docutils literal notranslate"><span class="pre">.vll</span></code>) files containing the information needed for cropping particles.</p>
+<p>Open the volume list manager from the <code class="docutils literal notranslate"><span class="pre">Crop</span> <span class="pre">particles</span></code> menu at the top of the <code class="docutils literal notranslate"><span class="pre">dcm</span></code> window.</p>
+<p><img alt="open volume list manager" src="../../../../_images/open-volume-list-manager.gif" /></p>
 </div>
-<div class="section" id="projection-direction">
-<h3>Projection direction<a class="headerlink" href="#projection-direction" title="Permalink to this headline">¶</a></h3>
-<p>The projection direction can easily be changed between
-‘x’, ‘y’ or ‘z’ by hitting the <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code> or <code class="docutils literal notranslate"><span class="pre">z</span></code> keys with your mouse on the slice.
-Mouse position controls the new position of the slice.</p>
-<p><img alt="xyz-projection" src="../../../../_images/xyzproj.gif" /></p>
+<div class="section" id="create-a-volume-list-file">
+<h2>Create a volume list file<a class="headerlink" href="#create-a-volume-list-file" title="Permalink to this headline">¶</a></h2>
+<p>Create a volume list (<code class="docutils literal notranslate"><span class="pre">.vll</span></code>) file by</p>
+<ul class="simple">
+<li><p>picking the models from which you want to crop in the GUI</p></li>
+<li><p>hitting the <code class="docutils literal notranslate"><span class="pre">create</span> <span class="pre">list</span></code> button.</p></li>
+</ul>
+<p><img alt="create volume list file" src="../../../../_images/create-volume-list.gif" /></p>
 </div>
-<div class="section" id="scene-perspective">
-<h3>Scene perspective<a class="headerlink" href="#scene-perspective" title="Permalink to this headline">¶</a></h3>
-<p>You can move around the scene by <code class="docutils literal notranslate"><span class="pre">ctrl</span></code> + <code class="docutils literal notranslate"><span class="pre">left-click</span></code> + dragging the mouse.</p>
-<p><img alt="move camera" src="../../../../_images/move-camera.gif" /></p>
+<div class="section" id="extract-your-particles">
+<h2>Extract your particles<a class="headerlink" href="#extract-your-particles" title="Permalink to this headline">¶</a></h2>
+<p>In the <code class="docutils literal notranslate"><span class="pre">Particle</span> <span class="pre">extraction</span></code> GUI which pops up</p>
+<ul class="simple">
+<li><p>set the particle sidelength to your desired box size</p></li>
+<li><p>hit <code class="docutils literal notranslate"><span class="pre">crop</span> <span class="pre">particles</span></code>.</p></li>
+</ul>
+<p><img alt="particle extraction" src="../../../../_images/crop-particles.gif" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We use the <em>data folder in dBoxes…</em> option here to avoid problems with having thousands of files in the same directory.
+Read more <a class="reference external" href="https://wiki.dynamo.biozentrum.unibas.ch/w/index.php/Generic_data_containers">here</a>.</p>
 </div>
-<div class="section" id="saving-slices">
-<h3>Saving slices<a class="headerlink" href="#saving-slices" title="Permalink to this headline">¶</a></h3>
-<p>You can save a copy of the active slice in <code class="docutils literal notranslate"><span class="pre">dtmslice</span></code> by hitting the <code class="docutils literal notranslate"><span class="pre">s</span></code> key.</p>
-<p><img alt="save slice" src="../../../../_images/save-slice.gif" /></p>
-</div>
+<p>You now have a <code class="docutils literal notranslate"><span class="pre">Dynamo</span></code> format data folder containing your particles and are ready for refinements!</p>
 </div>
 </div>
 
