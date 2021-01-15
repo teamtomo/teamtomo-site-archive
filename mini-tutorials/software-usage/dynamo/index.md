@@ -10,7 +10,8 @@ For the `Dynamo` documentation, click
 ## Preprocessing
 
 ## Particle picking and initial model generation 
-- [dtmslice controls](picking/dtmslice-controls.md)
-- [quickly annotating spherical vesicles](picking/dipoles-to-vesicles.md)
+- [dtmslice controls](picking/dtmslice-controls)
+- [quickly annotating spherical vesicles](picking/dipoles-to-vesicles)
+- [extracting particles from multiple tomograms in a catalogue](picking/extract-from-catalogue)
 
 ## Refinement
