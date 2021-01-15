@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Particle picking &#8212; Open Subtomo</title>
+    <title>Geometrical particle picking &#8212; Open Subtomo</title>
     
   <link rel="stylesheet" href="../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -151,7 +151,7 @@
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     Particle picking
+     Geometrical particle picking
     </a>
    </li>
    <li class="toctree-l2">
@@ -161,7 +161,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="particle-picking.html">
-     Finding particles for every VLP
+     Finding particles on every VLP
     </a>
    </li>
    <li class="toctree-l2">
@@ -391,15 +391,13 @@
         
               <div>
                 
-  <div class="section" id="particle-picking">
-<h1>Particle picking<a class="headerlink" href="#particle-picking" title="Permalink to this headline">¶</a></h1>
-<p>The tomograms are reconstructed and ready for further analysis. Warp includes a template matching procedure, but what if we don’t know what our object of interest looks like yet? In this section we will:</p>
-<ul class="simple">
-<li><p>generate an initial model of the HIV-1 CA-SP1 hexamer <em>ab initio</em></p></li>
-<li><p>use that model to find particles in all of our tomograms</p></li>
-</ul>
+  <div class="section" id="geometrical-particle-picking">
+<h1>Geometrical particle picking<a class="headerlink" href="#geometrical-particle-picking" title="Permalink to this headline">¶</a></h1>
+<p>The tomograms are reconstructed and ready for further analysis. Warp includes a template matching procedure, but what if we don’t know what our object of interest looks like yet?</p>
+<hr class="docutils" />
 <p>In biological systems, particles often have a spatial relationship with an underlying supporting geometry such as a membrane, filament or vescicle.</p>
 <p>Exploiting this prior knowledge about the geometry of a system is often useful in subtomogram averaging, reducing both the computational burden and  the ability of particles to end up in obviously wrong positions after an iterative refinement procedure.</p>
+<hr class="docutils" />
 <p>In the following sections, we will design and implement an approach to obtain a reconstruction of these lattices, employing prior knowledge about the geometry of the system to drive the subtomogram averaging procedure and enforce a correct final solution. We aim to demonstrate some key principles for producing produce accurate reconstructions from your data <em>ab initio</em>.</p>
 <div class="section" id="what-do-we-know-and-how-can-we-use-it">
 <h2>What do we know and how can we use it?<a class="headerlink" href="#what-do-we-know-and-how-can-we-use-it" title="Permalink to this headline">¶</a></h2>

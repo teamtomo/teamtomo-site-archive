@@ -1,12 +1,14 @@
-# Particle picking
+# Geometrical particle picking
 
-The tomograms are reconstructed and ready for further analysis. Warp includes a template matching procedure, but what if we don't know what our object of interest looks like yet? In this section we will:
-- generate an initial model of the HIV-1 CA-SP1 hexamer *ab initio*
-- use that model to find particles in all of our tomograms
+The tomograms are reconstructed and ready for further analysis. Warp includes a template matching procedure, but what if we don't know what our object of interest looks like yet? 
+
+---
 
 In biological systems, particles often have a spatial relationship with an underlying supporting geometry such as a membrane, filament or vescicle.
 
 Exploiting this prior knowledge about the geometry of a system is often useful in subtomogram averaging, reducing both the computational burden and  the ability of particles to end up in obviously wrong positions after an iterative refinement procedure. 
+
+---
 
 In the following sections, we will design and implement an approach to obtain a reconstruction of these lattices, employing prior knowledge about the geometry of the system to drive the subtomogram averaging procedure and enforce a correct final solution. We aim to demonstrate some key principles for producing produce accurate reconstructions from your data *ab initio*.
 

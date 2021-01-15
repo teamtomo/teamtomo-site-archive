@@ -151,7 +151,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="geometrical-picking.html">
-     Particle picking
+     Geometrical particle picking
     </a>
    </li>
    <li class="toctree-l2">
@@ -161,7 +161,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="particle-picking.html">
-     Finding particles for every VLP
+     Finding particles on every VLP
     </a>
    </li>
    <li class="toctree-l2">
@@ -423,8 +423,8 @@ and
 <div class="section" id="requirements-and-setup">
 <h2>Requirements and Setup<a class="headerlink" href="#requirements-and-setup" title="Permalink to this headline">¶</a></h2>
 <div class="tabbed-set docutils">
-<input checked="checked" id="0afefb45-e6b7-4450-9569-e970482180ea" name="75abffde-a6b0-48c7-9e4e-65f222097de5" type="radio">
-</input><label class="tabbed-label" for="0afefb45-e6b7-4450-9569-e970482180ea">
+<input checked="checked" id="0bf23cf8-d703-4d78-b150-53b0394ffb80" name="f7ec4990-3041-41aa-a8c0-d864271c5bf8" type="radio">
+</input><label class="tabbed-label" for="0bf23cf8-d703-4d78-b150-53b0394ffb80">
 Hardware</label><div class="tabbed-content docutils">
 <ul class="simple">
 <li><p>A reasonably modern CPU.</p></li>
@@ -435,8 +435,8 @@ Hardware</label><div class="tabbed-content docutils">
 <p>More RAM may be required for particle extraction at the smallest pixel sizes, we used a machine with 128GB.
 To keep read/write times low, we recommend a Solid State Drive (SSD).</p>
 </div>
-<input id="57837956-c54d-40b1-92de-2ab6c980bbfd" name="75abffde-a6b0-48c7-9e4e-65f222097de5" type="radio">
-</input><label class="tabbed-label" for="57837956-c54d-40b1-92de-2ab6c980bbfd">
+<input id="0949b27b-eab7-41cf-9b12-388dfab62cf4" name="f7ec4990-3041-41aa-a8c0-d864271c5bf8" type="radio">
+</input><label class="tabbed-label" for="0949b27b-eab7-41cf-9b12-388dfab62cf4">
 Software</label><div class="tabbed-content docutils">
 <ul class="simple">
 <li><p>Access to both Windows and Linux operating systems</p></li>
@@ -460,8 +460,8 @@ Software</label><div class="tabbed-content docutils">
 (<a class="reference external" href="https://github.com/open-subtomo/open-subtomo/blob/master/guides/EMPIAR-10164/scripts/download.sh"><code class="docutils literal notranslate"><span class="pre">download.sh</span></code></a>).</p>
 <p><code class="docutils literal notranslate"><span class="pre">download.sh</span></code> organises files according to the directory structure expected by the rest of the guide.</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="3c562716-29d4-44f7-8c95-b798cbe2622e" name="3824a667-9d23-48e1-8aee-e0187dac15a8" type="radio">
-</input><label class="tabbed-label" for="3c562716-29d4-44f7-8c95-b798cbe2622e">
+<input checked="checked" id="ac0522b7-42e9-419f-856a-ffaf0200b6cc" name="1d4e09de-8405-4a19-b04c-59b15b00e440" type="radio">
+</input><label class="tabbed-label" for="ac0522b7-42e9-419f-856a-ffaf0200b6cc">
 shell script</label><div class="tabbed-content docutils">
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="s2">&quot;Downloading the raw data. This may take a couple of hours!&quot;</span>
 <span class="nb">echo</span>
@@ -476,8 +476,8 @@ shell script</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="15244e86-baf7-4ae2-857f-348cb113c66a" name="3824a667-9d23-48e1-8aee-e0187dac15a8" type="radio">
-</input><label class="tabbed-label" for="15244e86-baf7-4ae2-857f-348cb113c66a">
+<input id="603a0605-285a-4443-9482-003f4c5966d3" name="1d4e09de-8405-4a19-b04c-59b15b00e440" type="radio">
+</input><label class="tabbed-label" for="603a0605-285a-4443-9482-003f4c5966d3">
 directory structure</label><div class="tabbed-content docutils">
 <div class="highlight-{code notranslate"><div class="highlight"><pre><span></span>.
 ├── frames
@@ -491,8 +491,8 @@ directory structure</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="7becf742-ebc2-497f-9025-c02ebf57e70c" name="3824a667-9d23-48e1-8aee-e0187dac15a8" type="radio">
-</input><label class="tabbed-label" for="7becf742-ebc2-497f-9025-c02ebf57e70c">
+<input id="26ddd837-97d5-474a-9cff-08df7f88a168" name="1d4e09de-8405-4a19-b04c-59b15b00e440" type="radio">
+</input><label class="tabbed-label" for="26ddd837-97d5-474a-9cff-08df7f88a168">
 file extensions</label><div class="tabbed-content docutils">
 <p>Files with the <code class="docutils literal notranslate"><span class="pre">.mrc</span></code> extension are multi-frame micrographs for each tilt angle in a tilt series.</p>
 <p>They are in the <a class="reference external" href="https://www.ccpem.ac.uk/mrc_format/mrc2014.php">MRC2014</a> file format.</p>
