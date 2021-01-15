@@ -22,7 +22,9 @@
       title: EMPIAR-10164 (HIV VLPs)
       sections:
         - file: guides/EMPIAR-10164/preprocessing
-        - file: guides/EMPIAR-10164/picking
+        - file: guides/EMPIAR-10164/geometrical-picking
+        - file: guides/EMPIAR-10164/ini-model
+        - file: guides/EMPIAR-10164/particle-picking
         - file: guides/EMPIAR-10164/relion
         - file: guides/EMPIAR-10164/m
 
@@ -31,12 +33,14 @@
   chapters:
     - file: mini-tutorials/software-usage/index
       sections:
+        - file: mini-tutorials/software-usage/cryolo/index
         - file: mini-tutorials/software-usage/dynamo/index
         - file: mini-tutorials/software-usage/emclarity/index
         - file: mini-tutorials/software-usage/eman/index
-        - file: mini-tutorials/software-usage/relion/index
         - file: mini-tutorials/software-usage/m/index
         - file: mini-tutorials/software-usage/nova/index
+        - file: mini-tutorials/software-usage/pytom/index
+        - file: mini-tutorials/software-usage/relion/index
         - file: mini-tutorials/software-usage/stopgap/index
         - file: mini-tutorials/software-usage/warp/index
 
