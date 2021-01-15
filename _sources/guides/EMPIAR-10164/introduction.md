@@ -51,9 +51,13 @@ and
 ```{tabbed} Hardware
 - A reasonably modern CPU. 
 - At least 32 GB RAM.
-- At least 1 NVIDIA graphics processing unit (GPU), with at least 8 GB of dedicated memory.
-- At least 10 GB of free disk space. To keep read/write times low, we recommend a Solid State Drive (SSD).
+- At least 1 NVIDIA GPU, with at least 8 GB of dedicated memory.
+- At least 10 GB of free disk space.
+
+More RAM may be required for particle extraction at the smallest pixel sizes, we used a machine with 128GB.
+To keep read/write times low, we recommend a Solid State Drive (SSD).
 ```
+
 
 ```{tabbed} Software
 - Access to both Windows and Linux operating systems
@@ -122,8 +126,4 @@ If you are looking for a more in-depth explanation of a parameter, setting or to
 - **Warp**: [Warp user guide](http://www.warpem.com/warp/?page_id=51)
 - **Dynamo**: [Dynamo wiki](https://www.wiki.dynamo.biozentrum.unibas.ch/w/index.php/)
 - **Relion**: [RELION wiki](https://www3.mrc-lmb.cam.ac.uk/relion/index.php/Main_Page)
-
-
-## Next step
-Once the data is downloaded, click [here](preprocessing.md) to move on to preprocessing!
 

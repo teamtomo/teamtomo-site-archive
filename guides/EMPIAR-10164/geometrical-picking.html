@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Particle picking and initial model generation &#8212; Open Subtomo</title>
+    <title>Particle picking &#8212; Open Subtomo</title>
     
   <link rel="stylesheet" href="../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -58,7 +58,7 @@
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Particle pose optimisation in RELION" href="relion.html" />
+    <link rel="next" title="Initial model generation" href="ini-model.html" />
     <link rel="prev" title="Preprocessing" href="preprocessing.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -151,7 +151,17 @@
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     Particle picking and initial model generation
+     Particle picking
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ini-model.html">
+     Initial model generation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="particle-picking.html">
+     Finding particles for every VLP
     </a>
    </li>
    <li class="toctree-l2">
@@ -181,6 +191,11 @@
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2">
+    <a class="reference internal" href="../../mini-tutorials/software-usage/cryolo/index.html">
+     crYOLO
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../../mini-tutorials/software-usage/dynamo/index.html">
      Dynamo
     </a>
@@ -196,11 +211,6 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../mini-tutorials/software-usage/relion/index.html">
-     RELION
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="../../mini-tutorials/software-usage/m/index.html">
      M
     </a>
@@ -208,6 +218,11 @@
    <li class="toctree-l2">
     <a class="reference internal" href="../../mini-tutorials/software-usage/nova/index.html">
      Nova
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../mini-tutorials/software-usage/relion/index.html">
+     RELION
     </a>
    </li>
    <li class="toctree-l2">
@@ -285,7 +300,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/guides/EMPIAR-10164/picking.md"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/guides/EMPIAR-10164/geometrical-picking.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -305,10 +320,10 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/open-subtomo/open-subtomo/issues/new?title=Issue%20on%20page%20%2Fguides/EMPIAR-10164/picking.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/open-subtomo/open-subtomo/issues/new?title=Issue%20on%20page%20%2Fguides/EMPIAR-10164/geometrical-picking.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/open-subtomo/open-subtomo/edit/master/./guides/EMPIAR-10164/picking.md"><button
+        <a class="edit-button" href="https://github.com/open-subtomo/open-subtomo/edit/master/./guides/EMPIAR-10164/geometrical-picking.md"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -365,62 +380,6 @@
    </li>
   </ul>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#first-alignments-in-dynamo">
-   First alignments in Dynamo
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#extracting-a-subset-of-particles">
-     Extracting a subset of particles
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#the-alignment-project">
-     The alignment project
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#assessing-the-results">
-       Assessing the results
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#aligning-and-centering-the-6-fold-symmetry-axis-in-the-initial-model">
-       Aligning and centering the 6-fold symmetry axis in the initial model
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#finding-particles-for-every-vlp">
-   Finding particles for every VLP
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#particle-extraction">
-     Particle extraction
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#particle-alignment">
-     Particle alignment
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#cleaning-the-dataset-based-on-geometrical-constraints">
-   Cleaning the dataset based on geometrical constraints
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#next-step">
-   Next step
-  </a>
- </li>
 </ul>
 
         </nav>
@@ -432,8 +391,8 @@
         
               <div>
                 
-  <div class="section" id="particle-picking-and-initial-model-generation">
-<h1>Particle picking and initial model generation<a class="headerlink" href="#particle-picking-and-initial-model-generation" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="particle-picking">
+<h1>Particle picking<a class="headerlink" href="#particle-picking" title="Permalink to this headline">¶</a></h1>
 <p>The tomograms are reconstructed and ready for further analysis. Warp includes a template matching procedure, but what if we don’t know what our object of interest looks like yet? In this section we will:</p>
 <ul class="simple">
 <li><p>generate an initial model of the HIV-1 CA-SP1 hexamer <em>ab initio</em></p></li>
@@ -448,7 +407,7 @@
 <p>At this stage, looking at the deconvolved tomograms in any visualisation package (3dmod, dynamo_tomoslice, FIJI, napari) allows us to see that:</p>
 <ul class="simple">
 <li><p>the VLPs are nearly spherical</p></li>
-<li><p>proteins on the surface of the VLPs form a hexagonal lattice parallel to the membrane</p></li>
+<li><p>proteins on the surface of the VLPs form a hexagonal lattice on the membrane</p></li>
 <li><p>the lattice spacing is roughly 7.5 nm</p></li>
 </ul>
 <p>Can we use this information to help us in our efforts to reconstruct this lattice structure? Absolutely!</p>
@@ -462,9 +421,9 @@
 </div>
 <div class="section" id="generating-a-dynamo-catalogue-for-particle-picking">
 <h2>Generating a Dynamo catalogue for particle picking<a class="headerlink" href="#generating-a-dynamo-catalogue-for-particle-picking" title="Permalink to this headline">¶</a></h2>
-<p>We now need to decide on a system for managing our reconstructed tomograms and annotations. A Dynamo catalogue is a database which facilitates the management of tomography data, including annotations and subsequent particle extraction.</p>
+<p>We now need a system for managing our reconstructed tomograms and annotations. A Dynamo catalogue is a database which facilitates the management of tomography data, including annotations and subsequent particle extraction.</p>
 <p>We have provided a function <code class="docutils literal notranslate"><span class="pre">warp2catalogue</span></code> in the <code class="docutils literal notranslate"><span class="pre">autoalign_dynamo</span></code> package which will setup a catalogue from your Warp tomograms and their deconvolved counterparts. The catalogue is set up in such a way that any visualisation of the tomograms from the catalogue will display the deconvolved volumes but particles are extracted from the unfiltered volumes which are suitable for alignment and averaging experiments.</p>
-<p>The function takes two arguments: the warp reconstruction directory and the pixel spacing in the reconstructions.</p>
+<p>The function takes two arguments: the warp reconstruction directory and the pixel spacing of the reconstructed tomograms.</p>
 <p>Let’s create a new <code class="docutils literal notranslate"><span class="pre">dynamo</span></code> folder in the root directory, and navigate to it in Matlab. Then, we run:</p>
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">warp2catalogue</span><span class="p">(</span><span class="s">&#39;../frames/reconstruction&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 </pre></div>
@@ -518,187 +477,6 @@
 </div>
 </div>
 </div>
-<div class="section" id="first-alignments-in-dynamo">
-<h2>First alignments in Dynamo<a class="headerlink" href="#first-alignments-in-dynamo" title="Permalink to this headline">¶</a></h2>
-<p>Now that the Dynamo catalogue contains initial estimates for the positions and orientations of our particles, we need to obtain an initial model of our lattice structure which will later allow us to find more accurate estimates of the positions and orientations of our particles for the whole dataset. For this, we will work on a small subset of the VLPs.</p>
-<blockquote>
-<div><p>Working on a small subset initially allows you to move quickly, testing lots of different approaches and optimising your approach. How small this subset should be will depend on the quality of your data, your initial particle picking and your object of interest.</p>
-</div></blockquote>
-<p>For these VLPs and with data of such good quality, two vesicles is more than enough for generating a good initial model.</p>
-<p>When choosing an initial subset, it can be a good idea to choose VLPs with different defoci. This ensures that nodes of the CTF are at different spatial frequencies within the subset and thus no region of Fourier space should be particularly undersampled. The Jiang lab at Purdue University have a CTF simulation <a class="reference external" href="https://ctf-simulation.herokuapp.com/">web app</a> which is useful for visualising the effect of defocus on the CTF.</p>
-<blockquote>
-<div><p>Choosing a subset which contains all available views of the particle is also important, ensuring maximum coverage of Fourier space in a resulting reconstruction</p>
-</div></blockquote>
-<p>From the <code class="docutils literal notranslate"><span class="pre">Overview</span></code> tab in Warp, we quickly see that <code class="docutils literal notranslate"><span class="pre">TS_01</span></code> and <code class="docutils literal notranslate"><span class="pre">TS_03</span></code> have significanlty different defoci, so we choose to use one vescicle from each of these tomograms.</p>
-<div class="section" id="extracting-a-subset-of-particles">
-<h3>Extracting a subset of particles<a class="headerlink" href="#extracting-a-subset-of-particles" title="Permalink to this headline">¶</a></h3>
-<p>To extract particles from the selected tomograms, open the dynamo catalogue manager by running <code class="docutils literal notranslate"><span class="pre">dcm</span></code> from the <code class="docutils literal notranslate"><span class="pre">dynamo</span></code> directory. Then load the <code class="docutils literal notranslate"><span class="pre">warp_catalogue</span></code> and select <code class="docutils literal notranslate"><span class="pre">TS_01</span></code> and <code class="docutils literal notranslate"><span class="pre">TS_03</span></code>. In the menu, choose <code class="docutils literal notranslate"><span class="pre">Crop</span> <span class="pre">particles</span> <span class="pre">-&gt;</span> <span class="pre">Open</span> <span class="pre">Volume</span> <span class="pre">List</span> <span class="pre">Manager</span></code> to open a list of all models.</p>
-<p>From the <code class="docutils literal notranslate"><span class="pre">selection</span></code> tab at the bottom of the window, we <code class="docutils literal notranslate"><span class="pre">pick</span></code> one <code class="docutils literal notranslate"><span class="pre">Vesicle</span></code> model from each volume. Then, choose a file name in the <code class="docutils literal notranslate"><span class="pre">Picked</span> <span class="pre">Volume</span> <span class="pre">list</span></code> (we use <code class="docutils literal notranslate"><span class="pre">inimodel.vll</span></code>) and make sure that the sidelength is set to 32.</p>
-<blockquote>
-<div><p>A box sidelength of 32 corresponds to a 320<span class="math notranslate nohighlight">\(\AA\)</span>. While this is much larger than the expected 75<span class="math notranslate nohighlight">\(\AA\)</span> inter-particle distance, signal from neighbouring particles in lattices can help to drive correct alignments at the beginning of a project. When working at smaller pixel sizes a bigger box can also help to <span class="xref myst">prevent CTF aliasing</span></p>
-</div></blockquote>
-<p>To extract subvolumes, click the <code class="docutils literal notranslate"><span class="pre">create</span> <span class="pre">list</span></code> button to prepare a <a class="reference external" href="https://wiki.dynamo.biozentrum.unibas.ch/w/index.php/Volume_list_file">volume list file</a> with the necessary information for particle extraction. Following this, clicking <code class="docutils literal notranslate"><span class="pre">Crop</span> <span class="pre">Particles</span></code> will open another GUI from which we can crop particles.</p>
-<p>In the newly opened window, we select <code class="docutils literal notranslate"><span class="pre">data</span> <span class="pre">folder</span> <span class="pre">in</span> <span class="pre">dBoxes</span></code>, choose a name for the data folder then press the <code class="docutils literal notranslate"><span class="pre">start</span> <span class="pre">cropping</span></code> button. This will take several minutes.</p>
-<blockquote>
-<div><p>Choosing to save the data as a dBoxes folder speeds things up when setting up subtomogram averaging projects in Dynamo, some checks run fairly slowly if there are too many files in one folder</p>
-</div></blockquote>
-</div>
-<div class="section" id="the-alignment-project">
-<h3>The alignment project<a class="headerlink" href="#the-alignment-project" title="Permalink to this headline">¶</a></h3>
-<p>Once the particle volumes are extracted for our two VLPs, we want to perform a first rough alignment to see how the particles align and average.</p>
-<p>We run <code class="docutils literal notranslate"><span class="pre">dcp</span></code> from MATLAB to open the “Dynamo current project” GUI. This GUI is designed to be used in a sequential way: we will need to provide a few parameters before launching the project.</p>
-<ol class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">Project</span></code>: choose a name for the project
-Write <code class="docutils literal notranslate"><span class="pre">inimodel</span></code>, then press <code class="docutils literal notranslate"><span class="pre">Enter</span></code> and <code class="docutils literal notranslate"><span class="pre">Create</span> <span class="pre">a</span> <span class="pre">new</span> <span class="pre">project</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">particles</span></code>: select the data folder containing the previously extracted volumes
-Click <code class="docutils literal notranslate"><span class="pre">browse</span></code> and select the <code class="docutils literal notranslate"><span class="pre">inimodelData.Boxes</span></code> directory.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">table</span></code>: choose a Dynamo table file containing particle metadata such as positions and orientations
-When we cropped particles in the Dynamo catalogue, it created this metadata file for us and puts it inside the data folder. Click<code class="docutils literal notranslate"><span class="pre">look</span> <span class="pre">inside</span> <span class="pre">data</span> <span class="pre">folder</span></code> and pick the <code class="docutils literal notranslate"><span class="pre">crop.tbl</span></code> file.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">template</span></code>: choose an initial template for alignment
-We currently don’t have a template. In the <code class="docutils literal notranslate"><span class="pre">I</span> <span class="pre">want</span> <span class="pre">to</span> <span class="pre">create</span> <span class="pre">a</span> <span class="pre">template</span></code> section, select <code class="docutils literal notranslate"><span class="pre">use</span> <span class="pre">a</span> <span class="pre">randomly</span> <span class="pre">chosen</span> <span class="pre">set</span> <span class="pre">of</span> <span class="pre">particles</span></code>, set the number to <code class="docutils literal notranslate"><span class="pre">500</span></code> and click <code class="docutils literal notranslate"><span class="pre">average</span> <span class="pre">data</span></code> to compute an initial template.</p></li>
-</ol>
-<blockquote>
-<div><p>This will generate a reconstruction from 500 particles using our initial particle orientation estimates from the <code class="docutils literal notranslate"><span class="pre">crop.tbl</span></code> file, originally from the <code class="docutils literal notranslate"><span class="pre">Vesicle</span></code> models. While we don’t expect to see any detailed structure in this map, it is worth checking that it matches what we expect to see. If you right click on the file path at the top of the template GUI, you can choose to <code class="docutils literal notranslate"><span class="pre">[view]</span></code> the volume. Our initial picking contained no knowledge about the specific positions of each particle within the lattice. Because of this, we expect to see a curved, membrane like density and blurred density for the lattice proteins in the average.</p>
-</div></blockquote>
-<p><img alt="first template" src="https://i.ibb.co/dM5Dqt5/first-template-all.png" /></p>
-<ol class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">masks</span></code>: select masks for each step of the procedure.
-Dynamo offers lots of flexibility in the choice and use of masks during the alignment procedure. In this case <code class="docutils literal notranslate"><span class="pre">Use</span> <span class="pre">default</span> <span class="pre">masks</span></code> will calculate appropriate masks at this stage covering the full extent of our 32px box.</p></li>
-</ol>
-<blockquote>
-<div><p>At this stage, we aren’t very sure of our particle positions and orientations as they haven’t undergone any alignment. We want our mask to include the whole box so that signal from multiple neighbouring particles in the lattice can help to drive initial alignments.</p>
-</div></blockquote>
-<ol class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">numerical</span> <span class="pre">parameters</span></code>: set the numerical parameters for the alignment procedure.
-This section allows us to define many important numerical parameters for an alignment project. Dynamo alignment projects can be split into several rounds which will be executed one after the other. Within each round parameters include number of iterations, angular search ranges, shift limits, high- and low-pass filter limits, symmetry operators to apply to the reference and more.</p></li>
-</ol>
-<blockquote>
-<div><p>At this stage, we don’t enforce symmetry during refinement. We expect that any symmetry present should appear in an initial average. The assumption of symmetry is a useful tool but it reduces our ability to discern any asymmetries that may be present in the reconstruction. It should be applied only when you are sure that your object is symmetric and the possibility of unresolved asymmetry should be kept in mind.</p>
-</div></blockquote>
-<blockquote>
-<div><p>Press <code class="docutils literal notranslate"><span class="pre">Alt</span></code> when a parameter is selected for a detailed description.</p>
-</div></blockquote>
-<ol>
-<li><p><code class="docutils literal notranslate"><span class="pre">computing</span> <span class="pre">environment</span></code>: the computing environment on which the alignment project will run</p>
-<p>This will depend on your computing environment, including number of available CPUs/GPUs.</p>
-</li>
-</ol>
-<blockquote>
-<div><p>We typically run projects in the <code class="docutils literal notranslate"><span class="pre">gpu_standalone</span></code> modus on 4 GPUs. Running in the standalone modus allows you to continue with other work in the matlab shell while the alignment project runs. In this modus, the number of CPU cores should be 1. The number of CPU cores used during averaging can be changed to the number of logical CPU cores on your machine. Specific GPUs can be selected by their index as seen in <code class="docutils literal notranslate"><span class="pre">nvidia-smi</span></code>.</p>
-</div></blockquote>
-<ol class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">check</span></code> runs a sanity check to make sure the project seems correctly setup, <code class="docutils literal notranslate"><span class="pre">unfold</span></code> prepares an executable for the alignment project.</p></li>
-</ol>
-<blockquote>
-<div><p>If running a project on a remote machine without graphical access, a project can be set up locally and sent to the remote machine as a tarball. For information on this, please see the following <a class="reference external" href="https://wiki.dynamo.biozentrum.unibas.ch/w/index.php/Tarring_projects">wiki page</a></p>
-</div></blockquote>
-<ol class="simple">
-<li><p>We can now run the executable.To do so, open the <code class="docutils literal notranslate"><span class="pre">dynamo</span></code> directory in a terminal and run:</p></li>
-</ol>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> <span class="nv">$DYNAMO_ROOT</span>/dynamo_activate_linux_shipped_MCR.sh
-</pre></div>
-</div>
-<p>to prepare the environment. Then, simply execute:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./inimodel.exe
-</pre></div>
-</div>
-<blockquote>
-<div><p>You can track the progress of the project from the <code class="docutils literal notranslate"><span class="pre">dcp</span></code> GUI by clicking on <code class="docutils literal notranslate"><span class="pre">progress</span></code>.</p>
-</div></blockquote>
-<div class="section" id="assessing-the-results">
-<h4>Assessing the results<a class="headerlink" href="#assessing-the-results" title="Permalink to this headline">¶</a></h4>
-<p>We can look at the result of our first alignment project using tools from the <code class="docutils literal notranslate"><span class="pre">dcp</span></code> GUI under show. Alternatively, the file containing the average can be found at <code class="docutils literal notranslate"><span class="pre">dynamo/inimodel/results/ite_0004/averages/average_ref_001_ite_0004.em</span></code> and visualised with any volume visualisation tool.</p>
-<p>In contrast to our previous reconstruction from particles with initial estimates for positions and orientations, in this map we clearly see a hexagonal lattice starting to take shape, containing 2-, 3- and 6-fold symmetry axes.</p>
-<p><img alt="first aligned map" src="https://i.ibb.co/wgby9P2/first-align-all.png" /></p>
-<p>In order to take advantage of the highest symmetry order present in the structure during refinement we first need to recenter the average on its 6-fold symmetry axis and align that axis along the z axis of our volume.</p>
-<blockquote>
-<div><p>By convention, rotational symmetry axes in electron microscopy software are aligned along the Z axis of the volume</p>
-</div></blockquote>
-</div>
-<div class="section" id="aligning-and-centering-the-6-fold-symmetry-axis-in-the-initial-model">
-<h4>Aligning and centering the 6-fold symmetry axis in the initial model<a class="headerlink" href="#aligning-and-centering-the-6-fold-symmetry-axis-in-the-initial-model" title="Permalink to this headline">¶</a></h4>
-<p>To center and align the 6-fold symmetry axis, we will use a script provided with this tutorial, <code class="docutils literal notranslate"><span class="pre">align_symmetry_axis.m</span></code>. The script generates a synthetic template of the lattice with the 6-fold symmetry axis centered and aligned along the z-axis. The result of the alignment project is then aligned to this synthetic template and C6 symmetry is applied to produce our final initial model with the symmetry axis correctly aligned.</p>
-<p>To run the script, open <code class="docutils literal notranslate"><span class="pre">dynamo/inimodel/results/ite_0004/averages</span></code> in Matlab. Copy the script into this directory, and execute it by running <code class="docutils literal notranslate"><span class="pre">align_symmetry_axis</span></code>. Once the script has finished, compare the initial average, the template, the aligned average and the symmetrised aligned average to check that the alignment worked as intended.</p>
-<p><img alt="aligned to z " src="https://i.ibb.co/Jxd9nXc/aligned-to-z.png" /></p>
-<p>Now that we have an initial model with the 6-fold symmetry, we can use this in an alignment project with particles from all of the VLPs to obtain good estimates for particle positions and orientations for the whole dataset.</p>
-</div>
-</div>
-</div>
-<div class="section" id="finding-particles-for-every-vlp">
-<h2>Finding particles for every VLP<a class="headerlink" href="#finding-particles-for-every-vlp" title="Permalink to this headline">¶</a></h2>
-<p><em>“What do we know and how can we use it?”</em></p>
-<p>We now have</p>
-<ul class="simple">
-<li><p>initial estimates for the particle positions and orientations on the surface of every VLP</p></li>
-<li><p>a good initial model centered on the 6-fold symmetry axis of the lattice structure.</p></li>
-</ul>
-<p>We can use this information to run a one iteration subtomogram averaging project. This should allow us to obtain a good set of particle positions and orientations for the dataset which we can later use for higher resolution reconstruction.</p>
-<div class="section" id="particle-extraction">
-<h3>Particle extraction<a class="headerlink" href="#particle-extraction" title="Permalink to this headline">¶</a></h3>
-<p>As for the initial model generation step, we need to extract our particles prior to alignment, this time from all VLPs rather than just a subset. Extract particles from <code class="docutils literal notranslate"><span class="pre">dcm</span></code>  as before, selecting all <code class="docutils literal notranslate"><span class="pre">Vesicle</span></code> models.</p>
-</div>
-<div class="section" id="particle-alignment">
-<h3>Particle alignment<a class="headerlink" href="#particle-alignment" title="Permalink to this headline">¶</a></h3>
-<p>Next we set up an alignment project using <code class="docutils literal notranslate"><span class="pre">dcp</span></code> where the aim is to align each oversampled initial particle position to the closest real particle position in the lattice. The important parameters when setting up this project are:</p>
-<ol class="simple">
-<li><p>Data should be the extracted data folder for the whole dataset</p></li>
-<li><p>Table should be the cropping table derived when extracting the data, found in the data folder</p></li>
-<li><p>Template should now be the aligned, symmetrised initial model
-<code class="docutils literal notranslate"><span class="pre">dynamo/inimodel/ite_0004/averages/average_aligned_along_z_c6.em</span></code>.</p></li>
-<li><p>We only want to run for one iteration</p></li>
-</ol>
-<blockquote>
-<div><p>Now that we’re working with the full dataset, calculations take significantly longer. Because our initial model is good one iteration of alignment should allow us to see the lattice structure appear in the particle positions.</p>
-</div></blockquote>
-<ol class="simple">
-<li><p>We only want to perform local in plane and out of plane angular searches</p></li>
-</ol>
-<blockquote>
-<div><p>We are already fairly sure about our out of plane angles because they come from our <code class="docutils literal notranslate"><span class="pre">Vesicle</span></code> models. The in plane searches can be limited because of the C6 symmetry of the reference</p>
-</div></blockquote>
-<ol class="simple">
-<li><p>We should adjust the shifts so that particles can only move half of the lattice spacing in the x and y direction</p></li>
-</ol>
-<blockquote>
-<div><p>We expect to find a lattice of particles with roughly 7.5 nm spacing. If we allow each particle to shift a maximum of 4nm in each direction it should be guaranteed to find the closest true position in the lattice but cannot move too far. This maximises the chances of finding all lattice positions from the beginning.</p>
-</div></blockquote>
-<ol class="simple">
-<li><p>We should allow the particles to shift more in z than in x and y to account for any errors when defining our <code class="docutils literal notranslate"><span class="pre">Vesicle</span></code> models.</p></li>
-</ol>
-<p>Once the parameters are all set, run the project from the command line as before. This will take significantly longer!</p>
-</div>
-</div>
-<div class="section" id="cleaning-the-dataset-based-on-geometrical-constraints">
-<h2>Cleaning the dataset based on geometrical constraints<a class="headerlink" href="#cleaning-the-dataset-based-on-geometrical-constraints" title="Permalink to this headline">¶</a></h2>
-<p>To isolate a good subset of particles in lattices we will use three short scripts provided with this tutorial.</p>
-<blockquote>
-<div><p>The provided scripts are just a few lines long, and are given for convenience and illustration purposes. You are encouraged to read them and modify them for your own purposes</p>
-</div></blockquote>
-<p>The first cleaning step we should take is removing duplicate particles. To do so, we will use <code class="docutils literal notranslate"><span class="pre">remove_duplicates.m</span></code>.
-Open MATLAB in <code class="docutils literal notranslate"><span class="pre">dynamo/findparticles/results/ite_0001/averages</span></code>, then run:</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">remove_duplicates</span>
-</pre></div>
-</div>
-<p>This will create a new table called <code class="docutils literal notranslate"><span class="pre">result_10Apx_nodup.tbl</span></code>, reducing clusters of multiple particles within 4 pixels (half the distance we measured earlier) to a single particle.</p>
-<p>The next step is to remove particles that don’t belong to the lattice. To do so, first run:</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">check_radial_distribution</span>
-</pre></div>
-</div>
-<p>This will open a plot of the radial distribution of neighbouring particles for the whole dataset. Here, we can see a high peak at around 7.5 <span class="math notranslate nohighlight">\(px\)</span>, and periodic peaks after that.</p>
-<p><img alt="radial distribution" src="https://i.ibb.co/gJ0K1Q0/radial-distance.png" /></p>
-<p>This confirms the previously measured interparticle distance and the fact that most particles slid into ordered positions in the lattice. We can use the first peak to select against particles that don’t conform to this distribution. The next script, <code class="docutils literal notranslate"><span class="pre">subset_table_based_on_neighbours.m</span></code>, removes all particles that don’t have at least 3 neighbours in the radial shell at distance 7.5 <span class="math notranslate nohighlight">\(px\)</span>. To use it, run:</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">subset_table_based_on_neighbours</span>
-</pre></div>
-</div>
-<blockquote>
-<div><p>When finished, the script will open a viewer to inspect the table before and after the processing. Switching to a less clean dataset (for example <code class="docutils literal notranslate"><span class="pre">TS_43</span></code>) will make it clear that most bad particles were removed.</p>
-</div></blockquote>
-<p>The final output is a new table called <code class="docutils literal notranslate"><span class="pre">result_10Apx_nodup_neighbourcleaning.tbl</span></code> which contains only references to the particles that we selected.</p>
-</div>
-<div class="section" id="next-step">
-<h2>Next step<a class="headerlink" href="#next-step" title="Permalink to this headline">¶</a></h2>
-<p>click <a class="reference internal" href="relion.html"><span class="doc std std-doc">here</span></a></p>
-</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -730,7 +508,7 @@ Open MATLAB in <code class="docutils literal notranslate"><span class="pre">dyna
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="preprocessing.html" title="previous page">Preprocessing</a>
-    <a class='right-next' id="next-link" href="relion.html" title="next page">Particle pose optimisation in RELION</a>
+    <a class='right-next' id="next-link" href="ini-model.html" title="next page">Initial model generation</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

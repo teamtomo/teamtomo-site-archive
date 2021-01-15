@@ -148,8 +148,18 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../../../guides/EMPIAR-10164/picking.html">
-     Particle picking and initial model generation
+    <a class="reference internal" href="../../../../guides/EMPIAR-10164/geometrical-picking.html">
+     Particle picking
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../guides/EMPIAR-10164/ini-model.html">
+     Initial model generation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../guides/EMPIAR-10164/particle-picking.html">
+     Finding particles for every VLP
     </a>
    </li>
    <li class="toctree-l2">
@@ -179,6 +189,11 @@
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2">
+    <a class="reference internal" href="../../../../mini-tutorials/software-usage/cryolo/index.html">
+     crYOLO
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../../../../mini-tutorials/software-usage/dynamo/index.html">
      Dynamo
     </a>
@@ -194,11 +209,6 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../../../mini-tutorials/software-usage/relion/index.html">
-     RELION
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="../../../../mini-tutorials/software-usage/m/index.html">
      M
     </a>
@@ -206,6 +216,11 @@
    <li class="toctree-l2">
     <a class="reference internal" href="../../../../mini-tutorials/software-usage/nova/index.html">
      Nova
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../mini-tutorials/software-usage/relion/index.html">
+     RELION
     </a>
    </li>
    <li class="toctree-l2">
@@ -335,16 +350,19 @@
                 
   <div class="section" id="subboxing">
 <h1>Subboxing<a class="headerlink" href="#subboxing" title="Permalink to this headline">¶</a></h1>
-<p>Subboxing means deriving particle positions and orientations from an existing set of positions and orientations, usually centered on a region of interest.</p>
+<p>Subboxing means deriving new particle positions and orientations from an existing set of positions and orientations.</p>
+<p>The generated positions are usually centered on a region of interest within an existing reconstruction.</p>
 <p>This process is useful for</p>
 <ul class="simple">
 <li><p>simple recentering of particles</p></li>
 <li><p>focussing on individual subunits in a complex</p></li>
 </ul>
-<p>A typical use case is shown in the image below, where subboxing has been used to generate the orange particles from the blue particles
-in the lattice structure of
-<a class="reference external" href="https://www.ebi.ac.uk/pdbe/entry/emdb/EMD-10160"><em>EMD-10160</em></a>.</p>
+<p>A typical use case is shown for the lattice structure of
+<a class="reference external" href="https://www.ebi.ac.uk/pdbe/entry/emdb/EMD-10160"><em>EMD-10160</em></a> in the image below.</p>
 <p><img alt="subboxing example" src="../../../../_images/subboxing.png" /></p>
+<p>In this image, each white density is a receptor dimer in a chemosensory array.</p>
+<p>Arrays form of receptor trimer-of-dimers, the little triangles of three white dots. The blue particles are centered in the middle of hexagons of these trimer-of-dimers.</p>
+<p>Subboxing has been used to derive the orange particle positions and orientations from the blue set of particles.</p>
 </div>
 
     <script type="text/x-thebe-config">
