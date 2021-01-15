@@ -2,13 +2,19 @@
 # Learn more at https://jupyterbook.org/customize/toc.html
 - file: index
 
+
 - part: General Principles
   chapters:
     - file: general-principles/general-principles
     - file: general-principles/overviews/overviews
     - file: general-principles/data-collection/introduction
-    - file: general-principles/image-processing/introduction
     - file: general-principles/subtomogram-averaging/index
+      sections: 
+        - file: general-principles/subtomogram-averaging/preprocessing/index
+        - file: general-principles/subtomogram-averaging/particle-picking/index
+        - file: general-principles/subtomogram-averaging/refinement/index
+    - file: general-principles/image-processing/introduction
+
 
 - part: Guides
   chapters:
@@ -19,6 +25,7 @@
         - file: guides/EMPIAR-10164/picking
         - file: guides/EMPIAR-10164/relion
         - file: guides/EMPIAR-10164/m
+
 
 - part: Mini-tutorials
   chapters:
@@ -39,3 +46,6 @@
         - file: mini-tutorials/python/index
         - file: mini-tutorials/matlab/index
 
+- part: Contributing
+  chapters:
+    - file: contributing/contributing
