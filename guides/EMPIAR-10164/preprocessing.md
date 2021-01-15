@@ -265,7 +265,8 @@ Up to now we have:
 - preprocessed the 2D images
 - generated and aligned tilt-series
 
-We will now estimate the CTF parameters for each tilt-series, check that our CTF model has the correct handedness and reconstruct the tomograms.
+We will now estimate the CTF parameters for each tilt-series, 
+check that our CTF model has the correct handedness and reconstruct the tomograms.
 
 ### Import aligned tilt-series
 
