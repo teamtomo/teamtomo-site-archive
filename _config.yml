@@ -23,7 +23,7 @@ html:
 #  baseurl: https://jupyterbook.org/
 
 repository:
-  url: https://github.com/open-subtomo/open-subtomo
+  url: https://github.com/open-subtomo/open-subtomo.github.io
   branch: master
   path_to_book: .
 
