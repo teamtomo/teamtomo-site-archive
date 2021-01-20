@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="146.01654mm"
+   height="17.336828mm"
+   viewBox="0 0 146.01654 17.336828"
+   version="1.1"
+   id="svg8"
+   inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)"
+   sodipodi:docname="logo.svg">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.4"
+     inkscape:cx="260.44242"
+     inkscape:cy="-52.696315"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     inkscape:document-rotation="0"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1016"
+     inkscape:window-x="1920"
+     inkscape:window-y="810"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-17.23225,-9.9715163)">
+    <text
+       xml:space="preserve"
+       style="font-style:italic;font-size:18.7267px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Italic';letter-spacing:0px;word-spacing:0px;fill:#3d5fa6;fill-opacity:1;stroke-width:0.265;stroke-miterlimit:4;stroke-dasharray:none;"
+       x="15.787515"
+       y="23.413044"
+       id="text835"><tspan
+         sodipodi:role="line"
+         id="tspan833"
+         x="15.787515"
+         y="23.413044"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#3d5fa6;fill-opacity:1;stroke-width:0.265;stroke-miterlimit:4;stroke-dasharray:none;">#teamtomo</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:italic;font-size:18.7267px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Italic';letter-spacing:0px;word-spacing:0px;fill:#8e8e8e;fill-opacity:1;stroke-width:0.265;stroke-miterlimit:4;stroke-dasharray:none;"
+       x="128.28253"
+       y="23.413044"
+       id="text857"><tspan
+         sodipodi:role="line"
+         id="tspan855"
+         x="128.28253"
+         y="23.413044"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#8e8e8e;fill-opacity:1;stroke-width:0.265;stroke-miterlimit:4;stroke-dasharray:none;">.org</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:italic;font-size:18.7267px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Italic';letter-spacing:0px;word-spacing:0px;fill:#8e8e8e;fill-opacity:1;stroke-width:0.265;stroke-miterlimit:4;stroke-dasharray:none;"
+       x="15.787515"
+       y="23.413044"
+       id="text861"><tspan
+         sodipodi:role="line"
+         id="tspan859"
+         x="15.787515"
+         y="23.413044"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#8e8e8e;fill-opacity:1;stroke-width:0.265;stroke-miterlimit:4;stroke-dasharray:none;">#</tspan></text>
+  </g>
+</svg>
