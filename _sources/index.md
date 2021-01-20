@@ -14,13 +14,12 @@ kernelspec:
 ---
 
 # Home
-[Open Subtomo](https://github.com/open-subtomo/open-subtomo) is a collaborative, 
-online resource for sharing knowledge within the cryo-electron tomography (cryo-ET) community.
+[teamtomo.org](https://github.com/teamtomo/teamtomo.github.io) is a collaborative, 
+online platform for sharing knowledge within the cryo-electron tomography (cryo-ET) [community](https://twitter.com/hashtag/teamtomo).
 
-Cryo-ET is an imaging modality which uses 
+Cryo-ET is a 3D imaging modality which uses 
 [transmission electron microscopes](https://en.wikipedia.org/wiki/Transmission_electron_microscopy) 
-to image proteins, their assemblies and thin cellular sections in their native state. 
-3D images are obtained with high spatial resolution.
+to image proteins, their assemblies and thin cellular sections in their native state with high spatial resolution.
 
 Cryo-ET data is noisy and incompletely sampled. 
 Subtomogram averaging procedures align and average noisy imaging data to produce 3D reconstructions of 
