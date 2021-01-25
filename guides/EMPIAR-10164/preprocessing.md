@@ -139,7 +139,7 @@ The provided version of BoxNet was retrained on 3 tilt series from a high magnif
 ```
 ````
 
-In order to access it from Warp, the `BoxNet2MaskBeads_20200607` TODO ???better name??? directory must be placed in the Warp installation folder under the `boxnet2models` directory. Then, to select the pretrained model in Warp, click on the currently selected BoxNet model and select the `BoxNet2MaskBeads_20200607` model.
+In order to access it from Warp, the `BoxNet2MaskBeads_20200607` TODO better name directory must be placed in the Warp installation folder under the `boxnet2models` directory. Then, to select the pretrained model in Warp, click on the currently selected BoxNet model and select the `BoxNet2MaskBeads_20200607` model.
 
 ![boxnet](https://i.ibb.co/5BvkK9x/masking.png)
 
@@ -174,14 +174,16 @@ TODO: add some examples of good and bad CTF fits, good bead masks etc
 
 ### Deselect bad images
 
-Images in each tilt-series must be assembled into an `IMOD` stack in order to use `Dynamo` for the tilt-series alignment, but before doing so we should discard any bad images in our dataset. To do so, switch to the `Real Space` tab at the top and manually inspect all the tilt images. To quickly check the images, hover your mouse over the selection bar at the bottom of the screen and move it along its length to inspect the thumbnails. To inspect an image in more detail, click on the bar and the image will be enlarged.
+Images in each tilt-series must be assembled into an `IMOD` stack in order to use `Dynamo` for the tilt-series alignment, but before doing so we should discard any bad images in our dataset. To do so, switch to the `Real Space` tab at the top and manually inspect all the tilt images.
 
 ````{margin}
 ```{admonition} Tip
 :class: tip
-With larger datasets, quickly scanning images in this way can be inconvenient. To make this a bit easier, use the search bar to display only a subset of the dataset (For HIV-5-TS we could search `TS_01`, `TS_02`...).
+With larger datasets, quickly scanning images in this way can be inconvenient. To make this a bit easier, use the search bar to display only a subset of the dataset (For HIV-5-TS we could search `TS_01`, `TS_02`...)
 ```
-````{margin}
+````
+
+To quickly check the images, hover your mouse over the selection bar at the bottom of the screen and move it along its length to inspect the thumbnails. To inspect an image in more detail, click on the bar and the image will be enlarged.
 
 If an image is heavily contaminated, black, blurred, a grid bar blocks a significant part of it or you otherwise deem it unsuitable, deselect the image by clicking the checkbox next to its name. The bar should turn grey once an image is deselected.
 
@@ -196,37 +198,47 @@ Then, click on the (slightly misnamed) `import tilt series from IMOD` button at 
 In the newly opened window, we should now select the `Folder with original movies` and the `Folder with .mdoc files`.
 In this case, they are the `frames` and `mdoc` folders, respectively.
 
+````{margin}
 ```{note}
-We don't need to set the pixel size and electron dose per tilt just yet: we will set them later when importing the aligned tilt series back into Warp. 
-We also don't need to worry about inverting tilt angles at this stage, tilt handedness will be checked (and eventually corrected for) at a later step.
+For now, we don't need to set the pixel size and electron dose per tilt, nor we need to worry about inverting tilt angles. We will set all these parameters at a later stage.
 ```
+````
 
 Click on `Create stacks for IMOD` to start exporting the data. We can immediately move on to the next step without having to wait for the stack generation to finish, thanks to `autoalign_dynamo`'s on-the-fly processing.
 
 ![create stack](https://i.ibb.co/YLp32wg/create-stack.png)
 
+---
 
 (tilt-align)=
 ## Tilt-series alignment
 
-### Overview
 In this section, we will use the `autoalign_dynamo` package, which leverages Dynamo's automated tilt series alignment workflows.
 
 This program aligns tilt-series in `Dynamo` and prepares all necessary metadata for import back into `Warp`.
 
-A basic overview of the tilt-series alignment procedure in `Dynamo` is:
+### Overview
+Basic overview of the tilt-series alignment procedure in `Dynamo`:
+
+````{margin}
+```{admonition} See also
+:class: seealso
+For a detailed, step-by-step explanation of the procedure, check out the [Walkthrough on GUI based tilt series alignment](https://www.wiki.dynamo.biozentrum.unibas.ch/w/index.php/Walkthrough_on_GUI_based_tilt_series_alignment) on the Dynamo wiki.
+```
+````
+
+```{panels}
+:column: col-20
+:card: border-2
 - Estimation of the putative positions of fiducials in all the images by cross-correlation (CC) against a synthetic template.
 - Rejection of features that are not rotationally symmetric, and therefore likely not beads.
 - Indexing of bead observations, attempting to determine which beads correspond to the same underlying object in 3D.
 - Iterative refinement of the alignment parameters and bead positions. 
 - Reintegration of missing observations based on an updated projection model.
 - Removal of observations with large residuals.
+```
 
 This procedure explicitly attempts to maximise the number of observations which should increase the global accuracy of the final solution.
-
-```{note}
-For a detailed, step-by-step explanation of the procedure, check out the [Walkthrough on GUI based tilt series alignment](https://www.wiki.dynamo.biozentrum.unibas.ch/w/index.php/Walkthrough_on_GUI_based_tilt_series_alignment) on the Dynamo wiki.
-```
 
 To enable use of these workflows within the Warp preprocessing pipeline we provide a package `autoalign_dynamo`. `dautoalign4warp` is a function provided by this package which handles running the Dynamo alignment workflow on all tilt-series and prepares all metadata for import back into Warp. This procedure can be run on-the-fly, starting as soon as the first tilt-series has been generated by Warp.
 
@@ -253,7 +265,6 @@ We can start aligning tilt-series with the following command:
 dautoalign4warp('./imod', 1.35, 10, 85.3, './dynamo_alignments')
 ```
 
-
 This command will generate the transforms needed to align a tilt series
 
 Once running, `autoalign_dynamo` will keep processing incoming data from Warp and generate the metadata necessary for tomogram reconstruction. 
@@ -261,8 +272,9 @@ As soon as the alignments are done, we can start CTF estimation on the tilt-seri
 
 #### Checking the results
 
-% add some details for checking the results, how to open the tomogram and the .mod file together in 3dmod and checking that the beads were tracked properly 
+TODO: add some details for checking the results, how to open the tomogram and the .mod file together in 3dmod and checking that the beads were tracked properly 
 
+---
 
 (reconstruct)=
 ## Tilt-Series CTF Estimation and Tomogram reconstruction
@@ -282,8 +294,8 @@ The checkboxes should now appear checked in the `Aligned` column on the right ha
 
 Differently from earlier, now we also need to enter the pixel size of the tilt-series and the electron dose that the sample was exposed to per tilt. 
 
-For this dataset this is the binned pixel size of 1.35 Å/px, 
-and according the the EMPIAR entry the dose is roughly 3 e^-/Å^2\s per tilt.
+For this dataset this is the binned pixel size of 1.35 $Å/px$, 
+and according the the EMPIAR entry the dose is roughly 3 $e^-/Å^2$ per tilt.
 
 ![import alignment](https://i.ibb.co/Jrr8K69/import-dynamo.png)
 
@@ -301,19 +313,24 @@ Once we are sure about the tilt handedness, we can proceed with the tilt-series 
 
 #### CTF estimation
 
-The settings for tilt-series CTF estimation should be the same as those used earlier when estimating CTF parameters for 2D micrographs. In this case, we do not control the spatiotemporal resolution of the CTF model.
+The settings for tilt-series CTF estimation should be the same as those used earlier when estimating CTF parameters for 2D micrographs. In this case, we do not control the spatiotemporal resolution of the CTF model. Simply click on `START PROCESSING` to proceed.
 
 ### Reconstruct tomograms
 
-We now have everything we need to reconstruct our tomograms. In Warp, we don't need to reconstruct whole tomograms at this step. Instead, downsampled tomograms can be generated for initial particle picking and volumes centered on each object of interest can be reconstructed later at the desired pixel size. This reduces the computational burden of generating and extracting particles from large, unbinned tomograms which can easily be over 100GB in size. 
-
-We have to define the reconstruction area by setting the `Unbinned tomogram dimensions`. These are the dimensions that the tomogram would have if reconstructed at the pixel size of the tilt-series. To capture the full extent of the imaged area, we should use 4000 x 4000 for the x and y dimensions (because we downsampled our original ~8000x8000 super-resolution pixels by a factor of two). In z, we want the reconstruction to be large enough to include the entire imaged sample. In this case, 3000px is more than enough.
+We now have everything we need to reconstruct our tomograms. In Warp, we don't need to reconstruct whole tomograms at this step. Instead, downsampled tomograms can be generated for initial particle picking and volumes centered on each object of interest can be reconstructed later at the desired pixel size. This reduces the computational burden of generating and extracting particles from large, unbinned tomograms which can easily be over 100GB in size.
 
 ![reconstruction size](https://i.ibb.co/jHwXktH/reconstruction-size.png)
 
-We can then click on `reconstruct full tomograms` at the top of the `Overview` tab to open the reconstruction dialog box.
+````{margin}
+```{admonition} Tip
+:class: tip
+Starting with coarse pixel sizes significantly increases your ability to quickly test new ideas at the expense of the loss of high-resolution information. Generally, we aim for a pixel size which allows our object of interest to fit comfortably in a 32$px^3$ box. If we don't know the size of our object of interest 10-15 $Å/px$ is usually a good starting point. For HIV-5-TS, we generate tomograms at 10 $Å/px$.
+```
+````
 
-Working at smaller pixel sizes initially significantly increases your ability to quickly test new ideas at the expense of the loss of high-resolution information. Generally, we aim for a pixel size which allows our object of interest to fit comfortably in a 32px^3 box. If we don't know the size of our object of interest 10-15  $Å/px$ is usually a good starting point. For HIV-5-TS, we generate tomograms at 10 $Å/px$.
+We have to define the reconstruction area by setting the `Unbinned tomogram dimensions`. These are the dimensions that the tomogram would have if reconstructed at the pixel size of the tilt-series. To capture the full extent of the imaged area, we should use 4000 x 4000 for the x and y dimensions (because we downsampled our original ~8000x8000 super-resolution pixels by a factor of two). In z, we want the reconstruction to be large enough to include the entire imaged sample. In this case, 3000 $px$ is more than enough.
+
+We can then click on `reconstruct full tomograms` at the top of the `Overview` tab to open the reconstruction dialog box.
 
 We invert contrast such that any averages of particles in the tomograms will be light-on-dark. Whilst not strictly necessary, this is a convention which facilitates visualisation in programs such as ChimeraX and the use of certain image processing tools which expect this inverted contrast.
 
@@ -326,8 +343,3 @@ Warp may have marked some tilt series as filtered out. Since we are not making a
 Once ready, click on `Reconstruct` to reconstruct the tomograms.
 
 ![reconstruction parameters](https://i.ibb.co/QY5X9hc/reconstruction-settings.png)
-
-
-
-## Next step
-click [here](picking.md)
