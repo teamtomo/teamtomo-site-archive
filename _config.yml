@@ -1,8 +1,8 @@
 #######################################################################################
 # Book settings
-title: "Open Subtomo" # The title of the book. Will be placed in the left navbar.
+title: "" # The title of the book. Will be placed in the left navbar.
 logo: assets/logo.svg # A path to the book logo
-author: the open-subtomo contributors # The author of the book
+author: the teamtomo contributors # The author of the book
 email: alisterburt@gmail.com
 copyright: "2021" # Copyright year to be placed in the footer
 only_build_toc_files: false
@@ -14,7 +14,7 @@ parse:
   myst_extended_syntax: true
 
 html:
-  favicon: images/favicon.ico
+  favicon: assets/favicon.ico
   home_page_in_navbar: false
   use_edit_page_button: true
   use_repository_button: true
@@ -23,7 +23,7 @@ html:
 #  baseurl: https://jupyterbook.org/
 
 repository:
-  url: https://github.com/open-subtomo/open-subtomo.github.io
+  url: https://github.com/teamtomo/teamtomo.github.io
   branch: master
   path_to_book: .
 

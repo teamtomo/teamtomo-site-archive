@@ -32,9 +32,18 @@ Create a volume list (`.vll`) file by
 
 
 ## Extract your particles
+```{sidebar} Dynamo data folder structure
+A Dynamo data folder contains
+- Subvolumes for each particle
+- Alignment metadata for each particle (`crop.tbl`)
+- A tomogram-table map [file](https://wiki.dynamo.biozentrum.unibas.ch/w/index.php/Tomogram-table_map_file) (`indices_column20.doc`)
+```
+
 In the `Particle extraction` GUI which pops up
 - set the particle sidelength to your desired box size
 - hit `crop particles`. 
+
+This will generate a `Dynamo` format data folder in the current directory with the name in the `data` box.
 
 ![particle extraction](extract-from-catalogue.assets/crop-particles.gif)
 
@@ -43,4 +52,4 @@ We use the *data folder in dBoxes...* option here to avoid problems with having 
 Read more [here](https://wiki.dynamo.biozentrum.unibas.ch/w/index.php/Generic_data_containers).
 ```
 
-You now have a `Dynamo` format data folder containing your particles and are ready for refinements!
+You now have a `Dynamo` format data folder containing your particles, you're ready for refinements!
