@@ -1,4 +1,4 @@
-# About teamtomo.org
+# About
 
 `teamtomo.org` was created by members of the 
 [Gutsche Lab](https://www.ibs.fr/research/research-groups/microscopic-imaging-of-complex-assemblies-mica-group-i-gutsche/?lang=fr) in an effort to improve the ability of the cryo-ET community to integrate newcomers. [#Teamtomo](https://twitter.com/hashtag/teamtomo) is often used by members of the Cryo-ET community to share info or ask questions on Twitter.

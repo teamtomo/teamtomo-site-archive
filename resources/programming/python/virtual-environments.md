@@ -1,4 +1,4 @@
-# A note about virtual environments
+# Virtual environments
 One Python installation may not be able to simultaneously meet the requirements of many interdependent packages,
 some of which may require newer and older versions of the same package.
 
