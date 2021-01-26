@@ -2,6 +2,13 @@
 # Learn more at https://jupyterbook.org/customize/toc.html
 - file: index
 
+- part: Teamtomo
+  chapters:
+    - file: teamtomo/about
+    - file: teamtomo/contributing/index
+      sections:
+          - file: teamtomo/contributing/git_guide
+    
 
 - part: General Principles
   chapters:
@@ -46,9 +53,4 @@
     - file: resources/cryoet_software.md
 
 
-- part: Teamtomo
-  chapters:
-    - file: teamtomo/contributing/index
-      sections:
-          - file: teamtomo/contributing/git_guide
-    - file: teamtomo/about
+
