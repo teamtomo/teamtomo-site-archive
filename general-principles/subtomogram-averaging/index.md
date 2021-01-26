@@ -1,1 +1,0 @@
-# Subtomogram averaging
