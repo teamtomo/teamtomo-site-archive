@@ -51,6 +51,9 @@
         - file: mini-tutorials/python/index
         - file: mini-tutorials/matlab/index
 
-- part: Contributing
+- part: Teamtomo
   chapters:
-    - file: contributing/contributing
+    - file: teamtomo/contributing/index
+      sections:
+          - file: teamtomo/contributing/git_guide
+    - file: teamtomo/about
