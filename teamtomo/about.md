@@ -1,6 +1,7 @@
-# about
+# About the project
 
-`teamtomo.org` was created in an effort to improve the ability of the cryo-ET community to integrate newcomers. [#teamtomo](https://twitter.com/hashtag/teamtomo) is often used by members of the Cryo-ET community to share info or ask questions on Twitter.
+`teamtomo.org` was established in an effort to improve the ability of the cryo-ET community to integrate newcomers. 
+[#teamtomo](https://twitter.com/hashtag/teamtomo) is often used by members of the Cryo-ET community to share info or ask questions on Twitter.
 
 The project is currently maintained by [Alister Burt](https://twitter.com/AlisterBurt) and [Lorenzo Gaifas](https://twitter.com/brisvag/), but the platform is intended to develop as a community effort. We plan to de-centralize maintenance as soon as possible, facilitating contributions from other parties and a more open, transparent platform. If you'd like to help us moving forward, please do get in touch!
 
