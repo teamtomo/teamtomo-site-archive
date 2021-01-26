@@ -11,8 +11,7 @@ This process is useful for
 A typical use case is shown for the lattice structure of 
 [*EMD-10160*](https://www.ebi.ac.uk/pdbe/entry/emdb/EMD-10160) in the image below. 
 
-
-![subboxing example](assets/subboxing.png)
+![subboxing example](subboxing.assets/subboxing.png)
 
 In this image, each white density is a receptor dimer in a chemosensory array. 
 

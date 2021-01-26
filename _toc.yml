@@ -14,11 +14,17 @@
   chapters:
     - file: general-principles/general-principles
     - file: general-principles/overviews/overviews
-    - file: general-principles/data-collection/introduction
+    - file: general-principles/tomography/index
+      sections:
+        - file: general-principles/tomography/tilt-schemes
+        - file: general-principles/tomography/tilt-series-alignment
     - file: general-principles/subtomogram-averaging/index
       sections: 
         - file: general-principles/subtomogram-averaging/preprocessing/index
         - file: general-principles/subtomogram-averaging/particle-picking/index
+          sections:
+            - file: general-principles/subtomogram-averaging/particle-picking/template-matching
+            - file: general-principles/subtomogram-averaging/particle-picking/subboxing
         - file: general-principles/subtomogram-averaging/refinement/index
     - file: general-principles/image-processing/introduction
 
@@ -44,13 +50,47 @@
         - file: mini-tutorials/dynamo/extract-from-catalogue
         - file: mini-tutorials/dynamo/dipoles-to-vesicles
         - file: mini-tutorials/dynamo/dtmslice-controls
-    - file: mini-tutorials/python/index
-    - file: mini-tutorials/matlab/index
 
 
 - part: Resources
   chapters:
-    - file: resources/cryoet_software.md
+    - file: resources/literature/index
+      sections:
+        - file: resources/literature/reviews/reviews
+          sections:
+            - file: resources/literature/reviews/schur19
+        - file: resources/literature/book-chapters/book-chapters
+          sections:
+            - file: resources/literature/book-chapters/subtomo-leigh19
+            - file: resources/literature/book-chapters/cryo-et-sta-wan16
+            - file: resources/literature/book-chapters/fiducial-alignments-mastronarde07
 
+    - file: resources/cryoet-software/cryoet-software
+      sections:
+        - file: resources/cryoet-software/cryolo
+        - file: resources/cryoet-software/dynamo
+        - file: resources/cryoet-software/eman
+        - file: resources/cryoet-software/emclarity
+        - file: resources/cryoet-software/imod
+        - file: resources/cryoet-software/m
+        - file: resources/cryoet-software/novactf
+        - file: resources/cryoet-software/novasta
+        - file: resources/cryoet-software/pytom
+        - file: resources/cryoet-software/relion
+        - file: resources/cryoet-software/stopgap
+        - file: resources/cryoet-software/warp
+
+    - file: resources/programming/index
+      sections:
+        - file: resources/programming/matlab/index
+          sections:
+            - file: resources/programming/matlab/add-to-path
+        - file: resources/programming/python/index
+          sections:
+            - file: resources/programming/python/getting-started
+            - file: resources/programming/python/virtual-environments
+            - file: resources/programming/python/useful-packages
+
+        
 
 
