@@ -8,29 +8,31 @@
     - file: teamtomo/contributing/index
       sections:
           - file: teamtomo/contributing/git_guide
+          - file: teamtomo/contributing/wishlist
     
 
-- part: General Principles
+- part: Theory
   chapters:
-    - file: general-principles/general-principles
-    - file: general-principles/overviews/overviews
-    - file: general-principles/tomography/index
+    - file: theory/overviews/overviews
+    - file: theory/tomography/index
       sections:
-        - file: general-principles/tomography/tilt-schemes
-        - file: general-principles/tomography/tilt-series-alignment
-    - file: general-principles/subtomogram-averaging/index
+        - file: theory/tomography/tilt-schemes
+        - file: theory/tomography/tilt-series-alignment
+    - file: theory/subtomogram-averaging/index
       sections: 
-        - file: general-principles/subtomogram-averaging/preprocessing/index
-        - file: general-principles/subtomogram-averaging/particle-picking/index
+        - file: theory/subtomogram-averaging/preprocessing/index
+        - file: theory/subtomogram-averaging/particle-picking/index
           sections:
-            - file: general-principles/subtomogram-averaging/particle-picking/template-matching
-            - file: general-principles/subtomogram-averaging/particle-picking/subboxing
-        - file: general-principles/subtomogram-averaging/refinement/index
-    - file: general-principles/image-processing/introduction
+            - file: theory/subtomogram-averaging/particle-picking/template-matching
+            - file: theory/subtomogram-averaging/particle-picking/subboxing
+        - file: theory/subtomogram-averaging/refinement/index
+    - file: theory/image-processing/introduction
 
 
-- part: Guides
+- part: Guides (long-form)
   chapters:
+    - file: guides/imod-tomo-guide/imod-tomo-guide.md
+
     - file: guides/EMPIAR-10164/introduction
       title: EMPIAR-10164 (HIV VLPs)
       sections:
@@ -41,12 +43,16 @@
         - file: guides/EMPIAR-10164/particle-picking
         - file: guides/EMPIAR-10164/relion
         - file: guides/EMPIAR-10164/m
+    - file: guides/emclarity/emclarity
+    - file: guides/EMAN2/eman2-user-guide.md
+    - file: guides/warp-m-user-guide/warp-m-user-guide.md
 
 
 - part: Mini-tutorials
   chapters:
     - file: mini-tutorials/dynamo/index
       sections:
+        - file: mini-tutorials/dynamo/alignment-setup
         - file: mini-tutorials/dynamo/extract-from-catalogue
         - file: mini-tutorials/dynamo/dipoles-to-vesicles
         - file: mini-tutorials/dynamo/dtmslice-controls
