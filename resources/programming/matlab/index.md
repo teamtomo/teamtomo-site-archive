@@ -6,4 +6,4 @@ This section exists because lots of early subtomogram averaging tools were origi
 
 [Dynamo](https://wiki.dynamo.biozentrum.unibas.ch/w/index.php/Main_Page) is also `MATLAB` based and contains many useful tools.
 
-- [adding scripts/functions to your PATH](add-to-path.md)
+Specific information can be found from links in the sidebar.

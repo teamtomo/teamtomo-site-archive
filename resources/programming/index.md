@@ -1,4 +1,4 @@
-# Programming
+# Scripting/programming
 
 As the cryo-ET software ecosystem matures, 
 it is often necessary to do some scripting to achieve your data processing goals.

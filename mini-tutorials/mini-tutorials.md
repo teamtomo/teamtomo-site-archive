@@ -1,3 +1,0 @@
-# Mini-tutorials
-
-Mini tutorials 
