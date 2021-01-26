@@ -2,7 +2,7 @@
 # Learn more at https://jupyterbook.org/customize/toc.html
 - file: index
 
-- part: Teamtomo
+- part: teamtomo.org
   chapters:
     - file: teamtomo/about
     - file: teamtomo/contributing/index
