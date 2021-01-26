@@ -26,12 +26,14 @@ Once the particle volumes are extracted for our two VLPs, we want to perform a f
 
 We run `dcp` from MATLAB to open the "Dynamo current project" GUI. This GUI is designed to be used in a sequential way: we will need to provide a few parameters before launching the project.
 
+For a full guide to setting up a simple subtomogram averaging project, click [here](../../mini-tutorials/dynamo/alignment-setup).
+
 1. `Project`: choose a name for the project
    Write `inimodel`, then press `Enter` and `Create a new project`.
 2. `particles`: select the data folder containing the previously extracted volumes
    Click `browse` and select the `inimodelData.Boxes` directory.
 3. `table`: choose a Dynamo table file containing particle metadata such as positions and orientations
-   When we cropped particles in the Dynamo catalogue, it created this metadata file for us and puts it inside the data folder. Click`look inside data folder` and pick the `crop.tbl` file.
+   When we cropped particles in the Dynamo catalogue, it created this metadata file for us and puts it inside the data folder. Click `look inside data folder` and pick the `crop.tbl` file.
 4. `template`: choose an initial template for alignment
    We currently don't have a template. In the `I want to create a template` section, select `use a randomly chosen set of particles`, set the number to `500` and click `average data` to compute an initial template.
 
@@ -49,6 +51,7 @@ We run `dcp` from MATLAB to open the "Dynamo current project" GUI. This GUI is d
 6. `numerical parameters`: set the numerical parameters for the alignment procedure.
     This section allows us to define many important numerical parameters for an alignment project. Dynamo alignment projects can be split into several rounds which will be executed one after the other. Within each round parameters include number of iterations, angular search ranges, shift limits, high- and low-pass filter limits, symmetry operators to apply to the reference and more.
 
+% need to add screenshot of alignment parameters here
 > At this stage, we don't enforce symmetry during refinement. We expect that any symmetry present should appear in an initial average. The assumption of symmetry is a useful tool but it reduces our ability to discern any asymmetries that may be present in the reconstruction. It should be applied only when you are sure that your object is symmetric and the possibility of unresolved asymmetry should be kept in mind.
 
 > Press `Alt` when a parameter is selected for a detailed description.

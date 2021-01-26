@@ -39,7 +39,8 @@ If you are using the standalone version of `Dynamo`, you can run `dcp` from the 
 
 ![name your project](alignment-setup.assets/dcp-1.png)
 ### Name your project
-Click in the box to the right of `Project name` and write a name for your project.
+Click in the box to the right of `Project name` and write a name for your project. 
+Choose something descriptive, it might help you remember what you did in a few months time!
 
 Hit `Enter`. In the dialogue box which pops up, confirm that you would like to create a new project by clicking `Create new project`.
 
