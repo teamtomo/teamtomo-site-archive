@@ -14,23 +14,11 @@ From the `Overview` tab in Warp, we quickly see that `TS_01` and `TS_03` have si
 
 ## Extracting a subset of particles
 
-To extract particles from the selected tomograms, open the dynamo catalogue manager by running `dcm` from the `dynamo` directory. Then load the `warp_catalogue`.
-
-Select `TS_01` and `TS_03`. In the menu, choose `Crop particles -> Open Volume List Manager` to open a list of all models.
-
-From the `selection` tab at the bottom of the window, we `pick` one `Vesicle` model from each volume. Then, choose a file name in the `Picked Volume list` (we use `inimodel.vll`) and make sure that the sidelength is set to 32.
+Extract particles from your `Dynamo` catalogue with a sidelength of `32` following the guide [here](../../mini-tutorials/dynamo/extract-from-catalogue).
 
 ```{note}
 A box sidelength of 32 corresponds to a 320$\AA$. While this is much larger than the expected 75$\AA$ inter-particle distance, signal from neighbouring particles in lattices can help to drive correct alignments at the beginning of a project. When working at smaller pixel sizes a bigger box can also help to avoid [CTF aliasing](???)
 ```
-
-To extract subvolumes, click the `create list` button to prepare a [volume list file](https://wiki.dynamo.biozentrum.unibas.ch/w/index.php/Volume_list_file) with the necessary information for particle extraction. Following this, clicking `Crop Particles` will open another GUI from which we can crop particles. 
-
-In the newly opened window, we select `data folder in dBoxes`, choose a name for the data folder then press the `start cropping` button. This will take several minutes.
-
-> Choosing to save the data as a dBoxes folder speeds things up when setting up subtomogram averaging projects in Dynamo, some checks run fairly slowly if there are too many files in one folder
-
-% screenshots here
 
 ## Aligning the particles
 
