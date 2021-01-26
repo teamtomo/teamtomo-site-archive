@@ -32,24 +32,19 @@
 
 - part: Mini-tutorials
   chapters:
-    - file: mini-tutorials/software-usage/index
+    - file: mini-tutorials/dynamo/index
       sections:
-        - file: mini-tutorials/software-usage/cryolo/index
-        - file: mini-tutorials/software-usage/dynamo/index
-        - file: mini-tutorials/software-usage/emclarity/index
-        - file: mini-tutorials/software-usage/eman/index
-        - file: mini-tutorials/software-usage/m/index
-        - file: mini-tutorials/software-usage/nova/index
-        - file: mini-tutorials/software-usage/pytom/index
-        - file: mini-tutorials/software-usage/relion/index
-        - file: mini-tutorials/software-usage/stopgap/index
-        - file: mini-tutorials/software-usage/warp/index
+        - file: mini-tutorials/dynamo/extract-from-catalogue
+        - file: mini-tutorials/dynamo/dipoles-to-vesicles
+        - file: mini-tutorials/dynamo/dtmslice-controls
+    - file: mini-tutorials/python/index
+    - file: mini-tutorials/matlab/index
 
 
-    - file: mini-tutorials/programming/index
-      sections:
-        - file: mini-tutorials/python/index
-        - file: mini-tutorials/matlab/index
+- part: Resources
+  chapters:
+    - file: resources/cryoet_software.md
+
 
 - part: Teamtomo
   chapters:
