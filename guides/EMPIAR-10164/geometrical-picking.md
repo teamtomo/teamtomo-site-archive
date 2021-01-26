@@ -68,12 +68,17 @@ Open up the catalogue `warp_catalogue` we just created using the `dcm` command. 
 
 We need to create our `dipoleSet` model. To create the model, use the `Model pool -> Create a new model in pool (choose type) -> Dipole set` menu options. The active model is now set to the new `dipoleSet` model and we are ready to annotate our VLPs.
 
+````{margin}
+```{admonition} See also
+:class: seealso
+For a full guide on how to interact with `dipoleSet` models, check out the relevant [wiki page](https://wiki.dynamo.biozentrum.unibas.ch/w/index.php/Dipole_set_models).
+```
+````
+
 Some of the shortcuts we need to know are:
 - `c` to set a center point for the current dipole
 - `n` to set a north point for the current dipole
 - `Enter` to save the current dipole and move to the next one
-
-> For a full guide on how to interact with `dipoleSet` models, check out the relevant [wiki page](https://wiki.dynamo.biozentrum.unibas.ch/w/index.php/Dipole_set_models).
 
 Move the slice in the tomogram and roughly pick the center point of each VLP by moving the cursor to that point and pressing `c`. Then, a point on the surface of the same vescicle and press `n` to define an edge point. A surface rendering of the defined sphere will appear; move the slice and look at the VLP from different orientations to make sure that the sphere matches the VLP well.
 
@@ -81,11 +86,16 @@ While this is trivial for intact vescicles, you will find that several vescicles
 
 ![dipole picking](https://i.ibb.co/N1K4GW1/dipole-picking.png)
 
-With this guide, we provide a short video of this `dipoleSet` model picking on `TS_03`, available as `dipoles_picking.mp4`.
+````{margin}
+```{admonition} Tip
+:class: tip
+To see a short demo on how we picked on `TS_03` and a more in-depth explanation on the `tomoslice` viewer, check out [this mini tutorial]().
+```
+````
 
 Once all the vescicles in a tomogram are picked, save the model by clicking on `Active Model -> Save active model into catalogue (disk)` or clicking the floppy disk icon in the menu bar.
 
-Close the tomoslice window and repeat the process for each tomogram.
+Close the tomoslice window and repeat the process for each tomogram.    
 
 > If Dynamo asks what to do with the model in pool memory and you already saved the model, choose to delete it. Dynamo may show some elements of the previous `dipoleSet` model when opening a new tomogram. This is a visualisation bug, and does not affect the creation of a new model.
 
