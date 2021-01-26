@@ -13,26 +13,38 @@
 
 - part: Theory
   chapters:
-    - file: theory/overviews/overviews
-    - file: theory/tomography/index
+    - file: theory/cryo-et/index
       sections:
-        - file: theory/tomography/tilt-schemes
-        - file: theory/tomography/tilt-series-alignment
+        - file: theory/cryo-et/tilt-schemes
+        - file: theory/cryo-et/tilt-series-alignment
     - file: theory/subtomogram-averaging/index
       sections: 
         - file: theory/subtomogram-averaging/preprocessing/index
         - file: theory/subtomogram-averaging/particle-picking/index
           sections:
             - file: theory/subtomogram-averaging/particle-picking/template-matching
+            - file: theory/subtomogram-averaging/particle-picking/geometrical-supports
             - file: theory/subtomogram-averaging/particle-picking/subboxing
         - file: theory/subtomogram-averaging/refinement/index
     - file: theory/image-processing/introduction
 
 
-- part: Guides (long-form)
+- part: Guides
   chapters:
-    - file: guides/imod-tomo-guide/imod-tomo-guide.md
+    - file: guides/dynamo/index
+      sections:
+        - file: guides/dynamo/starters-guide
+        - file: guides/dynamo/advanced-starters-guide
+        - file: guides/dynamo/tilt-series-alignment
+        - file: guides/dynamo/PCA
 
+    - file: guides/EMAN2/eman2-user-guide
+      sections:
+        - file: guides/EMAN2/full-tutorial
+        - file: guides/EMAN2/segmentation
+
+    - file: guides/emclarity/emclarity
+      
     - file: guides/EMPIAR-10164/introduction
       title: EMPIAR-10164 (HIV VLPs)
       sections:
@@ -43,9 +55,15 @@
         - file: guides/EMPIAR-10164/particle-picking
         - file: guides/EMPIAR-10164/relion
         - file: guides/EMPIAR-10164/m
-    - file: guides/emclarity/emclarity
-    - file: guides/EMAN2/eman2-user-guide.md
-    - file: guides/warp-m-user-guide/warp-m-user-guide.md
+
+    - file: guides/imod/index
+      sections:
+        - file: guides/imod/tomo-guide
+        - file: guides/imod/etomo-fiducial-tuto
+        - file: guides/imod/etomo-patch-track-tuto
+        - file: guides/imod/batch-alignment
+
+    - file: guides/warp-m-user-guide/warp-m-user-guide
 
 
 - part: Mini-tutorials
@@ -62,9 +80,14 @@
   chapters:
     - file: resources/literature/index
       sections:
+        - file: resources/literature/protocols/protocols
+
         - file: resources/literature/reviews/reviews
           sections:
             - file: resources/literature/reviews/schur19
+            - file: resources/literature/reviews/lucic08
+            - file: resources/literature/reviews/lucic05
+        
         - file: resources/literature/book-chapters/book-chapters
           sections:
             - file: resources/literature/book-chapters/subtomo-leigh19
