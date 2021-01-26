@@ -12,7 +12,7 @@ In the following sections, we will design and implement an approach to obtain a 
 
 Questions worth asking yourself repeatedly when designing an approach to a subtomogram averaging problem are *"what do we know?"*  and *"how can we make use of this?"*
 
-At this stage, looking at the deconvolved tomograms in any visualisation package (3dmod, dynamo_tomoslice, FIJI, napari) allows us to see that:
+At this stage, looking at the deconvolved tomograms in any visualisation package (`3dmod`, `dynamo_tomoslice`, `FIJI`, `napari`) allows us to see that:
 - the VLPs are nearly spherical
 - proteins on the surface of the VLPs form a hexagonal lattice on the membrane
 - the lattice spacing is roughly 7.5 nm
@@ -62,52 +62,11 @@ We need to annotate many spherical VLPs within each tomogram. Whilst we could ac
 
 Instead, we will take a shortcut - spheres can be completely defined by only two values, their centre point and their radius. We will create a `dipoleSet` model in each tomogram to annotate the centres and edge points of many VLPs quickly in just one model, then convert these `dipoleSet` models into oversampled vesicles with a function which we provide. 
 
-### Creating dipole set models
+### Tomogram annotation
 
-Open up the catalogue `warp_catalogue` we just created using the `dcm` command. Select the first tomogram, then in the menu choose `View volume -> full tomogram file in tomoslice`.
+Follow the guide for creating `dipoleSet` models and turning them into oversampled `Vesicle` models [here](../../mini-tutorials/dynamo/dipoles-to-vesicles).
 
-We need to create our `dipoleSet` model. To create the model, use the `Model pool -> Create a new model in pool (choose type) -> Dipole set` menu options. The active model is now set to the new `dipoleSet` model and we are ready to annotate our VLPs.
+Your expected inter-particle distance at this stage is ~7.5 nm, the lattice spacing we observed earlier.
 
-````{margin}
-```{admonition} See also
-:class: seealso
-For a full guide on how to interact with `dipoleSet` models, check out the relevant [wiki page](https://wiki.dynamo.biozentrum.unibas.ch/w/index.php/Dipole_set_models).
-```
-````
-
-Some of the shortcuts we need to know are:
-- `c` to set a center point for the current dipole
-- `n` to set a north point for the current dipole
-- `Enter` to save the current dipole and move to the next one
-
-Move the slice in the tomogram and roughly pick the center point of each VLP by moving the cursor to that point and pressing `c`. Then, a point on the surface of the same vescicle and press `n` to define an edge point. A surface rendering of the defined sphere will appear; move the slice and look at the VLP from different orientations to make sure that the sphere matches the VLP well.
-
-While this is trivial for intact vescicles, you will find that several vescicles are damaged or incomplete. As long as they retain a mostly spherical shape, and roughly more than half the capsid is present, we should pick them. We will attempt to remove any non-particles from the data based on geometrical constraints at a later step.
-
-![dipole picking](https://i.ibb.co/N1K4GW1/dipole-picking.png)
-
-````{margin}
-```{admonition} Tip
-:class: tip
-To see a short demo on how we picked on `TS_03` and a more in-depth explanation on the `tomoslice` viewer, check out [this mini tutorial]().
-```
-````
-
-Once all the vescicles in a tomogram are picked, save the model by clicking on `Active Model -> Save active model into catalogue (disk)` or clicking the floppy disk icon in the menu bar.
-
-Close the tomoslice window and repeat the process for each tomogram.    
-
-> If Dynamo asks what to do with the model in pool memory and you already saved the model, choose to delete it. Dynamo may show some elements of the previous `dipoleSet` model when opening a new tomogram. This is a visualisation bug, and does not affect the creation of a new model.
-
-### Convert dipoleSet models into oversampled Vesicle models
-
-Once all the dipole models are picked, we can convert them into oversampled `Vesicle` models. For this, we will use the `dipoles2vescicles.m` script provided with this tutorial. The script generates a Dynamo `Vescicle` model for every dipole in each `dipoleSet` model in a catalogue.
-
-> We urge interested readers to look at the provided scripts rather than running them blindly; this will help when it comes to tackling the problems posed by your own data!
-
-To generate the `Vesicle` models, from the `dynamo` directory run:
-```matlab
-dipoles2vescicles('warp_catalogue', 7.5)
-```
-
-
+% TODO: add image here of vesicle definition
+% TODO: add video link here Lorenzo
