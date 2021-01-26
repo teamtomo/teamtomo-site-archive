@@ -85,11 +85,21 @@
         - file: resources/programming/matlab/index
           sections:
             - file: resources/programming/matlab/add-to-path
+      
         - file: resources/programming/python/index
           sections:
             - file: resources/programming/python/getting-started
             - file: resources/programming/python/virtual-environments
             - file: resources/programming/python/useful-packages
+        - file: resources/programming/python/useful-packages
+          sections:
+            - file: resources/programming/python/useful-packages/dynamotable
+            - file: resources/programming/python/useful-packages/emfile
+            - file: resources/programming/python/useful-packages/eulerangles
+            - file: resources/programming/python/useful-packages/mrcfile
+            - file: resources/programming/python/useful-packages/napari
+            - file: resources/programming/python/useful-packages/starfile
+
 
         
 
