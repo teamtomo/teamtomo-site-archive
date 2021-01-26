@@ -17,7 +17,7 @@ git lfs install
 Navigate to the folder in which you would like the project to be stored in your filesystem then run the following command to clone the files locally:
 
 ```bash
-git clone https://github.com/<your-username>/open-subtomo.git
+git clone https://github.com/<your-username>/tamtomo.github.io.git
 cd open-subtomo
 ```
 
@@ -65,6 +65,7 @@ Replace <my-contribution> with whatever you prefer to call this branch.
 
 Your contribution should now be present on your GitHub page. 
 To propose merging your contribution into the main project, 
-go to your version of the project on GitHub and click the `Compare & pull request button`.
+go to your version of the project on GitHub and click the `Compare & pull request` button.
 Make sure that you are "Comparing across forks" and that the repository on the left is `teamtomo/teamtomo.github.io:master`, while the one on the right is `<your-username>/teamtomo.github.io:<my-contribution>`.
+
 Then, fill in some information about your contribution and click `Create pull request`.
