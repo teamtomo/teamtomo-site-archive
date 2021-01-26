@@ -17,7 +17,7 @@ git lfs install
 Navigate to the folder in which you would like the project to be stored in your filesystem then run the following command to clone the files locally:
 
 ```bash
-git clone https://github.com/<your-username>/tamtomo.github.io.git
+git clone https://github.com/<your-username>/teamtomo.github.io.git
 cd open-subtomo
 ```
 
