@@ -35,9 +35,12 @@ If you haven't used `dtmslice` before, get familiar by reading [this page](dtmsl
 - `n` to set a north point for the current dipole
 - `Enter` to save the current dipole and move to the next one
 
-```{note}
+````{margin}
+```{admonition} See also
+:class: seealso
 For a full guide on how to interact with `dipoleSet` models, check out the relevant [wiki page](https://wiki.dynamo.biozentrum.unibas.ch/w/index.php/Dipole_set_models).
 ```
+````
 
 ### Create a `dipoleSet` model
 
@@ -131,12 +134,14 @@ function vesicles_from_dipoles(model_file, expected_inter_particle_distance)
 end
 ```
 
-To generate the `Vesicle` models from a catalogue called `catalogue` with an expected inter-particle distance of `7.5`  we would run the following command from the folder containing the catalogue:
+To generate the `Vesicle` models from a catalogue called `catalogue` with an expected inter-particle distance of `7.5`px we would run the following command from the folder containing the catalogue:
 
 ```matlab
 dipoles2vescicles('catalogue', 7.5)
 ```
 
+````{margin}
 ```{note}
 If you aren't sure how to use the provided function, check out [this page](../../../programming/matlab/add-to-path)
 ```
+````
