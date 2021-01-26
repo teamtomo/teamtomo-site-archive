@@ -2,30 +2,30 @@
 
 The tomograms are reconstructed and ready for further analysis. Warp includes a template matching procedure, but what if we don't know what our object of interest looks like yet? 
 
----
-
 In biological systems, particles often have a spatial relationship with an underlying supporting geometry such as a membrane, filament or vescicle.
 
-Exploiting this prior knowledge about the geometry of a system is often useful in subtomogram averaging, reducing both the computational burden and  the ability of particles to end up in obviously wrong positions after an iterative refinement procedure. 
+Exploiting this prior knowledge about the geometry of a system is often useful in subtomogram averaging, reducing both the computational burden and the risk of particles ending up in obviously wrong positions after an iterative refinement procedure.
 
----
-
-In the following sections, we will design and implement an approach to obtain a reconstruction of these lattices, employing prior knowledge about the geometry of the system to drive the subtomogram averaging procedure and enforce a correct final solution. We aim to demonstrate some key principles for producing produce accurate reconstructions from your data *ab initio*.
+In the following sections, we will design and implement an approach to obtain a reconstruction of these lattices, employing prior knowledge about the geometry of the system to drive the subtomogram averaging procedure and enforce a correct final solution. We aim to demonstrate some key principles for producing accurate reconstructions from your data *ab initio*.
 
 ## What do we know and how can we use it?
 
-Question worth asking yourself repeatedly when designing an approach to a subtomogram averaging problem are *"what do we know?"*  and *"how can we make use of this?"*
+Questions worth asking yourself repeatedly when designing an approach to a subtomogram averaging problem are *"what do we know?"*  and *"how can we make use of this?"*
 
 At this stage, looking at the deconvolved tomograms in any visualisation package (3dmod, dynamo_tomoslice, FIJI, napari) allows us to see that:
 - the VLPs are nearly spherical
 - proteins on the surface of the VLPs form a hexagonal lattice on the membrane
 - the lattice spacing is roughly 7.5 nm
 
-Can we use this information to help us in our efforts to reconstruct this lattice structure? Absolutely! 
+````{margin}
+```{note}
+While the lattice spacing is about 7.5 nm, to be sure that we don't miss any particles in the lattice we will oversample the sphere relative to this spacing - we can always remove any duplicates later.
+```
+````
+
+We can use this information to help us in our efforts to reconstruct this lattice structure:
 - We can generate initial estimates for particle positions as points on a sphere centered on a VLP with the correct radius. These positions will be incorrect but particles extracted at these positions will contain our lattice structure. 
 - The lattice is always parallel to the membrane, imparting an orientation normal to the surface of the sphere  onto each particle will provide a consistent estimate for the initial orientation of the particles in the lattice.
-
-- We know that we have a lattice spacing of roughly 7.5 nm, to be sure that we will not miss any particles in the lattice we should oversample the sphere relative to this spacing - we can always remove any duplicates later. 
 
 Dynamo contains many geometrical modelling tools which can help with these geometrical approaches to subtomogram averaging projects. We will make use of a limited subset of these tools in this tutorial, for an overview of the available geometrical models please see [here](https://wiki.dynamo.biozentrum.unibas.ch/w/index.php/Model#Types_of_models). Becoming familiar with the available tools and thinking about how you can use the geometry of your system to your advantage will help with many subtomogram averaging projects. Below, we used `dynamo_tomoslice` to  estimate the lattice spacing in our tomograms, this tool will be introduced shortly.
 
