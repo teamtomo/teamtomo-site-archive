@@ -1,22 +1,20 @@
 # Particle pose optimisation
 
-Now that we have a set of particles that appears to be free of duplicates and matches our geometrical understanding of the system we can proceed to refine the particle positions and orientations with the aim of producing a higher resolution average.
+Now that we have a set of particles that's mostly free of duplicates and matches our geometrical understanding of the system, we can proceed to refine the particle positions and orientations with the aim of producing a higher resolution average.
 
 In this section, we will:
-- Extract particles in Warp at 5Å/px
+- Extract particles in Warp at 5$Å/px$
 - Align these particles by subtomogram averaging in RELION
-- Repeat the previous two steps at 1.6Å/px
+- Repeat the previous two steps at 1.6$Å/px$
 
 ````{margin}
-```{admonition} Tip
-:class: tip
+```{tip}
 Subtomogram averaging becomes very slow when performing refinements with lots of particles in larger boxes. Stepping the pixel size down gradually allows us to move more quickly and react to any problems which may come up when working on more complex data.
 ```
 ````
 
-```{admonition} A note on pixel size
-:class: attention
-We extracted at 1.6Å/px rather than 1.35Å/px due to memory limitations. Warp employs a defocus dependent mechanism to reduce the effects of CTF aliasing, the large number of particles per field-of-view is particularly demanding at such a small pixel size and can lead to memory issues. Unless extracting at a very small pixel size, you are unlikely to encounter these issues when working with your own data.
+```{attention} A note on pixel size
+We extracted at 1.6$Å/px$ rather than 1.35$Å/px$ due to memory limitations. Warp employs a defocus dependent mechanism to reduce the effects of CTF aliasing, the large number of particles per field-of-view is particularly demanding at such a small pixel size and can lead to memory issues. Unless extracting at a very small pixel size, you are unlikely to encounter these issues when working with your own data.
 ```
 
 ## Extract subtomograms in Warp at 5$Å/px$
@@ -27,26 +25,29 @@ We need to convert our particle positions and orientations in the dynamo metadat
 
 In a terminal, run:
 ```bash
-dynamo2warp -i result_10Apx_nodup_neighbourcleaning.tbl -tm ../../../../oversampledData.Boxes/indices_column20.doc -o result_15Apx_nodup_neighbourcleaning_data.star
+dynamo2warp -i result_10Apx_nodup_neighbourcleaning.tbl -tm ../../../../oversampledData.Boxes/indices_column20.doc -o result_10Apx_nodup_neighbourcleaning_data.star
 ```
 
 ### Extraction in Warp
-We can now use the generated `.star` file to extract subtomograms in Warp. To start the extraction, make sure Warp is in `*.tomostar` mode, then click on the `Reconstruct sub-tomograms` button at the top of the screen in the `Overview` tab. A dialog will open: fill in the settings as follows:
+We can now use the generated `.star` file to extract subtomograms in Warp. To start the extraction, make sure Warp is in `*.tomostar` mode, then click on the `Reconstruct sub-tomograms` button at the top of the screen in the `Overview` tab and select `result_10Apx_nodup_neighbourcleaning_data.star`. A dialog will open; fill in the settings as follows, making sure the radio buttons all selected correctly:
 
-- ???
-
-When ready, click on `???`. To prepare the directory structure for relion, we will choose to put the output `.star` file inside a new `root/relion` folder and call it `subtomograms_5Apx.star`.
+````{margin}
+```{note}
+We extract in a box twice as large because we have halved the pixel spacing.
+```
+````
 
 ![extract subtomograms](https://i.ibb.co/KKMwDqJ/subtomo-extraction.png)
 
-We extract in a box twice as large because we have halved the pixel spacing.
-
+When ready, click on `EXPORT`. To prepare the directory structure for relion, we will choose to put the output `.star` file inside a new `root/relion` folder and call it `subtomograms_5Apx.star`.
 
 ## 3D auto-refine in RELION
 
 We can now perform a gold standard automatic refinement of the whole dataset at 5$Å/px$ in RELION. Moving to RELION at this stage simplifies the workflow as Warp and M were designed to work directly with RELION.
 
-> By default, Dynamo uses a binary wedge model to account for the sampling of information in Fourier space for each subtomogram. Warps CTF volumes are designed for use with RELION and should yield more accurate weighting of Fourier coefficients during reconstruction. A small summary of the authors opinions on the advantages and limitations of alignment procedures in each software package is provided as an appendix to this guide.
+```{note}
+By default, Dynamo uses a binary wedge model to account for the sampling of information in Fourier space for each subtomogram. Warps CTF volumes are designed for use with RELION and should yield more accurate weighting of Fourier coefficients during reconstruction.
+```
 
 Before alignment, we need to create an initial template map. We first select a random subset of particles with simple bash commands:
 ```bash
@@ -56,26 +57,39 @@ head subtomograms_5Apx.star -n 30 > random_subset_5Apx.star
 tail subtomograms_5Apx.star -n +31 | shuf -n 500 >> random_subset_5Apx.star
 ```
 
-Then, we use *relion_reconstruct* from the command line to average them. We need to make sure to appropriately weight the reconstruction according to the CTF volumes and tell the program that we are working with 3D images.
+Then, we use `relion_reconstruct` from the command line to average them. We need to make sure to appropriately weight the reconstruction according to the CTF volumes and tell the program that we are working with 3D images.
+
+````{margin}
+```{tip}
+To get the help page of any relion command, simply run it without options.
+```
+````
+
 ```bash
 relion_reconstruct --i random_subset_5Apx.star --o random_subset_5Apx.mrc --3d_rot --ctf
 ```
 
-> This step also serves as a useful sanity check. The resulting reconstruction should look like the hexagonal lattice we have seen previously. If it doesn't, something went wrong, check your parameters carefully for each step.
+This step also serves as a useful sanity check. The resulting reconstruction should look like the hexagonal lattice we have seen previously. If it doesn't, something went wrong: check your parameters carefully for each step.
 
-### Alignment parameters
+### Alignment in RELION
 
 To start the project, run *relion* from the `relion` directory.
 ```bash
 relion
 ```
 
-We then set up a 3D auto-refine job with the following parameters
+We then set up a 3D auto-refine job as following:
 
+````{margin}
+```{note}
+We will refine without a mask for now as this refinement serves only to make sure that the particles remain well centered and we expect to go significantly beyond 10A.
 ![relion 1](https://i.ibb.co/Vm8yS3Y/relion-1.png)
+```
+````
 
-We could use a mask at this stage, this can be useful when trying to optimise refinement of a subregion (such as the central hexamer). We will refine without a mask for now as this refinement serves only to make sure that the particles remain well centered and we expect to go significantly beyond 10A.
+```{tabbed} Thing
 ![relion 2](https://i.ibb.co/FHMQ5Y5/relion-2.png)
+```
 
 We use a conservative initial lowpass of 30A to avoid overfitting
 
@@ -123,6 +137,7 @@ Save the file in the `relion` directory as `subtomograms_1.6Apx.star`
 - better focus for refinement
 - must be soft edged to avoid FSC artifacts
 
+Mask: can be useful when trying to optimise refinement of a subregion (such as the central hexamer). 
 
 ```matlab
 dpkdev.legacy.dynamo_mapview()
