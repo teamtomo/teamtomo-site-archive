@@ -27,8 +27,6 @@ First, we need to open `Dynamo`, either by activating it in `MATLAB` or using
 ### Open the `dcp` gui
 The `dcp` GUI is the main tool in `Dynamo` for interactively designing subtomogram averaging experiments.
 
-To open the GUI simply run `dcp` from your `Dynamo` shell.
-
 ````{margin}
 ```{admonition} Tip!
 :class: tip
@@ -36,13 +34,17 @@ If you are using the standalone version of `Dynamo`, you can run `dcp` from the 
 `dynamo >> dcp`.
 ```
 ````
+To open the GUI simply run `dcp` from your `Dynamo` shell.
 
-![name your project](alignment-setup.assets/dcp-1.png)
+![open the gui image](alignment-setup.assets/dcp-1.png)
+
 ### Name your project
 Click in the box to the right of `Project name` and write a name for your project. 
 Choose something descriptive, it might help you remember what you did in a few months time!
 
 Hit `Enter`. In the dialogue box which pops up, confirm that you would like to create a new project by clicking `Create new project`.
+
+![name your project image]()
 
 ### Input files
 #### Input your particles
@@ -79,15 +81,16 @@ The classification mask defines a masked region of real space in which cross cor
 The Fourier mask for the template defines the region of Fourier space in which you have information in your template (reference) volume.
 The Fourier shell correlation mask defines a masked region of real space in which Fourier shell calculations will be calculated.
 
-Each mask can be created from the GUI directly, or an external mask can be provided. The classification mask and the Fourier shell correlation mask are not
-relevant for simple, single reference alignment projects such as the one we are setting up.
-
 ````{margin}
 ```{admonition} Tip!
 :class: tip
 You can check that your mask properly covers your template using the `View mask -> overlay x/y/z` menu options.
 ```
 ````
+Each mask can be created from the GUI directly, or an external mask can be provided. The classification mask and the Fourier shell correlation mask are not
+relevant for simple, single reference alignment projects such as the one we are setting up.
+
+
 
 ### Alignment parameters
 
@@ -95,7 +98,13 @@ From the `dcp` GUI click `numerical parameters` in the `Input: settings` row. Th
 
 ![numerical parameters gui](alignment-setup.assets/numerical-params.png)
 
+
 Key points:
+````{sidebar} Think about your search parameters
+You should think carefully about how much you allow particles to move during an iterative alignment experiment. Particles have a tendency to 'wander off' in low SNR environments, restricting the evolution of shifts appropriately (`shift limiting way` 3 or 4) can reduce this problem. 
+
+If your angular parameters come from a geometrical model, restricting angular searches ensures the particles do not deviate too much from initial estimates.
+````
 - Hit `alt` on your keyboard or the `?` button for more info on a parameter
 - Alignment projects can be split up into rounds with different alignment parameters
 - Each round can have an arbitrary number of iterations
@@ -104,11 +113,7 @@ Key points:
 - Shifts are x, y, z shifts in the reference frame of each experimental particle
 - The evolution of particle positions can be restricted using the `shift limiting way` option.
 
-````{sidebar} Think about your search parameters
-You should think carefully about how much you allow particles to move during an iterative project. Particles have a tendency to 'wander off' in low SNR environments, restricting the evolution of shifts appropriately (`shift limiting way` 3 or 4) can reduce this problem. 
 
-If your angular parameters come from a geometrical model, restricting angular searches ensures the particles do not deviate too much from initial estimates.
-````
 
 You can get a depiction of your current angular search parameters from the `Angles -> Show sketch of scanning angles -> Round X` menu options.
 
@@ -117,14 +122,15 @@ Computational parameters are used to tell the projects what it needs to know abo
 
 Click `computing environment` from the `dcp` GUI, a new window will open in which parameters can be edited.
 
+
+
+#### Hardware
 ````{margin}
 ```{admonition} Tip!
 :class: tip
-Running projects in the `standalone` modus' (modi?) leaves your `Dynamo` shell free for designing projects, making masks and performing other analyses.
+Running projects in the `standalone` modus leaves your `Dynamo` shell free for designing projects, making masks and performing other analyses.
 ```
 ````
-
-#### Hardware
 First, choose the hardware on which you will be running your alignment project. We typically use `GPU (standalone)`.
 
 ```{admonition} Important
