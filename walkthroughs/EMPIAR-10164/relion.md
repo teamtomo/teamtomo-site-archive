@@ -83,14 +83,14 @@ We then set up a 3D auto-refine job as following:
 ````{margin}
 ```{note}
 We will refine without a mask for now as this refinement serves only to make sure that the particles remain well centered and we expect to go significantly beyond 10A.
-![relion 1](https://i.ibb.co/Vm8yS3Y/relion-1.png)
 ```
 ````
 
 ```{tabbed} Thing
-![relion 2](https://i.ibb.co/FHMQ5Y5/relion-2.png)
+![relion 1](https://i.ibb.co/Vm8yS3Y/relion-1.png)
 ```
 
+![relion 2](https://i.ibb.co/FHMQ5Y5/relion-2.png)
 We use a conservative initial lowpass of 30A to avoid overfitting
 
 ![relion 3](https://i.ibb.co/TW7FpqY/relion-3.png)
