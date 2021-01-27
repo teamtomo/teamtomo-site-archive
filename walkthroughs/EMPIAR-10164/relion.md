@@ -1,4 +1,4 @@
-# Particle pose optimisation in RELION
+# Particle pose optimisation
 
 Now that we have a set of particles that appears to be free of duplicates and matches our geometrical understanding of the system we can proceed to refine our particle positions and orientations with the aim of producing a higher resolution average. 
 

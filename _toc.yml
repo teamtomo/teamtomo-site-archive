@@ -29,44 +29,23 @@
     - file: theory/image-processing/introduction
 
 
-- part: Guides
+- part: Walkthroughs
   chapters:
-    - file: guides/dynamo/index
-      sections:
-        - file: guides/dynamo/starters-guide
-        - file: guides/dynamo/advanced-starters-guide
-        - file: guides/dynamo/tilt-series-alignment
-        - file: guides/dynamo/PCA
 
-    - file: guides/EMAN2/eman2-user-guide
-      sections:
-        - file: guides/EMAN2/full-tutorial
-        - file: guides/EMAN2/segmentation
-
-    - file: guides/emclarity/emclarity
-      
-    - file: guides/EMPIAR-10164/introduction
+    - file: walkthroughs/EMPIAR-10164/introduction
       title: EMPIAR-10164 (HIV VLPs)
       sections:
-        - file: guides/EMPIAR-10164/preparation
-        - file: guides/EMPIAR-10164/preprocessing
-        - file: guides/EMPIAR-10164/geometrical-picking
-        - file: guides/EMPIAR-10164/ini-model
-        - file: guides/EMPIAR-10164/particle-picking
-        - file: guides/EMPIAR-10164/relion
-        - file: guides/EMPIAR-10164/m
-
-    - file: guides/imod/index
-      sections:
-        - file: guides/imod/tomo-guide
-        - file: guides/imod/etomo-fiducial-tuto
-        - file: guides/imod/etomo-patch-track-tuto
-        - file: guides/imod/batch-alignment
-
-    - file: guides/warp-m-user-guide/warp-m-user-guide
+        - file: walkthroughs/EMPIAR-10164/preparation
+        - file: walkthroughs/EMPIAR-10164/preprocessing
+        - file: walkthroughs/EMPIAR-10164/geometrical-picking
+        - file: walkthroughs/EMPIAR-10164/ini-model
+        - file: walkthroughs/EMPIAR-10164/particle-picking
+        - file: walkthroughs/EMPIAR-10164/relion
+        - file: walkthroughs/EMPIAR-10164/m
 
 
-- part: Mini-tutorials
+
+- part: mini-tutorials
   chapters:
     - file: mini-tutorials/dynamo/index
       sections:
@@ -75,61 +54,75 @@
         - file: mini-tutorials/dynamo/dipoles-to-vesicles
         - file: mini-tutorials/dynamo/dtmslice-controls
 
+- part: computing
+  chapters:
+    - file: resources/programming/python/index
+      sections:
+        - file: resources/programming/python/getting-started
+        - file: resources/programming/python/virtual-environments
+        - file: resources/programming/python/useful-packages/useful-packages
+          sections:
+            - file: resources/programming/python/useful-packages/dynamotable
+            - file: resources/programming/python/useful-packages/emfile
+            - file: resources/programming/python/useful-packages/eulerangles
+            - file: resources/programming/python/useful-packages/mrcfile
+            - file: resources/programming/python/useful-packages/napari
+            - file: resources/programming/python/useful-packages/starfile
+    - file: resources/programming/matlab/index
+      sections:
+        - file: resources/programming/matlab/add-to-path
+  
 
 - part: Resources
   chapters:
     - file: resources/literature/index
       sections:
         - file: resources/literature/protocols/protocols
-
         - file: resources/literature/reviews/reviews
           sections:
             - file: resources/literature/reviews/schur19
             - file: resources/literature/reviews/lucic08
             - file: resources/literature/reviews/lucic05
-        
         - file: resources/literature/book-chapters/book-chapters
           sections:
             - file: resources/literature/book-chapters/subtomo-leigh19
             - file: resources/literature/book-chapters/cryo-et-sta-wan16
             - file: resources/literature/book-chapters/fiducial-alignments-mastronarde07
-
     - file: resources/cryoet-software/cryoet-software
       sections:
-        - file: resources/cryoet-software/cryolo
-        - file: resources/cryoet-software/dynamo
-        - file: resources/cryoet-software/eman
-        - file: resources/cryoet-software/emclarity
-        - file: resources/cryoet-software/imod
-        - file: resources/cryoet-software/m
-        - file: resources/cryoet-software/novactf
-        - file: resources/cryoet-software/novasta
-        - file: resources/cryoet-software/pytom
-        - file: resources/cryoet-software/relion
-        - file: resources/cryoet-software/stopgap
-        - file: resources/cryoet-software/warp
-
-    - file: resources/programming/index
-      sections:
-        - file: resources/programming/python/index
+        - file: resources/cryoet-software/cryolo/cryolo
+        - file: resources/cryoet-software/dynamo/dynamo
           sections:
-            - file: resources/programming/python/getting-started
-              sections:
-                - file: resources/programming/python/virtual-environments
-                
-            - file: resources/programming/python/useful-packages/useful-packages
-              sections:
-                - file: resources/programming/python/useful-packages/dynamotable
-                - file: resources/programming/python/useful-packages/emfile
-                - file: resources/programming/python/useful-packages/eulerangles
-                - file: resources/programming/python/useful-packages/mrcfile
-                - file: resources/programming/python/useful-packages/napari
-                - file: resources/programming/python/useful-packages/starfile
-
-
-        - file: resources/programming/matlab/index
+            - file: resources/cryoet-software/dynamo/starters-guide
+            - file: resources/cryoet-software/dynamo/advanced-starters-guide
+            - file: resources/cryoet-software/dynamo/tilt-series-alignment
+            - file: resources/cryoet-software/dynamo/PCA
+        - file: resources/cryoet-software/eman2/eman2
           sections:
-            - file: resources/programming/matlab/add-to-path
+            - file: resources/cryoet-software/eman2/full-tutorial
+            - file: resources/cryoet-software/eman2/segmentation
+        - file: resources/cryoet-software/emclarity/emclarity
+          sections:
+            - file: resources/cryoet-software/emclarity/tutorial
+        - file: resources/cryoet-software/imod/imod
+          sections:
+            - file: resources/cryoet-software/imod/tomo-guide
+            - file: resources/cryoet-software/imod/etomo-fiducial-tuto
+            - file: resources/cryoet-software/imod/etomo-patch-track-tuto
+            - file: resources/cryoet-software/imod/batch-alignment
+        - file: resources/cryoet-software/m/m
+          sections:
+            - file: resources/cryoet-software/m/user-guide
+        - file: resources/cryoet-software/novactf/novactf
+        - file: resources/cryoet-software/novasta/novasta
+        - file: resources/cryoet-software/pytom/pytom
+        - file: resources/cryoet-software/relion/relion
+        - file: resources/cryoet-software/stopgap/stopgap
+        - file: resources/cryoet-software/warp/warp
+          sections:
+            - file: resources/cryoet-software/warp/user-guide
+
+
       
 
 
