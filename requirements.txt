@@ -1,5 +1,4 @@
-jupyter-book
-jupyter-cache==0.4.2 # force this to stop dependency resolution problems in deployment
-jupytext
-ghp-import
-sphinx_inline_tabs
+jupyter-book>=0.9.1
+jupytext>=1.9.1
+ghp-import>=1.0.0
+sphinx_inline_tabs>=2020.10.19b4
