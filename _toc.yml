@@ -52,6 +52,7 @@
         - file: mini-tutorials/dynamo/extract-from-catalogue
         - file: mini-tutorials/dynamo/dipoles-to-vesicles
         - file: mini-tutorials/dynamo/dtmslice-controls
+        - file: mini-tutorials/dynamo/interactive-mask-creation
 
 
 - part: computing
