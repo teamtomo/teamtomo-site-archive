@@ -81,39 +81,70 @@ relion
 We then set up a 3D auto-refine job as following:
 
 ````{margin}
-```{note}
-We will refine without a mask for now as this refinement serves only to make sure that the particles remain well centered and we expect to go significantly beyond 10A.
+```{tip}
+To learn more about the meaning of each option, click on the question marks on the right!
 ```
 ````
 
-```{tabbed} Thing
+````{panels}
+:column: col-20
+:card: border-2
+
+```{tabbed} I/O
+We will refine without a mask for now as this refinement serves only to make sure that the particles remain well centered and we expect to go significantly beyond 10Å.
+
 ![relion 1](https://i.ibb.co/Vm8yS3Y/relion-1.png)
 ```
 
-![relion 2](https://i.ibb.co/FHMQ5Y5/relion-2.png)
-We use a conservative initial lowpass of 30A to avoid overfitting
+```{tabbed} Reference
+We use a conservative initial lowpass of 30Å to avoid overfitting, and C6 symmetry based on our understanding of the lattice from the inital model generation.
 
+![relion 2](https://i.ibb.co/FHMQ5Y5/relion-2.png)
+```
+
+```{tabbed} CTF
 ![relion 3](https://i.ibb.co/TW7FpqY/relion-3.png)
+```
+
+```{tabbed} Optimisation
+We use a particle diameter covering the whole box to continue making use of the signal from neighbouring hexamers to drive alignment. We will change this once we start aiming for more optimal refinements focussed on the central hexamer.
 
 ![relion 4](https://i.ibb.co/PTQvLf3/relion-4.png)
+```
 
-We use a particle diameter here covering the whole box to continue making use of the signal from neighbouring hexamers to drive alignment, we will change this once we start aiming for more optimal refinements focussed on teh central hexamer.
-
+```{tabbed} Auto-sampling
 ![relion 5](https://i.ibb.co/tz5QxZG/relion-5.png)
+```
 
+```{tabbed} Helix
+Leave this disabled, we are not doing helix refinement in this case.
+```
+
+```{tabbed} Compute
 ![relion 6](https://i.ibb.co/8D9Rw1D/relion-6.png)
+```
 
-![relion 7](https://i.ibb.co/M8WBk0X/relion-7.png)
-
-The specific computational parameters will depend upon the configuration of your computing resources. Here, we are running on a computer with 
+```{tabbed} Running
+The specific computational parameters will depend upon the configuration of your computing resources. Here, we are running on a cluster node with:
 
 - 4 x GeForce GTX 1080 TI GPUs 
 - 16 x E5-2620 v4 2.10GHz CPUs (2 threads per core)
 - 256GB RAM
 
-Once ready, click on `Run!` to start processing. This will take several hours.
+and which uses `slurm` to manage its jobs.
+
+![relion 7](https://i.ibb.co/M8WBk0X/relion-7.png)
+
+Once ready, click on `Run!` to start processing. **This will take several hours**!
+```
+
+````
 
 ## Subtomogram extraction at 1.6$Å/px$
+
+```{attention}
+32GB of RAM **is not enough** to extract at this resolution. We did this with 128GB, but 64 might be enough.
+```
 
 Once the alignment at 5$Å/px$ is done, we can repeat the procedure at a smaller pixel size allowing us to obtain a higher resolution reconstruction. We use Warp to reextract sutomograms at 1.6$Å/px$ using the `*_data.star` from the refinement at 5$Å/px$ then rerun the alignments in Relion.
 
@@ -124,9 +155,13 @@ relion_star_downgrade -s run_it023_data.star
 
 From the new file, we can now extract subtomograms from Warp, similarly to how we did last time. This time, the input coordinates use 5$Å/px$ and the output should be scaled to 1.6$Å/px$.
 
-Since now we want to be able to refine the central particle to high resolution, we should reduce the relative box size: this will prevent the small differences between neighbours to affect the alignment of the central particle. A box size of 128$px$ is a bit smaller relatively to the previous one, while still big enough for our particle.
+````{margin}
+```{tip}
+If possible, it is better to keep the box size to powers of 2, to maximise computational efficiency.
+```
+````
 
-> If possible, it is better to keep the box size to powers of 2, to maximise computational efficiency.
+Since now we want to be able to refine the central particle to high resolution, we should reduce the relative box size: this will prevent the small differences between neighbours to affect the alignment of the central particle. A box size of 128$px$ is a bit smaller relatively to the previous one, while still big enough for our particle.
 
 Save the file in the `relion` directory as `subtomograms_1.6Apx.star`
 
@@ -134,16 +169,18 @@ Save the file in the `relion` directory as `subtomograms_1.6Apx.star`
 
 ## Refinement Mask
 
+Differently from the previous refinement step, we should now use a mask to focus the refinement to a volume near the central examer. This allows us to reach higher resolution by accounting for local flexibility in the lattice structure.
+
+To generate a mask...
+
 - better focus for refinement
 - must be soft edged to avoid FSC artifacts
-
-Mask: can be useful when trying to optimise refinement of a subregion (such as the central hexamer). 
 
 ```matlab
 dpkdev.legacy.dynamo_mapview()
 ```
 
-- dynamo low pass filter, central cylinder of 160A
+- dynamo low pass filter, central cylinder of 160Å
     - band 0-10. layer to see, apply, save (as mrc!)
 
 ```bash
@@ -152,3 +189,10 @@ relion_image_handler --i mask_1.6Apx.mrc --sym C6 --o mask_1.6Apx_c6.mrc
 ```
 
 ## Refinement at 1.6$Å/px$
+
+Now that we have a mask, we can set up a relion 3D auto-refine job like we did before. A few parameters require changes:
+- change the name to `refine_1.6Apx`
+- inputs should now be the `1.6Apx` files we generated earlier, and we should provide the new reference mask.
+- the inital low pass filter can be lowered to %?
+- the mask diameter should be lowered to %? to match the new box size
+- 
