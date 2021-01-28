@@ -8,7 +8,6 @@
     - file: teamtomo/contributing/index
       sections:
           - file: teamtomo/contributing/git_guide
-          - file: teamtomo/contributing/screen-capture
           - file: teamtomo/contributing/wishlist
     
 

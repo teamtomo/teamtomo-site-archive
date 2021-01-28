@@ -37,7 +37,7 @@ To import new data into Warp, click on the path next to `Input` and select the `
 
 We then set the parameters as shown below.
 
-![binning](preprocessing.assets/input-params.png)
+![binning](https://i.ibb.co/tMdFXQb/binning.png)
 
 We need to correctly set the pixel size to match that of the raw data; in this case, 0.6750 $Å/px$. 
 
@@ -69,7 +69,7 @@ we will explain this in more detail later.
 
 Accurate estimation of Contrast Transfer Function (CTF) parameters is essential for obtaining high resolution reconstructions.
 
-![ctf parameters](preprocessing.assets/ctf-params.png)
+![ctf parameters](https://i.ibb.co/Hpn7Lft/ctf.png)
 
 The following parameters depend entirely on the microscope setup used for data collection, for HIV-5-TS:
 
@@ -110,13 +110,13 @@ In order to compensate for both mechanical stage-drift and beam-induced sample m
 we estimate and correct for the inter-frame motion present in the image. 
 In this case, we leave the motion correction parameters as defaults.
 
-![motion corr](preprocessing.assets/motion-params.png)
+![motion corr](https://i.ibb.co/Pgxsjt5/motion.png)
 `````
 
 `````{tabbed} Spatiotemporal models
 Warp allows us to estimate how CTF and inter-frame translational motion parameters change in both space and time.
 
-![CTF and motion model](preprocessing.assets/spatiotemporal-models.png)
+![CTF and motion model](https://i.ibb.co/6mwzZKb/models.png)
 
 The resolution of this spatiotemporal model (x, y, t) can be set in the **Models** panel: the first two values represent the spatial resolution of the model in *x* and *y* , while the third value sets the temporal resolution (at most, the number of frames in a multi-frame micrograph). 
 
@@ -135,20 +135,20 @@ The `Pick Particles` panel gives access to `BoxNet`, a deep convolutional neural
 ````{margin}
 ```{admonition} Be careful!
 :class: attention
-The provided version of BoxNet was retrained on 3 tilt series from a high magnification dataset (1.7 $Å/px$) containing 10 $nm$ gold beads. We have succesfully used it on a variety of datasets, but there is no guaranteee it will work on yours. To learn more about retraining BoxNet, [see this page](http://www.warpem.com/warp/?page_id=137).
+The provided version of BoxNet was retrained on 3 tilt series from a high magnification dataset (1.7 $Å/px$) containing 10 $nm$ gold beads. We have succesfully used it on a variety of datasets, but there is no guaranteee it will work on yours. To learn more about retraining BoxNet, [see this page](http://www.multiparticle.com/warp/?page_id=137).
 ```
 ````
 
 In order to access it from Warp, the `BoxNet2MaskBeads_20200607` TODO better name directory must be placed in the Warp installation folder under the `boxnet2models` directory. Then, to select the pretrained model in Warp, click on the currently selected BoxNet model and select the `BoxNet2MaskBeads_20200607` model.
 
-![boxnet](preprocessing.assets/boxnet-params.png)
+![boxnet](https://i.ibb.co/5BvkK9x/masking.png)
 
 As we are only using this model for particle picking, the parameters relating to particle picking can be safely ignored.
 `````
 
 `````{tabbed} Start Processing!
 
-![processing](preprocessing.assets/start-processing.png)
+![processing](https://i.ibb.co/9nPKyLy/process.png)
 
 In the `Output` panel, we can choose not to include frames at the beginning and end of a movie. The first frames from a multi-frame micrograph of a given exposure often display increased translational motion. In this case, we chose to include all frames from the micrograph to maximise the signal present in the final images. 
 
@@ -189,7 +189,7 @@ If an image is heavily contaminated, black, blurred, a grid bar blocks a signifi
 
 For this dataset we only have to discard two bad images: `TS_01_039` and `TS_03_039`.
 
-![deselect bad image](preprocessing.assets/deselect-bad-images.png)
+![deselect bad image](https://i.ibb.co/nQsc77B/bad-image.png)
 
 ### Stack generation
 To generate the image stack, we first have to put Warp into `tomostar` mode. We do this by clicking on the `*.mrc` extension on the top left, and selecting the `*.tomostar` extension.
@@ -206,14 +206,14 @@ For now, we don't need to set the pixel size and electron dose per tilt, nor we 
 
 Click on `Create stacks for IMOD` to start exporting the data. We can immediately move on to the next step without having to wait for the stack generation to finish, thanks to `autoalign_dynamo`'s on-the-fly processing.
 
-![create stack](preprocessing.assets/create-stack.png)
+![create stack](https://i.ibb.co/YLp32wg/create-stack.png)
 
 ---
 
 (tilt-align)=
 ## Tilt-series alignment
 
-In this section, we will use the [`autoalign_dynamo` package](https://github.com/alisterburt/autoalign_dynamo), which leverages automated tilt series alignment workflows in `Dynamo`.
+In this section, we will use the `autoalign_dynamo` package, which leverages Dynamo's automated tilt series alignment workflows.
 
 This program aligns tilt-series in `Dynamo` and prepares all necessary metadata for import back into `Warp`.
 
@@ -297,7 +297,7 @@ Differently from earlier, now we also need to enter the pixel size of the tilt-s
 For this dataset this is the binned pixel size of 1.35 $Å/px$, 
 and according the the EMPIAR entry the dose is roughly 3 $e^-/Å^2$ per tilt.
 
-![import alignment](preprocessing.assets/import-aligned-ts.png)
+![import alignment](https://i.ibb.co/Jrr8K69/import-dynamo.png)
 
 ### Tilt-Series CTF estimation
 
@@ -319,7 +319,7 @@ The settings for tilt-series CTF estimation should be the same as those used ear
 
 We now have everything we need to reconstruct our tomograms. In Warp, we don't need to reconstruct whole tomograms at this step. Instead, downsampled tomograms can be generated for initial particle picking and volumes centered on each object of interest can be reconstructed later at the desired pixel size. This reduces the computational burden of generating and extracting particles from large, unbinned tomograms which can easily be over 100GB in size.
 
-![reconstruction size](preprocessing.assets/reconstruction-size.png)
+![reconstruction size](https://i.ibb.co/jHwXktH/reconstruction-size.png)
 
 ````{margin}
 ```{admonition} Tip
@@ -342,4 +342,4 @@ Warp may have marked some tilt series as filtered out. Since we are not making a
 
 Once ready, click on `Reconstruct` to reconstruct the tomograms.
 
-![reconstruction parameters](preprocessing.assets/reconstruction-settings.png)
+![reconstruction parameters](https://i.ibb.co/QY5X9hc/reconstruction-settings.png)
