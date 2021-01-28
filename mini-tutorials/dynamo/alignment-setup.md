@@ -9,7 +9,6 @@ Alignment projects can also be set up from the
 [`MATLAB` shell](https://wiki.dynamo.biozentrum.unibas.ch/w/index.php/Advanced_starters_guide#Project_to_find_membrane_orientations) 
 or the 
 [Linux command line](https://wiki.dynamo.biozentrum.unibas.ch/w/index.php/Scripted_creation_of_a_project_in_the_Linux_command_line).
-
 You can also set up your project locally, then 
 [bundle it up and send it to a remote machine/cluster](https://wiki.dynamo.biozentrum.unibas.ch/w/index.php/Tarring_projects).
 
@@ -26,8 +25,6 @@ In this section, we will set up our alignment project.
 First, we need to open `Dynamo`, either activating it in `MATLAB` or using the standalone version.
 
 ### Open the `dcp` gui
-The `dcp` GUI is the main tool in `Dynamo` for interactively designing subtomogram averaging experiments.
-
 `````{margin}
 ````{tip}
 If you are using the standalone version of `Dynamo`, you can run `dcp` from the Linux command line directly with
@@ -35,6 +32,9 @@ If you are using the standalone version of `Dynamo`, you can run `dcp` from the 
 dynamo >> dcp
 ```
 ````
+`````
+The `dcp` GUI is the main tool in `Dynamo` for interactively designing subtomogram averaging experiments.
+
 To open the GUI simply run `dcp` from your `Dynamo` shell.
 
 
@@ -79,7 +79,7 @@ one of the options in the `I want to create a template` section, setting the des
 ![create template image](alignment-setup.assets/create-template.gif)
 ```
 
-````{tabbed} masks
+`````{tabbed} masks
 Click on the `masks` button in the `Input: files` row. In the dialogue box which pops up, you can enter up to four files
 
 - an alignment mask
@@ -91,19 +91,19 @@ Click on the `masks` button in the `Input: files` row. In the dialogue box which
 
 The `Use default masks` button will create masks covering the full extend of real space and fourier space for each mask automatically.
 
-The alignment mask defines a masked region of real space in which cross correlations used for alignments will be calculated.
-The classification mask defines a masked region of real space in which cross correlations used for classification will be calculated.
-The Fourier mask for the template defines the region of Fourier space in which you have information in your template (reference) volume.
-The Fourier shell correlation mask defines a masked region of real space in which Fourier shell calculations will be calculated.
-
 ````{margin}
 ```{tip}
 You can check that your mask properly covers your template using the `View mask -> overlay x/y/z` menu options.
 ```
 ````
+The alignment mask defines a masked region of real space in which cross correlations used for alignments will be calculated.
+The classification mask defines a masked region of real space in which cross correlations used for classification will be calculated.
+The Fourier mask for the template defines the region of Fourier space in which you have information in your template (reference) volume.
+The Fourier shell correlation mask defines a masked region of real space in which Fourier shell calculations will be calculated.
+
 Each mask can be created from the GUI directly, or an external mask can be provided. The classification mask and the Fourier shell correlation mask are not
 relevant for simple, single reference alignment projects such as the one we are setting up.
-````
+`````
 ---
 
 ### Alignment parameters
