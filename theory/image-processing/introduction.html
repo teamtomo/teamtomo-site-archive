@@ -686,6 +686,14 @@
                 
   <div class="section" id="image-processing">
 <h1>Image processing<a class="headerlink" href="#image-processing" title="Permalink to this headline">¶</a></h1>
+<p>This section of the site is for general concepts relating to signal and image processing.
+In cryo-ET, most of the data we work with are single channel (grayscale) images from transmission electron microscopes.</p>
+<p>Digital images are arrays of point samples, each with an associated value. In 2D these point samples are known as <em>pixels</em>, in 3D they are called <em>voxels</em>.</p>
+<p>If your mental model for a pixel is ‘a little square’, you may enjoy reading <a class="reference external" href="http://alvyray.com/Memos/CG/Microsoft/6_pixel.pdf">this technical memo</a>
+from Alvy Ray Smith titled <em>‘A pixel is not a little square!’</em>.</p>
+<p><img alt="image of a grayscale image and its array values" src="../../_images/image-array.png" /></p>
+<p>The colours you see when an image is displayed are the result of applying a colourmap to the array values, a function which maps values onto colours.
+How this function is chosen is somewhat arbitrary and can drastically change the way an image looks.</p>
 </div>
 
     <script type="text/x-thebe-config">
