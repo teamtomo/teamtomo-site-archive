@@ -2,6 +2,7 @@
 # Learn more at https://jupyterbook.org/customize/toc.html
 - file: index
 
+
 - part: teamtomo.org
   chapters:
     - file: teamtomo/about
@@ -31,7 +32,6 @@
 
 - part: Walkthroughs
   chapters:
-
     - file: walkthroughs/EMPIAR-10164/introduction
       title: EMPIAR-10164 (HIV VLPs)
       sections:
@@ -44,7 +44,6 @@
         - file: walkthroughs/EMPIAR-10164/m
 
 
-
 - part: mini-tutorials
   chapters:
     - file: mini-tutorials/dynamo/index
@@ -53,6 +52,8 @@
         - file: mini-tutorials/dynamo/extract-from-catalogue
         - file: mini-tutorials/dynamo/dipoles-to-vesicles
         - file: mini-tutorials/dynamo/dtmslice-controls
+        - file: mini-tutorials/dynamo/interactive-mask-creation
+
 
 - part: computing
   chapters:
@@ -121,12 +122,3 @@
         - file: resources/cryoet-software/warp/warp
           sections:
             - file: resources/cryoet-software/warp/user-guide
-
-
-      
-
-
-
-        
-
-
