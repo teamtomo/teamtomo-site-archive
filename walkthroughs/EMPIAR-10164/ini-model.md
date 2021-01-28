@@ -16,6 +16,7 @@ Choosing a subset which contains all available views of the particle is also imp
 
 From the `Overview` tab in Warp, we quickly see that `TS_01` and `TS_03` have significantly different defoci, so we choose to use one vescicle from each of these tomograms.
 
+(hiv:extract-subset)=
 ## Extracting a subset of particles
 
 ````{margin}
@@ -24,8 +25,11 @@ A box sidelength of 32 corresponds to a 320$Å$. While this is much larger than 
 ```
 ````
 
-Extract particles from your `Dynamo` catalogue with a sidelength of `32` following the guide [here](../../mini-tutorials/dynamo/extract-from-catalogue), using  `inimodel.vll` as your volume list filename.
+Extract particles from your `Dynamo` catalogue with a sidelength of `32` following [this mini-tutorial](../../mini-tutorials/dynamo/extract-from-catalogue). To make things faster, for now we can extract just from the volumes that we are interested in (`TS_01` and `TS_03`), and call this volume list `inimodel.vll`).
 
+```{warning} Don't forget!
+We still need to extract all the particles for later steps. Once this extraction is done, start another one with the whole dataset!
+```
 
 ## Aligning the particles
 
