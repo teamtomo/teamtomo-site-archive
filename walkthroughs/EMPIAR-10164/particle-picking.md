@@ -109,7 +109,7 @@ If you are wondering why the second peak has two sub-peaks: it's the honeycomb p
 ```
 ````
 
-![radial distribution](https://i.ibb.co/gJ0K1Q0/radial-distance.png)
+![radial distribution](particle-picking.assets/radial-distance-profile.png)
 
 This confirms the previously measured interparticle distance and the fact that most particles slid into ordered positions in the lattice. We can use the first peak to select against particles that don't conform to this distribution. The next script, [`subset_table_based_on_neighbours.m`](scripts/subset_table_based_on_neighbours.m), removes all particles that don't have at least 3 neighbours in the radial shell at distance 7.5 $px$. To use it, run:
 
