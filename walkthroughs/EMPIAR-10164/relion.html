@@ -109,11 +109,6 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../teamtomo/contributing/screen-capture.html">
-     Screen capture
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="../../teamtomo/contributing/wishlist.html">
      Wishlist
     </a>
@@ -284,88 +279,9 @@
      viewing controls
     </a>
    </li>
-  </ul>
-  <i class="fas fa-chevron-down">
-  </i>
- </li>
-</ul>
-<p class="caption collapsible-parent">
- <span class="caption-text">
-  computing
- </span>
-</p>
-<ul class="nav sidenav_l1">
- <li class="toctree-l1 collapsible-parent">
-  <a class="reference internal" href="../../resources/programming/python/index.html">
-   Python
-  </a>
-  <ul class="collapse-ul">
    <li class="toctree-l2">
-    <a class="reference internal" href="../../resources/programming/python/getting-started.html">
-     Getting started
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../resources/programming/python/virtual-environments.html">
-     Virtual environments
-    </a>
-   </li>
-   <li class="toctree-l2 collapsible-parent">
-    <a class="reference internal" href="../../resources/programming/python/useful-packages/useful-packages.html">
-     Useful packages
-    </a>
-    <ul class="collapse-ul">
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../resources/programming/python/useful-packages/dynamotable.html">
-       dynamotable
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../resources/programming/python/useful-packages/emfile.html">
-       emfile
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../resources/programming/python/useful-packages/eulerangles.html">
-       eulerangles
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../resources/programming/python/useful-packages/mrcfile.html">
-       mrcfile
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../resources/programming/python/useful-packages/napari.html">
-       napari
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../resources/programming/python/useful-packages/starfile.html">
-       starfile
-      </a>
-     </li>
-    </ul>
-    <i class="fas fa-chevron-down">
-    </i>
-   </li>
-  </ul>
-  <i class="fas fa-chevron-down">
-  </i>
- </li>
- <li class="toctree-l1 collapsible-parent">
-  <a class="reference internal" href="../../resources/programming/matlab/index.html">
-   MATLAB
-  </a>
-  <ul class="collapse-ul">
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../resources/programming/matlab/add-to-path.html">
-     Adding scripts/functions to your PATH in
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       MATLAB
-      </span>
-     </code>
+    <a class="reference internal" href="../../mini-tutorials/dynamo/interactive-mask-creation.html">
+     Interactive mask creation
     </a>
    </li>
   </ul>
@@ -688,8 +604,8 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#extract-subtomograms-in-warp-at-5a-px">
-   Extract subtomograms in Warp at 5
+  <a class="reference internal nav-link" href="#reconstruct-subtomograms-in-warp-at-5a-px">
+   Reconstruct subtomograms in Warp at 5
    <span class="math notranslate nohighlight">
     \(Å/px\)
    </span>
@@ -701,8 +617,8 @@
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#extraction-in-warp">
-     Extraction in Warp
+    <a class="reference internal nav-link" href="#subtomogram-reconstruction-in-warp">
+     Subtomogram reconstruction in Warp
     </a>
    </li>
   </ul>
@@ -720,16 +636,16 @@
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#subtomogram-extraction-at-1-6a-px">
-   Subtomogram extraction at 1.6
+  <a class="reference internal nav-link" href="#subtomogram-reconstruction-at-1-6a-px">
+   Subtomogram reconstruction at 1.6
    <span class="math notranslate nohighlight">
     \(Å/px\)
    </span>
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#refinement-mask">
-   Refinement Mask
+  <a class="reference internal nav-link" href="#creating-a-mask-for-refinement">
+   Creating a mask for refinement
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -753,64 +669,72 @@
                 
   <div class="section" id="particle-pose-optimisation">
 <h1>Particle pose optimisation<a class="headerlink" href="#particle-pose-optimisation" title="Permalink to this headline">¶</a></h1>
-<p>Now that we have a set of particles that’s mostly free of duplicates and matches our geometrical understanding of the system, we can proceed to refine the particle positions and orientations with the aim of producing a higher resolution average.</p>
+<p>Now that we have a set of particles that’s mostly free of duplicates and matches our geometrical understanding of the system, we can proceed to refine of our particle poses with the aim of producing a higher resolution average.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Subtomogram averaging becomes very slow when performing refinements with lots of particles in larger boxes. Stepping the pixel size down gradually allows us to move more quickly and react to any problems which may come up when working on more complex data.</p>
+</div>
+<div class="sidebar">
+<p class="sidebar-title">why work in this way?</p>
+<p>Working between <code class="docutils literal notranslate"><span class="pre">RELION</span></code> and <code class="docutils literal notranslate"><span class="pre">Warp</span></code> in this section does make things a little more complicated.
+We work in this way to take advantage of Warp’s CTF correction and the CTF volumes it generates to describe sampling of Fourier coefficients.</p>
+</div>
 <p>In this section, we will:</p>
 <ul class="simple">
 <li><p>Extract particles in Warp at 5<span class="math notranslate nohighlight">\(Å/px\)</span></p></li>
 <li><p>Align these particles by subtomogram averaging in RELION</p></li>
 <li><p>Repeat the previous two steps at 1.6<span class="math notranslate nohighlight">\(Å/px\)</span></p></li>
 </ul>
+<div class="section" id="reconstruct-subtomograms-in-warp-at-5a-px">
+<h2>Reconstruct subtomograms in Warp at 5<span class="math notranslate nohighlight">\(Å/px\)</span><a class="headerlink" href="#reconstruct-subtomograms-in-warp-at-5a-px" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="generate-compatible-metadata">
+<h3>Generate compatible metadata<a class="headerlink" href="#generate-compatible-metadata" title="Permalink to this headline">¶</a></h3>
+<p>Our metadata is currently in the dynamo format.
+We need to convert our particle positions and orientations into a format Warp understands, we will use the <code class="docutils literal notranslate"><span class="pre">dynamo2warp</span></code> script provided by the
+<a class="reference external" href="https://github.com/alisterburt/dynamo2m"><code class="docutils literal notranslate"><span class="pre">dynamo2m</span></code></a>
+package. The script takes a <code class="docutils literal notranslate"><span class="pre">.tbl</span></code> file (which we generated at the end of the previous section) and a table map file. The table map file contains a mapping from particle indexes to file names, to match to the column 20 of the <code class="docutils literal notranslate"><span class="pre">.tbl</span></code> file. In our case, this file is located in <code class="docutils literal notranslate"><span class="pre">dynamo/oversampledData.Boxes/indices_column20.doc</span></code>.</p>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Subtomogram averaging becomes very slow when performing refinements with lots of particles in larger boxes. Stepping the pixel size down gradually allows us to move more quickly and react to any problems which may come up when working on more complex data.</p>
+<p>the scripts in <code class="docutils literal notranslate"><span class="pre">dynamo2m</span></code> can also be run interactively, just type <code class="docutils literal notranslate"><span class="pre">dynamo2warp</span></code> at the command line if you prefer this!</p>
 </div>
 </div>
-<div class="admonition attention">
-<p class="admonition-title">Attention</p>
-<p>A note on pixel size
-We extracted at 1.6<span class="math notranslate nohighlight">\(Å/px\)</span> rather than 1.35<span class="math notranslate nohighlight">\(Å/px\)</span> due to memory limitations. Warp employs a defocus dependent mechanism to reduce the effects of CTF aliasing, the large number of particles per field-of-view is particularly demanding at such a small pixel size and can lead to memory issues. Unless extracting at a very small pixel size, you are unlikely to encounter these issues when working with your own data.</p>
-</div>
-<div class="section" id="extract-subtomograms-in-warp-at-5a-px">
-<h2>Extract subtomograms in Warp at 5<span class="math notranslate nohighlight">\(Å/px\)</span><a class="headerlink" href="#extract-subtomograms-in-warp-at-5a-px" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="generate-compatible-metadata">
-<h3>Generate compatible metadata<a class="headerlink" href="#generate-compatible-metadata" title="Permalink to this headline">¶</a></h3>
-<p>We need to convert our particle positions and orientations in the dynamo metadata into a format Warp understands, we will use the <code class="docutils literal notranslate"><span class="pre">dynamo2warp</span></code> script provided by the <code class="docutils literal notranslate"><span class="pre">dynamo2m</span></code> package. The script takes a <code class="docutils literal notranslate"><span class="pre">.tbl</span></code> file (which we generated at the end of the previous section) and a table map file. The table map file contains a mapping from particle indexes to file names, to match to the column 20 of the <code class="docutils literal notranslate"><span class="pre">.tbl</span></code> file. In our case, this file is located in <code class="docutils literal notranslate"><span class="pre">dynamo/oversampledData.Boxes/indices_column20.doc</span></code>.</p>
 <p>In a terminal, run:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>dynamo2warp -i result_10Apx_nodup_neighbourcleaning.tbl -tm ../../../../oversampledData.Boxes/indices_column20.doc -o result_10Apx_nodup_neighbourcleaning_data.star
 </pre></div>
 </div>
 </div>
-<div class="section" id="extraction-in-warp">
-<h3>Extraction in Warp<a class="headerlink" href="#extraction-in-warp" title="Permalink to this headline">¶</a></h3>
-<p>We can now use the generated <code class="docutils literal notranslate"><span class="pre">.star</span></code> file to extract subtomograms in Warp. To start the extraction, make sure Warp is in <code class="docutils literal notranslate"><span class="pre">*.tomostar</span></code> mode, then click on the <code class="docutils literal notranslate"><span class="pre">Reconstruct</span> <span class="pre">sub-tomograms</span></code> button at the top of the screen in the <code class="docutils literal notranslate"><span class="pre">Overview</span></code> tab and select <code class="docutils literal notranslate"><span class="pre">result_10Apx_nodup_neighbourcleaning_data.star</span></code>. A dialog will open; fill in the settings as follows, making sure the radio buttons all selected correctly:</p>
+<div class="section" id="subtomogram-reconstruction-in-warp">
+<h3>Subtomogram reconstruction in Warp<a class="headerlink" href="#subtomogram-reconstruction-in-warp" title="Permalink to this headline">¶</a></h3>
+<p>We can now use the generated <code class="docutils literal notranslate"><span class="pre">.star</span></code> file to reconstruct subtomograms from our tilt-series in Warp. To start the reconstruction, make sure Warp is in <code class="docutils literal notranslate"><span class="pre">*.tomostar</span></code> mode, then click on the <code class="docutils literal notranslate"><span class="pre">Reconstruct</span> <span class="pre">sub-tomograms</span></code> button at the top of the screen in the <code class="docutils literal notranslate"><span class="pre">Overview</span></code> tab and select <code class="docutils literal notranslate"><span class="pre">result_10Apx_nodup_neighbourcleaning_data.star</span></code>. A dialog will open; fill in the settings as follows, making sure the radio buttons all selected correctly:</p>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>We extract in a box twice as large because we have halved the pixel spacing.</p>
+<p>We reconstruct at a box twice as large as before because we have halved the pixel spacing.</p>
 </div>
 </div>
-<p><img alt="extract subtomograms" src="https://i.ibb.co/KKMwDqJ/subtomo-extraction.png" /></p>
+<p><img alt="reconstruct subtomograms" src="../../_images/subtomo-reconstruction.png" /></p>
 <p>When ready, click on <code class="docutils literal notranslate"><span class="pre">EXPORT</span></code>. To prepare the directory structure for relion, we will choose to put the output <code class="docutils literal notranslate"><span class="pre">.star</span></code> file inside a new <code class="docutils literal notranslate"><span class="pre">root/relion</span></code> folder and call it <code class="docutils literal notranslate"><span class="pre">subtomograms_5Apx.star</span></code>.</p>
 </div>
 </div>
 <div class="section" id="d-auto-refine-in-relion">
 <h2>3D auto-refine in RELION<a class="headerlink" href="#d-auto-refine-in-relion" title="Permalink to this headline">¶</a></h2>
-<p>We can now perform a gold standard automatic refinement of the whole dataset at 5<span class="math notranslate nohighlight">\(Å/px\)</span> in RELION. Moving to RELION at this stage simplifies the workflow as Warp and M were designed to work directly with RELION.</p>
+<p>We can now perform a gold standard automatic refinement of the whole dataset at 5<span class="math notranslate nohighlight">\(Å/px\)</span> in <code class="docutils literal notranslate"><span class="pre">RELION</span></code>. Working in <code class="docutils literal notranslate"><span class="pre">RELION</span></code> at this stage simplifies the workflow and allows us to take advantage of its maximum-likelihood approaches to refinement and classification.</p>
+<p>At this stage, we choose <strong>not</strong> to use a density-based mask during refinement. This allows us to make use of the neighbouring density in the lattice to drive these initial alignments. We will use a mask later when aiming for more precise, local alignment of the central hexamer.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>By default, Dynamo uses a binary wedge model to account for the sampling of information in Fourier space for each subtomogram. Warps CTF volumes are designed for use with RELION and should yield more accurate weighting of Fourier coefficients during reconstruction.</p>
 </div>
-<p>Before alignment, we need to create an initial template map. We first select a random subset of particles with simple bash commands:</p>
+<p>Before alignment, we need to create an initial reference for the alignment procedure. We select a random subset of particles with simple bash commands:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># keep the header</span>
 head subtomograms_5Apx.star -n <span class="m">30</span> &gt; random_subset_5Apx.star
 <span class="c1"># use 500 random particles</span>
 tail subtomograms_5Apx.star -n +31 <span class="p">|</span> shuf -n <span class="m">500</span> &gt;&gt; random_subset_5Apx.star
 </pre></div>
 </div>
-<p>Then, we use <code class="docutils literal notranslate"><span class="pre">relion_reconstruct</span></code> from the command line to average them. We need to make sure to appropriately weight the reconstruction according to the CTF volumes and tell the program that we are working with 3D images.</p>
+<p>Then, we use <code class="docutils literal notranslate"><span class="pre">relion_reconstruct</span></code> from the command line to align and average them. We need to make sure to appropriately weight the reconstruction according to the CTF volumes and tell the program that we are working with 3D images.</p>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="admonition tip">
@@ -818,7 +742,7 @@ tail subtomograms_5Apx.star -n +31 <span class="p">|</span> shuf -n <span class=
 <p>To get the help page of any relion command, simply run it without options.</p>
 </div>
 </div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>relion_reconstruct --i random_subset_5Apx.star --o random_subset_5Apx.mrc --3d_rot --ctf
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>relion_reconstruct --i random_subset_5Apx.star --o random_subset_5Apx.mrc --3d_rot --ctf --sym C6
 </pre></div>
 </div>
 <p>This step also serves as a useful sanity check. The resulting reconstruction should look like the hexagonal lattice we have seen previously. If it doesn’t, something went wrong: check your parameters carefully for each step.</p>
@@ -831,74 +755,154 @@ tail subtomograms_5Apx.star -n +31 <span class="p">|</span> shuf -n <span class=
 <p>We then set up a 3D auto-refine job as following:</p>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>We will refine without a mask for now as this refinement serves only to make sure that the particles remain well centered and we expect to go significantly beyond 10A.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>To learn more about the meaning of each option, click on the question marks on the right!</p>
 </div>
 </div>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-20 docutils">
+<div class="card w-100 border-2 docutils">
+<div class="card-body docutils">
 <div class="tabbed-set docutils">
-<input checked="checked" id="59e237c8-9d7b-499d-894e-0f46881ea280" name="3e8ef01d-54dd-4ee9-abb5-b76c3be13287" type="radio">
-</input><label class="tabbed-label" for="59e237c8-9d7b-499d-894e-0f46881ea280">
-Thing</label><div class="tabbed-content docutils">
-<p><img alt="relion 1" src="https://i.ibb.co/Vm8yS3Y/relion-1.png" /></p>
+<input checked="checked" id="c2fa95bd-d37f-4aa5-b7e6-0e8ebf7753c1" name="8439a819-d70b-4d12-aec4-984d01aaea84" type="radio">
+</input><label class="tabbed-label" for="c2fa95bd-d37f-4aa5-b7e6-0e8ebf7753c1">
+I/O</label><div class="tabbed-content docutils">
+<p class="card-text">We will refine without a mask for now as this refinement serves only to make sure that the particles remain well centered and we expect to go significantly beyond 10Å.</p>
+<p class="card-text"><img alt="relion 1" src="../../_images/relion-1.png" /></p>
 </div>
+<input id="90888a3e-c5ef-4f77-ba54-941327d72d24" name="8439a819-d70b-4d12-aec4-984d01aaea84" type="radio">
+</input><label class="tabbed-label" for="90888a3e-c5ef-4f77-ba54-941327d72d24">
+Reference</label><div class="tabbed-content docutils">
+<p class="card-text">We use a conservative initial lowpass of 30Å to avoid overfitting, and C6 symmetry based on our understanding of the lattice from the inital model generation.</p>
+<p class="card-text"><img alt="relion 2" src="../../_images/relion-2.png" /></p>
 </div>
-<p><img alt="relion 2" src="https://i.ibb.co/FHMQ5Y5/relion-2.png" />
-We use a conservative initial lowpass of 30A to avoid overfitting</p>
-<p><img alt="relion 3" src="https://i.ibb.co/TW7FpqY/relion-3.png" /></p>
-<p><img alt="relion 4" src="https://i.ibb.co/PTQvLf3/relion-4.png" /></p>
-<p>We use a particle diameter here covering the whole box to continue making use of the signal from neighbouring hexamers to drive alignment, we will change this once we start aiming for more optimal refinements focussed on teh central hexamer.</p>
-<p><img alt="relion 5" src="https://i.ibb.co/tz5QxZG/relion-5.png" /></p>
-<p><img alt="relion 6" src="https://i.ibb.co/8D9Rw1D/relion-6.png" /></p>
-<p><img alt="relion 7" src="https://i.ibb.co/M8WBk0X/relion-7.png" /></p>
-<p>The specific computational parameters will depend upon the configuration of your computing resources. Here, we are running on a computer with</p>
+<input id="5c10d6f9-5af2-4b1c-a0f7-da9c39210786" name="8439a819-d70b-4d12-aec4-984d01aaea84" type="radio">
+</input><label class="tabbed-label" for="5c10d6f9-5af2-4b1c-a0f7-da9c39210786">
+CTF</label><div class="tabbed-content docutils">
+<p class="card-text"><img alt="relion 3" src="../../_images/relion-3.png" /></p>
+</div>
+<input id="d3274fda-b3f6-4e90-9257-6c86e04e2d49" name="8439a819-d70b-4d12-aec4-984d01aaea84" type="radio">
+</input><label class="tabbed-label" for="d3274fda-b3f6-4e90-9257-6c86e04e2d49">
+Optimisation</label><div class="tabbed-content docutils">
+<p class="card-text">We use a particle diameter covering the whole box to continue making use of the signal from neighbouring hexamers to drive alignment. We will change this once we start aiming for more optimal refinements focussed on the central hexamer.</p>
+<p class="card-text"><img alt="relion 4" src="../../_images/relion-4.png" /></p>
+</div>
+<input id="f6c1dd88-427d-481c-bae9-5845ba4ded12" name="8439a819-d70b-4d12-aec4-984d01aaea84" type="radio">
+</input><label class="tabbed-label" for="f6c1dd88-427d-481c-bae9-5845ba4ded12">
+Auto-sampling</label><div class="tabbed-content docutils">
+<p class="card-text"><img alt="relion 5" src="../../_images/relion-5.png" /></p>
+</div>
+<input id="a8263d43-bf60-4401-8ac1-255970c7913d" name="8439a819-d70b-4d12-aec4-984d01aaea84" type="radio">
+</input><label class="tabbed-label" for="a8263d43-bf60-4401-8ac1-255970c7913d">
+Helix</label><div class="tabbed-content docutils">
+<p class="card-text">Leave this disabled, we are not performing helical refinement in this case.</p>
+</div>
+<input id="2ae07930-ff06-4aba-940e-1017db6fc499" name="8439a819-d70b-4d12-aec4-984d01aaea84" type="radio">
+</input><label class="tabbed-label" for="2ae07930-ff06-4aba-940e-1017db6fc499">
+Compute</label><div class="tabbed-content docutils">
+<p class="card-text"><img alt="relion 6" src="../../_images/relion-6.png" /></p>
+</div>
+<input id="46ab6bf8-a281-4685-bdf0-b13b04194cd3" name="8439a819-d70b-4d12-aec4-984d01aaea84" type="radio">
+</input><label class="tabbed-label" for="46ab6bf8-a281-4685-bdf0-b13b04194cd3">
+Running</label><div class="tabbed-content docutils">
+<p class="card-text">The specific computational parameters will depend upon the configuration of your computing resources. Here, we are running on a cluster node with:</p>
 <ul class="simple">
-<li><p>4 x GeForce GTX 1080 TI GPUs</p></li>
-<li><p>16 x E5-2620 v4 2.10GHz CPUs (2 threads per core)</p></li>
-<li><p>256GB RAM</p></li>
+<li><p class="card-text">4 x GeForce GTX 1080 TI GPUs</p></li>
+<li><p class="card-text">16 x E5-2620 v4 2.10GHz CPUs (2 threads per core)</p></li>
+<li><p class="card-text">256GB RAM</p></li>
 </ul>
-<p>Once ready, click on <code class="docutils literal notranslate"><span class="pre">Run!</span></code> to start processing. This will take several hours.</p>
+<p class="card-text">and which uses <code class="docutils literal notranslate"><span class="pre">slurm</span></code> to manage its jobs.</p>
+<p class="card-text"><img alt="relion 7" src="../../_images/relion-7.png" /></p>
+<p class="card-text">Once ready, click on <code class="docutils literal notranslate"><span class="pre">Run!</span></code> to start processing. <strong>This will take several hours</strong>!</p>
 </div>
 </div>
-<div class="section" id="subtomogram-extraction-at-1-6a-px">
-<h2>Subtomogram extraction at 1.6<span class="math notranslate nohighlight">\(Å/px\)</span><a class="headerlink" href="#subtomogram-extraction-at-1-6a-px" title="Permalink to this headline">¶</a></h2>
-<p>Once the alignment at 5<span class="math notranslate nohighlight">\(Å/px\)</span> is done, we can repeat the procedure at a smaller pixel size allowing us to obtain a higher resolution reconstruction. We use Warp to reextract sutomograms at 1.6<span class="math notranslate nohighlight">\(Å/px\)</span> using the <code class="docutils literal notranslate"><span class="pre">*_data.star</span></code> from the refinement at 5<span class="math notranslate nohighlight">\(Å/px\)</span> then rerun the alignments in Relion.</p>
-<p>First, we need to reformat the output <code class="docutils literal notranslate"><span class="pre">.star</span></code> file from the Relion3.1 specification (currently not supported by Warp) to Relion3.0, using a command provided by <code class="docutils literal notranslate"><span class="pre">dynamo2m</span></code>. To do so, navigate to <code class="docutils literal notranslate"><span class="pre">relion/Refine3D/refine_5apx</span></code> and identify the last iteration number (for us, it was <code class="docutils literal notranslate"><span class="pre">it_023</span></code>) and run:</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="subtomogram-reconstruction-at-1-6a-px">
+<h2>Subtomogram reconstruction at 1.6<span class="math notranslate nohighlight">\(Å/px\)</span><a class="headerlink" href="#subtomogram-reconstruction-at-1-6a-px" title="Permalink to this headline">¶</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>A note on pixel size
+We reconstructed at 1.6<span class="math notranslate nohighlight">\(Å/px\)</span> rather than 1.35<span class="math notranslate nohighlight">\(Å/px\)</span> due to memory limitations. Warp works with larger images internally to reduce the effects of CTF aliasing. The large number of particles per field-of-view is particularly demanding at such a small pixel size and can lead to memory issues. Unless working at a very small pixel size, you are unlikely to encounter these issues when working with your own data.</p>
+</div>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>When doing Fourier transforms, some box sizes are more efficient than others.
+See <a class="reference external" href="https://blake.bcm.edu/emanwiki/EMAN2/BoxSize">here</a> for more details.</p>
+</div>
+</div>
+<p>Once the alignment at 5<span class="math notranslate nohighlight">\(Å/px\)</span> is done, we can perform alignments at a smaller pixel size to obtain a higher resolution reconstruction. We use Warp to reconstruct sutomograms at 1.6<span class="math notranslate nohighlight">\(Å/px\)</span> using the <code class="docutils literal notranslate"><span class="pre">*_data.star</span></code> from the refinement at 5<span class="math notranslate nohighlight">\(Å/px\)</span> then rerun the alignments in Relion. This time, we will perform our refinements in a mask around the central hexamer.</p>
+<p>First, we need to reformat the output <code class="docutils literal notranslate"><span class="pre">.star</span></code> file from the Relion3.1 specification (not supported by Warp 1.0.9) to Relion3.0, using a command provided by <code class="docutils literal notranslate"><span class="pre">dynamo2m</span></code>. To do so, navigate to <code class="docutils literal notranslate"><span class="pre">relion/Refine3D/refine_5apx</span></code> and identify the last iteration number (for us, it was <code class="docutils literal notranslate"><span class="pre">it_023</span></code>) and run:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>relion_star_downgrade -s run_it023_data.star
 </pre></div>
 </div>
-<p>From the new file, we can now extract subtomograms from Warp, similarly to how we did last time. This time, the input coordinates use 5<span class="math notranslate nohighlight">\(Å/px\)</span> and the output should be scaled to 1.6<span class="math notranslate nohighlight">\(Å/px\)</span>.</p>
-<p>Since now we want to be able to refine the central particle to high resolution, we should reduce the relative box size: this will prevent the small differences between neighbours to affect the alignment of the central particle. A box size of 128<span class="math notranslate nohighlight">\(px\)</span> is a bit smaller relatively to the previous one, while still big enough for our particle.</p>
-<blockquote>
-<div><p>If possible, it is better to keep the box size to powers of 2, to maximise computational efficiency.</p>
-</div></blockquote>
-<p>Save the file in the <code class="docutils literal notranslate"><span class="pre">relion</span></code> directory as <code class="docutils literal notranslate"><span class="pre">subtomograms_1.6Apx.star</span></code></p>
-<p><img alt="extract subtomograms 1.6" src="https://i.ibb.co/s9jN57s/subtomo-extraction-1-6.png" /></p>
+<p>From the new file <code class="docutils literal notranslate"><span class="pre">run_it023_data_rln3.0.star</span></code>, we can now reconstruct subtomograms in Warp. This time, the input coordinates use 5<span class="math notranslate nohighlight">\(Å/px\)</span> and the output should be scaled to 1.6<span class="math notranslate nohighlight">\(Å/px\)</span>. To optimise computational speed, we choose a box size of 128 px here. This is a little smaller than our previous box size, but still big enough for our particle.</p>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>Using small box sizes, especially for particles with a large defocus containing fast CTF oscillations, can lead to CTF aliasing.
+We can use a fairly small box here because Warp implements an aliasing-free reconstruction algorithm to avoid this.</p>
 </div>
-<div class="section" id="refinement-mask">
-<h2>Refinement Mask<a class="headerlink" href="#refinement-mask" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>better focus for refinement</p></li>
-<li><p>must be soft edged to avoid FSC artifacts</p></li>
-</ul>
-<p>Mask: can be useful when trying to optimise refinement of a subregion (such as the central hexamer).</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">dpkdev</span><span class="p">.</span><span class="n">legacy</span><span class="p">.</span><span class="n">dynamo_mapview</span><span class="p">()</span>
+<p>Save the file in the <code class="docutils literal notranslate"><span class="pre">relion</span></code> directory as <code class="docutils literal notranslate"><span class="pre">subtomograms_1.6Apx.star</span></code></p>
+<p><img alt="reconstruct subtomograms 1.6 image" src="../../_images/subtomo-extraction-1-6.png" /></p>
+<p>Generate a reconstruction at 1.6<span class="math notranslate nohighlight">\(Å/px\)</span> using <code class="docutils literal notranslate"><span class="pre">relion_reconstruct</span></code> with the following command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>relion_reconstruct --i subtomograms_1.6Apx.star --o reconstruction_1.6Apx.mrc --3d_rot --ctf --sym C6
 </pre></div>
 </div>
+</div>
+<div class="section" id="creating-a-mask-for-refinement">
+<h2>Creating a mask for refinement<a class="headerlink" href="#creating-a-mask-for-refinement" title="Permalink to this headline">¶</a></h2>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Focussing a refinement on a region of interest can yield better alignments for that region, particularly for flexible proteins.
+The masked region should contain enough signal to drive alignments. How big this region can be depends a lot on data quality.</p>
+</div>
+</div>
+<p>To focus our refinements on the central hexamer, we need to produce a mask around this region.
+The mask should have a soft edge, this avoids introducing bias into masked FSC calculations, see <a class="reference external" href="https://dx.doi.org/10.1016%2Fj.ultramic.2013.06.004">here</a> for discussion.</p>
+<p>To produce our mask we will</p>
 <ul class="simple">
-<li><p>dynamo low pass filter, central cylinder of 160A</p>
-<ul>
-<li><p>band 0-10. layer to see, apply, save (as mrc!)</p></li>
+<li><p>produce a map containing only the central hexamer</p></li>
+<li><p>use this map to generate a soft-edged mask around the central hexamer</p></li>
 </ul>
-</li>
-</ul>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>relion_mask_create --i mask_1.6Apx_raw.mrc --angpix <span class="m">1</span>.6 --extend_inimask <span class="m">5</span> --width_soft_edge <span class="m">10</span> --o mask_1.6Apx.mrc
-relion_image_handler --i mask_1.6Apx.mrc --sym C6 --o mask_1.6Apx_c6.mrc
+<p>We can quickly mask out the central hexamer interactively using tools in <code class="docutils literal notranslate"><span class="pre">Dynamo</span></code>.
+In <code class="docutils literal notranslate"><span class="pre">MATLAB</span></code> with <code class="docutils literal notranslate"><span class="pre">Dynamo</span></code> activated, load your reconstruction at 1.6<span class="math notranslate nohighlight">\(Å/px\)</span> into an old version of the <code class="docutils literal notranslate"><span class="pre">dynamo_mapview</span></code> GUI.</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">dpkdev</span><span class="p">.</span><span class="n">legacy</span><span class="p">.</span><span class="n">dynamo_mapview</span><span class="p">(</span><span class="s">&#39;reconstruction_1.6Apx.mrc&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The mask should be a cylinder with a diameter of 160<span class="math notranslate nohighlight">\(Å\)</span> around the central hexamer of the lattice. See our <a class="reference internal" href="../../mini-tutorials/dynamo/interactive-mask-creation.html"><span class="doc std std-doc">mini-tutorial on mask creation</span></a> for details on creating the mask.</p>
+<p>Once you’re happy with the mask, mask your volume and save it as <code class="docutils literal notranslate"><span class="pre">central_hexamer_1.6Apx.mrc</span></code> from the GUI.</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>It’s important to check your masks</p>
+</div>
+</div>
+<p>Open your <code class="docutils literal notranslate"><span class="pre">central_hexamer_1.6Apx.mrc</span></code> in your favourite program and determine an appropriate threshold for binarisation. Use this as the <code class="docutils literal notranslate"><span class="pre">--ini_threshold</span></code> parameter in the following command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>relion_mask_create --i central_hexamer_1.6Apx.mrc --angpix <span class="m">1</span>.6 --extend_inimask <span class="m">5</span> --width_soft_edge <span class="m">10</span> --o mask_1.6Apx.mrc --ini_threshold <span class="m">0</span>.05
 </pre></div>
 </div>
 </div>
 <div class="section" id="refinement-at-1-6a-px">
 <h2>Refinement at 1.6<span class="math notranslate nohighlight">\(Å/px\)</span><a class="headerlink" href="#refinement-at-1-6a-px" title="Permalink to this headline">¶</a></h2>
+<p>Now that we have a mask, we can set up a relion 3D auto-refine job like we did before. A few parameters require changes:</p>
+<ul class="simple">
+<li><p>change the name to reflect the smaller pixel size, we used <code class="docutils literal notranslate"><span class="pre">refine_1.6Apx</span></code></p></li>
+<li><p>inputs should now be the <code class="docutils literal notranslate"><span class="pre">_1.6Apx</span></code> star file, reference and mask we generated</p></li>
+<li><p>the inital low pass filter can be set to the estimated resolution from the refinement at 5<span class="math notranslate nohighlight">\(Å/px\)</span></p></li>
+<li><p>the mask diameter should be lowered to 160<span class="math notranslate nohighlight">\(Å\)</span> to encompass only the central hexamer</p></li>
+</ul>
 </div>
 </div>
 

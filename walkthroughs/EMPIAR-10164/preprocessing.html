@@ -109,11 +109,6 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../teamtomo/contributing/screen-capture.html">
-     Screen capture
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="../../teamtomo/contributing/wishlist.html">
      Wishlist
     </a>
@@ -284,88 +279,9 @@
      viewing controls
     </a>
    </li>
-  </ul>
-  <i class="fas fa-chevron-down">
-  </i>
- </li>
-</ul>
-<p class="caption collapsible-parent">
- <span class="caption-text">
-  computing
- </span>
-</p>
-<ul class="nav sidenav_l1">
- <li class="toctree-l1 collapsible-parent">
-  <a class="reference internal" href="../../resources/programming/python/index.html">
-   Python
-  </a>
-  <ul class="collapse-ul">
    <li class="toctree-l2">
-    <a class="reference internal" href="../../resources/programming/python/getting-started.html">
-     Getting started
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../resources/programming/python/virtual-environments.html">
-     Virtual environments
-    </a>
-   </li>
-   <li class="toctree-l2 collapsible-parent">
-    <a class="reference internal" href="../../resources/programming/python/useful-packages/useful-packages.html">
-     Useful packages
-    </a>
-    <ul class="collapse-ul">
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../resources/programming/python/useful-packages/dynamotable.html">
-       dynamotable
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../resources/programming/python/useful-packages/emfile.html">
-       emfile
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../resources/programming/python/useful-packages/eulerangles.html">
-       eulerangles
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../resources/programming/python/useful-packages/mrcfile.html">
-       mrcfile
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../resources/programming/python/useful-packages/napari.html">
-       napari
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../resources/programming/python/useful-packages/starfile.html">
-       starfile
-      </a>
-     </li>
-    </ul>
-    <i class="fas fa-chevron-down">
-    </i>
-   </li>
-  </ul>
-  <i class="fas fa-chevron-down">
-  </i>
- </li>
- <li class="toctree-l1 collapsible-parent">
-  <a class="reference internal" href="../../resources/programming/matlab/index.html">
-   MATLAB
-  </a>
-  <ul class="collapse-ul">
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../resources/programming/matlab/add-to-path.html">
-     Adding scripts/functions to your PATH in
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       MATLAB
-      </span>
-     </code>
+    <a class="reference internal" href="../../mini-tutorials/dynamo/interactive-mask-creation.html">
+     Interactive mask creation
     </a>
    </li>
   </ul>
@@ -783,18 +699,18 @@
 <p>In this chapter, we will detail the necessary steps to take you from multi-frame micrographs to tomograms.</p>
 <p>The main steps in this chapter are:</p>
 <ol>
-<li><p><a class="reference internal" href="#mic-preproc"><span class="std std-ref">Micrograph Preprocessing</span></a></p>
+<li><p><a class="reference internal" href="#hiv-mic-preproc"><span class="std std-ref">Micrograph Preprocessing</span></a></p>
 <p>Process multi-frame micrographs and generate tilt series stacks</p>
 </li>
-<li><p><a class="reference internal" href="#tilt-align"><span class="std std-ref">Tilt-Series Alignment</span></a></p>
+<li><p><a class="reference internal" href="#hiv-tilt-align"><span class="std std-ref">Tilt-Series Alignment</span></a></p>
 <p>Estimate the image transformations required for tomogram reconstruction</p>
 </li>
-<li><p><a class="reference internal" href="#reconstruct"><span class="std std-ref">Tilt-Series CTF Estimation and Tomogram Reconstruction</span></a></p>
+<li><p><a class="reference internal" href="#hiv-reconstruct"><span class="std std-ref">Tilt-Series CTF Estimation and Tomogram Reconstruction</span></a></p>
 <p>Reconstruction of 3D-CTF corrected downsampled tomograms and deconvolved volumes for visualisation</p>
 </li>
 </ol>
 <div class="section" id="micrograph-preprocessing">
-<span id="mic-preproc"></span><h2>Micrograph preprocessing<a class="headerlink" href="#micrograph-preprocessing" title="Permalink to this headline">¶</a></h2>
+<span id="hiv-mic-preproc"></span><h2>Micrograph preprocessing<a class="headerlink" href="#micrograph-preprocessing" title="Permalink to this headline">¶</a></h2>
 <p>In this section, we will use <code class="docutils literal notranslate"><span class="pre">Warp</span></code> for the initial processing of the raw data. This will let us:</p>
 <ul class="simple">
 <li><p>obtain an initial estimate for defocus and inter-frame motion</p></li>
@@ -814,8 +730,8 @@
 <div class="card w-100 border-2 docutils">
 <div class="card-body docutils">
 <div class="tabbed-set docutils">
-<input checked="checked" id="18e5a890-e903-4be7-8591-8eb0e52848c9" name="6f85b70e-ab4b-4392-ba02-6592d8af50cd" type="radio">
-</input><label class="tabbed-label" for="18e5a890-e903-4be7-8591-8eb0e52848c9">
+<input checked="checked" id="7f0dc277-46dc-4de4-9b8e-1e0c989e08fa" name="abac952f-1c1e-447c-8a3f-725d3ad111fe" type="radio">
+</input><label class="tabbed-label" for="7f0dc277-46dc-4de4-9b8e-1e0c989e08fa">
 Import</label><div class="tabbed-content docutils">
 <p class="card-text">To import new data into Warp, click on the path next to <code class="docutils literal notranslate"><span class="pre">Input</span></code> and select the <code class="docutils literal notranslate"><span class="pre">frames</span></code> directory. For the HIV-5-TS data, make sure that the selected format is <code class="docutils literal notranslate"><span class="pre">*.mrc</span></code>.</p>
 <p class="card-text">We then set the parameters as shown below.</p>
@@ -836,8 +752,8 @@ Make sure that the orientation of the reference and the images correspond!</p>
 </div>
 <p class="card-text">The EMPIAR entry for EMPIAR-10164 indicates that the images were already gain corrected. We can skip gain correction by leaving this section unchecked.</p>
 </div>
-<input id="7f945830-b36a-4be7-b578-d89f36391203" name="6f85b70e-ab4b-4392-ba02-6592d8af50cd" type="radio">
-</input><label class="tabbed-label" for="7f945830-b36a-4be7-b578-d89f36391203">
+<input id="23e68f6d-5557-4a01-9ba0-41819d25b881" name="abac952f-1c1e-447c-8a3f-725d3ad111fe" type="radio">
+</input><label class="tabbed-label" for="23e68f6d-5557-4a01-9ba0-41819d25b881">
 CTF and Motion</label><div class="tabbed-content docutils">
 <div class="margin sidebar">
 <p class="card-title sidebar-title"></p>
@@ -889,8 +805,8 @@ we estimate and correct for the inter-frame motion present in the image.
 In this case, we leave the motion correction parameters as defaults.</p>
 <p class="card-text"><img alt="motion corr" src="https://i.ibb.co/Pgxsjt5/motion.png" /></p>
 </div>
-<input id="9d7714b9-62e6-4eca-80e4-f4e4bcc0ec0b" name="6f85b70e-ab4b-4392-ba02-6592d8af50cd" type="radio">
-</input><label class="tabbed-label" for="9d7714b9-62e6-4eca-80e4-f4e4bcc0ec0b">
+<input id="ac02bcf2-0caf-489e-965e-aa3b0e8cd4db" name="abac952f-1c1e-447c-8a3f-725d3ad111fe" type="radio">
+</input><label class="tabbed-label" for="ac02bcf2-0caf-489e-965e-aa3b0e8cd4db">
 Spatiotemporal models</label><div class="tabbed-content docutils">
 <p class="card-text">Warp allows us to estimate how CTF and inter-frame translational motion parameters change in both space and time.</p>
 <p class="card-text"><img alt="CTF and motion model" src="https://i.ibb.co/6mwzZKb/models.png" /></p>
@@ -899,8 +815,8 @@ Spatiotemporal models</label><div class="tabbed-content docutils">
 <p class="card-text">A motion model of 1x1xn where n is the number of frames typically ensures that accurate estimates can be obtained from low-dose data. The alignment of individual frames can be improved once a high SNR reference has been obtained, this is performed in the multi-particle refinement step of the workflow.</p>
 <p class="card-text">For HIV-5-TS, EMPIAR indicates that we have 8 frames per image, so we set the resolution of the motion model to 1x1x8</p>
 </div>
-<input id="48d0d741-22be-42d6-8634-37efe933a28f" name="6f85b70e-ab4b-4392-ba02-6592d8af50cd" type="radio">
-</input><label class="tabbed-label" for="48d0d741-22be-42d6-8634-37efe933a28f">
+<input id="ba65f2d4-d3fb-4021-955a-5e56d0cbcf2b" name="abac952f-1c1e-447c-8a3f-725d3ad111fe" type="radio">
+</input><label class="tabbed-label" for="ba65f2d4-d3fb-4021-955a-5e56d0cbcf2b">
 Fiducials</label><div class="tabbed-content docutils">
 <p class="card-text">While gold fiducials are useful for the accurate alignment of tilt series, their high contrast will have negative effects on the final tomographic reconstruction. For this reason, we use Warp to mask out any beads prior to tomographic reconstruction.</p>
 <p class="card-text">The <code class="docutils literal notranslate"><span class="pre">Pick</span> <span class="pre">Particles</span></code> panel gives access to <code class="docutils literal notranslate"><span class="pre">BoxNet</span></code>, a deep convolutional neural network designed to pick particles and mask out unwanted subregions in single-particle cryo-EM. A version of BoxNet we retrained for to mask gold fiducials is <span class="xref myst">provided</span> with this tutorial.</p>
@@ -915,8 +831,8 @@ Fiducials</label><div class="tabbed-content docutils">
 <p class="card-text"><img alt="boxnet" src="https://i.ibb.co/5BvkK9x/masking.png" /></p>
 <p class="card-text">As we are only using this model for particle picking, the parameters relating to particle picking can be safely ignored.</p>
 </div>
-<input id="27c2d05e-fa19-439b-928a-6164e4982417" name="6f85b70e-ab4b-4392-ba02-6592d8af50cd" type="radio">
-</input><label class="tabbed-label" for="27c2d05e-fa19-439b-928a-6164e4982417">
+<input id="a6ba599b-7e76-4a45-92c2-5a6538ed44e9" name="abac952f-1c1e-447c-8a3f-725d3ad111fe" type="radio">
+</input><label class="tabbed-label" for="a6ba599b-7e76-4a45-92c2-5a6538ed44e9">
 Start Processing!</label><div class="tabbed-content docutils">
 <p class="card-text"><img alt="processing" src="https://i.ibb.co/9nPKyLy/process.png" /></p>
 <p class="card-text">In the <code class="docutils literal notranslate"><span class="pre">Output</span></code> panel, we can choose not to include frames at the beginning and end of a movie. The first frames from a multi-frame micrograph of a given exposure often display increased translational motion. In this case, we chose to include all frames from the micrograph to maximise the signal present in the final images.</p>
@@ -976,7 +892,7 @@ In this case, they are the <code class="docutils literal notranslate"><span clas
 </div>
 </div>
 <div class="section" id="tilt-series-alignment">
-<span id="tilt-align"></span><h2>Tilt-series alignment<a class="headerlink" href="#tilt-series-alignment" title="Permalink to this headline">¶</a></h2>
+<span id="hiv-tilt-align"></span><h2>Tilt-series alignment<a class="headerlink" href="#tilt-series-alignment" title="Permalink to this headline">¶</a></h2>
 <p>In this section, we will use the <code class="docutils literal notranslate"><span class="pre">autoalign_dynamo</span></code> package, which leverages Dynamo’s automated tilt series alignment workflows.</p>
 <p>This program aligns tilt-series in <code class="docutils literal notranslate"><span class="pre">Dynamo</span></code> and prepares all necessary metadata for import back into <code class="docutils literal notranslate"><span class="pre">Warp</span></code>.</p>
 <div class="section" id="overview">
@@ -1043,7 +959,7 @@ As soon as the alignments are done, we can start CTF estimation on the tilt-seri
 </div>
 </div>
 <div class="section" id="tilt-series-ctf-estimation-and-tomogram-reconstruction">
-<span id="reconstruct"></span><h2>Tilt-Series CTF Estimation and Tomogram reconstruction<a class="headerlink" href="#tilt-series-ctf-estimation-and-tomogram-reconstruction" title="Permalink to this headline">¶</a></h2>
+<span id="hiv-reconstruct"></span><h2>Tilt-Series CTF Estimation and Tomogram reconstruction<a class="headerlink" href="#tilt-series-ctf-estimation-and-tomogram-reconstruction" title="Permalink to this headline">¶</a></h2>
 <p>Up to now we have:</p>
 <ul class="simple">
 <li><p>preprocessed the 2D images</p></li>

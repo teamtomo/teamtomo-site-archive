@@ -109,11 +109,6 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../teamtomo/contributing/screen-capture.html">
-     Screen capture
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="../../teamtomo/contributing/wishlist.html">
      Wishlist
     </a>
@@ -284,88 +279,9 @@
      viewing controls
     </a>
    </li>
-  </ul>
-  <i class="fas fa-chevron-down">
-  </i>
- </li>
-</ul>
-<p class="caption collapsible-parent">
- <span class="caption-text">
-  computing
- </span>
-</p>
-<ul class="nav sidenav_l1">
- <li class="toctree-l1 collapsible-parent">
-  <a class="reference internal" href="../../resources/programming/python/index.html">
-   Python
-  </a>
-  <ul class="collapse-ul">
    <li class="toctree-l2">
-    <a class="reference internal" href="../../resources/programming/python/getting-started.html">
-     Getting started
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../resources/programming/python/virtual-environments.html">
-     Virtual environments
-    </a>
-   </li>
-   <li class="toctree-l2 collapsible-parent">
-    <a class="reference internal" href="../../resources/programming/python/useful-packages/useful-packages.html">
-     Useful packages
-    </a>
-    <ul class="collapse-ul">
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../resources/programming/python/useful-packages/dynamotable.html">
-       dynamotable
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../resources/programming/python/useful-packages/emfile.html">
-       emfile
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../resources/programming/python/useful-packages/eulerangles.html">
-       eulerangles
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../resources/programming/python/useful-packages/mrcfile.html">
-       mrcfile
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../resources/programming/python/useful-packages/napari.html">
-       napari
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../resources/programming/python/useful-packages/starfile.html">
-       starfile
-      </a>
-     </li>
-    </ul>
-    <i class="fas fa-chevron-down">
-    </i>
-   </li>
-  </ul>
-  <i class="fas fa-chevron-down">
-  </i>
- </li>
- <li class="toctree-l1 collapsible-parent">
-  <a class="reference internal" href="../../resources/programming/matlab/index.html">
-   MATLAB
-  </a>
-  <ul class="collapse-ul">
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../resources/programming/matlab/add-to-path.html">
-     Adding scripts/functions to your PATH in
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       MATLAB
-      </span>
-     </code>
+    <a class="reference internal" href="interactive-mask-creation.html">
+     Interactive mask creation
     </a>
    </li>
   </ul>
@@ -824,17 +740,19 @@ or the
 </div>
 <div class="section" id="setup">
 <h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
-<p>In this section, we will set up our alignment project.</p>
-<p>First, we need to open <code class="docutils literal notranslate"><span class="pre">Dynamo</span></code>, either by activating it in <code class="docutils literal notranslate"><span class="pre">MATLAB</span></code> or using</p>
+<p>First, we need to open <code class="docutils literal notranslate"><span class="pre">Dynamo</span></code>, either by activating it in <code class="docutils literal notranslate"><span class="pre">MATLAB</span></code> or using the standalone version.</p>
 <div class="section" id="open-the-dcp-gui">
 <h3>Open the <code class="docutils literal notranslate"><span class="pre">dcp</span></code> gui<a class="headerlink" href="#open-the-dcp-gui" title="Permalink to this headline">¶</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">dcp</span></code> GUI is the main tool in <code class="docutils literal notranslate"><span class="pre">Dynamo</span></code> for interactively designing subtomogram averaging experiments.</p>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
-<div class="tip admonition">
-<p class="admonition-title">Tip!</p>
-<p>If you are using the standalone version of <code class="docutils literal notranslate"><span class="pre">Dynamo</span></code>, you can run <code class="docutils literal notranslate"><span class="pre">dcp</span></code> from the Linux command line directly with
-<code class="docutils literal notranslate"><span class="pre">dynamo</span> <span class="pre">&gt;&gt;</span> <span class="pre">dcp</span></code>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If you are using the standalone version of <code class="docutils literal notranslate"><span class="pre">Dynamo</span></code>, you can run <code class="docutils literal notranslate"><span class="pre">dcp</span></code> from the Linux command line directly with</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dynamo</span>
+<span class="o">&gt;&gt;</span> <span class="n">dcp</span>
+</pre></div>
+</div>
 </div>
 </div>
 <p>To open the GUI simply run <code class="docutils literal notranslate"><span class="pre">dcp</span></code> from your <code class="docutils literal notranslate"><span class="pre">Dynamo</span></code> shell.</p>
@@ -851,18 +769,18 @@ Choose something descriptive, it might help you remember what you did in a few m
 <h3>Input files<a class="headerlink" href="#input-files" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="input-your-particles">
 <h4>Input your particles<a class="headerlink" href="#input-your-particles" title="Permalink to this headline">¶</a></h4>
-<p>Click on the <code class="docutils literal notranslate"><span class="pre">particles</span></code> button in the <code class="docutils literal notranslate"><span class="pre">Input:</span> <span class="pre">files</span></code> row. In the dialogue box which pops up, enter the name of your data file.</p>
+<p>Click on the <code class="docutils literal notranslate"><span class="pre">particles</span></code> button in the <code class="docutils literal notranslate"><span class="pre">Input:</span> <span class="pre">files</span></code> row. In the dialogue box which pops up, enter the name of your data file or folder.</p>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
-<div class="tip admonition">
-<p class="admonition-title">Tip!</p>
-<p>To keep your workspace tidy, close the dialogue boxes once you are finished with them.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>To keep your workspace tidy, close the dialogue boxes once you are finished with them. They tend to build up quickly!</p>
 </div>
 </div>
 </div>
 <div class="section" id="input-your-table-file">
 <h4>Input your table file<a class="headerlink" href="#input-your-table-file" title="Permalink to this headline">¶</a></h4>
-<p>Click on the <code class="docutils literal notranslate"><span class="pre">table</span></code> button in the <code class="docutils literal notranslate"><span class="pre">Input:</span> <span class="pre">files</span></code> row. In the dialogue box which pops up, enter the name of your table file.</p>
+<p>Click on the <code class="docutils literal notranslate"><span class="pre">table</span></code> button in the <code class="docutils literal notranslate"><span class="pre">Input:</span> <span class="pre">files</span></code> row. In the dialogue box which pops up, enter the name of your table file, or click on <code class="docutils literal notranslate"><span class="pre">look</span> <span class="pre">inside</span> <span class="pre">data</span> <span class="pre">folder</span></code> to find it.</p>
 <p>If you don’t have a template, you can generate a blank table or a random table using the buttons in the Dialogue box.</p>
 </div>
 <div class="section" id="input-your-template">
@@ -881,16 +799,16 @@ one of the options in the <code class="docutils literal notranslate"><span class
 <li><p>a Fourier shell correlation mask</p></li>
 </ul>
 <p>The alignment mask defines a masked region of real space in which cross correlations used for alignments will be calculated.
-The classification mask defines a masked region of real space in which cross correlations used for classification will be calculated.
-The Fourier mask for the template defines the region of Fourier space in which you have information in your template (reference) volume.
-The Fourier shell correlation mask defines a masked region of real space in which Fourier shell calculations will be calculated.</p>
+The classification mask defines a masked region of real space in which cross correlations used for classification will be calculated.</p>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
-<div class="tip admonition">
-<p class="admonition-title">Tip!</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
 <p>You can check that your mask properly covers your template using the <code class="docutils literal notranslate"><span class="pre">View</span> <span class="pre">mask</span> <span class="pre">-&gt;</span> <span class="pre">overlay</span> <span class="pre">x/y/z</span></code> menu options.</p>
 </div>
 </div>
+<p>The Fourier mask for the template defines the region of Fourier space in which you have information in your template (reference) volume.
+The Fourier shell correlation mask defines a masked region of real space in which Fourier shell calculations will be calculated.</p>
 <p>Each mask can be created from the GUI directly, or an external mask can be provided. The classification mask and the Fourier shell correlation mask are not
 relevant for simple, single reference alignment projects such as the one we are setting up.</p>
 </div>
@@ -899,12 +817,12 @@ relevant for simple, single reference alignment projects such as the one we are 
 <h3>Alignment parameters<a class="headerlink" href="#alignment-parameters" title="Permalink to this headline">¶</a></h3>
 <p>From the <code class="docutils literal notranslate"><span class="pre">dcp</span></code> GUI click <code class="docutils literal notranslate"><span class="pre">numerical</span> <span class="pre">parameters</span></code> in the <code class="docutils literal notranslate"><span class="pre">Input:</span> <span class="pre">settings</span></code> row. This will open up a separate window in which many parameters relating to the numerical aspects of your alignments can be defined.</p>
 <p><img alt="numerical parameters gui" src="mini-tutorials/dynamo/alignment-setup.assets/numerical-params.png" /></p>
-<p>Key points:</p>
-<div class="sidebar">
-<p class="sidebar-title">Think about your search parameters</p>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
 <p>You should think carefully about how much you allow particles to move during an iterative alignment experiment. Particles have a tendency to ‘wander off’ in low SNR environments, restricting the evolution of shifts appropriately (<code class="docutils literal notranslate"><span class="pre">shift</span> <span class="pre">limiting</span> <span class="pre">way</span></code> 3 or 4) can reduce this problem.</p>
 <p>If your angular parameters come from a geometrical model, restricting angular searches ensures the particles do not deviate too much from initial estimates.</p>
 </div>
+<p>Key points:</p>
 <ul class="simple">
 <li><p>Hit <code class="docutils literal notranslate"><span class="pre">alt</span></code> on your keyboard or the <code class="docutils literal notranslate"><span class="pre">?</span></code> button for more info on a parameter</p></li>
 <li><p>Alignment projects can be split up into rounds with different alignment parameters</p></li>
@@ -924,20 +842,19 @@ relevant for simple, single reference alignment projects such as the one we are 
 <h4>Hardware<a class="headerlink" href="#hardware" title="Permalink to this headline">¶</a></h4>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
-<div class="tip admonition">
-<p class="admonition-title">Tip!</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
 <p>Running projects in the <code class="docutils literal notranslate"><span class="pre">standalone</span></code> modus leaves your <code class="docutils literal notranslate"><span class="pre">Dynamo</span></code> shell free for designing projects, making masks and performing other analyses.</p>
 </div>
 </div>
 <p>First, choose the hardware on which you will be running your alignment project. We typically use <code class="docutils literal notranslate"><span class="pre">GPU</span> <span class="pre">(standalone)</span></code>.</p>
-<div class="warning admonition">
-<p class="admonition-title">Important</p>
-<p>If running in a GPU modus, you should use only one CPU core in this box.</p>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>If running in a GPU modus, you should use only one CPU core in this box!</p>
 </div>
 <div class="section" id="optional-specifying-gpus">
 <h5>(optional) specifying GPUs<a class="headerlink" href="#optional-specifying-gpus" title="Permalink to this headline">¶</a></h5>
-<p>Specify the GPU identifiers for GPUs you would like to use for alignment. These are typically enumerated from 0.</p>
-<p>e.g. for a 4 GPU system, set this to <code class="docutils literal notranslate"><span class="pre">0,1,2,3</span></code></p>
+<p>Specify the GPU identifiers for GPUs you would like to use for alignment. These are typically enumerated from 0 (e.g. for a 4 GPU system, set this to <code class="docutils literal notranslate"><span class="pre">0,1,2,3</span></code>).</p>
 <p>Leave the motor as <code class="docutils literal notranslate"><span class="pre">spp</span></code> (this stands for sub-pixel precision).</p>
 </div>
 </div>
@@ -960,7 +877,7 @@ This should be set to the number of logical (not hyperthreaded) cores available 
 <div class="section" id="running-the-project">
 <h3>Running the project<a class="headerlink" href="#running-the-project" title="Permalink to this headline">¶</a></h3>
 <p>If running a project in the <code class="docutils literal notranslate"><span class="pre">MATLAB</span></code> modus, just type <code class="docutils literal notranslate"><span class="pre">run</span> <span class="pre">&lt;my_new_project&gt;.m</span></code> in your <code class="docutils literal notranslate"><span class="pre">Dynamo</span></code> shell.</p>
-<p>If running using the <code class="docutils literal notranslate"><span class="pre">standalone</span></code>, you first have to activate <code class="docutils literal notranslate"><span class="pre">Dynamo</span></code> in the shell. Usually this is achieved by running</p>
+<p>If running using the <code class="docutils literal notranslate"><span class="pre">standalone</span></code>, you first have to activate <code class="docutils literal notranslate"><span class="pre">Dynamo</span></code> in the shell. Usually this is achieved by running:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> /path/to/dynamo/installation/dynamo_activate_linux_shipped_MCR.sh
 ./&lt;my_new_project&gt;.exe
 </pre></div>

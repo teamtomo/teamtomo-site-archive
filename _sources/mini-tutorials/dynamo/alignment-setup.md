@@ -21,19 +21,21 @@ You can also set up your project locally, then
 
 ## Setup
 
-In this section, we will set up our alignment project.
+First, we need to open `Dynamo`, either by activating it in `MATLAB` or using the standalone version.
 
-First, we need to open `Dynamo`, either by activating it in `MATLAB` or using
 ### Open the `dcp` gui
 The `dcp` GUI is the main tool in `Dynamo` for interactively designing subtomogram averaging experiments.
 
-````{margin}
-```{admonition} Tip!
-:class: tip
-If you are using the standalone version of `Dynamo`, you can run `dcp` from the Linux command line directly with 
-`dynamo >> dcp`.
+`````{margin}
+````{tip}
+If you are using the standalone version of `Dynamo`, you can run `dcp` from the Linux command line directly with
+```
+dynamo
+>> dcp
 ```
 ````
+`````
+
 To open the GUI simply run `dcp` from your `Dynamo` shell.
 
 ![open the gui image](alignment-setup.assets/dcp-1.png)
@@ -48,17 +50,16 @@ Hit `Enter`. In the dialogue box which pops up, confirm that you would like to c
 
 ### Input files
 #### Input your particles
-Click on the `particles` button in the `Input: files` row. In the dialogue box which pops up, enter the name of your data file.
+Click on the `particles` button in the `Input: files` row. In the dialogue box which pops up, enter the name of your data file or folder.
 
 ````{margin}
-```{admonition} Tip!
-:class: tip
-To keep your workspace tidy, close the dialogue boxes once you are finished with them.
+```{tip}
+To keep your workspace tidy, close the dialogue boxes once you are finished with them. They tend to build up quickly!
 ```
 ````
 
 #### Input your table file
-Click on the `table` button in the `Input: files` row. In the dialogue box which pops up, enter the name of your table file.
+Click on the `table` button in the `Input: files` row. In the dialogue box which pops up, enter the name of your table file, or click on `look inside data folder` to find it.
 
 If you don't have a template, you can generate a blank table or a random table using the buttons in the Dialogue box.
 
@@ -78,15 +79,14 @@ Click on the `masks` button in the `Input: files` row. In the dialogue box which
 
 The alignment mask defines a masked region of real space in which cross correlations used for alignments will be calculated.
 The classification mask defines a masked region of real space in which cross correlations used for classification will be calculated.
-The Fourier mask for the template defines the region of Fourier space in which you have information in your template (reference) volume.
-The Fourier shell correlation mask defines a masked region of real space in which Fourier shell calculations will be calculated.
-
 ````{margin}
-```{admonition} Tip!
-:class: tip
+```{tip}
 You can check that your mask properly covers your template using the `View mask -> overlay x/y/z` menu options.
 ```
 ````
+The Fourier mask for the template defines the region of Fourier space in which you have information in your template (reference) volume.
+The Fourier shell correlation mask defines a masked region of real space in which Fourier shell calculations will be calculated.
+
 Each mask can be created from the GUI directly, or an external mask can be provided. The classification mask and the Fourier shell correlation mask are not
 relevant for simple, single reference alignment projects such as the one we are setting up.
 
@@ -98,13 +98,13 @@ From the `dcp` GUI click `numerical parameters` in the `Input: settings` row. Th
 
 ![numerical parameters gui](alignment-setup.assets/numerical-params.png)
 
-
-Key points:
-````{sidebar} Think about your search parameters
+```{attention}
 You should think carefully about how much you allow particles to move during an iterative alignment experiment. Particles have a tendency to 'wander off' in low SNR environments, restricting the evolution of shifts appropriately (`shift limiting way` 3 or 4) can reduce this problem. 
 
 If your angular parameters come from a geometrical model, restricting angular searches ensures the particles do not deviate too much from initial estimates.
-````
+```
+
+Key points:
 - Hit `alt` on your keyboard or the `?` button for more info on a parameter
 - Alignment projects can be split up into rounds with different alignment parameters
 - Each round can have an arbitrary number of iterations
@@ -112,7 +112,6 @@ If your angular parameters come from a geometrical model, restricting angular se
 - High and low pass thresholds (in Fourier pixels) define which spatial frequencies are aligned
 - Shifts are x, y, z shifts in the reference frame of each experimental particle
 - The evolution of particle positions can be restricted using the `shift limiting way` option.
-
 
 
 You can get a depiction of your current angular search parameters from the `Angles -> Show sketch of scanning angles -> Round X` menu options.
@@ -123,27 +122,24 @@ Computational parameters are used to tell the projects what it needs to know abo
 Click `computing environment` from the `dcp` GUI, a new window will open in which parameters can be edited.
 
 
-
 #### Hardware
 ````{margin}
-```{admonition} Tip!
-:class: tip
+```{tip}
 Running projects in the `standalone` modus leaves your `Dynamo` shell free for designing projects, making masks and performing other analyses.
 ```
 ````
+
 First, choose the hardware on which you will be running your alignment project. We typically use `GPU (standalone)`.
 
-```{admonition} Important
-:class: warning
-If running in a GPU modus, you should use only one CPU core in this box.
+```{attention}
+If running in a GPU modus, you should use only one CPU core in this box!
 ```
 
 ##### (optional) specifying GPUs
-Specify the GPU identifiers for GPUs you would like to use for alignment. These are typically enumerated from 0.
-
-e.g. for a 4 GPU system, set this to `0,1,2,3`
+Specify the GPU identifiers for GPUs you would like to use for alignment. These are typically enumerated from 0 (e.g. for a 4 GPU system, set this to `0,1,2,3`).
 
 Leave the motor as `spp` (this stands for sub-pixel precision).
+
 #### MPI
 This section can be used to select a cluster submission script which works with your system. More info [here](https://wiki.dynamo.biozentrum.unibas.ch/w/index.php/MPI_Cluster).
 
@@ -161,7 +157,7 @@ This will create a file `<my_new_project>.exe` or `<my_new_project.m>` depending
 ### Running the project
 If running a project in the `MATLAB` modus, just type `run <my_new_project>.m` in your `Dynamo` shell.
 
-If running using the `standalone`, you first have to activate `Dynamo` in the shell. Usually this is achieved by running
+If running using the `standalone`, you first have to activate `Dynamo` in the shell. Usually this is achieved by running:
 
 ```bash
 source /path/to/dynamo/installation/dynamo_activate_linux_shipped_MCR.sh

@@ -109,11 +109,6 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../teamtomo/contributing/screen-capture.html">
-     Screen capture
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="../../teamtomo/contributing/wishlist.html">
      Wishlist
     </a>
@@ -284,88 +279,9 @@
      viewing controls
     </a>
    </li>
-  </ul>
-  <i class="fas fa-chevron-down">
-  </i>
- </li>
-</ul>
-<p class="caption collapsible-parent">
- <span class="caption-text">
-  computing
- </span>
-</p>
-<ul class="nav sidenav_l1">
- <li class="toctree-l1 collapsible-parent">
-  <a class="reference internal" href="../../resources/programming/python/index.html">
-   Python
-  </a>
-  <ul class="collapse-ul">
    <li class="toctree-l2">
-    <a class="reference internal" href="../../resources/programming/python/getting-started.html">
-     Getting started
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../resources/programming/python/virtual-environments.html">
-     Virtual environments
-    </a>
-   </li>
-   <li class="toctree-l2 collapsible-parent">
-    <a class="reference internal" href="../../resources/programming/python/useful-packages/useful-packages.html">
-     Useful packages
-    </a>
-    <ul class="collapse-ul">
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../resources/programming/python/useful-packages/dynamotable.html">
-       dynamotable
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../resources/programming/python/useful-packages/emfile.html">
-       emfile
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../resources/programming/python/useful-packages/eulerangles.html">
-       eulerangles
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../resources/programming/python/useful-packages/mrcfile.html">
-       mrcfile
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../resources/programming/python/useful-packages/napari.html">
-       napari
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../resources/programming/python/useful-packages/starfile.html">
-       starfile
-      </a>
-     </li>
-    </ul>
-    <i class="fas fa-chevron-down">
-    </i>
-   </li>
-  </ul>
-  <i class="fas fa-chevron-down">
-  </i>
- </li>
- <li class="toctree-l1 collapsible-parent">
-  <a class="reference internal" href="../../resources/programming/matlab/index.html">
-   MATLAB
-  </a>
-  <ul class="collapse-ul">
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../resources/programming/matlab/add-to-path.html">
-     Adding scripts/functions to your PATH in
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       MATLAB
-      </span>
-     </code>
+    <a class="reference internal" href="../../mini-tutorials/dynamo/interactive-mask-creation.html">
+     Interactive mask creation
     </a>
    </li>
   </ul>
@@ -724,64 +640,129 @@
 <p>We can use this information to run a one iteration subtomogram averaging project. This should allow us to find a good set of particle positions and orientations, centered on the 6-fold symmetry axes, which we can later use for higher resolution reconstruction.</p>
 <div class="section" id="particle-extraction">
 <h2>Particle extraction<a class="headerlink" href="#particle-extraction" title="Permalink to this headline">¶</a></h2>
-<p>As for the initial model generation step, we need to extract our particles prior to alignment, this time from all VLPs rather than just a subset. Extract particles from <code class="docutils literal notranslate"><span class="pre">dcm</span></code>  as before, selecting all <code class="docutils literal notranslate"><span class="pre">Vesicle</span></code> models.</p>
+<p>Unless you already did it after <a class="reference internal" href="ini-model.html#hiv-extract-subset"><span class="std std-ref">extracting a subset of particles</span></a>, you will need to extract the whole dataset. Follow the <a class="reference internal" href="../../mini-tutorials/dynamo/extract-from-catalogue.html"><span class="doc std std-doc">same procedure</span></a>, but use all the volumes and call this new volume list <code class="docutils literal notranslate"><span class="pre">findparticles.vll</span></code>.</p>
 </div>
 <div class="section" id="particle-alignment">
 <h2>Particle alignment<a class="headerlink" href="#particle-alignment" title="Permalink to this headline">¶</a></h2>
-<p>Next we set up an alignment project using <code class="docutils literal notranslate"><span class="pre">dcp</span></code> where the aim is to align each oversampled initial particle position to the closest real particle position in the lattice. The important parameters when setting up this project are:</p>
-<ol class="simple">
-<li><p>Data should be the extracted data folder for the whole dataset</p></li>
-<li><p>Table should be the cropping table derived when extracting the data, found in the data folder</p></li>
-<li><p>Template should now be the aligned, symmetrised initial model
-<code class="docutils literal notranslate"><span class="pre">dynamo/inimodel/ite_0004/averages/average_aligned_along_z_c6.em</span></code>.</p></li>
-<li><p>We only want to run for one iteration</p></li>
-</ol>
-<blockquote>
-<div><p>Now that we’re working with the full dataset, calculations take significantly longer. Because our initial model is good one iteration of alignment should allow us to see the lattice structure appear in the particle positions.</p>
-</div></blockquote>
-<ol class="simple">
-<li><p>We only want to perform local in plane and out of plane angular searches</p></li>
-</ol>
-<blockquote>
-<div><p>We are already fairly sure about our out of plane angles because they come from our <code class="docutils literal notranslate"><span class="pre">Vesicle</span></code> models. The in plane searches can be limited because of the C6 symmetry of the reference</p>
-</div></blockquote>
-<ol class="simple">
-<li><p>We should adjust the shifts so that particles can only move half of the lattice spacing in the x and y direction</p></li>
-</ol>
-<blockquote>
-<div><p>We expect to find a lattice of particles with roughly 7.5 nm spacing. If we allow each particle to shift a maximum of 4nm in each direction it should be guaranteed to find the closest true position in the lattice but cannot move too far. This maximises the chances of finding all lattice positions from the beginning.</p>
-</div></blockquote>
-<ol class="simple">
+<p>Next we set up a new alignment project using <code class="docutils literal notranslate"><span class="pre">dcp</span></code>. This time, the aim is to align each oversampled initial particle position to the closest real particle position in the lattice. The important difference compared to the previous step are:</p>
+<ul class="simple">
+<li><p>Input data should be the whole dataset, not the subset, and the the relative <code class="docutils literal notranslate"><span class="pre">.tbl</span></code> file.</p></li>
+<li><p>Template should now be the aligned, symmetrised initial model that we generated in the last section: <code class="docutils literal notranslate"><span class="pre">dynamo/inimodel/ite_0004/averages/average_aligned_along_z_c6.em</span></code>.</p></li>
+<li><p>We only want to run for one iteration. Now that we’re working with the full dataset, calculations take significantly longer. Because our initial model is good one iteration of alignment should allow us to see the lattice structure appear in the particle positions.</p></li>
+<li><p>We only want to perform local in plane and out of plane angular searches, since we are already fairly sure about our out of plane angles because they come from our <code class="docutils literal notranslate"><span class="pre">Vesicle</span></code> models. The in plane searches can be limited because of the C6 symmetry of the reference</p></li>
+<li><p>We should adjust the shifts so that particles can only move half of the lattice spacing in the x and y direction. We expect to find a lattice of particles with roughly 7.5 nm spacing. If we allow each particle to shift a maximum of 4nm in each direction it should be guaranteed to find the closest true position in the lattice, without moving too far. This maximises the chances of finding all lattice positions from the beginning.</p></li>
 <li><p>We should allow the particles to shift more in z than in x and y to account for any errors when defining our <code class="docutils literal notranslate"><span class="pre">Vesicle</span></code> models.</p></li>
-</ol>
-<p>Once the parameters are all set, run the project from the command line as before. This will take significantly longer!</p>
+</ul>
+<p>Once the parameters are all set, run the project from the command line as before. This will take significantly longer that the previous time!</p>
 </div>
 <div class="section" id="cleaning-the-dataset-based-on-geometrical-constraints">
 <h2>Cleaning the dataset based on geometrical constraints<a class="headerlink" href="#cleaning-the-dataset-based-on-geometrical-constraints" title="Permalink to this headline">¶</a></h2>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The provided scripts are just a few lines long, and are given for convenience and illustration purposes. You are encouraged to read them and modify them for your own purposes.</p>
+</div>
+</div>
 <p>To isolate a good subset of particles in lattices we will use three short scripts provided with this tutorial.</p>
-<blockquote>
-<div><p>The provided scripts are just a few lines long, and are given for convenience and illustration purposes. You are encouraged to read them and modify them for your own purposes</p>
-</div></blockquote>
-<p>The first cleaning step we should take is removing duplicate particles. To do so, we will use <code class="docutils literal notranslate"><span class="pre">remove_duplicates.m</span></code>.
-Open MATLAB in <code class="docutils literal notranslate"><span class="pre">dynamo/findparticles/results/ite_0001/averages</span></code>, then run:</p>
+<p>The first cleaning step we should take is removing duplicate particles. To do so, we will use a simple matlab script, <span class="xref myst"><code class="docutils literal notranslate"><span class="pre">remove_duplicates.m</span></code></span>.</p>
+<p>To run, simply open MATLAB in <code class="docutils literal notranslate"><span class="pre">dynamo/findparticles/results/ite_0001/averages</span></code> and run:</p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="f93f270d-c8ba-45d2-bb76-72ec315827f7" name="cace9703-3703-446e-a4e5-7e0a44d34559" type="radio">
+</input><label class="tabbed-label" for="f93f270d-c8ba-45d2-bb76-72ec315827f7">
+Command</label><div class="tabbed-content docutils">
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">remove_duplicates</span>
 </pre></div>
 </div>
+</div>
+<input id="aeecc10b-0afa-4cf9-8950-312845920ee3" name="cace9703-3703-446e-a4e5-7e0a44d34559" type="radio">
+</input><label class="tabbed-label" for="aeecc10b-0afa-4cf9-8950-312845920ee3">
+Source code</label><div class="tabbed-content docutils">
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% read table</span>
+<span class="n">table</span> <span class="p">=</span> <span class="n">dread</span><span class="p">(</span><span class="s">&#39;refined_table_ref_001_ite_0001.tbl&#39;</span><span class="p">);</span>
+
+<span class="c">% remove duplicates</span>
+<span class="n">threshold</span> <span class="p">=</span> <span class="mi">4</span><span class="p">;</span>
+<span class="n">nodup</span> <span class="p">=</span> <span class="n">dpktbl</span><span class="p">.</span><span class="n">exclusionPerVolume</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">threshold</span><span class="p">)</span>
+
+<span class="c">% write out table</span>
+<span class="n">dwrite</span><span class="p">(</span><span class="n">nodup</span><span class="p">,</span> <span class="s">&#39;result_10Apx_nodup.tbl&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
 <p>This will create a new table called <code class="docutils literal notranslate"><span class="pre">result_10Apx_nodup.tbl</span></code>, reducing clusters of multiple particles within 4 pixels (half the distance we measured earlier) to a single particle.</p>
-<p>The next step is to remove particles that don’t belong to the lattice. To do so, first run:</p>
+<p>The next step is to remove particles that don’t belong to the lattice. To do so, we use <span class="xref myst"><code class="docutils literal notranslate"><span class="pre">check_radial_distribution.m</span></code></span>.</p>
+<p>Once again, in the same directory, simply run:</p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="00ab965e-b270-4ce7-919a-efe3fb2c8875" name="3f75bb6d-52f8-4790-b326-d52821055d22" type="radio">
+</input><label class="tabbed-label" for="00ab965e-b270-4ce7-919a-efe3fb2c8875">
+Command</label><div class="tabbed-content docutils">
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">check_radial_distribution</span>
 </pre></div>
 </div>
+</div>
+<input id="3c386498-3c5f-4ded-b2ab-69783ce56ae1" name="3f75bb6d-52f8-4790-b326-d52821055d22" type="radio">
+</input><label class="tabbed-label" for="3c386498-3c5f-4ded-b2ab-69783ce56ae1">
+Source code</label><div class="tabbed-content docutils">
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% check number of neighbours in radial shells, 1 px thick shells</span>
+
+<span class="c">% read table</span>
+<span class="n">table</span> <span class="p">=</span> <span class="n">dread</span><span class="p">(</span><span class="s">&#39;result_10Apx_nodup.tbl&#39;</span><span class="p">);</span>
+
+<span class="c">% check average number of neighbours in shells</span>
+<span class="c">% initialise result vector</span>
+<span class="n">neighbours_in_shells</span> <span class="p">=</span> <span class="nb">zeros</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="n">shell_starts</span> <span class="p">=</span> <span class="nb">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span>
+
+<span class="c">% check number of neighbours in shell, count and append to result</span>
+<span class="k">for</span> <span class="n">shell_start_idx</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="nb">size</span><span class="p">(</span><span class="n">shell_starts</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">min_dist</span> <span class="p">=</span> <span class="n">shell_starts</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">shell_start_idx</span><span class="p">);</span>
+    <span class="n">max_dist</span> <span class="p">=</span> <span class="n">min_dist</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">n_neighbours</span> <span class="p">=</span> <span class="n">dtneighbours_in_range</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">min_dist</span><span class="p">,</span> <span class="n">max_dist</span><span class="p">);</span>
+    <span class="n">neighbours_in_shells</span><span class="p">(</span><span class="n">shell_start_idx</span><span class="p">)</span> <span class="p">=</span> <span class="n">mean</span><span class="p">(</span><span class="n">n_neighbours</span><span class="p">);</span>
+<span class="n">end</span>
+
+<span class="s">plot(shell_starts</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">neighbours_in_shells</span><span class="p">)</span>
+
+<span class="c">% plot shows most particles have more neighbours at 5.5-8.5px distance</span>
+</pre></div>
+</div>
+</div>
+</div>
 <p>This will open a plot of the radial distribution of neighbouring particles for the whole dataset. Here, we can see a high peak at around 7.5 <span class="math notranslate nohighlight">\(px\)</span>, and periodic peaks after that.</p>
-<p><img alt="radial distribution" src="https://i.ibb.co/gJ0K1Q0/radial-distance.png" /></p>
-<p>This confirms the previously measured interparticle distance and the fact that most particles slid into ordered positions in the lattice. We can use the first peak to select against particles that don’t conform to this distribution. The next script, <code class="docutils literal notranslate"><span class="pre">subset_table_based_on_neighbours.m</span></code>, removes all particles that don’t have at least 3 neighbours in the radial shell at distance 7.5 <span class="math notranslate nohighlight">\(px\)</span>. To use it, run:</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you are wondering why the second peak has two sub-peaks: it’s the honeycomb pattern! The second shell of neighbours is actually composed of two shells at slighly different distances.</p>
+</div>
+</div>
+<p><img alt="radial distribution" src="../../_images/radial-distance-profile.png" /></p>
+<p>This confirms the previously measured interparticle distance and the fact that most particles slid into ordered positions in the lattice. We can use the first peak to select against particles that don’t conform to this distribution. The next script, <span class="xref myst"><code class="docutils literal notranslate"><span class="pre">subset_table_based_on_neighbours.m</span></code></span>, removes all particles that don’t have at least 3 neighbours in the radial shell at distance 7.5 <span class="math notranslate nohighlight">\(px\)</span>. To use it, run:</p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="82b27619-51a2-41b6-8974-5bcd1ad0a403" name="30872ef9-ca21-442f-9c44-40d2d28f737b" type="radio">
+</input><label class="tabbed-label" for="82b27619-51a2-41b6-8974-5bcd1ad0a403">
+Command</label><div class="tabbed-content docutils">
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">subset_table_based_on_neighbours</span>
 </pre></div>
 </div>
-<blockquote>
-<div><p>When finished, the script will open a viewer to inspect the table before and after the processing. Switching to a less clean dataset (for example <code class="docutils literal notranslate"><span class="pre">TS_43</span></code>) will make it clear that most bad particles were removed.</p>
-</div></blockquote>
-<p>The final output is a new table called <code class="docutils literal notranslate"><span class="pre">result_10Apx_nodup_neighbourcleaning.tbl</span></code> which contains only references to the particles that we selected.</p>
+</div>
+<input id="99bcceda-b2bc-4cb1-9abf-2860199a8c9f" name="30872ef9-ca21-442f-9c44-40d2d28f737b" type="radio">
+</input><label class="tabbed-label" for="99bcceda-b2bc-4cb1-9abf-2860199a8c9f">
+Source code</label><div class="tabbed-content docutils">
+<p>table = dread(‘result_10Apx_nodup.tbl’);</p>
+<p>peak = 7.5;
+delta = 1;
+neighbours = dtneighbours_in_range(table, peak-delta, peak+delta);</p>
+<p>idx = neighbours &gt; 3;
+subset = table(idx, :);</p>
+<p>dwrite(subset, ‘result_10Apx_nodup_neighbourcleaning.tbl’);
+compare_two_tables(table, subset);</p>
+</div>
+</div>
+<p>When finished, the script will open a viewer to inspect the table before and after the processing. Switching to a less clean dataset (for example <code class="docutils literal notranslate"><span class="pre">TS_43</span></code>) will make it clear that most bad particles were removed.</p>
+<p>The final output is a new table called <code class="docutils literal notranslate"><span class="pre">result_10Apx_nodup_neighbourcleaning.tbl</span></code> which contains only references to the particles that we selected. This is our cleaned dataset, ready for refinement in <code class="docutils literal notranslate"><span class="pre">RELION</span></code>!</p>
 </div>
 </div>
 

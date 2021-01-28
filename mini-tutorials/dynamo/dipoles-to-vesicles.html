@@ -109,11 +109,6 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../teamtomo/contributing/screen-capture.html">
-     Screen capture
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="../../teamtomo/contributing/wishlist.html">
      Wishlist
     </a>
@@ -284,88 +279,9 @@
      viewing controls
     </a>
    </li>
-  </ul>
-  <i class="fas fa-chevron-down">
-  </i>
- </li>
-</ul>
-<p class="caption collapsible-parent">
- <span class="caption-text">
-  computing
- </span>
-</p>
-<ul class="nav sidenav_l1">
- <li class="toctree-l1 collapsible-parent">
-  <a class="reference internal" href="../../resources/programming/python/index.html">
-   Python
-  </a>
-  <ul class="collapse-ul">
    <li class="toctree-l2">
-    <a class="reference internal" href="../../resources/programming/python/getting-started.html">
-     Getting started
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../resources/programming/python/virtual-environments.html">
-     Virtual environments
-    </a>
-   </li>
-   <li class="toctree-l2 collapsible-parent">
-    <a class="reference internal" href="../../resources/programming/python/useful-packages/useful-packages.html">
-     Useful packages
-    </a>
-    <ul class="collapse-ul">
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../resources/programming/python/useful-packages/dynamotable.html">
-       dynamotable
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../resources/programming/python/useful-packages/emfile.html">
-       emfile
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../resources/programming/python/useful-packages/eulerangles.html">
-       eulerangles
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../resources/programming/python/useful-packages/mrcfile.html">
-       mrcfile
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../resources/programming/python/useful-packages/napari.html">
-       napari
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../resources/programming/python/useful-packages/starfile.html">
-       starfile
-      </a>
-     </li>
-    </ul>
-    <i class="fas fa-chevron-down">
-    </i>
-   </li>
-  </ul>
-  <i class="fas fa-chevron-down">
-  </i>
- </li>
- <li class="toctree-l1 collapsible-parent">
-  <a class="reference internal" href="../../resources/programming/matlab/index.html">
-   MATLAB
-  </a>
-  <ul class="collapse-ul">
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../resources/programming/matlab/add-to-path.html">
-     Adding scripts/functions to your PATH in
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       MATLAB
-      </span>
-     </code>
+    <a class="reference internal" href="interactive-mask-creation.html">
+     Interactive mask creation
     </a>
    </li>
   </ul>
@@ -713,33 +629,6 @@
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#dtmslice-controls">
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       dtmslice
-      </span>
-     </code>
-     controls
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#general">
-       general
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#dipoleset-specific">
-       <code class="docutils literal notranslate">
-        <span class="pre">
-         dipoleSet
-        </span>
-       </code>
-       specific
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#create-a-dipoleset-model">
      Create a
      <code class="docutils literal notranslate">
@@ -804,53 +693,61 @@ Center and edge points of a vesicle in a tomogram are easily annotated using the
 </ol>
 <p>Using the <code class="docutils literal notranslate"><span class="pre">dipoleSet</span></code> model let’s us quickly define a center and an edge point for many spherical objects</p>
 </div>
-<div class="section" id="dtmslice-controls">
-<h3><code class="docutils literal notranslate"><span class="pre">dtmslice</span></code> controls<a class="headerlink" href="#dtmslice-controls" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="general">
-<h4>general<a class="headerlink" href="#general" title="Permalink to this headline">¶</a></h4>
-<p>If you haven’t used <code class="docutils literal notranslate"><span class="pre">dtmslice</span></code> before, get familiar by reading <a class="reference internal" href="dtmslice-controls.html"><span class="doc std std-doc">this page</span></a> and playing with it for five minutes.</p>
-</div>
-<div class="section" id="dipoleset-specific">
-<h4><code class="docutils literal notranslate"><span class="pre">dipoleSet</span></code> specific<a class="headerlink" href="#dipoleset-specific" title="Permalink to this headline">¶</a></h4>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">c</span></code> to set a center point for the current dipole</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">n</span></code> to set a north point for the current dipole</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Enter</span></code> to save the current dipole and move to the next one</p></li>
-</ul>
+<div class="section" id="create-a-dipoleset-model">
+<h3>Create a <code class="docutils literal notranslate"><span class="pre">dipoleSet</span></code> model<a class="headerlink" href="#create-a-dipoleset-model" title="Permalink to this headline">¶</a></h3>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
-<div class="seealso admonition">
+<div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <p>For a full guide on how to interact with <code class="docutils literal notranslate"><span class="pre">dipoleSet</span></code> models, check out the relevant <a class="reference external" href="https://wiki.dynamo.biozentrum.unibas.ch/w/index.php/Dipole_set_models">wiki page</a>.</p>
 </div>
 </div>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-20 docutils">
+<div class="card w-100 border-2 docutils">
+<div class="card-header docutils">
+<p class="card-text"><code class="docutils literal notranslate"><span class="pre">dtmslice</span></code> controls</p>
+</div>
+<div class="card-body docutils">
+<p class="card-text">If you haven’t used <code class="docutils literal notranslate"><span class="pre">dtmslice</span></code> before, get familiar by reading <a class="reference internal" href="dtmslice-controls.html"><span class="doc std std-doc">this page</span></a> and playing with it for five minutes.</p>
+<p class="card-text">Generating <code class="docutils literal notranslate"><span class="pre">dipoleSet</span></code>s can be done with three simple shortcuts:</p>
+<ul class="simple">
+<li><p class="card-text"><code class="docutils literal notranslate"><span class="pre">c</span></code> to set a center point for the current dipole</p></li>
+<li><p class="card-text"><code class="docutils literal notranslate"><span class="pre">n</span></code> to set a north point for the current dipole</p></li>
+<li><p class="card-text"><code class="docutils literal notranslate"><span class="pre">Enter</span></code> to save the current dipole and move to the next one</p></li>
+</ul>
 </div>
 </div>
-<div class="section" id="create-a-dipoleset-model">
-<h3>Create a <code class="docutils literal notranslate"><span class="pre">dipoleSet</span></code> model<a class="headerlink" href="#create-a-dipoleset-model" title="Permalink to this headline">¶</a></h3>
-<ol class="simple">
-<li><p>open your tomogram in <code class="docutils literal notranslate"><span class="pre">dtmslice</span></code> from the <code class="docutils literal notranslate"><span class="pre">dcm</span></code> (<code class="docutils literal notranslate"><span class="pre">Dynamo</span></code> catalogue manager) GUI
-<code class="docutils literal notranslate"><span class="pre">View</span> <span class="pre">volume</span> <span class="pre">-&gt;</span> <span class="pre">Full</span> <span class="pre">tomogram</span> <span class="pre">file</span> <span class="pre">in</span> <span class="pre">tomoslice</span></code></p></li>
-<li><p>create a <code class="docutils literal notranslate"><span class="pre">dipoleSet</span></code> model from the menu
-<code class="docutils literal notranslate"><span class="pre">Model</span> <span class="pre">pool</span> <span class="pre">-&gt;</span> <span class="pre">Create</span> <span class="pre">new</span> <span class="pre">model</span> <span class="pre">in</span> <span class="pre">pool</span> <span class="pre">(choose</span> <span class="pre">type)</span> <span class="pre">-&gt;</span> <span class="pre">Oriented</span> <span class="pre">particles</span> <span class="pre">(dipole</span> <span class="pre">set)</span></code>
-<img alt="create a dipole set model" src="../../_images/create_model.gif" /></p></li>
-</ol>
+</div>
+</div>
+</div>
+<p>Open your tomogram in <code class="docutils literal notranslate"><span class="pre">dtmslice</span></code> from the <code class="docutils literal notranslate"><span class="pre">dcm</span></code> (<code class="docutils literal notranslate"><span class="pre">Dynamo</span></code> catalogue manager) GUI:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">View</span> <span class="n">volume</span> <span class="o">-&gt;</span> <span class="n">Full</span> <span class="n">tomogram</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">tomoslice</span>
+</pre></div>
+</div>
+<p>Create a <code class="docutils literal notranslate"><span class="pre">dipoleSet</span></code> model from the menu:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Model</span> <span class="n">pool</span> <span class="o">-&gt;</span> <span class="n">Create</span> <span class="n">new</span> <span class="n">model</span> <span class="ow">in</span> <span class="n">pool</span> <span class="p">(</span><span class="n">choose</span> <span class="nb">type</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Oriented</span> <span class="n">particles</span> <span class="p">(</span><span class="n">dipole</span> <span class="nb">set</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><img alt="create a dipole set model" src="../../_images/create_model.gif" /></p>
 </div>
 <div class="section" id="picking-dipoles">
 <h3>Picking dipoles<a class="headerlink" href="#picking-dipoles" title="Permalink to this headline">¶</a></h3>
 <p>Move the slice in the tomogram and roughly pick the center point of your sphere by moving the cursor to that point and pressing <code class="docutils literal notranslate"><span class="pre">c</span></code>.
 Then, move the cursor to a point on the surface of the same vescicle and press <code class="docutils literal notranslate"><span class="pre">n</span></code> (north) to define an edge point.</p>
 <p>A surface rendering of the defined sphere will appear; move the slice and look at the object from different orientations to make sure that the sphere matches your object well. When satisfied, hit <code class="docutils literal notranslate"><span class="pre">Enter</span></code> to move to the next vesicle</p>
-<div class="tip admonition">
-<p class="admonition-title">Hint</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
 <p>Use the <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code> and <code class="docutils literal notranslate"><span class="pre">z</span></code> keys to change the orientation of the current slice</p>
 </div>
-<p><img alt="dipole picking" src="https://i.ibb.co/N1K4GW1/dipole-picking.png" /></p>
+<p><img alt="dipole picking" src="../../_images/dipole-picking.png" /></p>
 <p>Once all the objects in a tomogram are picked, save the model by clicking on <code class="docutils literal notranslate"><span class="pre">Active</span> <span class="pre">Model</span> <span class="pre">-&gt;</span> <span class="pre">Save</span> <span class="pre">active</span> <span class="pre">model</span> <span class="pre">into</span> <span class="pre">catalogue</span> <span class="pre">(disk)</span></code> or clicking the floppy disk icon in the menu bar.</p>
 <p>Close the tomoslice window and repeat this process for each tomogram in your dataset.</p>
-<blockquote>
-<div><p>If Dynamo asks what to do with the model in pool memory and you already saved the model, choose to delete it. Dynamo may show some elements of the previous <code class="docutils literal notranslate"><span class="pre">dipoleSet</span></code> model when opening a new tomogram. This is a visualisation bug, and does not affect the creation of a new model.</p>
-</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If Dynamo asks what to do with the model in pool memory and you already saved the model, choose to delete it. Dynamo may show some elements of the previous <code class="docutils literal notranslate"><span class="pre">dipoleSet</span></code> model when opening a new tomogram. This is a visualisation bug, and does not affect the creation of a new model.</p>
+</div>
 </div>
 <div class="section" id="convert-dipoleset-models-into-oversampled-vesicle-models">
 <h3>Convert dipoleSet models into oversampled Vesicle models<a class="headerlink" href="#convert-dipoleset-models-into-oversampled-vesicle-models" title="Permalink to this headline">¶</a></h3>
@@ -913,16 +810,16 @@ Then, move the cursor to a point on the surface of the same vescicle and press <
 <span class="s">end</span>
 </pre></div>
 </div>
-<p>To generate the <code class="docutils literal notranslate"><span class="pre">Vesicle</span></code> models from a catalogue called <code class="docutils literal notranslate"><span class="pre">catalogue</span></code> with an expected inter-particle distance of <code class="docutils literal notranslate"><span class="pre">7.5</span></code>px we would run the following command from the folder containing the catalogue:</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">dipoles2vescicles</span><span class="p">(</span><span class="s">&#39;catalogue&#39;</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">)</span>
-</pre></div>
-</div>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>If you aren’t sure how to use the provided function, check out <span class="xref myst">this page</span></p>
+<p>If you aren’t sure how to use the provided function, check out <a class="reference internal" href="../../computing/matlab/add-to-path.html"><span class="doc std std-doc">this page</span></a></p>
 </div>
+</div>
+<p>For example, to generate the <code class="docutils literal notranslate"><span class="pre">Vesicle</span></code> models from a catalogue called <code class="docutils literal notranslate"><span class="pre">catalogue</span></code> with an expected inter-particle distance of <code class="docutils literal notranslate"><span class="pre">7.5</span></code>px we would run the following command from the folder containing the catalogue:</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">dipoles2vescicles</span><span class="p">(</span><span class="s">&#39;catalogue&#39;</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">)</span>
+</pre></div>
 </div>
 </div>
 </div>
