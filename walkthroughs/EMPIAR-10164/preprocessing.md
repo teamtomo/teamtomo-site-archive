@@ -3,18 +3,18 @@
 In this chapter, we will detail the necessary steps to take you from multi-frame micrographs to tomograms. 
 
 The main steps in this chapter are:
-1. [Micrograph Preprocessing](mic-preproc)
+1. [Micrograph Preprocessing](hiv:mic-preproc)
 
    Process multi-frame micrographs and generate tilt series stacks
-2. [Tilt-Series Alignment](tilt-align)
+2. [Tilt-Series Alignment](hiv:tilt-align)
 
    Estimate the image transformations required for tomogram reconstruction
-3. [Tilt-Series CTF Estimation and Tomogram Reconstruction](reconstruct)
+3. [Tilt-Series CTF Estimation and Tomogram Reconstruction](hiv:reconstruct)
 
    Reconstruction of 3D-CTF corrected downsampled tomograms and deconvolved volumes for visualisation
 
 
-(mic-preproc)=
+(hiv:mic-preproc)=
 ## Micrograph preprocessing
 
 In this section, we will use `Warp` for the initial processing of the raw data. This will let us:
@@ -210,7 +210,7 @@ Click on `Create stacks for IMOD` to start exporting the data. We can immediatel
 
 ---
 
-(tilt-align)=
+(hiv:tilt-align)=
 ## Tilt-series alignment
 
 In this section, we will use the `autoalign_dynamo` package, which leverages Dynamo's automated tilt series alignment workflows.
@@ -276,7 +276,7 @@ TODO: add some details for checking the results, how to open the tomogram and th
 
 ---
 
-(reconstruct)=
+(hiv:reconstruct)=
 ## Tilt-Series CTF Estimation and Tomogram reconstruction
 
 Up to now we have:

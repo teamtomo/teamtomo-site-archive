@@ -19,36 +19,42 @@ Center and edge points of a vesicle in a tomogram are easily annotated using the
 
 ### General approach
 Spheres can be completely defined by only two values, their centre point and their radius. We will 
-
 1. Create a `dipoleSet` model in each tomogram
 2. Convert these `dipoleSet` models into oversampled `vesicle` models 
 
 Using the `dipoleSet` model let's us quickly define a center and an edge point for many spherical objects
 
-### `dtmslice` controls
-#### general
-If you haven't used `dtmslice` before, get familiar by reading [this page](dtmslice-controls) and playing with it for five minutes.
-
-#### `dipoleSet` specific
-
-- `c` to set a center point for the current dipole
-- `n` to set a north point for the current dipole
-- `Enter` to save the current dipole and move to the next one
+### Create a `dipoleSet` model
 
 ````{margin}
-```{admonition} See also
-:class: seealso
+```{seealso}
 For a full guide on how to interact with `dipoleSet` models, check out the relevant [wiki page](https://wiki.dynamo.biozentrum.unibas.ch/w/index.php/Dipole_set_models).
 ```
 ````
 
-### Create a `dipoleSet` model
+```{panels}
+:column: col-20
+:card: border-2
+`dtmslice` controls
+^^^
+If you haven't used `dtmslice` before, get familiar by reading [this page](dtmslice-controls) and playing with it for five minutes.
 
-1. open your tomogram in `dtmslice` from the `dcm` (`Dynamo` catalogue manager) GUI
-   `View volume -> Full tomogram file in tomoslice`
-2. create a `dipoleSet` model from the menu
-   `Model pool -> Create new model in pool (choose type) -> Oriented particles (dipole set)`
-   ![create a dipole set model](dipoles-to-vesicles.assets/create_model.gif)
+Generating `dipoleSet`s can be done with three simple shortcuts:
+- `c` to set a center point for the current dipole
+- `n` to set a north point for the current dipole
+- `Enter` to save the current dipole and move to the next one
+```
+
+Open your tomogram in `dtmslice` from the `dcm` (`Dynamo` catalogue manager) GUI:
+```
+View volume -> Full tomogram file in tomoslice
+```
+Create a `dipoleSet` model from the menu:
+```
+Model pool -> Create new model in pool (choose type) -> Oriented particles (dipole set)
+```
+
+![create a dipole set model](dipoles-to-vesicles.assets/create_model.gif)
 
 
 ### Picking dipoles
@@ -58,18 +64,19 @@ Then, move the cursor to a point on the surface of the same vescicle and press `
 
 A surface rendering of the defined sphere will appear; move the slice and look at the object from different orientations to make sure that the sphere matches your object well. When satisfied, hit `Enter` to move to the next vesicle
 
-```{admonition} Hint
-:class: tip
+```{tip}
 Use the `x`, `y` and `z` keys to change the orientation of the current slice
 ```
 
-![dipole picking](https://i.ibb.co/N1K4GW1/dipole-picking.png)
+![dipole picking](dipoles-to-vesicles.assets/dipole-picking.png)
 
 Once all the objects in a tomogram are picked, save the model by clicking on `Active Model -> Save active model into catalogue (disk)` or clicking the floppy disk icon in the menu bar.
 
 Close the tomoslice window and repeat this process for each tomogram in your dataset.
 
-> If Dynamo asks what to do with the model in pool memory and you already saved the model, choose to delete it. Dynamo may show some elements of the previous `dipoleSet` model when opening a new tomogram. This is a visualisation bug, and does not affect the creation of a new model.
+```{note}
+If Dynamo asks what to do with the model in pool memory and you already saved the model, choose to delete it. Dynamo may show some elements of the previous `dipoleSet` model when opening a new tomogram. This is a visualisation bug, and does not affect the creation of a new model.
+```
 
 ### Convert dipoleSet models into oversampled Vesicle models
 
@@ -134,14 +141,14 @@ function vesicles_from_dipoles(model_file, expected_inter_particle_distance)
 end
 ```
 
-To generate the `Vesicle` models from a catalogue called `catalogue` with an expected inter-particle distance of `7.5`px we would run the following command from the folder containing the catalogue:
+````{margin}
+```{note}
+If you aren't sure how to use the provided function, check out [this page](../../computing/matlab/add-to-path)
+```
+````
+
+For example, to generate the `Vesicle` models from a catalogue called `catalogue` with an expected inter-particle distance of `7.5`px we would run the following command from the folder containing the catalogue:
 
 ```matlab
 dipoles2vescicles('catalogue', 7.5)
 ```
-
-````{margin}
-```{note}
-If you aren't sure how to use the provided function, check out [this page](../../../programming/matlab/add-to-path)
-```
-````
