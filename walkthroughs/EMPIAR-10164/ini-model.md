@@ -38,7 +38,7 @@ For a full tutorial on how to setting up a simple subtomogram averaging project 
 In our case, we set it up as follows:
 
 `Project`:
-: `inimodel
+: `inimodel`
 
 `particles`
 : the previously generated `inimodelData.Boxes` (or otherwise named) directory.
