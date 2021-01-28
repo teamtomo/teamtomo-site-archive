@@ -9,7 +9,7 @@ This mini-tutorial will explain how to extract a set of particles from multiple 
 If you have been picking your particles/supporting geometries in `dtmslice`, opened from the catalogue manager (`dcm`) then you're ready to go!
 
 ## Open the catalogue
-Open your catalogue in `dcm`
+Open your catalogue with `dcm`.
 
 ## Select your tomograms
 Select the tomograms you would like to crop from (or use the select all button)
@@ -30,14 +30,15 @@ Create a volume list (`.vll`) file by
    
 ![create volume list file](extract-from-catalogue.assets/create-volume-list.gif)
 
-
 ## Extract your particles
-```{sidebar} Dynamo data folder structure
+````{margin}
+```{note} Dynamo data folder
 A Dynamo data folder contains
 - Subvolumes for each particle
 - Alignment metadata for each particle (`crop.tbl`)
 - A tomogram-table map [file](https://wiki.dynamo.biozentrum.unibas.ch/w/index.php/Tomogram-table_map_file) (`indices_column20.doc`)
 ```
+````
 
 In the `Particle extraction` GUI which pops up
 - set the particle sidelength to your desired box size
@@ -47,9 +48,9 @@ This will generate a `Dynamo` format data folder in the current directory with t
 
 ![particle extraction](extract-from-catalogue.assets/crop-particles.gif)
 
-```{note}
+```{attention}
 We use the *data folder in dBoxes...* option here to avoid problems with having thousands of files in the same directory.
 Read more [here](https://wiki.dynamo.biozentrum.unibas.ch/w/index.php/Generic_data_containers).
 ```
 
-You now have a `Dynamo` format data folder containing your particles, you're ready for refinements!
+You now have a `Dynamo` format data folder containing your particles. You're ready for refinement!
