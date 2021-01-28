@@ -68,7 +68,7 @@ A surface rendering of the defined sphere will appear; move the slice and look a
 Use the `x`, `y` and `z` keys to change the orientation of the current slice
 ```
 
-![dipole picking](https://i.ibb.co/N1K4GW1/dipole-picking.png)
+![dipole picking](dipoles-to-vesicles.assets/dipole-picking.png)
 
 Once all the objects in a tomogram are picked, save the model by clicking on `Active Model -> Save active model into catalogue (disk)` or clicking the floppy disk icon in the menu bar.
 

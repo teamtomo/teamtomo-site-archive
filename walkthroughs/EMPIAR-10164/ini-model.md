@@ -53,7 +53,7 @@ In our case, we set it up as follows:
 `template`
 : since we don't have one, generate a random one using a `randomly chosen set of particles`. 500 is a good starting point. This will generate a reconstruction from 500 particles using our initial particle orientation estimates from the `crop.tbl` file, originally from the `Vesicle` models. While we don't expect to see any detailed structure in this map, but it's worth checking that it matches what we expect to see. If you right click on the file path at the top of the template GUI, you can choose to `[view]` the volume. Our initial picking contained no knowledge about the specific positions of each particle within the lattice. Because of this, we expect to see a curved, membrane like density and blurred density for the lattice proteins in the average.
 
-![first template](https://i.ibb.co/dM5Dqt5/first-template-all.png)
+![first template](ini-model.assets/first-template-all.png)
 
 
 `masks`
@@ -73,7 +73,7 @@ Press `Alt` when a parameter is selected for a detailed description.
 
 % need to add screenshot of alignment parameters here
 
-![alingment parameters](TODO)
+![alignment parameters](TODO)
 
 `computing environment`
 : this will depend on your computing environment, including number of available CPUs/GPUs. We typically run projects in the `gpu_standalone` modus on 4 GPUs. Running in the standalone modus allows you to continue with other work in the matlab shell while the alignment project runs. In this modus, the number of CPU cores should be 1. The number of CPU cores used during averaging can be changed to the number of logical CPU cores on your machine. Specific GPUs can be selected by their index as seen in `nvidia-smi`.
@@ -103,7 +103,7 @@ We can look at the result of our first alignment project using tools from the `d
 
 In contrast to our previous reconstruction from particles with initial estimates for positions and orientations, in this map we clearly see a hexagonal lattice starting to take shape, containing 2-, 3- and 6-fold symmetry axes.
 
-![first aligned map](https://i.ibb.co/wgby9P2/first-align-all.png)
+![first aligned map](ini-model.assets/first-aligned-all.png)
 
 ````{margin}
 ```{note}
@@ -121,6 +121,6 @@ To run the script, open `dynamo/inimodel/results/ite_0004/averages` in Matlab. C
 
 %% comparison of all 4 volumes here, Z and Y projections
 
-![aligned to z ](https://i.ibb.co/Jxd9nXc/aligned-to-z.png)
+![aligned to z ](ini-model.assets/aligned-to-z.png)
 
 Now that we have an initial model with the 6-fold symmetry, we can use this in an alignment project with particles from all of the VLPs to obtain good estimates for particle positions and orientations for the whole dataset.

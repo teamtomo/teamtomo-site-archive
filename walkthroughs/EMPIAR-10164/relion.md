@@ -43,7 +43,7 @@ We reconstruct at a box twice as large as before because we have halved the pixe
 ```
 ````
 
-![extract subtomograms](https://i.ibb.co/KKMwDqJ/subtomo-extraction.png)
+![reconstruct subtomograms](relion.assets/subtomo-reconstruction.png)
 
 When ready, click on `EXPORT`. To prepare the directory structure for relion, we will choose to put the output `.star` file inside a new `root/relion` folder and call it `subtomograms_5Apx.star`.
 
@@ -101,27 +101,27 @@ To learn more about the meaning of each option, click on the question marks on t
 ```{tabbed} I/O
 We will refine without a mask for now as this refinement serves only to make sure that the particles remain well centered and we expect to go significantly beyond 10Å.
 
-![relion 1](https://i.ibb.co/Vm8yS3Y/relion-1.png)
+![relion 1](relion.assets/relion-1.png)
 ```
 
 ```{tabbed} Reference
 We use a conservative initial lowpass of 30Å to avoid overfitting, and C6 symmetry based on our understanding of the lattice from the inital model generation.
 
-![relion 2](https://i.ibb.co/FHMQ5Y5/relion-2.png)
+![relion 2](relion.assets/relion-2.png)
 ```
 
 ```{tabbed} CTF
-![relion 3](https://i.ibb.co/TW7FpqY/relion-3.png)
+![relion 3](relion.assets/relion-3.png)
 ```
 
 ```{tabbed} Optimisation
 We use a particle diameter covering the whole box to continue making use of the signal from neighbouring hexamers to drive alignment. We will change this once we start aiming for more optimal refinements focussed on the central hexamer.
 
-![relion 4](https://i.ibb.co/PTQvLf3/relion-4.png)
+![relion 4](relion.assets/relion-4.png)
 ```
 
 ```{tabbed} Auto-sampling
-![relion 5](https://i.ibb.co/tz5QxZG/relion-5.png)
+![relion 5](relion.assets/relion-5.png)
 ```
 
 ```{tabbed} Helix
@@ -129,7 +129,7 @@ Leave this disabled, we are not performing helical refinement in this case.
 ```
 
 ```{tabbed} Compute
-![relion 6](https://i.ibb.co/8D9Rw1D/relion-6.png)
+![relion 6](relion.assets/relion-6.png)
 ```
 
 ```{tabbed} Running
@@ -141,7 +141,7 @@ The specific computational parameters will depend upon the configuration of your
 
 and which uses `slurm` to manage its jobs.
 
-![relion 7](https://i.ibb.co/M8WBk0X/relion-7.png)
+![relion 7](relion.assets/relion-7.png)
 
 Once ready, click on `Run!` to start processing. **This will take several hours**!
 ```
@@ -176,7 +176,7 @@ We can use a fairly small box here because Warp implements an aliasing-free reco
 
 Save the file in the `relion` directory as `subtomograms_1.6Apx.star`
 
-![reconstruct subtomograms 1.6](https://i.ibb.co/s9jN57s/subtomo-extraction-1-6.png)
+![reconstruct subtomograms 1.6 image](relion.assets/subtomo-extraction-1-6.png)
 
 
 Generate a reconstruction at 1.6$Å/px$ using `relion_reconstruct` with the following command.
