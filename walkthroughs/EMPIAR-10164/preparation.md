@@ -1,14 +1,13 @@
 # Download the data
+The five tilt series subset of EMPIAR-10164 used for this guide should first be downloaded from 
+[EMPIAR](https://www.ebi.ac.uk/pdbe/emdb/empiar/entry/10164/).
+
+For this purpose, we provide a simple shell script 
+([`download.sh`](https://github.com/teamtomo/teamtomo.github.io/blob/master/walkthroughs/EMPIAR-10164/scripts/download.sh)).
 
 ```{note}
 Downloading the data may take a few hours. Start this early!
 ```
-
-The five tilt series subset of EMPIAR-10164 used for this guide should first be downloaded from 
-[EMPIAR](https://www.ebi.ac.uk/pdbe/emdb/empiar/entry/10164/). 
-
-For this purpose, we provide a simple shell script 
-([`download.sh`](https://github.com/teamtomo/teamtomo.github.io/blob/master/walkthroughs/EMPIAR-10164/scripts/download.sh)).
 
 `download.sh` organises files according to the directory structure expected by the rest of the guide.
 
