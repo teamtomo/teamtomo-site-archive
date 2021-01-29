@@ -1,8 +1,13 @@
-# Dipoles to vesicles
+# Spherical vesicle picking
 
 ## Overview
 This mini-tutorial will show you how to quickly and easily generate an oversampled set of positions
 and orientations on a spherical supporting geometry (such as a vesicle) in `Dynamo`
+
+```{image} dipoles-to-vesicles.assets/hiv-oversampling.png
+:scale: 50%
+:align: center
+```
 
 ## Motivation
 Vesicle models in `Dynamo` are spheres or ellipsoids fit to a point cloud, 

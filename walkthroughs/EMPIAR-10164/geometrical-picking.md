@@ -65,6 +65,11 @@ We need to annotate many spherical VLPs within each tomogram. Whilst we could ac
 
 Instead, we will take a shortcut - spheres can be completely defined by only two values, their centre point and their radius. We will create a `dipoleSet` model in each tomogram to annotate the centres and edge points of many VLPs quickly in just one model, then convert these `dipoleSet` models into oversampled vesicles with a function which we provide. 
 
+```{image} geometrical-picking.assets/hiv-oversampling.png
+:scale: 50%
+:align: center
+```
+
 ### Tomogram annotation
 
 Follow the guide for creating `dipoleSet` models and turning them into oversampled `Vesicle` models [here](../../mini-tutorials/dynamo/dipoles-to-vesicles).
