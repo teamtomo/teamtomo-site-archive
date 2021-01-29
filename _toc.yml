@@ -9,8 +9,9 @@
     - file: teamtomo/contributing/index
       sections:
           - file: teamtomo/contributing/git_guide
+          - file: teamtomo/contributing/screen-capture
           - file: teamtomo/contributing/wishlist
-    
+
 
 - part: Theory
   chapters:
@@ -19,7 +20,7 @@
         - file: theory/cryo-et/tilt-schemes
         - file: theory/cryo-et/tilt-series-alignment
     - file: theory/subtomogram-averaging/index
-      sections: 
+      sections:
         - file: theory/subtomogram-averaging/preprocessing/index
         - file: theory/subtomogram-averaging/particle-picking/index
           sections:
@@ -73,7 +74,7 @@
     - file: resources/programming/matlab/index
       sections:
         - file: resources/programming/matlab/add-to-path
-  
+
 
 - part: Resources
   chapters:
