@@ -25,10 +25,17 @@ jobs:
       run: |
         pip install pip==20.2.4
         pip install -r requirements.txt
+
     # Build the book
     - name: Build the book
       run: |
         jupyter-book build .
+
+    # Add CNAME file
+    - name: Add CNAME file
+      run: |
+        echo "teamtomo.org" > ./_build/html/CNAME
+
     # Push the book's HTML to github-pages
     - name: GitHub Pages action
       uses: peaceiris/actions-gh-pages@v3.6.1
