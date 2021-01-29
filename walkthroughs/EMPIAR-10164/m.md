@@ -15,7 +15,7 @@ We highly recommend [the `M` paper](https://doi.org/10.1101/2020.06.05.136341) t
 
 A project in `M` is referred to as a `population`. To create a new one press the big `+` button in the center of the window, and provide a directory. Here, we put it in `root/M/1.6Apx/`.
 
-We then need to add a data source. Click on `Manage data sources` to add a local source, and select the `*.settings` file inside the `frames` directory. Make sure to `Include items outside of filter ranges` (since we did not use the filters for this project), give it a name such as `HIV` and press `CREATE`.
+We then need to add a data source. Click on `Manage data sources` to add a local source, and select the `*.settings` file inside the `frames` directory. Make sure to `Include items outside of filter ranges` (since we did not use the filters for this project), give it a name such as `HIV` and press `CREATE`. We also only want to `Use only first 15 frames/tilts` in order to refine only based on the high resolution information.
 
 We can then create a Species by pressing the next big '+', selecting `from scratch` and filling in the parameters as follows:
 
