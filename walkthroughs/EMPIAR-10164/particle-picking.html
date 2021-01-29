@@ -668,15 +668,15 @@
 <p>The first cleaning step we should take is removing duplicate particles. To do so, we will use a simple matlab script, <span class="xref myst"><code class="docutils literal notranslate"><span class="pre">remove_duplicates.m</span></code></span>.</p>
 <p>To run, simply open MATLAB in <code class="docutils literal notranslate"><span class="pre">dynamo/findparticles/results/ite_0001/averages</span></code> and run:</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="ee361250-48b6-42b1-a7ee-c4ebb4f3bc8b" name="aecd441e-0b3c-4665-9f4d-2405a9ab55bd" type="radio">
-</input><label class="tabbed-label" for="ee361250-48b6-42b1-a7ee-c4ebb4f3bc8b">
+<input checked="checked" id="52dd208b-7e08-45a0-a8e4-154f4cb26d1b" name="c74dff22-77d5-4a2b-82dc-564b834af1b8" type="radio">
+</input><label class="tabbed-label" for="52dd208b-7e08-45a0-a8e4-154f4cb26d1b">
 Command</label><div class="tabbed-content docutils">
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">remove_duplicates</span>
 </pre></div>
 </div>
 </div>
-<input id="c42d347a-6c67-415e-8e5f-ca54411fbf0b" name="aecd441e-0b3c-4665-9f4d-2405a9ab55bd" type="radio">
-</input><label class="tabbed-label" for="c42d347a-6c67-415e-8e5f-ca54411fbf0b">
+<input id="815bf035-38ae-4713-9c1c-d466d27b2f6a" name="c74dff22-77d5-4a2b-82dc-564b834af1b8" type="radio">
+</input><label class="tabbed-label" for="815bf035-38ae-4713-9c1c-d466d27b2f6a">
 Source code</label><div class="tabbed-content docutils">
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% read table</span>
 <span class="n">table</span> <span class="p">=</span> <span class="n">dread</span><span class="p">(</span><span class="s">&#39;refined_table_ref_001_ite_0001.tbl&#39;</span><span class="p">);</span>
@@ -695,15 +695,15 @@ Source code</label><div class="tabbed-content docutils">
 <p>The next step is to remove particles that don’t belong to the lattice. To do so, we use <span class="xref myst"><code class="docutils literal notranslate"><span class="pre">check_radial_distribution.m</span></code></span>.</p>
 <p>Once again, in the same directory, simply run:</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="e79a5f00-7e50-4d49-b4b9-22ae6a80025a" name="82a5a35d-ed42-4db1-95db-ba4bee70fd84" type="radio">
-</input><label class="tabbed-label" for="e79a5f00-7e50-4d49-b4b9-22ae6a80025a">
+<input checked="checked" id="072a5bcc-cd9b-40c3-bbd2-73a730d07d4b" name="3a60ce83-6618-4376-a869-a188bc5bbde2" type="radio">
+</input><label class="tabbed-label" for="072a5bcc-cd9b-40c3-bbd2-73a730d07d4b">
 Command</label><div class="tabbed-content docutils">
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">check_radial_distribution</span>
 </pre></div>
 </div>
 </div>
-<input id="5c7b5bf5-2450-4d11-965b-67545556dbb1" name="82a5a35d-ed42-4db1-95db-ba4bee70fd84" type="radio">
-</input><label class="tabbed-label" for="5c7b5bf5-2450-4d11-965b-67545556dbb1">
+<input id="a63e4436-5a50-40dc-b210-3571bfa9cd44" name="3a60ce83-6618-4376-a869-a188bc5bbde2" type="radio">
+</input><label class="tabbed-label" for="a63e4436-5a50-40dc-b210-3571bfa9cd44">
 Source code</label><div class="tabbed-content docutils">
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% check number of neighbours in radial shells, 1 px thick shells</span>
 
@@ -741,15 +741,15 @@ Source code</label><div class="tabbed-content docutils">
 <p><img alt="radial distribution" src="../../_images/radial-distance-profile.png" /></p>
 <p>This confirms the previously measured interparticle distance and the fact that most particles slid into ordered positions in the lattice. We can use the first peak to select against particles that don’t conform to this distribution. The next script, <span class="xref myst"><code class="docutils literal notranslate"><span class="pre">subset_table_based_on_neighbours.m</span></code></span>, removes all particles that don’t have at least 3 neighbours in the radial shell at distance 7.5 <span class="math notranslate nohighlight">\(px\)</span>. To use it, run:</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="976f828b-0707-46de-86d1-8f688773724f" name="84c171cb-0d6a-4e02-b5fb-8775392d0ea9" type="radio">
-</input><label class="tabbed-label" for="976f828b-0707-46de-86d1-8f688773724f">
+<input checked="checked" id="180a45f6-7978-4a1f-97f9-3a39deba6801" name="b209ecfb-bfab-4b99-b1d6-fa31597cf613" type="radio">
+</input><label class="tabbed-label" for="180a45f6-7978-4a1f-97f9-3a39deba6801">
 Command</label><div class="tabbed-content docutils">
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">subset_table_based_on_neighbours</span>
 </pre></div>
 </div>
 </div>
-<input id="53e3f567-2118-44b4-90c2-e75ecc5cf886" name="84c171cb-0d6a-4e02-b5fb-8775392d0ea9" type="radio">
-</input><label class="tabbed-label" for="53e3f567-2118-44b4-90c2-e75ecc5cf886">
+<input id="cad87387-82c5-4af8-8ee1-54b899a9bfd4" name="b209ecfb-bfab-4b99-b1d6-fa31597cf613" type="radio">
+</input><label class="tabbed-label" for="cad87387-82c5-4af8-8ee1-54b899a9bfd4">
 Source code</label><div class="tabbed-content docutils">
 <p>table = dread(‘result_10Apx_nodup.tbl’);</p>
 <p>peak = 7.5;
