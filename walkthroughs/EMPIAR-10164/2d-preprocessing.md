@@ -26,6 +26,7 @@ To import new data into Warp, click on the path next to `Input` and select the `
 We then set the parameters as shown below.
 
 ```{image} preprocessing.assets/input-params.png
+:scale: 75%
 :align: center
 ```
 
@@ -60,6 +61,7 @@ we will explain this in more detail later.
 Accurate estimation of Contrast Transfer Function (CTF) parameters is essential for obtaining high resolution reconstructions.
 
 ```{image} preprocessing.assets/ctf-params.png
+:scale: 75%
 :align: center
 ```
 
@@ -76,8 +78,12 @@ Cs
 
 Phase Shift
 : Whether to model a phase shift in the CTF, usually only used for data collected with a phase plate.
+```
 
 The remaining parameters should be set depending on the dataset:
+```{panels}
+:column: col-20
+:card: border-2
 
 Defocus
 : The upper and lower limits for defocus estimation. When a dataset is expected to have higher or lower defoci, this range should be expanded.
@@ -87,9 +93,12 @@ Use Movie Sum
 
 Amplitude
 : The percentage of amplitude contrast for the CTF model. For cryo-EM typical values are 0.07-0.10.
-
+```
 
 Some computational parameters can also be adjusted:
+```{panels}
+:column: col-20
+:card: border-2
 
 Window
 : The size of power spectra used for CTF estimation.
@@ -98,11 +107,13 @@ Range
 : The range of spatial frequencies to use for fitting. At low frequencies, data often doesn't match the CTF model. At high frequencies there is often not enough signal for accurate CTF estimation. In our experience, 40.0-5.0 is usually a good range for high magnification tilt-series images (1-3  $Å/px$) with ca. 3 $e^-/Å^2/tilt$ image.
 ```
 
+
 In order to compensate for both mechanical stage-drift and beam-induced sample motion, 
 we estimate and correct for the inter-frame motion present in the image. 
 In this case, we leave the motion correction parameters as defaults.
 
 ```{image} preprocessing.assets/motion-params.png
+:scale: 75%
 :align: center
 ```
 `````
@@ -111,6 +122,7 @@ In this case, we leave the motion correction parameters as defaults.
 Warp allows us to estimate how CTF and inter-frame translational motion parameters change in both space and time.
 
 ```{image} preprocessing.assets/spatiotemporal-models.png
+:scale: 75%
 :align: center
 ```
 
@@ -138,6 +150,7 @@ The provided version of BoxNet was retrained on 3 tilt series from a high magnif
 In order to access it from Warp, the `BoxNet2MaskBeads_20200607` TODO better name directory must be placed in the Warp installation folder under the `boxnet2models` directory. Then, to select the pretrained model in Warp, click on the currently selected BoxNet model and select the `BoxNet2MaskBeads_20200607` model.
 
 ```{image} preprocessing.assets/boxnet-params.png
+:scale: 75%
 :align: center
 ```
 
@@ -147,6 +160,7 @@ As we are only using this model for particle picking, the parameters relating to
 `````{tabbed} Start Processing!
 
 ```{image} preprocessing.assets/output-params.png
+:scale: 75%
 :align: center
 ```
 
