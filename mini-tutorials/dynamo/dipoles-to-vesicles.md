@@ -9,16 +9,14 @@ and orientations on a spherical supporting geometry (such as a vesicle) in `Dyna
 :align: center
 ```
 
+We start from a `Dynamo` catalogue containing the tomograms with vesicles we want to pick.
+
 ## Motivation
 Vesicle models in `Dynamo` are spheres or ellipsoids fit to a point cloud, 
 this is robust but increases the time spent on annotation.
 
 Spheres are uniquely defined by a center point and a radius. 
 Center and edge points of a vesicle in a tomogram are easily annotated using the `dipoleSet` model type.
-
-## Prerequisites
-- a `Dynamo` catalogue containing your tomograms
-
 
 ## Tomogram annotation
 
