@@ -1,4 +1,4 @@
-# Downloading the data
+# Download the data
 
 ```{note}
 Downloading the data may take a few hours. Start this early!

@@ -1,4 +1,4 @@
-# Finding particles on every VLP
+# Find particles on every VLP
 
 *"What do we know and how can we use it?"*
 

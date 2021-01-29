@@ -1,7 +1,7 @@
 # Initial model generation
 
 ```{image} ini-model.assets/hiv-initial-positions.png
-:scale: 50%
+:scale: 25%
 :align: center
 ```
 
@@ -13,7 +13,7 @@ Working on a small subset initially allows you to move quickly, testing lots of 
 ```
 ````
 
-For these VLPs and with data of such good quality, two vesicles is more than enough for generating a good initial model.
+With data of such good quality and so many particles per VLP, two of our vesicle models should be more than enough for generating a good initial model of the underlying lattice structure.
 
 When choosing an initial subset, it can be a good idea to choose VLPs with different defoci. This ensures that nodes of the CTF are at different spatial frequencies within the subset and thus no region of Fourier space should be particularly undersampled. The Jiang lab at Purdue University have a CTF simulation [web app](https://ctf-simulation.herokuapp.com/) which is useful for visualising the effect of defocus on the CTF.
 
@@ -30,10 +30,10 @@ A box sidelength of 32 corresponds to a 320$Å$. While this is much larger than 
 ```
 ````
 
-Extract particles from your `Dynamo` catalogue with a sidelength of `32` following [this mini-tutorial](../../mini-tutorials/dynamo/extract-from-catalogue). To make things faster, for now we can extract just from the volumes that we are interested in (`TS_01` and `TS_03`), and call this volume list `inimodel.vll`).
+Extract particles from your `Dynamo` catalogue with a sidelength of `32` following [this mini-tutorial](../../mini-tutorials/dynamo/extract-from-catalogue). To make things faster, for now we can extract particles from one vesicle in `TS_01` and one in `TS_03`. We call this volume list file created at this stage `inimodel.vll`) and extract a data folder called `inimodelData.Boxes`.
 
-```{warning} Don't forget!
-We still need to extract all the particles for later steps. Once this extraction is done, start another one with the whole dataset!
+```{tip}
+Later, we will perform an alignment on particles from every VLP. You can save some time by launching a separate particle extraction for the whole dataset at this stage. 
 ```
 
 ## Aligning the particles
@@ -46,19 +46,27 @@ For a full tutorial on how to setting up a simple subtomogram averaging project 
 
 In our case, we set it up as follows:
 
-`Project`:
-: `inimodel`
+`project`
+: we call our project `inimodel`
 
 `particles`
-: the previously generated `inimodelData.Boxes` (or otherwise named) directory.
+: the `inimodelData.Boxes` Dynamo data folder.
 
 `table`
-: the `crop.tbl` file we generated earlier together with the Boxes directory. When we cropped particles in the Dynamo catalogue, it created this metadata file for us and puts it inside the data folder. Click `look inside data folder` and pick the `crop.tbl` file.
+: the `inimodelData.Boxes/crop.tbl` particle metadata (table) file. When we cropped particles in the Dynamo catalogue, it created this metadata file for us and puts it inside the data folder. When selecting your table file, click `look inside data folder` and pick the `crop.tbl` file.
 
+````{margin}
+```{tip}
+While we don't expect to see any detailed structure in this map, but it's worth checking that it matches what we expect to see. If you right click on the file path at the top of the template GUI, you can choose to `[view]` the volume. Our initial picking contained no knowledge about the specific positions of each particle within the lattice. Because of this, we expect to see a curved, membrane like density and blurred density for the lattice proteins in the average.
+```
+````
 `template`
-: since we don't have one, generate a random one using a `randomly chosen set of particles`. 500 is a good starting point. This will generate a reconstruction from 500 particles using our initial particle orientation estimates from the `crop.tbl` file, originally from the `Vesicle` models. While we don't expect to see any detailed structure in this map, but it's worth checking that it matches what we expect to see. If you right click on the file path at the top of the template GUI, you can choose to `[view]` the volume. Our initial picking contained no knowledge about the specific positions of each particle within the lattice. Because of this, we expect to see a curved, membrane like density and blurred density for the lattice proteins in the average.
+: since we don't have one, we generate one from a subset of our particles. Using 500 particles at this step is a good starting point. This will generate a reconstruction from 500 particles using our initial alignments from the vesicle model stored in the `crop.tbl` file. 
 
-![first template](ini-model.assets/first-template-all.png)
+```{image} ini-model.assets/first-template-all.png
+:scale: 30%
+:align: center
+```
 
 
 `masks`
@@ -70,15 +78,18 @@ In our case, we set it up as follows:
 Press `Alt` when a parameter is selected for a detailed description.
 ```
 ````
-
 `numerical parameters`
-: set the numerical parameters for the alignment procedure as shown below. Check out the [mini-tutorial] for a more in-depth explanation. At this stage, we don't enforce symmetry during refinement. We expect that any symmetry present should appear in an initial average. The assumption of symmetry is a useful tool but it reduces our ability to discern any asymmetries that may be present in the reconstruction. It should be applied only when you are sure that your object is symmetric and the possibility of unresolved asymmetry should be kept in mind.
+: set the numerical parameters for the alignment procedure as shown below. Check out the [mini-tutorial] for a more in-depth explanation. At this stage, we don't enforce symmetry during refinement. We hope that any symmetry present should appear after aligning our particles. 
 
-% images need to be a bit cleaner I think
+```{image} ini-model.assets/numerical-params.png
+:scale: 50%
+```
 
-% need to add screenshot of alignment parameters here
+We perform initial alignments with only local out-of-plane searches (defined by the `cone range` parameter), making use of the initial estimates from our geometrical models.
 
-![alignment parameters](TODO)
+```{image} ini-model.assets/scanning-angles.png
+:scale: 50%
+```
 
 `computing environment`
 : this will depend on your computing environment, including number of available CPUs/GPUs. We typically run projects in the `gpu_standalone` modus on 4 GPUs. Running in the standalone modus allows you to continue with other work in the matlab shell while the alignment project runs. In this modus, the number of CPU cores should be 1. The number of CPU cores used during averaging can be changed to the number of logical CPU cores on your machine. Specific GPUs can be selected by their index as seen in `nvidia-smi`.
@@ -87,6 +98,11 @@ Press `Alt` when a parameter is selected for a detailed description.
 : run a sanity `check` to make sure the project seems correctly setup, then `unfold` to prepare an executable for the alignment project. If running a project on a remote machine without graphical access, a project can be set up locally and sent to the remote machine as a tarball. For information on this, please see [this wiki page](https://wiki.dynamo.biozentrum.unibas.ch/w/index.php/Tarring_projects).
 
 
+````{margin}
+```{tip}
+You can track the progress of the project from the `dcp` GUI by clicking on the `progress` button.
+```
+````
 We can now run the executable. To do so, open the `dynamo` directory in a terminal and run:
 ```bash
 source $DYNAMO_ROOT/dynamo_activate_linux_shipped_MCR.sh
@@ -96,36 +112,90 @@ to prepare the environment. Then, simply execute:
 ./inimodel.exe
 ```
 
-````{margin}
-```{tip}
-You can track the progress of the project from the `dcp` GUI by clicking on `progress`.
-```
 
-% Lots more screenshots needed here
 
 ## Assessing the results
-We can look at the result of our first alignment project using tools from the `dcp` GUI under show. Alternatively, the file containing the average can be found at `dynamo/inimodel/results/ite_0004/averages/average_ref_001_ite_0004.em` and visualised with any volume visualisation tool.
+We can look at the result of our first alignment project using tools from the `dcp` GUI under show. Alternatively, the file containing the average can be found at `dynamo/inimodel/results/ite_0008/averages/average_ref_001_ite_0008.em` and visualised with any volume visualisation tool.
 
 In contrast to our previous reconstruction from particles with initial estimates for positions and orientations, in this map we clearly see a hexagonal lattice starting to take shape, containing 2-, 3- and 6-fold symmetry axes.
 
-![first aligned map](ini-model.assets/first-aligned-all.png)
-
-````{margin}
-```{note}
-By convention, rotational symmetry axes in electron microscopy software are aligned along the Z axis of the volume.
+```{image} ini-model.assets/first-aligned-all.png
+:scale: 50%
+:align: center
 ```
-````
-In order to take advantage of the highest symmetry order present in the structure during refinement we first need to recenter the average on its 6-fold symmetry axis and align that axis along the z axis of our volume.
 
-% Add a note here about how to visualise results, including positions and orientations within dynamo using dpktbl.plots.sketch(t)
+--- 
 
 ## Aligning and centering the 6-fold symmetry axis
-To center and align the 6-fold symmetry axis, we will use a script provided with this tutorial, `align_symmetry_axis.m`. The script generates a synthetic template of the lattice with the 6-fold symmetry axis centered and aligned along the z-axis. The result of the alignment project is then aligned to this synthetic template and C6 symmetry is applied to produce our final initial model with the symmetry axis correctly aligned.
+````{margin}
+```{note}
+By convention, rotational symmetry axes for $C_n$ symmetries in electron microscopy software are aligned along the Z axis of the volume.
+```
+````
+In order to take advantage of the symmetry present in the structure during refinement we first need to recenter the average on its 6-fold symmetry axis and align that axis along the z axis of our volume.
 
-To run the script, open `dynamo/inimodel/results/ite_0004/averages` in Matlab. Copy the script into this directory, and execute it by running `align_symmetry_axis`. Once the script has finished, compare the initial average, the template, the aligned average and the symmetrised aligned average to check that the alignment worked as intended.
+To center and align the 6-fold symmetry axis, we will use a script provided with this tutorial, [`align_symmetry_axis.m`](https://github.com/teamtomo/teamtomo.github.io/blob/master/walkthroughs/EMPIAR-10164/scripts/align_symmetry_axis.m). The script generates a synthetic template of a lattice with a 6-fold symmetry axis centered and aligned along the z-axis. The volume from our first subtomogram averaging experiment is then aligned to this synthetic template and C6 symmetry is applied. This produces an initial model with the symmetry axis correctly aligned for further experiments.
+
+````{tabbed} command
+```matlab
+align_symmetry_axis
+```
+````
+
+````{tabbed} source code
+```matlab
+v = dread('average_ref_001_ite_0008.em');
+
+rod_radius = 2;
+rod_height = 4;
+membrane_thickness = 15;
+box_size = 32;
+
+% Create fake membrane
+mr = dpktomo.examples.motiveTypes.Membrane();   % create membrane object
+mr.thickness  = membrane_thickness;       % choose thickness of membrane
+mr.sidelength = box_size; % choose sidelength of box
+mr.fillData();
+
+mem = mr.getData().*-1;
+
+% Create cylinder in center to represent hole in center of structure to align to
+cyl = dynamo_cylinder([rod_radius, floor(rod_height / 2)], 32, [16, 16, 21]);
+cyl = dynamo_sym(cyl, 9);
+
+cyl_shift = dynamo_shift_rot(cyl, [8, 0, 0], [0,0,0]);
+cyl_shift(isnan(cyl_shift)) = 0;
+cyl_shift_sym = dynamo_sym(cyl_shift, 6) .* 6;
+
+% Combine membrane and hole
+template = mem - cyl - cyl_shift_sym + 1;
+
+% normalise both volumes
+template = dynamo_normalize_roi(template);
+v = dynamo_normalize_roi(v);
+
+% Align average to synthetic template
+sal = dalign(v, template ,'cr',60,'cs',20,'ir',90, 'is', 30, 'rf', 5, 'dim', box_size,'limm',1,'lim',[4,4,4]);
+v_aligned = sal.aligned_particle;
+v_aligned_c6 = dynamo_sym(v_aligned, 'c6');
+
+dmapview{v, template, v_aligned, v_aligned_c6}
+
+% write out averages
+dwrite(template, 'synthetic_template.em');
+dwrite(v_aligned, 'average_aligned_along_z.em');
+dwrite(v_aligned_c6, 'average_aligned_along_z_c6.em');
+```
+````
+
+
+To run the script, open `dynamo/inimodel/results/ite_0008/averages` in Matlab. Copy the script into this directory, and execute it by running `align_symmetry_axis`. Once the script has finished, compare the initial average, the template, the aligned average and the symmetrised aligned average to check that the alignment worked as intended.
 
 %% comparison of all 4 volumes here, Z and Y projections
 
-![aligned to z ](ini-model.assets/aligned-to-z.png)
+```{image} ini-model.assets/aligned-to-z.png
+:scale: 50%
+:align: center
+```
 
-Now that we have an initial model with the 6-fold symmetry, we can use this in an alignment project with particles from all of the VLPs to obtain good estimates for particle positions and orientations for the whole dataset.
+Now that we have an initial model with the 6-fold symmetry axis aligned to the center of the volume, we can use this in an alignment project with particles from all of the VLPs to obtain good estimates for particle positions and orientations for the whole dataset.

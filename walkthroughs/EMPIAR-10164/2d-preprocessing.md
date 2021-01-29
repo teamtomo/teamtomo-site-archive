@@ -1,6 +1,6 @@
-# Raw-data to tilt-series
+# 2D preprocessing
 
-In this chapter, we will detail the necessary steps to take you from multi-frame micrographs to tilt-series
+In this chapter, we will detail the necessary steps to take you from the raw data we downloaded from *EMPIAR* (multi-frame micrographs) to tilt-series
 
 (hiv:mic-preproc)=
 ## Micrograph preprocessing
