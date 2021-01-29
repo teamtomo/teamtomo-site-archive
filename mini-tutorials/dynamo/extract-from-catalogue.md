@@ -8,39 +8,43 @@ This mini-tutorial will explain how to extract a set of particles from multiple 
 
 If you have been picking your particles/supporting geometries in `dtmslice`, opened from the catalogue manager (`dcm`) then you're ready to go!
 
-## Open the catalogue
-Open your catalogue with `dcm`.
 
-## Select your tomograms
+## The procedure
+
+Open your catalogue in `dcm` and click through the tabs below to see the whole procedure
+
+```{tabbed} select tomograms
 Select the tomograms you would like to crop from (or use the select all button)
-   
 ![select volumes](extract-from-catalogue.assets/select-all-volumes.gif)
+```
 
-## Open the volume list manager
+```{tabbed} open volume list manager
 The volume list manager can create volume list (`.vll`) files containing the information needed for cropping particles.
 
 Open the volume list manager from the `Crop particles` menu at the top of the `dcm` window.
 
 ![open volume list manager](extract-from-catalogue.assets/open-volume-list-manager.gif)
+```
 
-## Create a volume list file
+```{tabbed} create volume list file
 Create a volume list (`.vll`) file by 
 - picking the models from which you want to crop in the GUI 
 - hitting the `create list` button.
    
 ![create volume list file](extract-from-catalogue.assets/create-volume-list.gif)
+```
 
-## Extract your particles
+``````{tabbed} extract particles
+
 ````{margin}
 ```{note} Dynamo data folder
 A Dynamo data folder contains
 - Subvolumes for each particle
 - Alignment metadata for each particle (`crop.tbl`)
-- A tomogram-table map [file](https://wiki.dynamo.biozentrum.unibas.ch/w/index.php/Tomogram-table_map_file) (`indices_column20.doc`)
+- A [tomogram-table map file](https://wiki.dynamo.biozentrum.unibas.ch/w/index.php/Tomogram-table_map_file) (`indices_column20.doc`)
 ```
 ````
-
-In the `Particle extraction` GUI which pops up
+In the particle extraction GUI which pops up
 - set the particle sidelength to your desired box size
 - hit `crop particles`. 
 
@@ -53,4 +57,5 @@ We use the *data folder in dBoxes...* option here to avoid problems with having 
 Read more [here](https://wiki.dynamo.biozentrum.unibas.ch/w/index.php/Generic_data_containers).
 ```
 
-You now have a `Dynamo` format data folder containing your particles. You're ready for refinement!
+---
+Once complete, you will have a `Dynamo` format data folder containing your particles, you're ready for refinements!
