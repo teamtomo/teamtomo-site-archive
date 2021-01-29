@@ -198,4 +198,4 @@ To run the script, open `dynamo/inimodel/results/ite_0008/averages` in Matlab. C
 :align: center
 ```
 
-Now that we have an initial model with the 6-fold symmetry axis aligned to the center of the volume, we can use this in an alignment project with particles from all of the VLPs to obtain good estimates for particle positions and orientations for the whole dataset.
+We now have an initial model with the 6-fold symmetry axis aligned to the center of the volume. We can use this initial model to obtain good estimates for particle positions and orientations of HIV-1 CA-SP1 hexamers for the whole dataset.
