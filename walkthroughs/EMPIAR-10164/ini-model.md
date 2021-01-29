@@ -1,5 +1,10 @@
 # Initial model generation
 
+```{image} ini-model.assets/hiv-initial-positions.png
+:scale: 50%
+:align: center
+```
+
 Now that the Dynamo catalogue contains initial estimates for the positions and orientations of our particles, we need to obtain an initial model of our lattice structure which will later allow us to find more accurate estimates of the positions and orientations of our particles for the whole dataset. For this, we will work on a small subset of the VLPs.
 
 ````{margin}
