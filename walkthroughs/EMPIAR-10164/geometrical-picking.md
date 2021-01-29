@@ -27,9 +27,12 @@ We can use this information to help us in our efforts to reconstruct this lattic
 - We can generate initial estimates for particle positions as points on a sphere centered on a VLP with the correct radius. These positions will be incorrect but particles extracted at these positions will contain our lattice structure. 
 - The lattice is always parallel to the membrane, imparting an orientation normal to the surface of the sphere  onto each particle will provide a consistent estimate for the initial orientation of the particles in the lattice.
 
-Dynamo contains many geometrical modelling tools which can help with these geometrical approaches to subtomogram averaging projects. We will make use of a limited subset of these tools in this tutorial, for an overview of the available geometrical models please see [here](https://wiki.dynamo.biozentrum.unibas.ch/w/index.php/Model#Types_of_models). Becoming familiar with the available tools and thinking about how you can use the geometry of your system to your advantage will help with many subtomogram averaging projects. Below, we used `dynamo_tomoslice` to  estimate the lattice spacing in our tomograms, this tool will be introduced shortly.
+Dynamo contains many geometrical modelling tools which can help with these geometrical approaches to subtomogram averaging projects. We will make use of a limited subset of these tools in this tutorial, for an overview of the available geometrical models please see [here](https://wiki.dynamo.biozentrum.unibas.ch/w/index.php/Model#Types_of_models). Becoming familiar with the available tools and thinking about how you can use the geometry of your system to your advantage will help with many subtomogram averaging projects. Below, we used `dynamo_tomoslice` to  estimate the lattice spacing in our tomograms, 7.8 px at 10 Å/px this tool will be introduced shortly.
 
-![particle distance](README.assets/particle-distance.png)
+```{image} geometrical-picking.assets/lattice-spacing.png
+:align: center
+:scale: 50%
+```
 
 ## Generating a Dynamo catalogue for particle picking
 
