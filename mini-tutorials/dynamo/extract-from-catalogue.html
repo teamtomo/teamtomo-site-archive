@@ -609,28 +609,8 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#open-the-catalogue">
-   Open the catalogue
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#select-your-tomograms">
-   Select your tomograms
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#open-the-volume-list-manager">
-   Open the volume list manager
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#create-a-volume-list-file">
-   Create a volume list file
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#extract-your-particles">
-   Extract your particles
+  <a class="reference internal nav-link" href="#the-procedure">
+   The procedure
   </a>
  </li>
 </ul>
@@ -655,23 +635,26 @@
 </ul>
 <p>If you have been picking your particles/supporting geometries in <code class="docutils literal notranslate"><span class="pre">dtmslice</span></code>, opened from the catalogue manager (<code class="docutils literal notranslate"><span class="pre">dcm</span></code>) then you’re ready to go!</p>
 </div>
-<div class="section" id="open-the-catalogue">
-<h2>Open the catalogue<a class="headerlink" href="#open-the-catalogue" title="Permalink to this headline">¶</a></h2>
-<p>Open your catalogue with <code class="docutils literal notranslate"><span class="pre">dcm</span></code>.</p>
+<div class="section" id="the-procedure">
+<h2>The procedure<a class="headerlink" href="#the-procedure" title="Permalink to this headline">¶</a></h2>
+<p>Open your catalogue in <code class="docutils literal notranslate"><span class="pre">dcm</span></code> and click through the tabs below to see the whole procedure</p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="b2725b3d-793d-42ac-8fe8-e6a994c670eb" name="e0f32bea-c495-4211-b0a6-252f7c5a274b" type="radio">
+</input><label class="tabbed-label" for="b2725b3d-793d-42ac-8fe8-e6a994c670eb">
+select tomograms</label><div class="tabbed-content docutils">
+<p>Select the tomograms you would like to crop from (or use the select all button)
+<img alt="select volumes" src="../../_images/select-all-volumes.gif" /></p>
 </div>
-<div class="section" id="select-your-tomograms">
-<h2>Select your tomograms<a class="headerlink" href="#select-your-tomograms" title="Permalink to this headline">¶</a></h2>
-<p>Select the tomograms you would like to crop from (or use the select all button)</p>
-<p><img alt="select volumes" src="../../_images/select-all-volumes.gif" /></p>
-</div>
-<div class="section" id="open-the-volume-list-manager">
-<h2>Open the volume list manager<a class="headerlink" href="#open-the-volume-list-manager" title="Permalink to this headline">¶</a></h2>
+<input id="306b4400-ccd4-46c0-b171-75c58e8492ee" name="e0f32bea-c495-4211-b0a6-252f7c5a274b" type="radio">
+</input><label class="tabbed-label" for="306b4400-ccd4-46c0-b171-75c58e8492ee">
+open volume list manager</label><div class="tabbed-content docutils">
 <p>The volume list manager can create volume list (<code class="docutils literal notranslate"><span class="pre">.vll</span></code>) files containing the information needed for cropping particles.</p>
 <p>Open the volume list manager from the <code class="docutils literal notranslate"><span class="pre">Crop</span> <span class="pre">particles</span></code> menu at the top of the <code class="docutils literal notranslate"><span class="pre">dcm</span></code> window.</p>
 <p><img alt="open volume list manager" src="../../_images/open-volume-list-manager.gif" /></p>
 </div>
-<div class="section" id="create-a-volume-list-file">
-<h2>Create a volume list file<a class="headerlink" href="#create-a-volume-list-file" title="Permalink to this headline">¶</a></h2>
+<input id="754be431-a51d-42ec-8b88-15b9a40a31a8" name="e0f32bea-c495-4211-b0a6-252f7c5a274b" type="radio">
+</input><label class="tabbed-label" for="754be431-a51d-42ec-8b88-15b9a40a31a8">
+create volume list file</label><div class="tabbed-content docutils">
 <p>Create a volume list (<code class="docutils literal notranslate"><span class="pre">.vll</span></code>) file by</p>
 <ul class="simple">
 <li><p>picking the models from which you want to crop in the GUI</p></li>
@@ -679,8 +662,9 @@
 </ul>
 <p><img alt="create volume list file" src="../../_images/create-volume-list.gif" /></p>
 </div>
-<div class="section" id="extract-your-particles">
-<h2>Extract your particles<a class="headerlink" href="#extract-your-particles" title="Permalink to this headline">¶</a></h2>
+<input id="b191da7c-9f0b-4c1d-b7db-cfde157be9d5" name="e0f32bea-c495-4211-b0a6-252f7c5a274b" type="radio">
+</input><label class="tabbed-label" for="b191da7c-9f0b-4c1d-b7db-cfde157be9d5">
+extract particles</label><div class="tabbed-content docutils">
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="admonition note">
@@ -690,11 +674,11 @@ A Dynamo data folder contains</p>
 <ul class="simple">
 <li><p>Subvolumes for each particle</p></li>
 <li><p>Alignment metadata for each particle (<code class="docutils literal notranslate"><span class="pre">crop.tbl</span></code>)</p></li>
-<li><p>A tomogram-table map <a class="reference external" href="https://wiki.dynamo.biozentrum.unibas.ch/w/index.php/Tomogram-table_map_file">file</a> (<code class="docutils literal notranslate"><span class="pre">indices_column20.doc</span></code>)</p></li>
+<li><p>A <a class="reference external" href="https://wiki.dynamo.biozentrum.unibas.ch/w/index.php/Tomogram-table_map_file">tomogram-table map file</a> (<code class="docutils literal notranslate"><span class="pre">indices_column20.doc</span></code>)</p></li>
 </ul>
 </div>
 </div>
-<p>In the <code class="docutils literal notranslate"><span class="pre">Particle</span> <span class="pre">extraction</span></code> GUI which pops up</p>
+<p>In the particle extraction GUI which pops up</p>
 <ul class="simple">
 <li><p>set the particle sidelength to your desired box size</p></li>
 <li><p>hit <code class="docutils literal notranslate"><span class="pre">crop</span> <span class="pre">particles</span></code>.</p></li>
@@ -706,7 +690,10 @@ A Dynamo data folder contains</p>
 <p>We use the <em>data folder in dBoxes…</em> option here to avoid problems with having thousands of files in the same directory.
 Read more <a class="reference external" href="https://wiki.dynamo.biozentrum.unibas.ch/w/index.php/Generic_data_containers">here</a>.</p>
 </div>
-<p>You now have a <code class="docutils literal notranslate"><span class="pre">Dynamo</span></code> format data folder containing your particles. You’re ready for refinement!</p>
+<hr class="docutils" />
+<p>Once complete, you will have a <code class="docutils literal notranslate"><span class="pre">Dynamo</span></code> format data folder containing your particles, you’re ready for refinements!</p>
+</div>
+</div>
 </div>
 </div>
 
