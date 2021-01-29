@@ -20,8 +20,6 @@ You can also set up your project locally, then
 
 ## Setup
 
-In this section, we will set up our alignment project.
-
 First, we need to open `Dynamo`, either activating it in `MATLAB` or using the standalone version.
 
 ### Open the `dcp` gui
@@ -36,7 +34,6 @@ dynamo >> dcp
 The `dcp` GUI is the main tool in `Dynamo` for interactively designing subtomogram averaging experiments.
 
 To open the GUI simply run `dcp` from your `Dynamo` shell.
-
 
 
 ### Name the project
@@ -57,6 +54,9 @@ To keep your workspace tidy, close the dialogue boxes once you are finished with
 ```
 ````
 
+``````{panels}
+:column: col-20
+:card: border-2
 ```{tabbed} particles
 Click on the `particles` button in the `Input: files` row. 
 In the dialogue box which pops up, enter the name of your data file.
@@ -104,7 +104,7 @@ The Fourier shell correlation mask defines a masked region of real space in whic
 Each mask can be created from the GUI directly, or an external mask can be provided. The classification mask and the Fourier shell correlation mask are not
 relevant for simple, single reference alignment projects such as the one we are setting up.
 `````
----
+``````
 
 ### Alignment parameters
 
@@ -121,8 +121,6 @@ You should think carefully about how much you allow particles to move during an 
 If your angular parameters come from a geometrical model, restricting angular searches ensures the particles do not deviate too much from initial estimates.
 ```
 
-Key points:
-````
 Key info:
 - Hit `alt` on your keyboard or the `?` button for more info on a parameter
 - Alignment projects can be split up into rounds with different alignment parameters
@@ -184,6 +182,7 @@ If running using the `standalone`, you first have to activate `Dynamo` in the sh
 
 ```bash
 source /path/to/dynamo/installation/dynamo_activate_linux_shipped_MCR.sh
+
 ./<my_new_project>.exe
 ```
 
