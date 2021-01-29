@@ -4,14 +4,14 @@
 
 We now have 
 
-- initial estimates for the particle positions and orientations on the surface of every VLP 
-- a good initial model centered on the 6-fold symmetry axis of the lattice structure. 
+- initial estimates for the particle positions and orientations on the surface of every VLP
+- a good initial model centered on the 6-fold symmetry axis of the lattice structure.
 
 We can use this information to run a one iteration subtomogram averaging project. This should allow us to find a good set of particle positions and orientations, centered on the 6-fold symmetry axes, which we can later use for higher resolution reconstruction.
 
 ## Particle extraction
 
-Unless you already did it after [extracting a subset of particles](hiv:extract-subset), you will need to extract the whole dataset. Follow the [same procedure](../../mini-tutorials/dynamo/extract-from-catalogue), but use all the volumes and call this new volume list `findparticles.vll`.
+Unless you already did it after [extracting a subset of particles](hiv:extract-subset), you will need to extract the whole dataset. Follow the [same procedure](../../mini-tutorials/dynamo/extract-from-catalogue), but use all the volumes and use as a base name `findparticles`.
 
 ## Particle alignment
 Next we set up a new alignment project using `dcp`. This time, the aim is to align each oversampled initial particle position to the closest real particle position in the lattice. The important difference compared to the previous step are:
@@ -41,7 +41,7 @@ The provided scripts are just a few lines long, and are given for convenience an
 
 To isolate a good subset of particles in lattices we will use three short scripts provided with this tutorial. 
 
-The first cleaning step we should take is removing duplicate particles. To do so, we will use a simple matlab script, [`remove_duplicates.m`](scripts/remove_duplicates.m).
+The first cleaning step we should take is removing duplicate particles. To do so, we will use a simple matlab script, [`remove_duplicates.m`](https://github.com/open-subtomo/open-subtomo/tree/master/walkthroughs/EMPIAR-10164/scripts/remove_duplicates.m).
 
 To run, simply open MATLAB in `dynamo/findparticles/results/ite_0001/averages` and run:
 ````{tabbed} Command
@@ -66,7 +66,7 @@ dwrite(nodup, 'result_10Apx_nodup.tbl');
 
 This will create a new table called `result_10Apx_nodup.tbl`, reducing clusters of multiple particles within 4 pixels (half the distance we measured earlier) to a single particle.
 
-The next step is to remove particles that don't belong to the lattice. To do so, we use [`check_radial_distribution.m`](scripts/check_radial_distribution.m).
+The next step is to remove particles that don't belong to the lattice. To do so, we use [`check_radial_distribution.m`](https://github.com/open-subtomo/open-subtomo/tree/master/walkthroughs/EMPIAR-10164/scripts/check_radial_distribution.m).
 
 Once again, in the same directory, simply run:
 ````{tabbed} Command
@@ -101,7 +101,7 @@ plot(shell_starts + 0.5, neighbours_in_shells)
 ```
 ````
 
-This will open a plot of the radial distribution of neighbouring particles for the whole dataset. Here, we can see a high peak at around 7.5 $px$, and periodic peaks after that.
+This will open a plot of the radial distribution of neighbouring particles for the whole dataset. Here, we can see a high peak at around 7.5 px, and periodic peaks after that.
 
 ````{margin}
 ```{note}
@@ -111,7 +111,7 @@ If you are wondering why the second peak has two sub-peaks: it's the honeycomb p
 
 ![radial distribution](particle-picking.assets/radial-distance-profile.png)
 
-This confirms the previously measured interparticle distance and the fact that most particles slid into ordered positions in the lattice. We can use the first peak to select against particles that don't conform to this distribution. The next script, [`subset_table_based_on_neighbours.m`](scripts/subset_table_based_on_neighbours.m), removes all particles that don't have at least 3 neighbours in the radial shell at distance 7.5 $px$. To use it, run:
+This confirms the previously measured interparticle distance and the fact that most particles slid into ordered positions in the lattice. We can use the first peak to select against particles that don't conform to this distribution. The next script, [`subset_table_based_on_neighbours.m`](https://github.com/open-subtomo/open-subtomo/tree/master/walkthroughs/EMPIAR-10164/scripts/subset_table_based_on_neighbours.m), removes all particles that don't have at least 3 neighbours in the radial shell at distance 7.5 px. To use it, run:
 
 ````{tabbed} Command
 ```matlab
@@ -120,6 +120,7 @@ subset_table_based_on_neighbours
 ````
 
 ````{tabbed} Source code
+```
 % read table
 table = dread('result_10Apx_nodup.tbl');
 
@@ -136,6 +137,7 @@ subset = table(idx, :);
 % write out table
 dwrite(subset, 'result_10Apx_nodup_neighbourcleaning.tbl');
 compare_two_tables(table, subset);
+```
 ````
 
 When finished, the script will open a viewer to inspect the table before and after the processing. Switching to a less clean dataset (for example `TS_43`) will make it clear that most bad particles were removed.
