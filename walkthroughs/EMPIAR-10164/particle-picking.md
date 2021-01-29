@@ -41,7 +41,7 @@ The provided scripts are just a few lines long, and are given for convenience an
 
 To isolate a good subset of particles in lattices we will use three short scripts provided with this tutorial. 
 
-The first cleaning step we should take is removing duplicate particles. To do so, we will use a simple matlab script, [`remove_duplicates.m`](https://github.com/open-subtomo/open-subtomo/tree/master/walkthroughs/EMPIAR-10164/scripts/remove_duplicates.m).
+The first cleaning step we should take is removing duplicate particles. To do so, we will use a simple matlab script, [`remove_duplicates.m`](https://github.com/teamtomo/teamtomo.github.io/tree/master/walkthroughs/EMPIAR-10164/scripts/remove_duplicates.m).
 
 To run, simply open MATLAB in `dynamo/findparticles/results/ite_0001/averages` and run:
 ````{tabbed} Command
@@ -66,7 +66,7 @@ dwrite(nodup, 'result_10Apx_nodup.tbl');
 
 This will create a new table called `result_10Apx_nodup.tbl`, reducing clusters of multiple particles within 4 pixels (half the distance we measured earlier) to a single particle.
 
-The next step is to remove particles that don't belong to the lattice. To do so, we use [`check_radial_distribution.m`](https://github.com/open-subtomo/open-subtomo/tree/master/walkthroughs/EMPIAR-10164/scripts/check_radial_distribution.m).
+The next step is to remove particles that don't belong to the lattice. To do so, we use [`check_radial_distribution.m`](https://github.com/teamtomo/teamtomo.github.io/tree/master/walkthroughs/EMPIAR-10164/scripts/check_radial_distribution.m).
 
 Once again, in the same directory, simply run:
 ````{tabbed} Command
@@ -111,7 +111,7 @@ If you are wondering why the second peak has two sub-peaks: it's the honeycomb p
 
 ![radial distribution](particle-picking.assets/radial-distance-profile.png)
 
-This confirms the previously measured interparticle distance and the fact that most particles slid into ordered positions in the lattice. We can use the first peak to select against particles that don't conform to this distribution. The next script, [`subset_table_based_on_neighbours.m`](https://github.com/open-subtomo/open-subtomo/tree/master/walkthroughs/EMPIAR-10164/scripts/subset_table_based_on_neighbours.m), removes all particles that don't have at least 3 neighbours in the radial shell at distance 7.5 px. To use it, run:
+This confirms the previously measured interparticle distance and the fact that most particles slid into ordered positions in the lattice. We can use the first peak to select against particles that don't conform to this distribution. The next script, [`subset_table_based_on_neighbours.m`](https://github.com/teamtomo/teamtomo.github.io/tree/master/walkthroughs/EMPIAR-10164/scripts/subset_table_based_on_neighbours.m), removes all particles that don't have at least 3 neighbours in the radial shell at distance 7.5 px. To use it, run:
 
 ````{tabbed} Command
 ```matlab

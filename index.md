@@ -14,7 +14,7 @@ kernelspec:
 ---
 
 # teamtomo.org - home
-[teamtomo.org](https://teamtomo.github.io) is an *open* and *collaborative* platform for sharing knowledge in the cryo-electron tomography (cryo-ET) [community](https://twitter.com/hashtag/teamtomo).
+[teamtomo.org](teamtomo.org) is an *open* and *collaborative* platform for sharing knowledge in the cryo-electron tomography (cryo-ET) [community](https://twitter.com/hashtag/teamtomo).
 
 Cryo-ET is a 3D imaging modality which uses [transmission electron microscopes](https://en.wikipedia.org/wiki/Transmission_electron_microscopy) to image proteins, their assemblies and thin cellular sections in their native state with high spatial resolution.
 

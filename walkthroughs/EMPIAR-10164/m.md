@@ -1,6 +1,7 @@
 # Multi-particle refinement
 
-Now that our particle positions and orientations are mostly correct, there are several parameters that can be tweaked _a posteriori_ to refine the result, such as defocus, inter-frame and tilt-induced motions, and more.
+
+Now that our particle poses are mostly correct and we have a good estimate of the reconstructed density, there are several parameters that can be tweaked _a posteriori_ to further refine our result. We will perform these optimisations in M.
 
 ````{margin}
 ```{seealso}
@@ -8,7 +9,7 @@ We highly recommend [the `M` paper](https://doi.org/10.1101/2020.06.05.136341) t
 ```
 ````
 
-`M` provides an automated, iterative procedure for concerted optimisation of these parameters.
+`M` provides a procedure for the concerted optimisation of these parameters.
 
 ## Create Population and Species
 
@@ -51,7 +52,7 @@ Afterwards, three iterations as follows:
 
 ## End Result!
 
-If everything went well, after the second refinement you should be able to get to something like this:
+If everything went well, after the second round of refinements you should be able to get to something like this:
 
 ![result1](m.assets/result1.png)
 

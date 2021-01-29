@@ -18,7 +18,7 @@ Navigate to the folder in which you would like the project to be stored in your 
 
 ```bash
 git clone https://github.com/<your-username>/teamtomo.github.io.git
-cd open-subtomo
+cd teamtomo
 ```
 
 Make sure to replace `<your-username>` with your GitHub username.
