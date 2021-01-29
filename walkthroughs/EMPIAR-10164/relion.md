@@ -1,21 +1,21 @@
 # Particle pose optimisation
 
 Now that we have a set of particles that's mostly free of duplicates and matches our geometrical understanding of the system, we can proceed to refine of our particle poses with the aim of producing a higher resolution average.
-
+````{margin}
+```{note}
+Working between `RELION` and `Warp` in this section does make things a little more complicated. 
+We work in this way to take advantage of Warp's CTF correction and the CTF volumes it generates to describe sampling of Fourier coefficients.
+```
+````
+In this section, we will:
+- Extract particles in Warp at 5Å/px
+- Align these particles by subtomogram averaging in RELION
+- Repeat the previous two steps at 1.6Å/px
 ```{tip}
 Subtomogram averaging becomes very slow when performing refinements with lots of particles in larger boxes. Stepping the pixel size down gradually allows us to move more quickly and react to any problems which may come up when working on more complex data.
 ```
 
-````{sidebar} why work in this way?
-Working between `RELION` and `Warp` in this section does make things a little more complicated. 
-We work in this way to take advantage of Warp's CTF correction and the CTF volumes it generates to describe sampling of Fourier coefficients.
-````
-In this section, we will:
-- Extract particles in Warp at 5$Å/px$
-- Align these particles by subtomogram averaging in RELION
-- Repeat the previous two steps at 1.6$Å/px$
-
-## Reconstruct subtomograms in Warp at 5$Å/px$
+## Reconstruct subtomograms in Warp at 5Å/px
 
 ### Generate compatible metadata
 Our metadata is currently in the dynamo format.
@@ -49,7 +49,7 @@ When ready, click on `EXPORT`. To prepare the directory structure for relion, we
 
 ## 3D auto-refine in RELION
 
-We can now perform a gold standard automatic refinement of the whole dataset at 5$Å/px$ in `RELION`. Working in `RELION` at this stage simplifies the workflow and allows us to take advantage of its maximum-likelihood approaches to refinement and classification.
+We can now perform a gold standard automatic refinement of the whole dataset at 5Å/px in `RELION`. Working in `RELION` at this stage simplifies the workflow and allows us to take advantage of its maximum-likelihood approaches to refinement and classification.
 
 At this stage, we choose **not** to use a density-based mask during refinement. This allows us to make use of the neighbouring density in the lattice to drive these initial alignments. We will use a mask later when aiming for more precise, local alignment of the central hexamer.
 
@@ -147,10 +147,10 @@ Once ready, click on `Run!` to start processing. **This will take several hours*
 ```
 ````
 
-## Subtomogram reconstruction at 1.6$Å/px$
+## Subtomogram reconstruction at 1.6Å/px
 
-```{warning} A note on pixel size
-We reconstructed at 1.6$Å/px$ rather than 1.35$Å/px$ due to memory limitations. Warp works with larger images internally to reduce the effects of CTF aliasing. The large number of particles per field-of-view is particularly demanding at such a small pixel size and can lead to memory issues. Unless working at a very small pixel size, you are unlikely to encounter these issues when working with your own data.
+```{warning}
+We reconstructed at 1.6Å/px rather than 1.35Å/px due to memory limitations. Warp works with larger images internally to reduce the effects of CTF aliasing. The large number of particles per field-of-view is particularly demanding at such a small pixel size and can lead to memory issues. Unless working at a very small pixel size, you are unlikely to encounter these issues when working with your own data.
 ```
 
 ````{margin}
@@ -159,7 +159,7 @@ When doing Fourier transforms, some box sizes are more efficient than others.
 See [here](https://blake.bcm.edu/emanwiki/EMAN2/BoxSize) for more details.
 ```
 ````
-Once the alignment at 5$Å/px$ is done, we can perform alignments at a smaller pixel size to obtain a higher resolution reconstruction. We use Warp to reconstruct sutomograms at 1.6$Å/px$ using the `*_data.star` from the refinement at 5$Å/px$ then rerun the alignments in Relion. This time, we will perform our refinements in a mask around the central hexamer.
+Once the alignment at 5Å/px is done, we can perform alignments at a smaller pixel size to obtain a higher resolution reconstruction. We use Warp to reconstruct sutomograms at 1.6Å/px using the `*_data.star` from the refinement at 5Å/px then rerun the alignments in Relion. This time, we will perform our refinements in a mask around the central hexamer.
 
 First, we need to reformat the output `.star` file from the Relion3.1 specification (not supported by Warp 1.0.9) to Relion3.0, using a command provided by `dynamo2m`. To do so, navigate to `relion/Refine3D/refine_5apx` and identify the last iteration number (for us, it was `it_023`) and run:
 ```bash
@@ -167,7 +167,7 @@ relion_star_downgrade -s run_it023_data.star
 ```
 
 
-From the new file `run_it023_data_rln3.0.star`, we can now reconstruct subtomograms in Warp. This time, the input coordinates use 5$Å/px$ and the output should be scaled to 1.6$Å/px$. To optimise computational speed, we choose a box size of 128 px here. This is a little smaller than our previous box size, but still big enough for our particle.
+From the new file `run_it023_data_rln3.0.star`, we can now reconstruct subtomograms in Warp. This time, the input coordinates use 5Å/px and the output should be scaled to 1.6Å/px. To optimise computational speed, we choose a box size of 128 px here. This is a little smaller than our previous box size, but still big enough for our particle.
 
 ```{attention}
 Using small box sizes, especially for particles with a large defocus containing fast CTF oscillations, can lead to CTF aliasing. 
@@ -179,7 +179,7 @@ Save the file in the `relion` directory as `subtomograms_1.6Apx.star`
 ![reconstruct subtomograms 1.6 image](relion.assets/subtomo-extraction-1-6.png)
 
 
-Generate a reconstruction at 1.6$Å/px$ using `relion_reconstruct` with the following command.
+Generate a reconstruction at 1.6Å/px using `relion_reconstruct` with the following command.
 
 ```bash
 relion_reconstruct --i subtomograms_1.6Apx.star --o reconstruction_1.6Apx.mrc --3d_rot --ctf --sym C6
@@ -201,12 +201,12 @@ To produce our mask we will
 - use this map to generate a soft-edged mask around the central hexamer
 
 We can quickly mask out the central hexamer interactively using tools in `Dynamo`.
-In `MATLAB` with `Dynamo` activated, load your reconstruction at 1.6$Å/px$ into an old version of the `dynamo_mapview` GUI.
+In `MATLAB` with `Dynamo` activated, load your reconstruction at 1.6Å/px into an old version of the `dynamo_mapview` GUI.
 ```matlab
 dpkdev.legacy.dynamo_mapview('reconstruction_1.6Apx.mrc')
 ```
 
-The mask should be a cylinder with a diameter of 160$Å$ around the central hexamer of the lattice. See our [mini-tutorial on mask creation](../../mini-tutorials/dynamo/interactive-mask-creation) for details on creating the mask.
+The mask should be a cylinder with a diameter of 160Å around the central hexamer of the lattice. See our [mini-tutorial on mask creation](../../mini-tutorials/dynamo/interactive-mask-creation) for details on creating the mask.
 
 Once you're happy with the mask, mask your volume and save it as `central_hexamer_1.6Apx.mrc` from the GUI.
 ````{margin}
@@ -221,10 +221,16 @@ Open your `central_hexamer_1.6Apx.mrc` in your favourite program and determine a
 relion_mask_create --i central_hexamer_1.6Apx.mrc --angpix 1.6 --extend_inimask 5 --width_soft_edge 10 --o mask_1.6Apx.mrc --ini_threshold 0.05
 ```
 
-## Refinement at 1.6$Å/px$
+## Refinement at 1.6Å/px
 
 Now that we have a mask, we can set up a relion 3D auto-refine job like we did before. A few parameters require changes:
-- change the name to reflect the smaller pixel size, we used `refine_1.6Apx`
-- inputs should now be the `_1.6Apx` star file, reference and mask we generated
-- the inital low pass filter can be set to the estimated resolution from the refinement at 5$Å/px$
-- the mask diameter should be lowered to 160$Å$ to encompass only the central hexamer
+- change the name of the project in `Current` under the `I/O` tab to reflect the smaller pixel size; we used `refine_1.6Apx`
+- inputs should now be the `_1.6Apx` star file, reference and mask we generated, respectively:
+    - `subtomograms_1.6Apx.star`
+    - `reconstruction_1.6Apx.mrc`
+    - `mask_1.6Apx.mrc`
+- the inital low pass filter under the `Reference` tab can be set up to the estimated resolution from the previous refinement at 5Å/px. This will speed up the convergence of the refinement. In our case, 15 is appropriate.
+- the mask diameter in the `Optimisation` tab should be lowered to 160Å to encompass only the central hexamer.
+- the inital and local searched for angular sampling in the `Auto-sampling` tab can be restricted to 1.8 degrees.
+
+Leaving the rest as before, press `Run!` to start processing. Once the processing is done, we are ready to move on to the multi-particle refinement in `M`.

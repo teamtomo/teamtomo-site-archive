@@ -42,7 +42,7 @@ Once the particle volumes are extracted for our two VLPs, we want to perform a f
 
 We run `dcp` from MATLAB to open the "Dynamo current project" GUI. This GUI is designed to be used in a sequential way: we will need to provide a few parameters before launching the project.
 
-For a full tutorial on how to setting up a simple subtomogram averaging project in Dynamo, click [here](../../mini-tutorials/dynamo/alignment-setup).
+For a full tutorial on how to setting up a simple subtomogram averaging project in Dynamo, click [here](../../mini-tutorials/dynamo/simple-alignment).
 
 In our case, we set it up as follows:
 

@@ -1,4 +1,4 @@
-# Extracting particles from a catalogue
+# Extracting particles
 
 This mini-tutorial will explain how to extract a set of particles from multiple tomograms in a `Dynamo` catalogue.
 
