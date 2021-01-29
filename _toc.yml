@@ -50,7 +50,7 @@
   chapters:
     - file: mini-tutorials/dynamo/index
       sections:
-        - file: mini-tutorials/dynamo/alignment-setup
+        - file: mini-tutorials/dynamo/simple-alignment
         - file: mini-tutorials/dynamo/extract-from-catalogue
         - file: mini-tutorials/dynamo/dipoles-to-vesicles
         - file: mini-tutorials/dynamo/dtmslice-controls

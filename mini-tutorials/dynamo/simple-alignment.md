@@ -1,4 +1,4 @@
-# Running a simple subtomogram averaging experiment
+# Simple subtomogram averaging
 
 This mini-tutorial will show you how to quickly set up and run a subtomogram averaging experiment in `Dynamo`.
 In `Dynamo` lingo, this is referred to as an 'alignment project'.
@@ -45,7 +45,7 @@ Choose something descriptive, it might help you remember what you did in a few m
 
 Hit `Enter`. In the dialogue box which pops up, confirm that you would like to create a new project by clicking `Create new project`.
 
-![name your project image](alignment-setup.assets/name-project.gif)
+![name your project image](simple-alignment.assets/name-project.gif)
 
 ### Input files
 #### Input your particles
@@ -61,13 +61,13 @@ To keep your workspace tidy, close the dialogue boxes once you are finished with
 Click on the `particles` button in the `Input: files` row. 
 In the dialogue box which pops up, enter the name of your data file.
 
-![select particles image](alignment-setup.assets/select-particles.gif)
+![select particles image](simple-alignment.assets/select-particles.gif)
 ```
 
 ```{tabbed} table
 Click on the `table` button in the `Input: files` row. In the dialogue box which pops up, enter the name of your table file.
 If you don't have a template, you can generate a blank table or a random table using the buttons in the Dialogue box.
-![select table image](alignment-setup.assets/select-table.gif)
+![select table image](simple-alignment.assets/select-table.gif)
 ```
 
 ```{tabbed} template
@@ -76,7 +76,7 @@ Click on the `template` button in the `Input: files` row. In the dialogue box wh
 If you don't have a template, a random subset of the data can be used to generate an initial reference volume from the GUI by selecting
 one of the options in the `I want to create a template` section, setting the desired number of particles and hitting `Average data`.
 
-![create template image](alignment-setup.assets/create-template.gif)
+![create template image](simple-alignment.assets/create-template.gif)
 ```
 
 `````{tabbed} masks
@@ -87,7 +87,7 @@ Click on the `masks` button in the `Input: files` row. In the dialogue box which
 - a Fourier mask for the template
 - a Fourier shell correlation mask
 
-![default masks image](alignment-setup.assets/masks-default.gif)
+![default masks image](simple-alignment.assets/masks-default.gif)
 
 The `Use default masks` button will create masks covering the full extend of real space and fourier space for each mask automatically.
 
@@ -110,7 +110,7 @@ relevant for simple, single reference alignment projects such as the one we are 
 
 From the `dcp` GUI click `numerical parameters` in the `Input: settings` row. This will open up a separate window in which many parameters relating to the numerical aspects of your alignments can be defined.
 
-```{image} alignment-setup.assets/numerical-params.png
+```{image} simple-alignment.assets/numerical-params.png
 :align: center
 :scale: 50%
 ```
@@ -135,7 +135,7 @@ Key info:
 
 You can get a depiction of your current angular search parameters from the `Angles -> Show sketch of scanning angles -> Round X` menu options.
 
-![scanning angles image](alignment-setup.assets/scanning-angles.gif)
+![scanning angles image](simple-alignment.assets/scanning-angles.gif)
 
 ### Computational parameters
 Computational parameters are used to tell the projects what it needs to know about the computing environment where it will be run.
