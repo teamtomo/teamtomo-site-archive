@@ -176,7 +176,10 @@ To unfold a project, first hit `check`, then `unfold` from the control section o
 This will create a file `<my_new_project>.exe` or `<my_new_project.m>` depending on whether the project will run in the standalone or the `MATLAB` environment.
 
 ## Running the project
-If running a project in the `MATLAB` modus, just type `run <my_new_project>.m` in your `Dynamo` shell.
+If running a project in the `MATLAB` modus, just type this in your `Dynamo` shell:
+```matlab
+run <my_new_project>.m` 
+```
 
 If running using the `standalone`, you first have to activate `Dynamo` in the shell. Usually this is achieved by running:
 
