@@ -61,7 +61,9 @@ As soon as the alignments are done, we can start CTF estimation on the tilt-seri
 
 #### Checking the results
 
-TODO: add some details for checking the results, how to open the tomogram and the .mod file together in 3dmod and checking that the beads were tracked properly 
+In the `dynamo_alignments` folder there is a `.mod` file in a folder for each tilt-series. 
+This model file can be opened with the tilt-series in `3dmod` to visually check that the beads have been detected and tracked appropriately. 
+The `taSolution.log` file also contains useful information about the quality of the alignments.
 
 ---
 
@@ -86,7 +88,10 @@ Differently from earlier, now we also need to enter the pixel size of the tilt-s
 For this dataset this is the binned pixel size of 1.35 $Å/px$, 
 and according the the EMPIAR entry the dose is roughly 3 $e^-/Å^2$ per tilt.
 
-![import alignment](https://i.ibb.co/Jrr8K69/import-dynamo.png)
+```{image} preprocessing.assets/import-ts-alignments.png
+:align: center
+:scale: 40%
+```
 
 ### Tilt-Series CTF estimation
 
@@ -108,7 +113,9 @@ The settings for tilt-series CTF estimation should be the same as those used ear
 
 We now have everything we need to reconstruct our tomograms. In Warp, we don't need to reconstruct whole tomograms at this step. Instead, downsampled tomograms can be generated for initial particle picking and volumes centered on each object of interest can be reconstructed later at the desired pixel size. This reduces the computational burden of generating and extracting particles from large, unbinned tomograms which can easily be over 100GB in size.
 
-![reconstruction size](https://i.ibb.co/jHwXktH/reconstruction-size.png)
+```{image} preprocessing.assets/reconstruction-size.png
+:align: center
+```
 
 ````{margin}
 ```{admonition} Tip
@@ -131,4 +138,6 @@ Warp may have marked some tilt series as filtered out. Since we are not making a
 
 Once ready, click on `Reconstruct` to reconstruct the tomograms.
 
-![reconstruction parameters](https://i.ibb.co/QY5X9hc/reconstruction-settings.png)
+```{image} preprocessing.assets/reconstruction-settings.png
+:align: center
+```

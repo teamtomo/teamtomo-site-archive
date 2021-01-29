@@ -36,7 +36,8 @@
       title: EMPIAR-10164 (HIV VLPs)
       sections:
         - file: walkthroughs/EMPIAR-10164/preparation
-        - file: walkthroughs/EMPIAR-10164/preprocessing
+        - file: walkthroughs/EMPIAR-10164/2d-preprocessing
+        - file: walkthroughs/EMPIAR-10164/tilt-series-to-tomograms
         - file: walkthroughs/EMPIAR-10164/geometrical-picking
         - file: walkthroughs/EMPIAR-10164/ini-model
         - file: walkthroughs/EMPIAR-10164/particle-picking

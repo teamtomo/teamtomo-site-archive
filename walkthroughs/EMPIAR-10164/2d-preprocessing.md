@@ -25,7 +25,9 @@ To import new data into Warp, click on the path next to `Input` and select the `
 
 We then set the parameters as shown below.
 
-![binning](preprocessing.assets/input-params.png)
+```{image} preprocessing.assets/input-params.png
+:align: center
+```
 
 We need to correctly set the pixel size to match that of the raw data; in this case, 0.6750 $Å/px$. 
 
@@ -57,7 +59,9 @@ we will explain this in more detail later.
 
 Accurate estimation of Contrast Transfer Function (CTF) parameters is essential for obtaining high resolution reconstructions.
 
-![ctf parameters](preprocessing.assets/ctf-params.png)
+```{image} preprocessing.assets/ctf-params.png
+:align: center
+```
 
 The following parameters depend entirely on the microscope setup used for data collection, for HIV-5-TS:
 
@@ -98,13 +102,17 @@ In order to compensate for both mechanical stage-drift and beam-induced sample m
 we estimate and correct for the inter-frame motion present in the image. 
 In this case, we leave the motion correction parameters as defaults.
 
-![motion corr](preprocessing.assets/motion-params.png)
+```{image} preprocessing.assets/motion-params.png
+:align: center
+```
 `````
 
 `````{tabbed} Spatiotemporal models
 Warp allows us to estimate how CTF and inter-frame translational motion parameters change in both space and time.
 
-![CTF and motion model](preprocessing.assets/spatiotemporal-models.png)
+```{image} preprocessing.assets/spatiotemporal-models.png
+:align: center
+```
 
 The resolution of this spatiotemporal model (x, y, t) can be set in the **Models** panel: the first two values represent the spatial resolution of the model in *x* and *y* , while the third value sets the temporal resolution (at most, the number of frames in a multi-frame micrograph). 
 
@@ -129,14 +137,18 @@ The provided version of BoxNet was retrained on 3 tilt series from a high magnif
 
 In order to access it from Warp, the `BoxNet2MaskBeads_20200607` TODO better name directory must be placed in the Warp installation folder under the `boxnet2models` directory. Then, to select the pretrained model in Warp, click on the currently selected BoxNet model and select the `BoxNet2MaskBeads_20200607` model.
 
-![boxnet](preprocessing.assets/boxnet-params.png)
+```{image} preprocessing.assets/boxnet-params.png
+:align: center
+```
 
 As we are only using this model for particle picking, the parameters relating to particle picking can be safely ignored.
 `````
 
 `````{tabbed} Start Processing!
 
-![processing](preprocessing.assets/output-params.png)
+```{image} preprocessing.assets/output-params.png
+:align: center
+```
 
 In the `Output` panel, we can choose not to include frames at the beginning and end of a movie. The first frames from a multi-frame micrograph of a given exposure often display increased translational motion. In this case, we chose to include all frames from the micrograph to maximise the signal present in the final images. 
 
@@ -177,7 +189,10 @@ If an image is heavily contaminated, black, blurred, a grid bar blocks a signifi
 
 For this dataset we only have to discard two bad images: `TS_01_039` and `TS_03_039`.
 
-![deselect bad image](preprocessing.assets/deselect-bad-image.png)
+```{image} preprocessing.assets/deselect-bad-image.png
+:align: center
+:scale: 50%
+```
 
 ### Stack generation
 To generate the image stack, we first have to put Warp into `tomostar` mode. We do this by clicking on the `*.mrc` extension on the top left, and selecting the `*.tomostar` extension.
@@ -194,5 +209,7 @@ For now, we don't need to set the pixel size and electron dose per tilt, nor we 
 
 Click on `Create stacks for IMOD` to start exporting the data. We can immediately move on to the next step without having to wait for the stack generation to finish, thanks to `autoalign_dynamo`'s on-the-fly processing.
 
-![create stack](preprocessing.assets/create-stack.png)
-
+```{image} preprocessing.assets/create-stack.png
+:align: center
+:scale: 50%
+```

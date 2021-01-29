@@ -1,4 +1,4 @@
-# Preparation
+# Downloading the data
 
 ```{note}
 Downloading the data may take a few hours. Start this early!
@@ -8,7 +8,7 @@ The five tilt series subset of EMPIAR-10164 used for this guide should first be 
 [EMPIAR](https://www.ebi.ac.uk/pdbe/emdb/empiar/entry/10164/). 
 
 For this purpose, we provide a simple shell script 
-([`download.sh`](https://github.com/open-subtomo/open-subtomo/blob/master/guides/EMPIAR-10164/scripts/download.sh)).
+([`download.sh`](https://github.com/teamtomo/teamtomo.github.io/blob/master/walkthroughs/EMPIAR-10164/scripts/download.sh)).
 
 `download.sh` organises files according to the directory structure expected by the rest of the guide.
 
@@ -46,7 +46,7 @@ Files with the `.mrc` extension are multi-frame micrographs for each tilt angle 
 
 They are in the [MRC2014](https://www.ccpem.ac.uk/mrc_format/mrc2014.php) file format.
 
-Files with the `.mdoc` extension are [SerialEM](https://bio3d.colorado.edu/SerialEM/) metadata files.
+Files with the `.mdoc` extension are [SerialEM](https://bio3d.colorado.edu/SerialEM/) metadata files, we have one per tilt-series.
 
-They contain metadata about images in a tilt-series.
+They are plain text files containing metadata about images in a tilt-series.
 ````
