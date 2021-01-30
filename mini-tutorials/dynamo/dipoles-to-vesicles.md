@@ -1,8 +1,15 @@
-# Dipoles to vesicles
+# Spherical vesicle picking
 
 ## Overview
 This mini-tutorial will show you how to quickly and easily generate an oversampled set of positions
 and orientations on a spherical supporting geometry (such as a vesicle) in `Dynamo`
+
+```{image} dipoles-to-vesicles.assets/hiv-oversampling.png
+:scale: 50%
+:align: center
+```
+
+We start from a `Dynamo` catalogue containing the tomograms with vesicles we want to pick.
 
 ## Motivation
 Vesicle models in `Dynamo` are spheres or ellipsoids fit to a point cloud, 
@@ -10,10 +17,6 @@ this is robust but increases the time spent on annotation.
 
 Spheres are uniquely defined by a center point and a radius. 
 Center and edge points of a vesicle in a tomogram are easily annotated using the `dipoleSet` model type.
-
-## Prerequisites
-- a `Dynamo` catalogue containing your tomograms
-
 
 ## Tomogram annotation
 
@@ -80,8 +83,23 @@ If Dynamo asks what to do with the model in pool memory and you already saved th
 
 ### Convert dipoleSet models into oversampled Vesicle models
 
-Once all the dipole models are picked, we can convert them into oversampled `Vesicle` models. For this, we will use the `dipoles2vescicles` function provided [here](https://gist.github.com/alisterburt/818c604af41050532a378afb93ae556f). The function generates a Dynamo `Vescicle` model for every dipole in each `dipoleSet` model in a catalogue.
+Once all the dipole models are picked, we can convert them into oversampled `Vesicle` models. For this, we will use the script [`dipoles2vescicles.m`](https://gist.github.com/alisterburt/818c604af41050532a378afb93ae556f). The function generates a Dynamo `Vescicle` model for every dipole in each `dipoleSet` model in a catalogue.
 
+For example, to generate the `Vesicle` models from a catalogue called `catalogue` with an expected inter-particle distance of `7.5`px we would run the following command from the folder containing the catalogue:
+
+````{margin}
+```{note}
+If you aren't sure how to use the provided function, check out [this page](../../computing/matlab/add-to-path)
+```
+````
+
+````{tabbed} Command
+```matlab
+dipoles2vescicles('catalogue', 7.5)
+```
+````
+
+````{tabbed} Source code
 ```matlab
 function dipoles2vesicles(catalogue_name, distance_between_particles)
 %%% to be run in the folder which holds your catalogue
@@ -140,15 +158,4 @@ function vesicles_from_dipoles(model_file, expected_inter_particle_distance)
     end
 end
 ```
-
-````{margin}
-```{note}
-If you aren't sure how to use the provided function, check out [this page](../../computing/matlab/add-to-path)
-```
 ````
-
-For example, to generate the `Vesicle` models from a catalogue called `catalogue` with an expected inter-particle distance of `7.5`px we would run the following command from the folder containing the catalogue:
-
-```matlab
-dipoles2vescicles('catalogue', 7.5)
-```
