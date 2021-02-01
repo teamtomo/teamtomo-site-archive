@@ -1,6 +1,7 @@
 # About the project
 
-[teamtomo.org](https://teamtomo.org) was established in an effort to improve the ability of the cryo-ET community to integrate newcomers.[#teamtomo](https://twitter.com/hashtag/teamtomo) is often used by members of the Cryo-ET community to share info or ask questions on Twitter.
+[teamtomo.org](https://teamtomo.org) was established in an effort to improve the ability of the cryo-ET community to integrate newcomers.
+[#teamtomo](https://twitter.com/hashtag/teamtomo) is often used by members of the Cryo-ET community to share info or ask questions on Twitter.
 
 ````{margin}
 ```{warning}
