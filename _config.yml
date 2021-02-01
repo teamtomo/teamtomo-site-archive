@@ -10,6 +10,8 @@ only_build_toc_files: false
 execute:
   execute_notebooks: cache
 
+exclude_patterns: [README.md]
+
 parse:
   myst_extended_syntax: true
 
