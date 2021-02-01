@@ -43,7 +43,10 @@ We reconstruct at a box twice as large as before because we have halved the pixe
 ```
 ````
 
-![reconstruct subtomograms](relion.assets/subtomo-reconstruction.png)
+```{image} relion.assets/subtomo-reconstruction.png
+:scale: 50%
+:align: center
+```
 
 When ready, click on `EXPORT`. To prepare the directory structure for relion, we will choose to put the output `.star` file inside a new `root/relion` folder and call it `subtomograms_5Apx.star`.
 
@@ -176,7 +179,10 @@ We can use a fairly small box here because Warp implements an aliasing-free reco
 
 Save the file in the `relion` directory as `subtomograms_1.6Apx.star`
 
-![reconstruct subtomograms 1.6 image](relion.assets/subtomo-extraction-1-6.png)
+```{image} relion.assets/subtomo-extraction-1-6.png
+:scale: 50%
+:align: center
+```
 
 
 Generate a reconstruction at 1.6Å/px using `relion_reconstruct` with the following command.

@@ -678,15 +678,15 @@
 <p>The first cleaning step we should take is removing duplicate particles. To do so, we will use a simple matlab script, <a class="reference external" href="https://github.com/teamtomo/teamtomo.github.io/tree/master/walkthroughs/EMPIAR-10164/scripts/remove_duplicates.m"><code class="docutils literal notranslate"><span class="pre">remove_duplicates.m</span></code></a>.</p>
 <p>To run, simply open MATLAB in <code class="docutils literal notranslate"><span class="pre">dynamo/findparticles/results/ite_0001/averages</span></code> and run:</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="caedd173-decc-423a-8df3-defe622c9bba" name="c6f702eb-f2d5-457d-9283-2e8edbda911a" type="radio">
-</input><label class="tabbed-label" for="caedd173-decc-423a-8df3-defe622c9bba">
+<input checked="checked" id="a7988362-1095-4ada-b798-ce41ac81989e" name="02ea4b29-e21f-483b-b5ba-e8b2ae054f3a" type="radio">
+</input><label class="tabbed-label" for="a7988362-1095-4ada-b798-ce41ac81989e">
 Command</label><div class="tabbed-content docutils">
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">remove_duplicates</span>
 </pre></div>
 </div>
 </div>
-<input id="07aa67c1-29f2-4b12-93b9-68619cd15f8d" name="c6f702eb-f2d5-457d-9283-2e8edbda911a" type="radio">
-</input><label class="tabbed-label" for="07aa67c1-29f2-4b12-93b9-68619cd15f8d">
+<input id="2eace5a1-b104-4c07-a107-ef37cc95731d" name="02ea4b29-e21f-483b-b5ba-e8b2ae054f3a" type="radio">
+</input><label class="tabbed-label" for="2eace5a1-b104-4c07-a107-ef37cc95731d">
 Source code</label><div class="tabbed-content docutils">
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% read table</span>
 <span class="n">table</span> <span class="p">=</span> <span class="n">dread</span><span class="p">(</span><span class="s">&#39;refined_table_ref_001_ite_0001.tbl&#39;</span><span class="p">);</span>
@@ -705,15 +705,15 @@ Source code</label><div class="tabbed-content docutils">
 <p>The next step is to remove particles that don’t belong to the lattice. To do so, we use <a class="reference external" href="https://github.com/teamtomo/teamtomo.github.io/tree/master/walkthroughs/EMPIAR-10164/scripts/check_radial_distribution.m"><code class="docutils literal notranslate"><span class="pre">check_radial_distribution.m</span></code></a>.</p>
 <p>Once again, in the same directory, simply run:</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="9fadc0a7-43f0-40ae-900b-7d2c3d9f0810" name="ee8f239a-7026-4a13-95f2-4f6836a08fa1" type="radio">
-</input><label class="tabbed-label" for="9fadc0a7-43f0-40ae-900b-7d2c3d9f0810">
+<input checked="checked" id="f6d5cc22-cb70-4988-8d6f-928c657242df" name="390b9a02-47f0-4ca7-beef-31b97200d024" type="radio">
+</input><label class="tabbed-label" for="f6d5cc22-cb70-4988-8d6f-928c657242df">
 Command</label><div class="tabbed-content docutils">
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">check_radial_distribution</span>
 </pre></div>
 </div>
 </div>
-<input id="02603bfa-a2bb-4dac-932c-5664ce7d5aad" name="ee8f239a-7026-4a13-95f2-4f6836a08fa1" type="radio">
-</input><label class="tabbed-label" for="02603bfa-a2bb-4dac-932c-5664ce7d5aad">
+<input id="368dfde3-24f5-4bdc-b26e-a28bf485c931" name="390b9a02-47f0-4ca7-beef-31b97200d024" type="radio">
+</input><label class="tabbed-label" for="368dfde3-24f5-4bdc-b26e-a28bf485c931">
 Source code</label><div class="tabbed-content docutils">
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% check number of neighbours in radial shells, 1 px thick shells</span>
 
@@ -751,15 +751,15 @@ Source code</label><div class="tabbed-content docutils">
 <p><img alt="radial distribution" src="../../_images/radial-distance-profile.png" /></p>
 <p>This confirms the previously measured interparticle distance and the fact that most particles slid into ordered positions in the lattice. We can use the first peak to select against particles that don’t conform to this distribution. The next script, <a class="reference external" href="https://github.com/teamtomo/teamtomo.github.io/tree/master/walkthroughs/EMPIAR-10164/scripts/subset_table_based_on_neighbours.m"><code class="docutils literal notranslate"><span class="pre">subset_table_based_on_neighbours.m</span></code></a>, removes all particles that don’t have at least 3 neighbours in the radial shell at distance 7.5 px. To use it, run:</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="393dd721-8d31-47d8-90aa-9e9a5eb90f1d" name="c9b6c59b-0560-4690-9491-eb2237cce1a2" type="radio">
-</input><label class="tabbed-label" for="393dd721-8d31-47d8-90aa-9e9a5eb90f1d">
+<input checked="checked" id="b1187e01-e48d-4d7f-8e0d-57f6e7482243" name="90609495-7965-4e94-8b40-a36fc1e079fb" type="radio">
+</input><label class="tabbed-label" for="b1187e01-e48d-4d7f-8e0d-57f6e7482243">
 Command</label><div class="tabbed-content docutils">
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">subset_table_based_on_neighbours</span>
 </pre></div>
 </div>
 </div>
-<input id="72739742-41ff-4f80-a352-29db59ba29af" name="c9b6c59b-0560-4690-9491-eb2237cce1a2" type="radio">
-</input><label class="tabbed-label" for="72739742-41ff-4f80-a352-29db59ba29af">
+<input id="8450091f-ccd6-40b9-99a6-7358c0fb7041" name="90609495-7965-4e94-8b40-a36fc1e079fb" type="radio">
+</input><label class="tabbed-label" for="8450091f-ccd6-40b9-99a6-7358c0fb7041">
 Source code</label><div class="tabbed-content docutils">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">read</span> <span class="n">table</span>
 <span class="n">table</span> <span class="o">=</span> <span class="n">dread</span><span class="p">(</span><span class="s1">&#39;result_10Apx_nodup.tbl&#39;</span><span class="p">);</span>

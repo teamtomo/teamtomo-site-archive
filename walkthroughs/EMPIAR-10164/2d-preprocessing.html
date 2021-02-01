@@ -614,26 +614,19 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#micrograph-preprocessing">
-   Micrograph preprocessing
+  <a class="reference internal nav-link" href="#raw-data-preprocessing-in-warp">
+   Raw data preprocessing in Warp
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#raw-data-preprocessing-in-warp">
-     Raw data preprocessing in Warp
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#deselect-bad-images">
-     Deselect bad images
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#stack-generation">
-     Stack generation
-    </a>
-   </li>
-  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#deselect-bad-images">
+   Deselect bad images
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#stack-generation">
+   Stack generation
+  </a>
  </li>
 </ul>
 
@@ -647,11 +640,9 @@
               <div>
                 
   <div class="section" id="d-preprocessing">
-<h1>2D preprocessing<a class="headerlink" href="#d-preprocessing" title="Permalink to this headline">¶</a></h1>
-<p>In this chapter, we will detail the necessary steps to take you from the raw data we downloaded from <em>EMPIAR</em> (multi-frame micrographs) to tilt-series</p>
-<div class="section" id="micrograph-preprocessing">
-<span id="hiv-mic-preproc"></span><h2>Micrograph preprocessing<a class="headerlink" href="#micrograph-preprocessing" title="Permalink to this headline">¶</a></h2>
-<p>In this section, we will use <code class="docutils literal notranslate"><span class="pre">Warp</span></code> for the initial processing of the raw data. This will let us:</p>
+<span id="hiv-mic-preproc"></span><h1>2D preprocessing<a class="headerlink" href="#d-preprocessing" title="Permalink to this headline">¶</a></h1>
+<p>In this section we will take you from the raw data we downloaded from <em>EMPIAR</em> (multi-frame micrographs) to tilt-series.</p>
+<p>We will use <code class="docutils literal notranslate"><span class="pre">Warp</span></code> for the initial processing of the raw data. This will let us:</p>
 <ul class="simple">
 <li><p>obtain an initial estimate for defocus and inter-frame motion</p></li>
 <li><p>merge frames into single images according on the estimated motion</p></li>
@@ -659,7 +650,7 @@
 <li><p>prepare the image stacks for tilt-series alignment in <code class="docutils literal notranslate"><span class="pre">Dynamo</span></code></p></li>
 </ul>
 <div class="section" id="raw-data-preprocessing-in-warp">
-<h3>Raw data preprocessing in Warp<a class="headerlink" href="#raw-data-preprocessing-in-warp" title="Permalink to this headline">¶</a></h3>
+<h2>Raw data preprocessing in Warp<a class="headerlink" href="#raw-data-preprocessing-in-warp" title="Permalink to this headline">¶</a></h2>
 <div class="seealso admonition">
 <p class="admonition-title">See also</p>
 <p>The following tabs detail the parameter settings as appropriate for this application. If you seek additional information, check out the <a class="reference external" href="http://www.warpem.com/warp/?page_id=51">Warp User Guide</a>.</p>
@@ -670,8 +661,8 @@
 <div class="card w-100 border-2 docutils">
 <div class="card-body docutils">
 <div class="tabbed-set docutils">
-<input checked="checked" id="5bd65549-6763-4c1f-b8f6-ef2c9974caa8" name="bdd832c2-897b-4bef-a5c3-836837c97799" type="radio">
-</input><label class="tabbed-label" for="5bd65549-6763-4c1f-b8f6-ef2c9974caa8">
+<input checked="checked" id="cb267db0-4bd3-4253-89d7-e85eed9e99c6" name="836e4022-8c10-48ea-bd87-b21209f0e579" type="radio">
+</input><label class="tabbed-label" for="cb267db0-4bd3-4253-89d7-e85eed9e99c6">
 Import</label><div class="tabbed-content docutils">
 <p class="card-text">To import new data into Warp, click on the path next to <code class="docutils literal notranslate"><span class="pre">Input</span></code> and select the <code class="docutils literal notranslate"><span class="pre">frames</span></code> directory. For the HIV-5-TS data, make sure that the selected format is <code class="docutils literal notranslate"><span class="pre">*.mrc</span></code>.</p>
 <p class="card-text">We then set the parameters as shown below.</p>
@@ -692,8 +683,8 @@ Make sure that the orientation of the reference and the images correspond!</p>
 </div>
 <p class="card-text">The EMPIAR entry for EMPIAR-10164 indicates that the images were already gain corrected. We can skip gain correction by leaving this section unchecked.</p>
 </div>
-<input id="a76d9447-30e1-470b-91a4-33c1bac29517" name="bdd832c2-897b-4bef-a5c3-836837c97799" type="radio">
-</input><label class="tabbed-label" for="a76d9447-30e1-470b-91a4-33c1bac29517">
+<input id="0d438cc8-8239-43af-a15c-ffe4f881c227" name="836e4022-8c10-48ea-bd87-b21209f0e579" type="radio">
+</input><label class="tabbed-label" for="0d438cc8-8239-43af-a15c-ffe4f881c227">
 CTF and Motion</label><div class="tabbed-content docutils">
 <div class="margin sidebar">
 <p class="card-title sidebar-title"></p>
@@ -765,8 +756,8 @@ we estimate and correct for the inter-frame motion present in the image.
 In this case, we leave the motion correction parameters as defaults.</p>
 <a class="reference internal image-reference" href="../../_images/motion-params.png"><img alt="../../_images/motion-params.png" class="align-center" src="../../_images/motion-params.png" style="width: 398.25px; height: 54.0px;" /></a>
 </div>
-<input id="ea69e630-4639-487a-be32-877652f114fb" name="bdd832c2-897b-4bef-a5c3-836837c97799" type="radio">
-</input><label class="tabbed-label" for="ea69e630-4639-487a-be32-877652f114fb">
+<input id="fb6ae2f7-b8d7-4cbb-96f2-ab012678c7f7" name="836e4022-8c10-48ea-bd87-b21209f0e579" type="radio">
+</input><label class="tabbed-label" for="fb6ae2f7-b8d7-4cbb-96f2-ab012678c7f7">
 Spatiotemporal models</label><div class="tabbed-content docutils">
 <p class="card-text">Warp allows us to estimate how CTF and inter-frame translational motion parameters change in both space and time.</p>
 <a class="reference internal image-reference" href="../../_images/spatiotemporal-models.png"><img alt="../../_images/spatiotemporal-models.png" class="align-center" src="../../_images/spatiotemporal-models.png" style="width: 398.25px; height: 166.5px;" /></a>
@@ -775,8 +766,8 @@ Spatiotemporal models</label><div class="tabbed-content docutils">
 <p class="card-text">A motion model of 1x1xn where n is the number of frames typically ensures that accurate estimates can be obtained from low-dose data. The alignment of individual frames can be improved once a high SNR reference has been obtained, this is performed in the multi-particle refinement step of the workflow.</p>
 <p class="card-text">For HIV-5-TS, EMPIAR indicates that we have 8 frames per image, so we set the resolution of the motion model to 1x1x8</p>
 </div>
-<input id="82dce396-c54b-43e5-911c-9c474b800347" name="bdd832c2-897b-4bef-a5c3-836837c97799" type="radio">
-</input><label class="tabbed-label" for="82dce396-c54b-43e5-911c-9c474b800347">
+<input id="c94d5269-e3de-4706-9841-e83728922f36" name="836e4022-8c10-48ea-bd87-b21209f0e579" type="radio">
+</input><label class="tabbed-label" for="c94d5269-e3de-4706-9841-e83728922f36">
 Fiducials</label><div class="tabbed-content docutils">
 <p class="card-text">While gold fiducials are useful for the accurate alignment of tilt series, their high contrast will have negative effects on the final tomographic reconstruction. For this reason, we use Warp to mask out any beads prior to tomographic reconstruction.</p>
 <p class="card-text">The <code class="docutils literal notranslate"><span class="pre">Pick</span> <span class="pre">Particles</span></code> panel gives access to <code class="docutils literal notranslate"><span class="pre">BoxNet</span></code>, a deep convolutional neural network designed to pick particles and mask out unwanted subregions in single-particle cryo-EM. A version of BoxNet we retrained for to mask gold fiducials is <span class="xref myst">provided</span> with this tutorial.</p>
@@ -791,8 +782,8 @@ Fiducials</label><div class="tabbed-content docutils">
 <a class="reference internal image-reference" href="../../_images/boxnet-params.png"><img alt="../../_images/boxnet-params.png" class="align-center" src="../../_images/boxnet-params.png" style="width: 398.25px; height: 159.0px;" /></a>
 <p class="card-text">As we are only using this model for particle picking, the parameters relating to particle picking can be safely ignored.</p>
 </div>
-<input id="3f7e137d-2e52-4cc0-8e4f-844dcd48462b" name="bdd832c2-897b-4bef-a5c3-836837c97799" type="radio">
-</input><label class="tabbed-label" for="3f7e137d-2e52-4cc0-8e4f-844dcd48462b">
+<input id="f5013404-ea3c-4edb-bdc6-2928d0615a49" name="836e4022-8c10-48ea-bd87-b21209f0e579" type="radio">
+</input><label class="tabbed-label" for="f5013404-ea3c-4edb-bdc6-2928d0615a49">
 Start Processing!</label><div class="tabbed-content docutils">
 <a class="reference internal image-reference" href="../../_images/output-params.png"><img alt="../../_images/output-params.png" class="align-center" src="../../_images/output-params.png" style="width: 398.25px; height: 183.0px;" /></a>
 <p class="card-text">In the <code class="docutils literal notranslate"><span class="pre">Output</span></code> panel, we can choose not to include frames at the beginning and end of a movie. The first frames from a multi-frame micrograph of a given exposure often display increased translational motion. In this case, we chose to include all frames from the micrograph to maximise the signal present in the final images.</p>
@@ -819,7 +810,7 @@ Start Processing!</label><div class="tabbed-content docutils">
 </div>
 </div>
 <div class="section" id="deselect-bad-images">
-<h3>Deselect bad images<a class="headerlink" href="#deselect-bad-images" title="Permalink to this headline">¶</a></h3>
+<h2>Deselect bad images<a class="headerlink" href="#deselect-bad-images" title="Permalink to this headline">¶</a></h2>
 <p>Images in each tilt-series must be assembled into an <code class="docutils literal notranslate"><span class="pre">IMOD</span></code> stack in order to use <code class="docutils literal notranslate"><span class="pre">Dynamo</span></code> for the tilt-series alignment, but before doing so we should discard any bad images in our dataset. To do so, switch to the <code class="docutils literal notranslate"><span class="pre">Real</span> <span class="pre">Space</span></code> tab at the top and manually inspect all the tilt images.</p>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
@@ -834,7 +825,7 @@ Start Processing!</label><div class="tabbed-content docutils">
 <a class="reference internal image-reference" href="../../_images/deselect-bad-image.png"><img alt="../../_images/deselect-bad-image.png" class="align-center" src="../../_images/deselect-bad-image.png" style="width: 296.0px; height: 281.0px;" /></a>
 </div>
 <div class="section" id="stack-generation">
-<h3>Stack generation<a class="headerlink" href="#stack-generation" title="Permalink to this headline">¶</a></h3>
+<h2>Stack generation<a class="headerlink" href="#stack-generation" title="Permalink to this headline">¶</a></h2>
 <p>To generate the image stack, we first have to put Warp into <code class="docutils literal notranslate"><span class="pre">tomostar</span></code> mode. We do this by clicking on the <code class="docutils literal notranslate"><span class="pre">*.mrc</span></code> extension on the top left, and selecting the <code class="docutils literal notranslate"><span class="pre">*.tomostar</span></code> extension.</p>
 <p>Then, click on the (slightly misnamed) <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">tilt</span> <span class="pre">series</span> <span class="pre">from</span> <span class="pre">IMOD</span></code> button at the top of the screen.
 In the newly opened window, we should now select the <code class="docutils literal notranslate"><span class="pre">Folder</span> <span class="pre">with</span> <span class="pre">original</span> <span class="pre">movies</span></code> and the <code class="docutils literal notranslate"><span class="pre">Folder</span> <span class="pre">with</span> <span class="pre">.mdoc</span> <span class="pre">files</span></code>.
@@ -848,7 +839,6 @@ In this case, they are the <code class="docutils literal notranslate"><span clas
 </div>
 <p>Click on <code class="docutils literal notranslate"><span class="pre">Create</span> <span class="pre">stacks</span> <span class="pre">for</span> <span class="pre">IMOD</span></code> to start exporting the data. We can immediately move on to the next step without having to wait for the stack generation to finish, thanks to <code class="docutils literal notranslate"><span class="pre">autoalign_dynamo</span></code>’s on-the-fly processing.</p>
 <a class="reference internal image-reference" href="../../_images/create-stack.png"><img alt="../../_images/create-stack.png" class="align-center" src="../../_images/create-stack.png" style="width: 566.5px; height: 353.5px;" /></a>
-</div>
 </div>
 </div>
 
