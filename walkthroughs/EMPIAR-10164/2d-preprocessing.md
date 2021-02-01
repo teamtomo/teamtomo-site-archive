@@ -9,7 +9,7 @@ We will use `Warp` for the initial processing of the raw data. This will let us:
 - detect and mask gold fiducials for tomogram reconstruction
 - prepare the image stacks for tilt-series alignment in `Dynamo`
 
-### Raw data preprocessing in Warp
+## Raw data preprocessing in Warp
 
 ```{seealso}
 The following tabs detail the parameter settings as appropriate for this application. If you seek additional information, check out the [Warp User Guide](http://www.warpem.com/warp/?page_id=51).
@@ -173,7 +173,7 @@ During processing, you can check the results by switching to the `Real Space` an
 `````
 ``````
 
-### Deselect bad images
+## Deselect bad images
 
 Images in each tilt-series must be assembled into an `IMOD` stack in order to use `Dynamo` for the tilt-series alignment, but before doing so we should discard any bad images in our dataset. To do so, switch to the `Real Space` tab at the top and manually inspect all the tilt images.
 
@@ -193,7 +193,7 @@ For this dataset we only have to discard two bad images: `TS_01_039` and `TS_03_
 :width: 400px
 ```
 
-### Stack generation
+## Stack generation
 To generate the image stack, we first have to put Warp into `tomostar` mode. We do this by clicking on the `*.mrc` extension on the top left, and selecting the `*.tomostar` extension.
 
 Then, click on the (slightly misnamed) `import tilt series from IMOD` button at the top of the screen.
