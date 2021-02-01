@@ -25,7 +25,7 @@ A detailed treatment of this topic, written by David Mastronarde, can be found [
 
 
 ## Fiducialless
-In some cases, using fiducial markers to align tilt-series is impossible. For example, [FIB-milling]() is incompatible with gold nanoparticle fiducial markers as they tend to end up at the air-water interface during vitrification and are subsequently removed during sample milling.
+In some cases, using fiducial markers to align tilt-series is impossible. For example, FIB-milling is incompatible with gold nanoparticle fiducial markers as they tend to end up at the air-water interface during vitrification and are subsequently removed during sample milling.
 
 In these cases, alternative methods must be used which make use of the biological material in each image for alignment.
 

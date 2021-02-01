@@ -56,6 +56,7 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Geometrical particle picking" href="geometrical-picking.html" />
@@ -292,6 +293,90 @@
    <li class="toctree-l2">
     <a class="reference internal" href="../../mini-tutorials/dynamo/interactive-mask-creation.html">
      Interactive mask creation
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  computing
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../computing/python/index.html">
+   Python
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../computing/python/getting-started.html">
+     Getting started
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../computing/python/virtual-environments.html">
+     Virtual environments
+    </a>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../../computing/python/useful-packages/useful-packages.html">
+     Useful packages
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../computing/python/useful-packages/dynamotable.html">
+       dynamotable
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../computing/python/useful-packages/emfile.html">
+       emfile
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../computing/python/useful-packages/eulerangles.html">
+       eulerangles
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../computing/python/useful-packages/mrcfile.html">
+       mrcfile
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../computing/python/useful-packages/napari.html">
+       napari
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../computing/python/useful-packages/starfile.html">
+       starfile
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../computing/matlab/index.html">
+   MATLAB
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../computing/matlab/add-to-path.html">
+     Adding scripts/functions to your PATH in
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       MATLAB
+      </span>
+     </code>
     </a>
    </li>
   </ul>
@@ -699,7 +784,7 @@
 <p>Basic overview of the tilt-series alignment procedure in <code class="docutils literal notranslate"><span class="pre">Dynamo</span></code>:</p>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
-<div class="seealso admonition">
+<div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <p>For a detailed, step-by-step explanation of the procedure, check out the <a class="reference external" href="https://www.wiki.dynamo.biozentrum.unibas.ch/w/index.php/Walkthrough_on_GUI_based_tilt_series_alignment">Walkthrough on GUI based tilt series alignment</a> on the Dynamo wiki.</p>
 </div>
@@ -775,7 +860,7 @@ check that our CTF model has the correct handedness and reconstruct the tomogram
 <p>Differently from earlier, now we also need to enter the pixel size of the tilt-series and the electron dose that the sample was exposed to per tilt.</p>
 <p>For this dataset this is the binned pixel size of 1.35 <span class="math notranslate nohighlight">\(Å/px\)</span>,
 and according the the EMPIAR entry the dose is roughly 3 <span class="math notranslate nohighlight">\(e^-/Å^2\)</span> per tilt.</p>
-<a class="reference internal image-reference" href="../../_images/import-ts-alignments.png"><img alt="../../_images/import-ts-alignments.png" class="align-center" src="../../_images/import-ts-alignments.png" style="width: 450.8px; height: 280.8px;" /></a>
+<a class="reference internal image-reference" href="../../_images/import-ts-alignments.png"><img alt="../../_images/import-ts-alignments.png" src="../../_images/import-ts-alignments.png" style="width: 500px;" /></a>
 </div>
 <div class="section" id="tilt-series-ctf-estimation">
 <h3>Tilt-Series CTF estimation<a class="headerlink" href="#tilt-series-ctf-estimation" title="Permalink to this headline">¶</a></h3>
@@ -794,10 +879,10 @@ and according the the EMPIAR entry the dose is roughly 3 <span class="math notra
 <div class="section" id="reconstruct-tomograms">
 <h3>Reconstruct tomograms<a class="headerlink" href="#reconstruct-tomograms" title="Permalink to this headline">¶</a></h3>
 <p>We now have everything we need to reconstruct our tomograms. In Warp, we don’t need to reconstruct whole tomograms at this step. Instead, downsampled tomograms can be generated for initial particle picking and volumes centered on each object of interest can be reconstructed later at the desired pixel size. This reduces the computational burden of generating and extracting particles from large, unbinned tomograms which can easily be over 100GB in size.</p>
-<img alt="../../_images/reconstruction-size.png" class="align-center" src="../../_images/reconstruction-size.png" />
+<a class="reference internal image-reference" href="../../_images/reconstruction-size.png"><img alt="../../_images/reconstruction-size.png" src="../../_images/reconstruction-size.png" style="width: 400px;" /></a>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
-<div class="tip admonition">
+<div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Starting with coarse pixel sizes significantly increases your ability to quickly test new ideas at the expense of the loss of high-resolution information. Generally, we aim for a pixel size which allows our object of interest to fit comfortably in a 32<span class="math notranslate nohighlight">\(px^3\)</span> box. If we don’t know the size of our object of interest 10-15 <span class="math notranslate nohighlight">\(Å/px\)</span> is usually a good starting point. For HIV-5-TS, we generate tomograms at 10 <span class="math notranslate nohighlight">\(Å/px\)</span>.</p>
 </div>
@@ -809,7 +894,7 @@ and according the the EMPIAR entry the dose is roughly 3 <span class="math notra
 <p>Leave <code class="docutils literal notranslate"><span class="pre">Reconstruct</span> <span class="pre">half-maps</span> <span class="pre">for</span> <span class="pre">denoising</span></code> and <code class="docutils literal notranslate"><span class="pre">Keep</span> <span class="pre">only</span> <span class="pre">fully</span> <span class="pre">covered</span> <span class="pre">voxels</span></code> unchecked for now, the first is useful if you want to denoise your data and the second will leave zeros in the regions not contributed to by all images in the tilt-series.</p>
 <p>Warp may have marked some tilt series as filtered out. Since we are not making active use of filters in this tutorial, this is not a problem. Simply select <code class="docutils literal notranslate"><span class="pre">Include</span> <span class="pre">items</span> <span class="pre">outside</span> <span class="pre">of</span> <span class="pre">filter</span> <span class="pre">ranges</span></code>. To learn more about the Warp filters, check out the <a class="reference external" href="http://www.warpem.com/warp/?page_id=185">Warp tutorial on frame series</a>.</p>
 <p>Once ready, click on <code class="docutils literal notranslate"><span class="pre">Reconstruct</span></code> to reconstruct the tomograms.</p>
-<img alt="../../_images/reconstruction-settings.png" class="align-center" src="../../_images/reconstruction-settings.png" />
+<a class="reference internal image-reference" href="../../_images/reconstruction-settings.png"><img alt="../../_images/reconstruction-settings.png" src="../../_images/reconstruction-settings.png" style="width: 300px;" /></a>
 </div>
 </div>
 </div>

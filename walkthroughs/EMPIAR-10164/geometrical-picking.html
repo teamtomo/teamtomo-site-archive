@@ -56,6 +56,7 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Initial model generation" href="ini-model.html" />
@@ -292,6 +293,90 @@
    <li class="toctree-l2">
     <a class="reference internal" href="../../mini-tutorials/dynamo/interactive-mask-creation.html">
      Interactive mask creation
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  computing
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../computing/python/index.html">
+   Python
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../computing/python/getting-started.html">
+     Getting started
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../computing/python/virtual-environments.html">
+     Virtual environments
+    </a>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../../computing/python/useful-packages/useful-packages.html">
+     Useful packages
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../computing/python/useful-packages/dynamotable.html">
+       dynamotable
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../computing/python/useful-packages/emfile.html">
+       emfile
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../computing/python/useful-packages/eulerangles.html">
+       eulerangles
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../computing/python/useful-packages/mrcfile.html">
+       mrcfile
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../computing/python/useful-packages/napari.html">
+       napari
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../computing/python/useful-packages/starfile.html">
+       starfile
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../computing/matlab/index.html">
+   MATLAB
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../computing/matlab/add-to-path.html">
+     Adding scripts/functions to your PATH in
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       MATLAB
+      </span>
+     </code>
     </a>
    </li>
   </ul>
@@ -679,14 +764,14 @@
 <li><p>The lattice is always parallel to the membrane, imparting an orientation normal to the surface of the sphere  onto each particle will provide a consistent estimate for the initial orientation of the particles in the lattice.</p></li>
 </ul>
 <p>Dynamo contains many geometrical modelling tools which can help with these geometrical approaches to subtomogram averaging projects. We will make use of a limited subset of these tools in this tutorial, for an overview of the available geometrical models please see <a class="reference external" href="https://wiki.dynamo.biozentrum.unibas.ch/w/index.php/Model#Types_of_models">here</a>. Becoming familiar with the available tools and thinking about how you can use the geometry of your system to your advantage will help with many subtomogram averaging projects. Below, we used <code class="docutils literal notranslate"><span class="pre">dynamo_tomoslice</span></code> to  estimate the lattice spacing in our tomograms, 7.8 px at 10 Å/px this tool will be introduced shortly.</p>
-<a class="reference internal image-reference" href="../../_images/lattice-spacing.png"><img alt="../../_images/lattice-spacing.png" class="align-center" src="../../_images/lattice-spacing.png" style="width: 392.0px; height: 384.5px;" /></a>
+<a class="reference internal image-reference" href="../../_images/lattice-spacing.png"><img alt="../../_images/lattice-spacing.png" src="../../_images/lattice-spacing.png" style="width: 400px;" /></a>
 </div>
 <div class="section" id="generating-a-dynamo-catalogue-for-particle-picking">
 <h2>Generating a Dynamo catalogue for particle picking<a class="headerlink" href="#generating-a-dynamo-catalogue-for-particle-picking" title="Permalink to this headline">¶</a></h2>
 <p>We now need a system for managing our reconstructed tomograms and annotations. A Dynamo catalogue is a database which facilitates the management of tomography data, including annotations and subsequent particle extraction.</p>
 <p>We have provided a function <code class="docutils literal notranslate"><span class="pre">warp2catalogue</span></code> in the <code class="docutils literal notranslate"><span class="pre">autoalign_dynamo</span></code> package which will setup a catalogue from your Warp tomograms and their deconvolved counterparts. The catalogue is set up in such a way that any visualisation of the tomograms from the catalogue will display the deconvolved volumes but particles are extracted from the unfiltered volumes which are suitable for alignment and averaging experiments.</p>
 <p>The function takes two arguments: the warp reconstruction directory and the pixel spacing of the reconstructed tomograms.</p>
-<p>Let’s create a new <code class="docutils literal notranslate"><span class="pre">dynamo</span></code> folder in the root directory, and navigate to it in Matlab. Then, we run:</p>
+<p>Let’s create a new <code class="docutils literal notranslate"><span class="pre">dynamo</span></code> folder in the project root directory, and navigate to it in Matlab. Then, we run:</p>
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">warp2catalogue</span><span class="p">(</span><span class="s">&#39;../frames/reconstruction&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -703,12 +788,14 @@
 <h3>Defining our approach<a class="headerlink" href="#defining-our-approach" title="Permalink to this headline">¶</a></h3>
 <p>We need to annotate many spherical VLPs within each tomogram. Whilst we could achieve this by annotating each sphere as a vesicle model directly, the workflow for defining vesicle models from <code class="docutils literal notranslate"><span class="pre">dynamo_tomoslice</span></code> requires defining many points for each vesicle model. This approach is robust, but not especially quick if we have many annotations to make.</p>
 <p>Instead, we will take a shortcut - spheres can be completely defined by only two values, their centre point and their radius. We will create a <code class="docutils literal notranslate"><span class="pre">dipoleSet</span></code> model in each tomogram to annotate the centres and edge points of many VLPs quickly in just one model, then convert these <code class="docutils literal notranslate"><span class="pre">dipoleSet</span></code> models into oversampled vesicles with a function which we provide.</p>
-<a class="reference internal image-reference" href="../../_images/hiv-oversampling1.png"><img alt="../../_images/hiv-oversampling1.png" class="align-center" src="../../_images/hiv-oversampling1.png" style="width: 1000.0px; height: 444.0px;" /></a>
+<a class="reference internal image-reference" href="../../_images/hiv-oversampling1.png"><img alt="../../_images/hiv-oversampling1.png" src="../../_images/hiv-oversampling1.png" style="width: 700px;" /></a>
 </div>
 <div class="section" id="tomogram-annotation">
 <h3>Tomogram annotation<a class="headerlink" href="#tomogram-annotation" title="Permalink to this headline">¶</a></h3>
 <p>Follow the guide for creating <code class="docutils literal notranslate"><span class="pre">dipoleSet</span></code> models and turning them into oversampled <code class="docutils literal notranslate"><span class="pre">Vesicle</span></code> models <a class="reference internal" href="../../mini-tutorials/dynamo/dipoles-to-vesicles.html"><span class="doc std std-doc">here</span></a>.</p>
 <p>Your expected inter-particle distance at this stage is ~7.5 nm, the lattice spacing we observed earlier.</p>
+<p>Here’s a short video of us picking some vescicles on the <code class="docutils literal notranslate"><span class="pre">TS_03</span></code> tomogram:</p>
+<p><img alt="vescicle-picking" src="../../_images/vescicle-picking.gif" /></p>
 </div>
 </div>
 </div>

@@ -5,8 +5,7 @@ This mini-tutorial will show you how to quickly and easily generate an oversampl
 and orientations on a spherical supporting geometry (such as a vesicle) in `Dynamo`
 
 ```{image} dipoles-to-vesicles.assets/hiv-oversampling.png
-:scale: 50%
-:align: center
+:width: 700px
 ```
 
 We start from a `Dynamo` catalogue containing the tomograms with vesicles we want to pick.

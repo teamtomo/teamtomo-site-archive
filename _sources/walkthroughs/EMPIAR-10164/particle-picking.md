@@ -23,13 +23,11 @@ Next we set up a new alignment project using `dcp`. This time, the aim is to ali
 - We should adjust the shifts so that particles can only move half of the lattice spacing in the x and y direction. We expect to find a lattice of particles with roughly 7.5 nm spacing. If we allow each particle to shift a maximum of 4nm in each direction it should be guaranteed to find the closest true position in the lattice, without moving too far. This maximises the chances of finding all lattice positions from the beginning.
 - We should allow the particles to shift more in z than in x and y to account for any errors when defining our `Vesicle` models.
 
-% numerical parameter screenshot here
+```{image} particle-picking.assets/numerical-params.png
+:width: 500px
+```
 
 Once the parameters are all set, run the project from the command line as before. This will take significantly longer that the previous time!
-
-% add visualisation of results including particle positions using dpktbl.plots.sketch(), note presence of duplicates and bad regions
-
-% add section visualising results again and making conclusions based on the experiment that was done - teach the reader to get into the habit of interacting with the data, not just plugging it into the program and seeing the reconstruction that comes out
 
 ## Cleaning the dataset based on geometrical constraints
 
@@ -39,9 +37,58 @@ The provided scripts are just a few lines long, and are given for convenience an
 ```
 ````
 
-To isolate a good subset of particles in lattices we will use three short scripts provided with this tutorial. 
+We can now take a look at the resulting particle positions, written in the output file `dynamo/findparticles/results/ite_0001/refined_table_ref_001_ite_0001.tbl`.
 
-The first cleaning step we should take is removing duplicate particles. To do so, we will use a simple matlab script, [`remove_duplicates.m`](https://github.com/teamtomo/teamtomo.github.io/tree/master/walkthroughs/EMPIAR-10164/scripts/remove_duplicates.m).
+We can use [`view_particles.m`](https://github.com/teamtomo/teamtomo.github.io/tree/master/walkthroughs/EMPIAR-10164/scripts/view_particles.m)  to open a 3D viewer and examine them. Open matlab in `dynamo/findparticles/results/ite_0001/` and run:
+
+````{tabbed} Command
+```matlab
+view_particles('refined_table_ref_001_ite_0001.tbl')
+```
+````
+
+````{tabbed} Source code
+```matlab
+function gui = view_particles(table)
+    % read the table
+    table = dread(table)
+    % get unique keys of each volume
+    keys = unique(table(:, 20));
+
+    % open the viewer gui
+    gui = mbgraph.montage();
+
+    % loop through volume keys
+    for key_idx = 1:size(keys)
+        key = keys(key_idx);
+        % extract the table corresponding to this volume
+        idx = table(:, 20) == key_idx;
+        subtable = table(idx, :);
+        % draw the particles as points and lines
+        ax = gui.gca;
+        sketch = dpktbl.plots.sketch(subtable, 'haxis', ax);
+        % create a new frame for the next volume
+        if key_idx~=size(keys, 1)
+            gui.step;
+        end
+    end
+end
+```
+````
+
+````{margin}
+```{tip}
+You can pan around the view by drag-n-dropping, zoom by scrolling, and change volume by clicking the `>` and `<` buttons.
+```
+````
+
+```{image} particle-picking.assets/particle-positions.png
+:width: 600px
+```
+
+As you can see, there are regions where particle positions appear to form regular lattices, and other smaller, more irregular regions. These disordered patches are likely due to irregularities in the VLP we annotated. To avoid including particles which do not contain our lattice structure, we should try to remove these particles at this stage.
+
+However, the first cleaning step we should take is removing duplicate particles (remember, we oversampled the surface compared to the expected particle density!). To do so, we will use a simple matlab script, [`remove_duplicates.m`](https://github.com/teamtomo/teamtomo.github.io/tree/master/walkthroughs/EMPIAR-10164/scripts/remove_duplicates.m).
 
 To run, simply open MATLAB in `dynamo/findparticles/results/ite_0001/averages` and run:
 ````{tabbed} Command

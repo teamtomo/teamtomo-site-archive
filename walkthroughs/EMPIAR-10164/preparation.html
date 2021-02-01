@@ -56,6 +56,7 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="2D preprocessing" href="2d-preprocessing.html" />
@@ -292,6 +293,90 @@
    <li class="toctree-l2">
     <a class="reference internal" href="../../mini-tutorials/dynamo/interactive-mask-creation.html">
      Interactive mask creation
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  computing
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../computing/python/index.html">
+   Python
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../computing/python/getting-started.html">
+     Getting started
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../computing/python/virtual-environments.html">
+     Virtual environments
+    </a>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../../computing/python/useful-packages/useful-packages.html">
+     Useful packages
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../computing/python/useful-packages/dynamotable.html">
+       dynamotable
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../computing/python/useful-packages/emfile.html">
+       emfile
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../computing/python/useful-packages/eulerangles.html">
+       eulerangles
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../computing/python/useful-packages/mrcfile.html">
+       mrcfile
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../computing/python/useful-packages/napari.html">
+       napari
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../computing/python/useful-packages/starfile.html">
+       starfile
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../computing/matlab/index.html">
+   MATLAB
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../computing/matlab/add-to-path.html">
+     Adding scripts/functions to your PATH in
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       MATLAB
+      </span>
+     </code>
     </a>
    </li>
   </ul>
@@ -627,8 +712,8 @@
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">download.sh</span></code> organises files according to the directory structure expected by the rest of the guide.</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="c8586f92-1e46-45eb-b856-48f0283f2844" name="76b9f255-848b-4838-a60d-efe9ff2f6bf8" type="radio">
-</input><label class="tabbed-label" for="c8586f92-1e46-45eb-b856-48f0283f2844">
+<input checked="checked" id="208ca23b-f3e0-4d0f-9cea-b3e0adfa95cc" name="be2fb8ef-5126-494c-9695-718c2663f9ab" type="radio">
+</input><label class="tabbed-label" for="208ca23b-f3e0-4d0f-9cea-b3e0adfa95cc">
 shell script</label><div class="tabbed-content docutils">
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="s2">&quot;Downloading the raw data. This may take a couple of hours!&quot;</span>
 <span class="nb">echo</span>
@@ -643,10 +728,10 @@ shell script</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="5349abb1-a63d-4c05-9309-d324537ba79a" name="76b9f255-848b-4838-a60d-efe9ff2f6bf8" type="radio">
-</input><label class="tabbed-label" for="5349abb1-a63d-4c05-9309-d324537ba79a">
+<input id="95e4bad6-385c-46cf-aaef-5f46252a86b5" name="be2fb8ef-5126-494c-9695-718c2663f9ab" type="radio">
+</input><label class="tabbed-label" for="95e4bad6-385c-46cf-aaef-5f46252a86b5">
 directory structure</label><div class="tabbed-content docutils">
-<div class="highlight-{code notranslate"><div class="highlight"><pre><span></span>.
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>.
 ├── frames
 │   ├── TS_01_000_0.0.mrc
 │   ├── TS_01_001_3.0.mrc
@@ -658,8 +743,8 @@ directory structure</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="ec51fae2-9079-451f-9e50-a5dbc8cd03c4" name="76b9f255-848b-4838-a60d-efe9ff2f6bf8" type="radio">
-</input><label class="tabbed-label" for="ec51fae2-9079-451f-9e50-a5dbc8cd03c4">
+<input id="56fb7f18-f9a6-4e2a-ade8-b2f660807e02" name="be2fb8ef-5126-494c-9695-718c2663f9ab" type="radio">
+</input><label class="tabbed-label" for="56fb7f18-f9a6-4e2a-ade8-b2f660807e02">
 file extensions</label><div class="tabbed-content docutils">
 <p>Files with the <code class="docutils literal notranslate"><span class="pre">.mrc</span></code> extension are multi-frame micrographs for each tilt angle in a tilt series.</p>
 <p>They are in the <a class="reference external" href="https://www.ccpem.ac.uk/mrc_format/mrc2014.php">MRC2014</a> file format.</p>

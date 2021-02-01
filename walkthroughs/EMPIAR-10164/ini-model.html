@@ -56,6 +56,7 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Find particles on every VLP" href="particle-picking.html" />
@@ -292,6 +293,90 @@
    <li class="toctree-l2">
     <a class="reference internal" href="../../mini-tutorials/dynamo/interactive-mask-creation.html">
      Interactive mask creation
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  computing
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../computing/python/index.html">
+   Python
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../computing/python/getting-started.html">
+     Getting started
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../computing/python/virtual-environments.html">
+     Virtual environments
+    </a>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../../computing/python/useful-packages/useful-packages.html">
+     Useful packages
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../computing/python/useful-packages/dynamotable.html">
+       dynamotable
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../computing/python/useful-packages/emfile.html">
+       emfile
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../computing/python/useful-packages/eulerangles.html">
+       eulerangles
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../computing/python/useful-packages/mrcfile.html">
+       mrcfile
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../computing/python/useful-packages/napari.html">
+       napari
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../computing/python/useful-packages/starfile.html">
+       starfile
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../computing/matlab/index.html">
+   MATLAB
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../computing/matlab/add-to-path.html">
+     Adding scripts/functions to your PATH in
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       MATLAB
+      </span>
+     </code>
     </a>
    </li>
   </ul>
@@ -646,7 +731,7 @@
                 
   <div class="section" id="initial-model-generation">
 <h1>Initial model generation<a class="headerlink" href="#initial-model-generation" title="Permalink to this headline">¶</a></h1>
-<a class="reference internal image-reference" href="../../_images/hiv-initial-positions.png"><img alt="../../_images/hiv-initial-positions.png" class="align-center" src="../../_images/hiv-initial-positions.png" style="width: 300.0px; height: 245.25px;" /></a>
+<a class="reference internal image-reference" href="../../_images/hiv-initial-positions.png"><img alt="../../_images/hiv-initial-positions.png" src="../../_images/hiv-initial-positions.png" style="width: 250px;" /></a>
 <p>Now that the Dynamo catalogue contains initial estimates for the positions and orientations of our particles, we need to obtain an initial model of our lattice structure which will later allow us to find more accurate estimates of the positions and orientations of our particles for the whole dataset. For this, we will work on a small subset of the VLPs.</p>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
@@ -665,7 +750,7 @@
 <p class="sidebar-title"></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>A box sidelength of 32 corresponds to a 320<span class="math notranslate nohighlight">\(Å\)</span>. While this is much larger than the expected 75<span class="math notranslate nohighlight">\(Å\)</span> inter-particle distance, signal from neighbouring particles in lattices can help to drive correct alignments at the beginning of a project. When working at smaller pixel sizes a bigger box can also help to avoid <span class="xref myst">CTF aliasing</span>.</p>
+<p>A box sidelength of 32 corresponds to a 320<span class="math notranslate nohighlight">\(Å\)</span>. While this is much larger than the expected 75<span class="math notranslate nohighlight">\(Å\)</span> inter-particle distance, signal from neighbouring particles in lattices can help to drive correct alignments at the beginning of a project. When working at smaller pixel sizes a bigger box can also help to avoid CTF aliasing.</p>
 </div>
 </div>
 <p>Extract particles from your <code class="docutils literal notranslate"><span class="pre">Dynamo</span></code> catalogue with a sidelength of <code class="docutils literal notranslate"><span class="pre">32</span></code> following <a class="reference internal" href="../../mini-tutorials/dynamo/extract-from-catalogue.html"><span class="doc std std-doc">this mini-tutorial</span></a>. To make things faster, for now we can extract particles from one vesicle in <code class="docutils literal notranslate"><span class="pre">TS_01</span></code> and one in <code class="docutils literal notranslate"><span class="pre">TS_03</span></code>. We call this volume list file created at this stage <code class="docutils literal notranslate"><span class="pre">inimodel.vll</span></code>) and extract a data folder called <code class="docutils literal notranslate"><span class="pre">inimodelData.Boxes</span></code>.</p>
@@ -699,7 +784,7 @@
 <dt><code class="docutils literal notranslate"><span class="pre">template</span></code></dt><dd><p>since we don’t have one, we generate one from a subset of our particles. Using 500 particles at this step is a good starting point. This will generate a reconstruction from 500 particles using our initial alignments from the vesicle model stored in the <code class="docutils literal notranslate"><span class="pre">crop.tbl</span></code> file.</p>
 </dd>
 </dl>
-<a class="reference internal image-reference" href="../../_images/first-template-all.png"><img alt="../../_images/first-template-all.png" class="align-center" src="../../_images/first-template-all.png" style="width: 376.8px; height: 225.0px;" /></a>
+<a class="reference internal image-reference" href="../../_images/first-template-all.png"><img alt="../../_images/first-template-all.png" src="../../_images/first-template-all.png" style="width: 400px;" /></a>
 <dl class="simple myst">
 <dt><code class="docutils literal notranslate"><span class="pre">masks</span></code></dt><dd><p><code class="docutils literal notranslate"><span class="pre">Use</span> <span class="pre">default</span> <span class="pre">masks</span></code> will give us appropriate masks at this stage that cover the full extent of our 32px box. At this stage, we aren’t very sure of our particle positions and orientations as they haven’t undergone any alignment. We want our mask to include the whole box so that signal from multiple neighbouring particles in the lattice can help to drive initial alignments.</p>
 </dd>
@@ -712,12 +797,12 @@
 </div>
 </div>
 <dl class="simple myst">
-<dt><code class="docutils literal notranslate"><span class="pre">numerical</span> <span class="pre">parameters</span></code></dt><dd><p>set the numerical parameters for the alignment procedure as shown below. Check out the [mini-tutorial] for a more in-depth explanation. At this stage, we don’t enforce symmetry during refinement. We hope that any symmetry present should appear after aligning our particles.</p>
+<dt><code class="docutils literal notranslate"><span class="pre">numerical</span> <span class="pre">parameters</span></code></dt><dd><p>set the numerical parameters for the alignment procedure as shown below. Check out the <a class="reference internal" href="../../mini-tutorials/dynamo/simple-alignment.html"><span class="doc std std-doc">mini-tutorial</span></a> for a more in-depth explanation. At this stage, we don’t enforce symmetry during refinement. We hope that any symmetry present should appear after aligning our particles.</p>
 </dd>
 </dl>
-<a class="reference internal image-reference" href="../../_images/numerical-params1.png"><img alt="../../_images/numerical-params1.png" src="../../_images/numerical-params1.png" style="width: 396.5px; height: 380.5px;" /></a>
+<a class="reference internal image-reference" href="../../_images/numerical-params1.png"><img alt="../../_images/numerical-params1.png" src="../../_images/numerical-params1.png" style="width: 400px;" /></a>
 <p>We perform initial alignments with only local out-of-plane searches (defined by the <code class="docutils literal notranslate"><span class="pre">cone</span> <span class="pre">range</span></code> parameter), making use of the initial estimates from our geometrical models.</p>
-<a class="reference internal image-reference" href="../../_images/scanning-angles.png"><img alt="../../_images/scanning-angles.png" src="../../_images/scanning-angles.png" style="width: 290.0px; height: 265.0px;" /></a>
+<a class="reference internal image-reference" href="../../_images/scanning-angles.png"><img alt="../../_images/scanning-angles.png" src="../../_images/scanning-angles.png" style="width: 400px;" /></a>
 <dl class="simple myst">
 <dt><code class="docutils literal notranslate"><span class="pre">computing</span> <span class="pre">environment</span></code></dt><dd><p>this will depend on your computing environment, including number of available CPUs/GPUs. We typically run projects in the <code class="docutils literal notranslate"><span class="pre">gpu_standalone</span></code> modus on 4 GPUs. Running in the standalone modus allows you to continue with other work in the matlab shell while the alignment project runs. In this modus, the number of CPU cores should be 1. The number of CPU cores used during averaging can be changed to the number of logical CPU cores on your machine. Specific GPUs can be selected by their index as seen in <code class="docutils literal notranslate"><span class="pre">nvidia-smi</span></code>.</p>
 </dd>
@@ -744,7 +829,7 @@
 <h2>Assessing the results<a class="headerlink" href="#assessing-the-results" title="Permalink to this headline">¶</a></h2>
 <p>We can look at the result of our first alignment project using tools from the <code class="docutils literal notranslate"><span class="pre">dcp</span></code> GUI under show. Alternatively, the file containing the average can be found at <code class="docutils literal notranslate"><span class="pre">dynamo/inimodel/results/ite_0008/averages/average_ref_001_ite_0008.em</span></code> and visualised with any volume visualisation tool.</p>
 <p>In contrast to our previous reconstruction from particles with initial estimates for positions and orientations, in this map we clearly see a hexagonal lattice starting to take shape, containing 2-, 3- and 6-fold symmetry axes.</p>
-<a class="reference internal image-reference" href="../../_images/first-aligned-all.png"><img alt="../../_images/first-aligned-all.png" class="align-center" src="../../_images/first-aligned-all.png" style="width: 630.0px; height: 382.5px;" /></a>
+<a class="reference internal image-reference" href="../../_images/first-aligned-all.png"><img alt="../../_images/first-aligned-all.png" src="../../_images/first-aligned-all.png" style="width: 400px;" /></a>
 </div>
 <hr class="docutils" />
 <div class="section" id="aligning-and-centering-the-6-fold-symmetry-axis">
@@ -759,15 +844,15 @@
 <p>In order to take advantage of the symmetry present in the structure during refinement we first need to recenter the average on its 6-fold symmetry axis and align that axis along the z axis of our volume.</p>
 <p>To center and align the 6-fold symmetry axis, we will use a script provided with this tutorial, <a class="reference external" href="https://github.com/teamtomo/teamtomo.github.io/blob/master/walkthroughs/EMPIAR-10164/scripts/align_symmetry_axis.m"><code class="docutils literal notranslate"><span class="pre">align_symmetry_axis.m</span></code></a>. The script generates a synthetic template of a lattice with a 6-fold symmetry axis centered and aligned along the z-axis. The volume from our first subtomogram averaging experiment is then aligned to this synthetic template and C6 symmetry is applied. This produces an initial model with the symmetry axis correctly aligned for further experiments.</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="8a5d7646-85c0-4ffc-b82f-1ded39a83548" name="12b91c18-b58d-4c2b-bfba-88ffbc1d4498" type="radio">
-</input><label class="tabbed-label" for="8a5d7646-85c0-4ffc-b82f-1ded39a83548">
+<input checked="checked" id="a738ae91-3631-4a74-ac26-ef91f33db9c7" name="03892cbf-bc98-4f0c-bae0-ecf9b0807b3a" type="radio">
+</input><label class="tabbed-label" for="a738ae91-3631-4a74-ac26-ef91f33db9c7">
 command</label><div class="tabbed-content docutils">
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">align_symmetry_axis</span>
 </pre></div>
 </div>
 </div>
-<input id="c870505a-c4c1-4caf-b9fd-42c56aa2cd00" name="12b91c18-b58d-4c2b-bfba-88ffbc1d4498" type="radio">
-</input><label class="tabbed-label" for="c870505a-c4c1-4caf-b9fd-42c56aa2cd00">
+<input id="a4182a9c-2087-44cf-901b-acc06d2ed003" name="03892cbf-bc98-4f0c-bae0-ecf9b0807b3a" type="radio">
+</input><label class="tabbed-label" for="a4182a9c-2087-44cf-901b-acc06d2ed003">
 source code</label><div class="tabbed-content docutils">
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">v</span> <span class="p">=</span> <span class="n">dread</span><span class="p">(</span><span class="s">&#39;average_ref_001_ite_0008.em&#39;</span><span class="p">);</span>
 
@@ -815,7 +900,7 @@ source code</label><div class="tabbed-content docutils">
 </div>
 </div>
 <p>To run the script, open <code class="docutils literal notranslate"><span class="pre">dynamo/inimodel/results/ite_0008/averages</span></code> in Matlab. Copy the script into this directory, and execute it by running <code class="docutils literal notranslate"><span class="pre">align_symmetry_axis</span></code>. Once the script has finished, compare the initial average, the template, the aligned average and the symmetrised aligned average to check that the alignment worked as intended.</p>
-<a class="reference internal image-reference" href="../../_images/aligned-to-z.png"><img alt="../../_images/aligned-to-z.png" class="align-center" src="../../_images/aligned-to-z.png" style="width: 270.0px; height: 293.5px;" /></a>
+<a class="reference internal image-reference" href="../../_images/aligned-to-z.png"><img alt="../../_images/aligned-to-z.png" src="../../_images/aligned-to-z.png" style="width: 300px;" /></a>
 <p>We now have an initial model with the 6-fold symmetry axis aligned to the center of the volume. We can use this initial model to obtain good estimates for particle positions and orientations of HIV-1 CA-SP1 hexamers for the whole dataset.</p>
 </div>
 </div>

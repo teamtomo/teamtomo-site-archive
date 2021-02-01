@@ -30,8 +30,7 @@ We can use this information to help us in our efforts to reconstruct this lattic
 Dynamo contains many geometrical modelling tools which can help with these geometrical approaches to subtomogram averaging projects. We will make use of a limited subset of these tools in this tutorial, for an overview of the available geometrical models please see [here](https://wiki.dynamo.biozentrum.unibas.ch/w/index.php/Model#Types_of_models). Becoming familiar with the available tools and thinking about how you can use the geometry of your system to your advantage will help with many subtomogram averaging projects. Below, we used `dynamo_tomoslice` to  estimate the lattice spacing in our tomograms, 7.8 px at 10 Å/px this tool will be introduced shortly.
 
 ```{image} geometrical-picking.assets/lattice-spacing.png
-:align: center
-:scale: 50%
+:width: 400px
 ```
 
 ## Generating a Dynamo catalogue for particle picking
@@ -42,7 +41,7 @@ We have provided a function `warp2catalogue` in the `autoalign_dynamo` package w
 
 The function takes two arguments: the warp reconstruction directory and the pixel spacing of the reconstructed tomograms.
 
-Let's create a new `dynamo` folder in the root directory, and navigate to it in Matlab. Then, we run:
+Let's create a new `dynamo` folder in the project root directory, and navigate to it in Matlab. Then, we run:
 ```matlab
 warp2catalogue('../frames/reconstruction', 10)
 ```
@@ -66,8 +65,7 @@ We need to annotate many spherical VLPs within each tomogram. Whilst we could ac
 Instead, we will take a shortcut - spheres can be completely defined by only two values, their centre point and their radius. We will create a `dipoleSet` model in each tomogram to annotate the centres and edge points of many VLPs quickly in just one model, then convert these `dipoleSet` models into oversampled vesicles with a function which we provide. 
 
 ```{image} geometrical-picking.assets/hiv-oversampling.png
-:scale: 50%
-:align: center
+:width: 700px
 ```
 
 ### Tomogram annotation
@@ -76,5 +74,6 @@ Follow the guide for creating `dipoleSet` models and turning them into oversampl
 
 Your expected inter-particle distance at this stage is ~7.5 nm, the lattice spacing we observed earlier.
 
-% TODO: add image here of vesicle definition
-% TODO: add video link here Lorenzo
+Here's a short video of us picking some vescicles on the `TS_03` tomogram:
+
+![vescicle-picking](geometrical-picking.assets/vescicle-picking.gif)

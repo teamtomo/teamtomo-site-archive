@@ -62,14 +62,14 @@ To keep read/write times low, we recommend a Solid State Drive (SSD).
 - Access to both Windows and Linux operating systems
 - [MATLAB](https://fr.mathworks.com/products/matlab.html) r2019a or later
 - [IMOD](https://bio3d.colorado.edu/imod/)
-- [Warp](www.warpem.com/) v1.0.9 or later
+- [Warp](http://www.warpem.com/) v1.0.9 or later
 - [Relion](https://www3.mrc-lmb.cam.ac.uk/relion/index.php?title=Main_Page) 3.0.8 or later
 - [Dynamo](https://wiki.dynamo.biozentrum.unibas.ch/w/index.php/Main_Page) 1.1.478 or later
 - [dynamo2m](https://github.com/alisterburt/dynamo2m)
 - [autoalign_dynamo](https://github.com/alisterburt/autoalign_dynamo)
 - [scripts](https://github.com/teamtomo/teamtomo.github.io/tree/master/guides/EMPIAR-10164/scripts) provided with this guide
 
-If you need help with setting up any of these tools, follow the link to the respective documentation, or check out our [mini tutorials](../../mini-tutorials/software-usage/index.md).
+If you need help with setting up any of these tools, follow the link to the respective documentation, or check out the [software packages](../../resources/cryoet-software/cryoet-software.md) and [computing](../../computing/matlab/index.md) sections.
 ```
 
 ## Documentation links

@@ -9,10 +9,9 @@ We will use `Warp` for the initial processing of the raw data. This will let us:
 - detect and mask gold fiducials for tomogram reconstruction
 - prepare the image stacks for tilt-series alignment in `Dynamo`
 
-### Raw data preprocessing in Warp
+## Raw data preprocessing in Warp
 
-```{admonition} See also
-:class: seealso
+```{seealso}
 The following tabs detail the parameter settings as appropriate for this application. If you seek additional information, check out the [Warp User Guide](http://www.warpem.com/warp/?page_id=51).
 ```
 ``````{panels}
@@ -24,8 +23,7 @@ To import new data into Warp, click on the path next to `Input` and select the `
 We then set the parameters as shown below.
 
 ```{image} preprocessing.assets/input-params.png
-:scale: 75%
-:align: center
+:width: 400px
 ```
 
 We need to correctly set the pixel size to match that of the raw data; in this case, 0.6750 $Å/px$. 
@@ -38,8 +36,7 @@ With a binning factor of *n*, the frames will be Fourier-cropped to $size/2^n$.
 
 For HIV-5-TS, the data were collected in super resolution mode, the physical pixel size is 1.35 $Å/px$. Processing data without first downsampling may reduce the aliasing of high-frequency signals in the image but significantly increases the computational overhead. In this case we will use Warp to downsample the data by a factor of 2, in order to return to the physical pixel size of the detector.
 
-```{admonition} Be careful!
-:class: attention
+```{attention}
 When processing other data, you may need to provide a gain reference here. 
 Make sure that the orientation of the reference and the images correspond!
 ```
@@ -59,8 +56,7 @@ we will explain this in more detail later.
 Accurate estimation of Contrast Transfer Function (CTF) parameters is essential for obtaining high resolution reconstructions.
 
 ```{image} preprocessing.assets/ctf-params.png
-:scale: 75%
-:align: center
+:width: 400px
 ```
 
 The following parameters depend entirely on the microscope setup used for data collection, for HIV-5-TS:
@@ -111,8 +107,7 @@ we estimate and correct for the inter-frame motion present in the image.
 In this case, we leave the motion correction parameters as defaults.
 
 ```{image} preprocessing.assets/motion-params.png
-:scale: 75%
-:align: center
+:width: 400px
 ```
 `````
 
@@ -120,8 +115,7 @@ In this case, we leave the motion correction parameters as defaults.
 Warp allows us to estimate how CTF and inter-frame translational motion parameters change in both space and time.
 
 ```{image} preprocessing.assets/spatiotemporal-models.png
-:scale: 75%
-:align: center
+:width: 400px
 ```
 
 The resolution of this spatiotemporal model (x, y, t) can be set in the **Models** panel: the first two values represent the spatial resolution of the model in *x* and *y* , while the third value sets the temporal resolution (at most, the number of frames in a multi-frame micrograph). 
@@ -136,20 +130,18 @@ For HIV-5-TS, EMPIAR indicates that we have 8 frames per image, so we set the re
 `````{tabbed} Fiducials
 While gold fiducials are useful for the accurate alignment of tilt series, their high contrast will have negative effects on the final tomographic reconstruction. For this reason, we use Warp to mask out any beads prior to tomographic reconstruction.
 
-The `Pick Particles` panel gives access to `BoxNet`, a deep convolutional neural network designed to pick particles and mask out unwanted subregions in single-particle cryo-EM. A version of BoxNet we retrained for to mask gold fiducials is [provided](TODO:add-link) with this tutorial.
+The `Pick Particles` panel gives access to `BoxNet`, a deep convolutional neural network designed to pick particles and mask out unwanted subregions in single-particle cryo-EM. A version of `BoxNet` that we retrained to mask gold fiducials [is available here](https://doi.org/10.5281/zenodo.4486376) under the name `GoldNet`.
 
 ````{margin}
-```{admonition} Be careful!
-:class: attention
-The provided version of BoxNet was retrained on 3 tilt series from a high magnification dataset (1.7 $Å/px$) containing 10 $nm$ gold beads. We have succesfully used it on a variety of datasets, but there is no guaranteee it will work on yours. To learn more about retraining BoxNet, [see this page](http://www.multiparticle.com/warp/?page_id=137).
+```{attention}
+GoldNet was retrained on 3 tilt series from a high magnification dataset (1.7 $Å/px$) containing 10 $nm$ gold beads. We have succesfully used it on a variety of datasets, but there is no guaranteee it will work on yours. To learn more about retraining BoxNet, [see this page](http://www.multiparticle.com/warp/?page_id=137).
 ```
 ````
 
-In order to access it from Warp, the `BoxNet2MaskBeads_20200607` TODO better name directory must be placed in the Warp installation folder under the `boxnet2models` directory. Then, to select the pretrained model in Warp, click on the currently selected BoxNet model and select the `BoxNet2MaskBeads_20200607` model.
+In order to access it from Warp, extract the `GoldNet` directory and place it in the Warp installation folder under the `boxnet2models` directory. Then, to select the pretrained model in Warp, click on the currently selected BoxNet model and select the `GoldNet` model.
 
 ```{image} preprocessing.assets/boxnet-params.png
-:scale: 75%
-:align: center
+:width: 400px
 ```
 
 As we are only using this model for particle picking, the parameters relating to particle picking can be safely ignored.
@@ -158,8 +150,7 @@ As we are only using this model for particle picking, the parameters relating to
 `````{tabbed} Start Processing!
 
 ```{image} preprocessing.assets/output-params.png
-:scale: 75%
-:align: center
+:width: 400px
 ```
 
 In the `Output` panel, we can choose not to include frames at the beginning and end of a movie. The first frames from a multi-frame micrograph of a given exposure often display increased translational motion. In this case, we chose to include all frames from the micrograph to maximise the signal present in the final images. 
@@ -175,22 +166,19 @@ We are now ready to press **START PROCESSING**. This will:
 - Generate one micrograph per tilt in which the motion has been corrected according to the motion model
 - Generate masks around gold fiducials in each image using the provided BoxNet model
 
-```{admonition} Monitoring the results
-:class: tip
+```{tip}
 During processing, you can check the results by switching to the `Real Space` and `Fourier Space` tabs at the top of the Warp interface. Explore these sections, checking that the CTF model matches the experimental curve, the defocus estimates appear to change as expected with tilt angle and that beads masks seem appropriate.
 ```
 
-TODO: add some examples of good and bad CTF fits, good bead masks etc
 `````
 ``````
 
-### Deselect bad images
+## Deselect bad images
 
 Images in each tilt-series must be assembled into an `IMOD` stack in order to use `Dynamo` for the tilt-series alignment, but before doing so we should discard any bad images in our dataset. To do so, switch to the `Real Space` tab at the top and manually inspect all the tilt images.
 
 ````{margin}
-```{admonition} Tip
-:class: tip
+```{tip}
 With larger datasets, quickly scanning images in this way can be inconvenient. To make this a bit easier, use the search bar to display only a subset of the dataset (For HIV-5-TS we could search `TS_01`, `TS_02`...)
 ```
 ````
@@ -202,11 +190,10 @@ If an image is heavily contaminated, black, blurred, a grid bar blocks a signifi
 For this dataset we only have to discard two bad images: `TS_01_039` and `TS_03_039`.
 
 ```{image} preprocessing.assets/deselect-bad-image.png
-:align: center
-:scale: 50%
+:width: 400px
 ```
 
-### Stack generation
+## Stack generation
 To generate the image stack, we first have to put Warp into `tomostar` mode. We do this by clicking on the `*.mrc` extension on the top left, and selecting the `*.tomostar` extension.
 
 Then, click on the (slightly misnamed) `import tilt series from IMOD` button at the top of the screen.
@@ -222,6 +209,5 @@ For now, we don't need to set the pixel size and electron dose per tilt, nor we 
 Click on `Create stacks for IMOD` to start exporting the data. We can immediately move on to the next step without having to wait for the stack generation to finish, thanks to `autoalign_dynamo`'s on-the-fly processing.
 
 ```{image} preprocessing.assets/create-stack.png
-:align: center
-:scale: 50%
+:width: 600px
 ```

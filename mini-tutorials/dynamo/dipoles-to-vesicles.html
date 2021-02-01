@@ -56,6 +56,7 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="dtmslice viewing controls" href="dtmslice-controls.html" />
@@ -292,6 +293,90 @@
    <li class="toctree-l2">
     <a class="reference internal" href="interactive-mask-creation.html">
      Interactive mask creation
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  computing
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../computing/python/index.html">
+   Python
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../computing/python/getting-started.html">
+     Getting started
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../computing/python/virtual-environments.html">
+     Virtual environments
+    </a>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../../computing/python/useful-packages/useful-packages.html">
+     Useful packages
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../computing/python/useful-packages/dynamotable.html">
+       dynamotable
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../computing/python/useful-packages/emfile.html">
+       emfile
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../computing/python/useful-packages/eulerangles.html">
+       eulerangles
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../computing/python/useful-packages/mrcfile.html">
+       mrcfile
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../computing/python/useful-packages/napari.html">
+       napari
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../computing/python/useful-packages/starfile.html">
+       starfile
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../computing/matlab/index.html">
+   MATLAB
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../computing/matlab/add-to-path.html">
+     Adding scripts/functions to your PATH in
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       MATLAB
+      </span>
+     </code>
     </a>
    </li>
   </ul>
@@ -673,7 +758,7 @@
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
 <p>This mini-tutorial will show you how to quickly and easily generate an oversampled set of positions
 and orientations on a spherical supporting geometry (such as a vesicle) in <code class="docutils literal notranslate"><span class="pre">Dynamo</span></code></p>
-<a class="reference internal image-reference" href="../../_images/hiv-oversampling.png"><img alt="../../_images/hiv-oversampling.png" class="align-center" src="../../_images/hiv-oversampling.png" style="width: 1000.0px; height: 444.0px;" /></a>
+<a class="reference internal image-reference" href="../../_images/hiv-oversampling.png"><img alt="../../_images/hiv-oversampling.png" src="../../_images/hiv-oversampling.png" style="width: 700px;" /></a>
 <p>We start from a <code class="docutils literal notranslate"><span class="pre">Dynamo</span></code> catalogue containing the tomograms with vesicles we want to pick.</p>
 </div>
 <div class="section" id="motivation">
@@ -762,15 +847,15 @@ Then, move the cursor to a point on the surface of the same vescicle and press <
 </div>
 </div>
 <div class="tabbed-set docutils">
-<input checked="checked" id="28912259-9b1f-42e4-a1c3-d00cda220d89" name="5118d954-06a5-4822-a821-6457d2731241" type="radio">
-</input><label class="tabbed-label" for="28912259-9b1f-42e4-a1c3-d00cda220d89">
+<input checked="checked" id="10b2995f-66d0-4bf6-941c-60f98f820017" name="f2f6c119-a237-4f1c-b5cd-99994ca197e5" type="radio">
+</input><label class="tabbed-label" for="10b2995f-66d0-4bf6-941c-60f98f820017">
 Command</label><div class="tabbed-content docutils">
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">dipoles2vescicles</span><span class="p">(</span><span class="s">&#39;catalogue&#39;</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<input id="d1a4114e-5e38-4deb-ad28-d47e380e7080" name="5118d954-06a5-4822-a821-6457d2731241" type="radio">
-</input><label class="tabbed-label" for="d1a4114e-5e38-4deb-ad28-d47e380e7080">
+<input id="dddcf3a9-340b-4969-ab22-7615aacc201d" name="f2f6c119-a237-4f1c-b5cd-99994ca197e5" type="radio">
+</input><label class="tabbed-label" for="dddcf3a9-340b-4969-ab22-7615aacc201d">
 Source code</label><div class="tabbed-content docutils">
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="nf">dipoles2vesicles</span><span class="p">(</span>catalogue_name, distance_between_particles<span class="p">)</span><span class="w"></span>
 <span class="c">%%% to be run in the folder which holds your catalogue</span>
