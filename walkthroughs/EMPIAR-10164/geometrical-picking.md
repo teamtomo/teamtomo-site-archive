@@ -76,5 +76,6 @@ Follow the guide for creating `dipoleSet` models and turning them into oversampl
 
 Your expected inter-particle distance at this stage is ~7.5 nm, the lattice spacing we observed earlier.
 
-% TODO: add image here of vesicle definition
-% TODO: add video link here Lorenzo
+Here's a short video of us picking some vescicles on the `TS_03` tomogram:
+
+![vescicle-picking](geometrical-picking.assets/vescicle-picking.gif)

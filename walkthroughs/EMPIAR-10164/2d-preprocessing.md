@@ -182,7 +182,6 @@ We are now ready to press **START PROCESSING**. This will:
 During processing, you can check the results by switching to the `Real Space` and `Fourier Space` tabs at the top of the Warp interface. Explore these sections, checking that the CTF model matches the experimental curve, the defocus estimates appear to change as expected with tilt angle and that beads masks seem appropriate.
 ```
 
-TODO: add some examples of good and bad CTF fits, good bead masks etc
 `````
 ``````
 
