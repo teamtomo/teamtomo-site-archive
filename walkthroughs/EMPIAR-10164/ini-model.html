@@ -58,7 +58,7 @@
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Finding particles on every VLP" href="particle-picking.html" />
+    <link rel="next" title="Find particles on every VLP" href="particle-picking.html" />
     <link rel="prev" title="Geometrical particle picking" href="geometrical-picking.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -106,6 +106,11 @@
    <li class="toctree-l2">
     <a class="reference internal" href="../../teamtomo/contributing/git_guide.html">
      A short guide to git(hub)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../teamtomo/contributing/screen-capture.html">
+     Screen capture
     </a>
    </li>
    <li class="toctree-l2">
@@ -205,12 +210,17 @@
   <ul class="current collapse-ul">
    <li class="toctree-l2">
     <a class="reference internal" href="preparation.html">
-     Preparation
+     Download the data
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="preprocessing.html">
-     Preprocessing
+    <a class="reference internal" href="2d-preprocessing.html">
+     2D preprocessing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="tilt-series-to-tomograms.html">
+     Tilt-series to tomograms
     </a>
    </li>
    <li class="toctree-l2">
@@ -225,7 +235,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="particle-picking.html">
-     Finding particles on every VLP
+     Find particles on every VLP
     </a>
    </li>
    <li class="toctree-l2">
@@ -255,18 +265,18 @@
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2">
-    <a class="reference internal" href="../../mini-tutorials/dynamo/alignment-setup.html">
-     Running a simple subtomogram averaging experiment
+    <a class="reference internal" href="../../mini-tutorials/dynamo/simple-alignment.html">
+     Simple subtomogram averaging
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../mini-tutorials/dynamo/extract-from-catalogue.html">
-     Extracting particles from a catalogue
+     Extracting particles
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../mini-tutorials/dynamo/dipoles-to-vesicles.html">
-     Dipoles to vesicles
+     Spherical vesicle picking
     </a>
    </li>
    <li class="toctree-l2">
@@ -636,6 +646,7 @@
                 
   <div class="section" id="initial-model-generation">
 <h1>Initial model generation<a class="headerlink" href="#initial-model-generation" title="Permalink to this headline">¶</a></h1>
+<a class="reference internal image-reference" href="../../_images/hiv-initial-positions.png"><img alt="../../_images/hiv-initial-positions.png" class="align-center" src="../../_images/hiv-initial-positions.png" style="width: 300.0px; height: 245.25px;" /></a>
 <p>Now that the Dynamo catalogue contains initial estimates for the positions and orientations of our particles, we need to obtain an initial model of our lattice structure which will later allow us to find more accurate estimates of the positions and orientations of our particles for the whole dataset. For this, we will work on a small subset of the VLPs.</p>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
@@ -644,7 +655,7 @@
 <p>Working on a small subset initially allows you to move quickly, testing lots of different approaches and optimising your approach. How small this subset should be will depend on the quality of your data, your initial particle picking and your object of interest.</p>
 </div>
 </div>
-<p>For these VLPs and with data of such good quality, two vesicles is more than enough for generating a good initial model.</p>
+<p>With data of such good quality and so many particles per VLP, two of our vesicle models should be more than enough for generating a good initial model of the underlying lattice structure.</p>
 <p>When choosing an initial subset, it can be a good idea to choose VLPs with different defoci. This ensures that nodes of the CTF are at different spatial frequencies within the subset and thus no region of Fourier space should be particularly undersampled. The Jiang lab at Purdue University have a CTF simulation <a class="reference external" href="https://ctf-simulation.herokuapp.com/">web app</a> which is useful for visualising the effect of defocus on the CTF.</p>
 <p>Choosing a subset which contains all available views of the particle is also important, ensuring maximum coverage of Fourier space in a resulting reconstruction</p>
 <p>From the <code class="docutils literal notranslate"><span class="pre">Overview</span></code> tab in Warp, we quickly see that <code class="docutils literal notranslate"><span class="pre">TS_01</span></code> and <code class="docutils literal notranslate"><span class="pre">TS_03</span></code> have significantly different defoci, so we choose to use one vescicle from each of these tomograms.</p>
@@ -657,30 +668,38 @@
 <p>A box sidelength of 32 corresponds to a 320<span class="math notranslate nohighlight">\(Å\)</span>. While this is much larger than the expected 75<span class="math notranslate nohighlight">\(Å\)</span> inter-particle distance, signal from neighbouring particles in lattices can help to drive correct alignments at the beginning of a project. When working at smaller pixel sizes a bigger box can also help to avoid <span class="xref myst">CTF aliasing</span>.</p>
 </div>
 </div>
-<p>Extract particles from your <code class="docutils literal notranslate"><span class="pre">Dynamo</span></code> catalogue with a sidelength of <code class="docutils literal notranslate"><span class="pre">32</span></code> following <a class="reference internal" href="../../mini-tutorials/dynamo/extract-from-catalogue.html"><span class="doc std std-doc">this mini-tutorial</span></a>. To make things faster, for now we can extract just from the volumes that we are interested in (<code class="docutils literal notranslate"><span class="pre">TS_01</span></code> and <code class="docutils literal notranslate"><span class="pre">TS_03</span></code>), and call this volume list <code class="docutils literal notranslate"><span class="pre">inimodel.vll</span></code>).</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Don’t forget!
-We still need to extract all the particles for later steps. Once this extraction is done, start another one with the whole dataset!</p>
+<p>Extract particles from your <code class="docutils literal notranslate"><span class="pre">Dynamo</span></code> catalogue with a sidelength of <code class="docutils literal notranslate"><span class="pre">32</span></code> following <a class="reference internal" href="../../mini-tutorials/dynamo/extract-from-catalogue.html"><span class="doc std std-doc">this mini-tutorial</span></a>. To make things faster, for now we can extract particles from one vesicle in <code class="docutils literal notranslate"><span class="pre">TS_01</span></code> and one in <code class="docutils literal notranslate"><span class="pre">TS_03</span></code>. We call this volume list file created at this stage <code class="docutils literal notranslate"><span class="pre">inimodel.vll</span></code>) and extract a data folder called <code class="docutils literal notranslate"><span class="pre">inimodelData.Boxes</span></code>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Later, we will perform an alignment on particles from every VLP. You can save some time by launching a separate particle extraction for the whole dataset at this stage.</p>
 </div>
 </div>
 <div class="section" id="aligning-the-particles">
 <h2>Aligning the particles<a class="headerlink" href="#aligning-the-particles" title="Permalink to this headline">¶</a></h2>
 <p>Once the particle volumes are extracted for our two VLPs, we want to perform a first rough alignment to see how the particles align and average.</p>
 <p>We run <code class="docutils literal notranslate"><span class="pre">dcp</span></code> from MATLAB to open the “Dynamo current project” GUI. This GUI is designed to be used in a sequential way: we will need to provide a few parameters before launching the project.</p>
-<p>For a full tutorial on how to setting up a simple subtomogram averaging project in Dynamo, click <a class="reference internal" href="../../mini-tutorials/dynamo/alignment-setup.html"><span class="doc std std-doc">here</span></a>.</p>
+<p>For a full tutorial on how to setting up a simple subtomogram averaging project in Dynamo, click <a class="reference internal" href="../../mini-tutorials/dynamo/simple-alignment.html"><span class="doc std std-doc">here</span></a>.</p>
 <p>In our case, we set it up as follows:</p>
 <dl class="simple myst">
-<dt><code class="docutils literal notranslate"><span class="pre">Project</span></code>:</dt><dd><p><code class="docutils literal notranslate"><span class="pre">inimodel</span></code></p>
+<dt><code class="docutils literal notranslate"><span class="pre">project</span></code></dt><dd><p>we call our project <code class="docutils literal notranslate"><span class="pre">inimodel</span></code></p>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">particles</span></code></dt><dd><p>the previously generated <code class="docutils literal notranslate"><span class="pre">inimodelData.Boxes</span></code> (or otherwise named) directory.</p>
+<dt><code class="docutils literal notranslate"><span class="pre">particles</span></code></dt><dd><p>the <code class="docutils literal notranslate"><span class="pre">inimodelData.Boxes</span></code> Dynamo data folder.</p>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">table</span></code></dt><dd><p>the <code class="docutils literal notranslate"><span class="pre">crop.tbl</span></code> file we generated earlier together with the Boxes directory. When we cropped particles in the Dynamo catalogue, it created this metadata file for us and puts it inside the data folder. Click <code class="docutils literal notranslate"><span class="pre">look</span> <span class="pre">inside</span> <span class="pre">data</span> <span class="pre">folder</span></code> and pick the <code class="docutils literal notranslate"><span class="pre">crop.tbl</span></code> file.</p>
-</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">template</span></code></dt><dd><p>since we don’t have one, generate a random one using a <code class="docutils literal notranslate"><span class="pre">randomly</span> <span class="pre">chosen</span> <span class="pre">set</span> <span class="pre">of</span> <span class="pre">particles</span></code>. 500 is a good starting point. This will generate a reconstruction from 500 particles using our initial particle orientation estimates from the <code class="docutils literal notranslate"><span class="pre">crop.tbl</span></code> file, originally from the <code class="docutils literal notranslate"><span class="pre">Vesicle</span></code> models. While we don’t expect to see any detailed structure in this map, but it’s worth checking that it matches what we expect to see. If you right click on the file path at the top of the template GUI, you can choose to <code class="docutils literal notranslate"><span class="pre">[view]</span></code> the volume. Our initial picking contained no knowledge about the specific positions of each particle within the lattice. Because of this, we expect to see a curved, membrane like density and blurred density for the lattice proteins in the average.</p>
+<dt><code class="docutils literal notranslate"><span class="pre">table</span></code></dt><dd><p>the <code class="docutils literal notranslate"><span class="pre">inimodelData.Boxes/crop.tbl</span></code> particle metadata (table) file. When we cropped particles in the Dynamo catalogue, it created this metadata file for us and puts it inside the data folder. When selecting your table file, click <code class="docutils literal notranslate"><span class="pre">look</span> <span class="pre">inside</span> <span class="pre">data</span> <span class="pre">folder</span></code> and pick the <code class="docutils literal notranslate"><span class="pre">crop.tbl</span></code> file.</p>
 </dd>
 </dl>
-<p><img alt="first template" src="../../_images/first-template-all.png" /></p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>While we don’t expect to see any detailed structure in this map, but it’s worth checking that it matches what we expect to see. If you right click on the file path at the top of the template GUI, you can choose to <code class="docutils literal notranslate"><span class="pre">[view]</span></code> the volume. Our initial picking contained no knowledge about the specific positions of each particle within the lattice. Because of this, we expect to see a curved, membrane like density and blurred density for the lattice proteins in the average.</p>
+</div>
+</div>
+<dl class="simple myst">
+<dt><code class="docutils literal notranslate"><span class="pre">template</span></code></dt><dd><p>since we don’t have one, we generate one from a subset of our particles. Using 500 particles at this step is a good starting point. This will generate a reconstruction from 500 particles using our initial alignments from the vesicle model stored in the <code class="docutils literal notranslate"><span class="pre">crop.tbl</span></code> file.</p>
+</dd>
+</dl>
+<a class="reference internal image-reference" href="../../_images/first-template-all.png"><img alt="../../_images/first-template-all.png" class="align-center" src="../../_images/first-template-all.png" style="width: 376.8px; height: 225.0px;" /></a>
 <dl class="simple myst">
 <dt><code class="docutils literal notranslate"><span class="pre">masks</span></code></dt><dd><p><code class="docutils literal notranslate"><span class="pre">Use</span> <span class="pre">default</span> <span class="pre">masks</span></code> will give us appropriate masks at this stage that cover the full extent of our 32px box. At this stage, we aren’t very sure of our particle positions and orientations as they haven’t undergone any alignment. We want our mask to include the whole box so that signal from multiple neighbouring particles in the lattice can help to drive initial alignments.</p>
 </dd>
@@ -693,16 +712,25 @@ We still need to extract all the particles for later steps. Once this extraction
 </div>
 </div>
 <dl class="simple myst">
-<dt><code class="docutils literal notranslate"><span class="pre">numerical</span> <span class="pre">parameters</span></code></dt><dd><p>set the numerical parameters for the alignment procedure as shown below. Check out the [mini-tutorial] for a more in-depth explanation. At this stage, we don’t enforce symmetry during refinement. We expect that any symmetry present should appear in an initial average. The assumption of symmetry is a useful tool but it reduces our ability to discern any asymmetries that may be present in the reconstruction. It should be applied only when you are sure that your object is symmetric and the possibility of unresolved asymmetry should be kept in mind.</p>
+<dt><code class="docutils literal notranslate"><span class="pre">numerical</span> <span class="pre">parameters</span></code></dt><dd><p>set the numerical parameters for the alignment procedure as shown below. Check out the [mini-tutorial] for a more in-depth explanation. At this stage, we don’t enforce symmetry during refinement. We hope that any symmetry present should appear after aligning our particles.</p>
 </dd>
 </dl>
-<p><img alt="alignment parameters" src="walkthroughs/EMPIAR-10164/TODO" /></p>
+<a class="reference internal image-reference" href="../../_images/numerical-params1.png"><img alt="../../_images/numerical-params1.png" src="../../_images/numerical-params1.png" style="width: 396.5px; height: 380.5px;" /></a>
+<p>We perform initial alignments with only local out-of-plane searches (defined by the <code class="docutils literal notranslate"><span class="pre">cone</span> <span class="pre">range</span></code> parameter), making use of the initial estimates from our geometrical models.</p>
+<a class="reference internal image-reference" href="../../_images/scanning-angles.png"><img alt="../../_images/scanning-angles.png" src="../../_images/scanning-angles.png" style="width: 290.0px; height: 265.0px;" /></a>
 <dl class="simple myst">
 <dt><code class="docutils literal notranslate"><span class="pre">computing</span> <span class="pre">environment</span></code></dt><dd><p>this will depend on your computing environment, including number of available CPUs/GPUs. We typically run projects in the <code class="docutils literal notranslate"><span class="pre">gpu_standalone</span></code> modus on 4 GPUs. Running in the standalone modus allows you to continue with other work in the matlab shell while the alignment project runs. In this modus, the number of CPU cores should be 1. The number of CPU cores used during averaging can be changed to the number of logical CPU cores on your machine. Specific GPUs can be selected by their index as seen in <code class="docutils literal notranslate"><span class="pre">nvidia-smi</span></code>.</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">check</span></code> and <code class="docutils literal notranslate"><span class="pre">unfold</span></code></dt><dd><p>run a sanity <code class="docutils literal notranslate"><span class="pre">check</span></code> to make sure the project seems correctly setup, then <code class="docutils literal notranslate"><span class="pre">unfold</span></code> to prepare an executable for the alignment project. If running a project on a remote machine without graphical access, a project can be set up locally and sent to the remote machine as a tarball. For information on this, please see <a class="reference external" href="https://wiki.dynamo.biozentrum.unibas.ch/w/index.php/Tarring_projects">this wiki page</a>.</p>
 </dd>
 </dl>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You can track the progress of the project from the <code class="docutils literal notranslate"><span class="pre">dcp</span></code> GUI by clicking on the <code class="docutils literal notranslate"><span class="pre">progress</span></code> button.</p>
+</div>
+</div>
 <p>We can now run the executable. To do so, open the <code class="docutils literal notranslate"><span class="pre">dynamo</span></code> directory in a terminal and run:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> <span class="nv">$DYNAMO_ROOT</span>/dynamo_activate_linux_shipped_MCR.sh
 </pre></div>
@@ -711,34 +739,84 @@ We still need to extract all the particles for later steps. Once this extraction
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./inimodel.exe
 </pre></div>
 </div>
-<div class="margin sidebar">
-<p class="sidebar-title"></p>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>You can track the progress of the project from the <code class="docutils literal notranslate"><span class="pre">dcp</span></code> GUI by clicking on <code class="docutils literal notranslate"><span class="pre">progress</span></code>.</p>
-</div>
-</div>
-<p>In order to take advantage of the highest symmetry order present in the structure during refinement we first need to recenter the average on its 6-fold symmetry axis and align that axis along the z axis of our volume.</p>
 </div>
 <div class="section" id="assessing-the-results">
 <h2>Assessing the results<a class="headerlink" href="#assessing-the-results" title="Permalink to this headline">¶</a></h2>
-<p>We can look at the result of our first alignment project using tools from the <code class="docutils literal notranslate"><span class="pre">dcp</span></code> GUI under show. Alternatively, the file containing the average can be found at <code class="docutils literal notranslate"><span class="pre">dynamo/inimodel/results/ite_0004/averages/average_ref_001_ite_0004.em</span></code> and visualised with any volume visualisation tool.</p>
+<p>We can look at the result of our first alignment project using tools from the <code class="docutils literal notranslate"><span class="pre">dcp</span></code> GUI under show. Alternatively, the file containing the average can be found at <code class="docutils literal notranslate"><span class="pre">dynamo/inimodel/results/ite_0008/averages/average_ref_001_ite_0008.em</span></code> and visualised with any volume visualisation tool.</p>
 <p>In contrast to our previous reconstruction from particles with initial estimates for positions and orientations, in this map we clearly see a hexagonal lattice starting to take shape, containing 2-, 3- and 6-fold symmetry axes.</p>
-<p><img alt="first aligned map" src="../../_images/first-aligned-all.png" /></p>
+<a class="reference internal image-reference" href="../../_images/first-aligned-all.png"><img alt="../../_images/first-aligned-all.png" class="align-center" src="../../_images/first-aligned-all.png" style="width: 630.0px; height: 382.5px;" /></a>
+</div>
+<hr class="docutils" />
+<div class="section" id="aligning-and-centering-the-6-fold-symmetry-axis">
+<h2>Aligning and centering the 6-fold symmetry axis<a class="headerlink" href="#aligning-and-centering-the-6-fold-symmetry-axis" title="Permalink to this headline">¶</a></h2>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>By convention, rotational symmetry axes in electron microscopy software are aligned along the Z axis of the volume.</p>
+<p>By convention, rotational symmetry axes for <span class="math notranslate nohighlight">\(C_n\)</span> symmetries in electron microscopy software are aligned along the Z axis of the volume.</p>
+</div>
+</div>
+<p>In order to take advantage of the symmetry present in the structure during refinement we first need to recenter the average on its 6-fold symmetry axis and align that axis along the z axis of our volume.</p>
+<p>To center and align the 6-fold symmetry axis, we will use a script provided with this tutorial, <a class="reference external" href="https://github.com/teamtomo/teamtomo.github.io/blob/master/walkthroughs/EMPIAR-10164/scripts/align_symmetry_axis.m"><code class="docutils literal notranslate"><span class="pre">align_symmetry_axis.m</span></code></a>. The script generates a synthetic template of a lattice with a 6-fold symmetry axis centered and aligned along the z-axis. The volume from our first subtomogram averaging experiment is then aligned to this synthetic template and C6 symmetry is applied. This produces an initial model with the symmetry axis correctly aligned for further experiments.</p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="446bdee3-dfc9-4ddf-8180-e1dbdd3c3c03" name="0114c414-6b39-47f4-9c6c-84ef8009b758" type="radio">
+</input><label class="tabbed-label" for="446bdee3-dfc9-4ddf-8180-e1dbdd3c3c03">
+command</label><div class="tabbed-content docutils">
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">align_symmetry_axis</span>
+</pre></div>
+</div>
+</div>
+<input id="84ecc0f6-0ac4-41f1-b65b-ae3f46d69702" name="0114c414-6b39-47f4-9c6c-84ef8009b758" type="radio">
+</input><label class="tabbed-label" for="84ecc0f6-0ac4-41f1-b65b-ae3f46d69702">
+source code</label><div class="tabbed-content docutils">
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">v</span> <span class="p">=</span> <span class="n">dread</span><span class="p">(</span><span class="s">&#39;average_ref_001_ite_0008.em&#39;</span><span class="p">);</span>
+
+<span class="n">rod_radius</span> <span class="p">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="n">rod_height</span> <span class="p">=</span> <span class="mi">4</span><span class="p">;</span>
+<span class="n">membrane_thickness</span> <span class="p">=</span> <span class="mi">15</span><span class="p">;</span>
+<span class="n">box_size</span> <span class="p">=</span> <span class="mi">32</span><span class="p">;</span>
+
+<span class="c">% Create fake membrane</span>
+<span class="n">mr</span> <span class="p">=</span> <span class="n">dpktomo</span><span class="p">.</span><span class="n">examples</span><span class="p">.</span><span class="n">motiveTypes</span><span class="p">.</span><span class="n">Membrane</span><span class="p">();</span>   <span class="c">% create membrane object</span>
+<span class="n">mr</span><span class="p">.</span><span class="n">thickness</span>  <span class="p">=</span> <span class="n">membrane_thickness</span><span class="p">;</span>       <span class="c">% choose thickness of membrane</span>
+<span class="n">mr</span><span class="p">.</span><span class="n">sidelength</span> <span class="p">=</span> <span class="n">box_size</span><span class="p">;</span> <span class="c">% choose sidelength of box</span>
+<span class="n">mr</span><span class="p">.</span><span class="n">fillData</span><span class="p">();</span>
+
+<span class="n">mem</span> <span class="p">=</span> <span class="n">mr</span><span class="p">.</span><span class="n">getData</span><span class="p">()</span><span class="o">.*-</span><span class="mi">1</span><span class="p">;</span>
+
+<span class="c">% Create cylinder in center to represent hole in center of structure to align to</span>
+<span class="n">cyl</span> <span class="p">=</span> <span class="n">dynamo_cylinder</span><span class="p">([</span><span class="n">rod_radius</span><span class="p">,</span> <span class="nb">floor</span><span class="p">(</span><span class="n">rod_height</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)],</span> <span class="mi">32</span><span class="p">,</span> <span class="p">[</span><span class="mi">16</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">21</span><span class="p">]);</span>
+<span class="n">cyl</span> <span class="p">=</span> <span class="n">dynamo_sym</span><span class="p">(</span><span class="n">cyl</span><span class="p">,</span> <span class="mi">9</span><span class="p">);</span>
+
+<span class="n">cyl_shift</span> <span class="p">=</span> <span class="n">dynamo_shift_rot</span><span class="p">(</span><span class="n">cyl</span><span class="p">,</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]);</span>
+<span class="n">cyl_shift</span><span class="p">(</span><span class="nb">isnan</span><span class="p">(</span><span class="n">cyl_shift</span><span class="p">))</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">cyl_shift_sym</span> <span class="p">=</span> <span class="n">dynamo_sym</span><span class="p">(</span><span class="n">cyl_shift</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span> <span class="o">.*</span> <span class="mi">6</span><span class="p">;</span>
+
+<span class="c">% Combine membrane and hole</span>
+<span class="n">template</span> <span class="p">=</span> <span class="n">mem</span> <span class="o">-</span> <span class="n">cyl</span> <span class="o">-</span> <span class="n">cyl_shift_sym</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+
+<span class="c">% normalise both volumes</span>
+<span class="n">template</span> <span class="p">=</span> <span class="n">dynamo_normalize_roi</span><span class="p">(</span><span class="n">template</span><span class="p">);</span>
+<span class="n">v</span> <span class="p">=</span> <span class="n">dynamo_normalize_roi</span><span class="p">(</span><span class="n">v</span><span class="p">);</span>
+
+<span class="c">% Align average to synthetic template</span>
+<span class="n">sal</span> <span class="p">=</span> <span class="n">dalign</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">template</span> <span class="p">,</span><span class="s">&#39;cr&#39;</span><span class="p">,</span><span class="mi">60</span><span class="p">,</span><span class="s">&#39;cs&#39;</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="s">&#39;ir&#39;</span><span class="p">,</span><span class="mi">90</span><span class="p">,</span> <span class="s">&#39;is&#39;</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="s">&#39;rf&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="s">&#39;dim&#39;</span><span class="p">,</span> <span class="n">box_size</span><span class="p">,</span><span class="s">&#39;limm&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="s">&#39;lim&#39;</span><span class="p">,[</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">]);</span>
+<span class="n">v_aligned</span> <span class="p">=</span> <span class="n">sal</span><span class="p">.</span><span class="n">aligned_particle</span><span class="p">;</span>
+<span class="n">v_aligned_c6</span> <span class="p">=</span> <span class="n">dynamo_sym</span><span class="p">(</span><span class="n">v_aligned</span><span class="p">,</span> <span class="s">&#39;c6&#39;</span><span class="p">);</span>
+
+<span class="n">dmapview</span><span class="p">{</span><span class="n">v</span><span class="p">,</span> <span class="n">template</span><span class="p">,</span> <span class="n">v_aligned</span><span class="p">,</span> <span class="n">v_aligned_c6</span><span class="p">}</span>
+
+<span class="c">% write out averages</span>
+<span class="n">dwrite</span><span class="p">(</span><span class="n">template</span><span class="p">,</span> <span class="s">&#39;synthetic_template.em&#39;</span><span class="p">);</span>
+<span class="n">dwrite</span><span class="p">(</span><span class="n">v_aligned</span><span class="p">,</span> <span class="s">&#39;average_aligned_along_z.em&#39;</span><span class="p">);</span>
+<span class="n">dwrite</span><span class="p">(</span><span class="n">v_aligned_c6</span><span class="p">,</span> <span class="s">&#39;average_aligned_along_z_c6.em&#39;</span><span class="p">);</span>
+</pre></div>
 </div>
 </div>
 </div>
-<div class="section" id="aligning-and-centering-the-6-fold-symmetry-axis">
-<h2>Aligning and centering the 6-fold symmetry axis<a class="headerlink" href="#aligning-and-centering-the-6-fold-symmetry-axis" title="Permalink to this headline">¶</a></h2>
-<p>To center and align the 6-fold symmetry axis, we will use a script provided with this tutorial, <code class="docutils literal notranslate"><span class="pre">align_symmetry_axis.m</span></code>. The script generates a synthetic template of the lattice with the 6-fold symmetry axis centered and aligned along the z-axis. The result of the alignment project is then aligned to this synthetic template and C6 symmetry is applied to produce our final initial model with the symmetry axis correctly aligned.</p>
-<p>To run the script, open <code class="docutils literal notranslate"><span class="pre">dynamo/inimodel/results/ite_0004/averages</span></code> in Matlab. Copy the script into this directory, and execute it by running <code class="docutils literal notranslate"><span class="pre">align_symmetry_axis</span></code>. Once the script has finished, compare the initial average, the template, the aligned average and the symmetrised aligned average to check that the alignment worked as intended.</p>
-<p><img alt="aligned to z " src="../../_images/aligned-to-z.png" /></p>
-<p>Now that we have an initial model with the 6-fold symmetry, we can use this in an alignment project with particles from all of the VLPs to obtain good estimates for particle positions and orientations for the whole dataset.</p>
+<p>To run the script, open <code class="docutils literal notranslate"><span class="pre">dynamo/inimodel/results/ite_0008/averages</span></code> in Matlab. Copy the script into this directory, and execute it by running <code class="docutils literal notranslate"><span class="pre">align_symmetry_axis</span></code>. Once the script has finished, compare the initial average, the template, the aligned average and the symmetrised aligned average to check that the alignment worked as intended.</p>
+<a class="reference internal image-reference" href="../../_images/aligned-to-z.png"><img alt="../../_images/aligned-to-z.png" class="align-center" src="../../_images/aligned-to-z.png" style="width: 270.0px; height: 293.5px;" /></a>
+<p>We now have an initial model with the 6-fold symmetry axis aligned to the center of the volume. We can use this initial model to obtain good estimates for particle positions and orientations of HIV-1 CA-SP1 hexamers for the whole dataset.</p>
 </div>
 </div>
 
@@ -771,7 +849,7 @@ We still need to extract all the particles for later steps. Once this extraction
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="geometrical-picking.html" title="previous page">Geometrical particle picking</a>
-    <a class='right-next' id="next-link" href="particle-picking.html" title="next page">Finding particles on every VLP</a>
+    <a class='right-next' id="next-link" href="particle-picking.html" title="next page">Find particles on every VLP</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

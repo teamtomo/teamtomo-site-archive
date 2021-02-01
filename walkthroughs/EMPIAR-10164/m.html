@@ -109,6 +109,11 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="../../teamtomo/contributing/screen-capture.html">
+     Screen capture
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../../teamtomo/contributing/wishlist.html">
      Wishlist
     </a>
@@ -205,12 +210,17 @@
   <ul class="current collapse-ul">
    <li class="toctree-l2">
     <a class="reference internal" href="preparation.html">
-     Preparation
+     Download the data
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="preprocessing.html">
-     Preprocessing
+    <a class="reference internal" href="2d-preprocessing.html">
+     2D preprocessing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="tilt-series-to-tomograms.html">
+     Tilt-series to tomograms
     </a>
    </li>
    <li class="toctree-l2">
@@ -225,7 +235,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="particle-picking.html">
-     Finding particles on every VLP
+     Find particles on every VLP
     </a>
    </li>
    <li class="toctree-l2">
@@ -255,18 +265,18 @@
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2">
-    <a class="reference internal" href="../../mini-tutorials/dynamo/alignment-setup.html">
-     Running a simple subtomogram averaging experiment
+    <a class="reference internal" href="../../mini-tutorials/dynamo/simple-alignment.html">
+     Simple subtomogram averaging
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../mini-tutorials/dynamo/extract-from-catalogue.html">
-     Extracting particles from a catalogue
+     Extracting particles
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../mini-tutorials/dynamo/dipoles-to-vesicles.html">
-     Dipoles to vesicles
+     Spherical vesicle picking
     </a>
    </li>
    <li class="toctree-l2">
@@ -604,8 +614,18 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#black-magic">
-   Black Magic
+  <a class="reference internal nav-link" href="#create-population-and-species">
+   Create Population and Species
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#refinement-parameters">
+   Refinement Parameters
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#end-result">
+   End Result!
   </a>
  </li>
 </ul>
@@ -621,9 +641,53 @@
                 
   <div class="section" id="multi-particle-refinement">
 <h1>Multi-particle refinement<a class="headerlink" href="#multi-particle-refinement" title="Permalink to this headline">¶</a></h1>
-<p>Multi particle refinement in M.</p>
-<div class="section" id="black-magic">
-<h2>Black Magic<a class="headerlink" href="#black-magic" title="Permalink to this headline">¶</a></h2>
+<p>Now that our particle poses are mostly correct and we have a good estimate of the reconstructed density, there are several parameters that can be tweaked <em>a posteriori</em> to further refine our result. We will perform these optimisations in M.</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>We highly recommend <a class="reference external" href="https://doi.org/10.1101/2020.06.05.136341">the <code class="docutils literal notranslate"><span class="pre">M</span></code> paper</a> to better understand what this software does and is capable of.</p>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">M</span></code> provides a procedure for the concerted optimisation of these parameters.</p>
+<div class="section" id="create-population-and-species">
+<h2>Create Population and Species<a class="headerlink" href="#create-population-and-species" title="Permalink to this headline">¶</a></h2>
+<p>A project in <code class="docutils literal notranslate"><span class="pre">M</span></code> is referred to as a <code class="docutils literal notranslate"><span class="pre">population</span></code>. To create a new one press the big <code class="docutils literal notranslate"><span class="pre">+</span></code> button in the center of the window, and provide a directory. Here, we put it in <code class="docutils literal notranslate"><span class="pre">root/M/1.6Apx/</span></code>.</p>
+<p>We then need to add a data source. Click on <code class="docutils literal notranslate"><span class="pre">Manage</span> <span class="pre">data</span> <span class="pre">sources</span></code> to add a local source, and select the <code class="docutils literal notranslate"><span class="pre">*.settings</span></code> file inside the <code class="docutils literal notranslate"><span class="pre">frames</span></code> directory. Make sure to <code class="docutils literal notranslate"><span class="pre">Include</span> <span class="pre">items</span> <span class="pre">outside</span> <span class="pre">of</span> <span class="pre">filter</span> <span class="pre">ranges</span></code> (since we did not use the filters for this project), give it a name such as <code class="docutils literal notranslate"><span class="pre">HIV</span></code> and press <code class="docutils literal notranslate"><span class="pre">CREATE</span></code>. We also only want to <code class="docutils literal notranslate"><span class="pre">Use</span> <span class="pre">only</span> <span class="pre">first</span> <span class="pre">15</span> <span class="pre">frames/tilts</span></code> in order to refine only based on the high resolution information.</p>
+<p>We can then create a Species by pressing the next big ‘+’, selecting <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">scratch</span></code> and filling in the parameters as follows:</p>
+<p><img alt="new_species" src="../../_images/new_species.png" /></p>
+<p>Afterwards, selected the two last halfmaps generated by the <code class="docutils literal notranslate"><span class="pre">RELION</span></code> refinements at 1.6Å/px. As mask, we will generate one in much the same way as we did previously, but without a cylindrical restriction.</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Note that this time we are not adding a soft edge: <code class="docutils literal notranslate"><span class="pre">M</span></code> wants a binary map!</p>
+</div>
+</div>
+<p>Open one of the halfmaps in your favourite program and determine an appropriate threshold for binarisation. Use this as the <code class="docutils literal notranslate"><span class="pre">--ini_threshold</span></code> parameter in the following command, replacing <code class="docutils literal notranslate"><span class="pre">&lt;latest_halfmap&gt;</span></code> as appropriate:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>relion_mask_create --i &lt;latest_halfmap&gt;.mrc --angpix <span class="m">1</span>.6 --extend_inimask <span class="m">5</span> --o mask_1.6Apx.mrc --ini_threshold <span class="m">0</span>.05
+</pre></div>
+</div>
+<p>Provide this map to <code class="docutils literal notranslate"><span class="pre">M</span></code>, and then select the final particle positions (e.g: <code class="docutils literal notranslate"><span class="pre">run_it019_data.star</span></code>) for the particle coordinates. Click <code class="docutils literal notranslate"><span class="pre">FINISH</span></code> to generate the new species.</p>
+</div>
+<div class="section" id="refinement-parameters">
+<h2>Refinement Parameters<a class="headerlink" href="#refinement-parameters" title="Permalink to this headline">¶</a></h2>
+<p>To start the refinement, click on the <code class="docutils literal notranslate"><span class="pre">REFINE</span></code> button and fill in the parameters as follows.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We will do a few iterations of refinements: first some with only spatial parameter optimizations, and then with most parameters. This is to avoid falling into local minima. Try out different settings: this may vary on a case-by-case basis!</p>
+</div>
+<p>First, run four iterations with these parameters:
+<img alt="refinement1" src="../../_images/refinement1.png" /></p>
+<p>Afterwards, three iterations as follows:
+<img alt="refinement2" src="../../_images/refinement2.png" /></p>
+</div>
+<div class="section" id="end-result">
+<h2>End Result!<a class="headerlink" href="#end-result" title="Permalink to this headline">¶</a></h2>
+<p>If everything went well, after the second round of refinements you should be able to get to something like this:</p>
+<p><img alt="result1" src="../../_images/result1.png" /></p>
+<p><img alt="result2" src="../../_images/result2.png" /></p>
+<p>Congratulations!</p>
 </div>
 </div>
 

@@ -109,6 +109,11 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="../../teamtomo/contributing/screen-capture.html">
+     Screen capture
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../../teamtomo/contributing/wishlist.html">
      Wishlist
     </a>
@@ -205,12 +210,17 @@
   <ul class="collapse-ul">
    <li class="toctree-l2">
     <a class="reference internal" href="../../walkthroughs/EMPIAR-10164/preparation.html">
-     Preparation
+     Download the data
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../walkthroughs/EMPIAR-10164/preprocessing.html">
-     Preprocessing
+    <a class="reference internal" href="../../walkthroughs/EMPIAR-10164/2d-preprocessing.html">
+     2D preprocessing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../walkthroughs/EMPIAR-10164/tilt-series-to-tomograms.html">
+     Tilt-series to tomograms
     </a>
    </li>
    <li class="toctree-l2">
@@ -225,7 +235,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../walkthroughs/EMPIAR-10164/particle-picking.html">
-     Finding particles on every VLP
+     Find particles on every VLP
     </a>
    </li>
    <li class="toctree-l2">
@@ -255,18 +265,18 @@
   </a>
   <ul class="current collapse-ul">
    <li class="toctree-l2">
-    <a class="reference internal" href="alignment-setup.html">
-     Running a simple subtomogram averaging experiment
+    <a class="reference internal" href="simple-alignment.html">
+     Simple subtomogram averaging
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="extract-from-catalogue.html">
-     Extracting particles from a catalogue
+     Extracting particles
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="dipoles-to-vesicles.html">
-     Dipoles to vesicles
+     Spherical vesicle picking
     </a>
    </li>
    <li class="toctree-l2">
@@ -632,7 +642,7 @@
   <div class="section" id="interactive-mask-creation">
 <h1>Interactive mask creation<a class="headerlink" href="#interactive-mask-creation" title="Permalink to this headline">¶</a></h1>
 <p><code class="docutils literal notranslate"><span class="pre">Dynamo</span></code> contains some really useful interactive tools for creating shape masks.
-In this mini-tutorial, we will use a legacy version of the <code class="docutils literal notranslate"><span class="pre">dynamo_mapview</span></code> GUI to create and apply a shaped mask on a reference</p>
+In this mini-tutorial, we will use a legacy version of the <code class="docutils literal notranslate"><span class="pre">dynamo_mapview</span></code> GUI to create and apply a shaped mask on a reference.</p>
 <div class="section" id="loading-our-data-into-mapview">
 <h2>Loading our data into mapview<a class="headerlink" href="#loading-our-data-into-mapview" title="Permalink to this headline">¶</a></h2>
 <p>First, we load our volume <code class="docutils literal notranslate"><span class="pre">my_volume.mrc</span></code> into the GUI with the following command</p>
@@ -644,32 +654,32 @@ In this mini-tutorial, we will use a legacy version of the <code class="docutils
 <h2>Getting comfortable with the viewer<a class="headerlink" href="#getting-comfortable-with-the-viewer" title="Permalink to this headline">¶</a></h2>
 <p>Here we go over some of the controls available in this viewer, you might have noticed there are a lot!</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="bd0c3bbe-abcc-421b-8e18-e4b4d21b3729" name="3e9bee1e-0a34-4014-9f81-af722466189e" type="radio">
-</input><label class="tabbed-label" for="bd0c3bbe-abcc-421b-8e18-e4b4d21b3729">
+<input checked="checked" id="067a484b-6ce6-43b8-b127-b1fa2db16967" name="0362bd30-e245-4607-ac0f-8586dc0ced9e" type="radio">
+</input><label class="tabbed-label" for="067a484b-6ce6-43b8-b127-b1fa2db16967">
 x/y/z view</label><div class="tabbed-content docutils">
 <p>You can switch between viewing x-, y- or z-slices with the <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code> and <code class="docutils literal notranslate"><span class="pre">z</span></code> buttons.</p>
 <p><img alt="xyz switching image" src="../../_images/xyz.gif" /></p>
 </div>
-<input id="10aa20ce-7fdc-435f-93db-b707d7720d50" name="3e9bee1e-0a34-4014-9f81-af722466189e" type="radio">
-</input><label class="tabbed-label" for="10aa20ce-7fdc-435f-93db-b707d7720d50">
+<input id="bc9ca9fe-16a3-4612-9b3f-77d8d4082aae" name="0362bd30-e245-4607-ac0f-8586dc0ced9e" type="radio">
+</input><label class="tabbed-label" for="bc9ca9fe-16a3-4612-9b3f-77d8d4082aae">
 slice mode</label><div class="tabbed-content docutils">
 <p>You can switch between viewing either a single projection or a set of slices</p>
 <p><img alt="singleproj image" src="../../_images/singleproj.gif" /></p>
 </div>
-<input id="9b7a36a2-60ae-4e99-a4a1-2949340ba33d" name="3e9bee1e-0a34-4014-9f81-af722466189e" type="radio">
-</input><label class="tabbed-label" for="9b7a36a2-60ae-4e99-a4a1-2949340ba33d">
+<input id="d5340d91-3c64-4b7a-a715-74eee77d2926" name="0362bd30-e245-4607-ac0f-8586dc0ced9e" type="radio">
+</input><label class="tabbed-label" for="d5340d91-3c64-4b7a-a715-74eee77d2926">
 Fourier filters</label><div class="tabbed-content docutils">
 <p>Bandpass filters can be applied from the GUI by setting the <code class="docutils literal notranslate"><span class="pre">band</span></code> parameters then hitting the <code class="docutils literal notranslate"><span class="pre">band</span></code> button. The filter frequencies are set in Fourier pixels.</p>
 <p><img alt="bandpass image" src="../../_images/bandpass.gif" /></p>
 </div>
-<input id="3b254ed6-4fdb-4b61-811a-cc40b55d1b23" name="3e9bee1e-0a34-4014-9f81-af722466189e" type="radio">
-</input><label class="tabbed-label" for="3b254ed6-4fdb-4b61-811a-cc40b55d1b23">
+<input id="79d3ed05-f26e-40c0-ac02-5d7be2d9ab8b" name="0362bd30-e245-4607-ac0f-8586dc0ced9e" type="radio">
+</input><label class="tabbed-label" for="79d3ed05-f26e-40c0-ac02-5d7be2d9ab8b">
 symmetry</label><div class="tabbed-content docutils">
 <p>Symmetry can be applied from the GUI. Symmetry is applied along the z-axis of the volume.</p>
 <p><img alt="symmetry image" src="../../_images/sym.gif" /></p>
 </div>
-<input id="7f251fa3-cead-4672-b073-1bb4ec0c85fa" name="3e9bee1e-0a34-4014-9f81-af722466189e" type="radio">
-</input><label class="tabbed-label" for="7f251fa3-cead-4672-b073-1bb4ec0c85fa">
+<input id="cbbd7c5e-b589-471d-98b4-9cf1ea5cbb7e" name="0362bd30-e245-4607-ac0f-8586dc0ced9e" type="radio">
+</input><label class="tabbed-label" for="cbbd7c5e-b589-471d-98b4-9cf1ea5cbb7e">
 reset</label><div class="tabbed-content docutils">
 <p>The volume visualised can be reset to its original state at any time with the <code class="docutils literal notranslate"><span class="pre">reset</span></code> button.</p>
 <p><img alt="reset button image" src="../../_images/reset.gif" /></p>
@@ -680,8 +690,8 @@ reset</label><div class="tabbed-content docutils">
 <h2>Mask creation<a class="headerlink" href="#mask-creation" title="Permalink to this headline">¶</a></h2>
 <p>This section covers the basics of mask creation in <code class="docutils literal notranslate"><span class="pre">dpkdev.legacy.dynamo_mapview()</span></code></p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="71e1f8c8-7641-436f-9090-d87509c5187f" name="51cc8253-578b-480e-a11e-c862cd85dee7" type="radio">
-</input><label class="tabbed-label" for="71e1f8c8-7641-436f-9090-d87509c5187f">
+<input checked="checked" id="41bce767-fa80-49ca-acf9-3f131b1991e3" name="213e43be-d0c4-48f6-96c9-48f046e0d2da" type="radio">
+</input><label class="tabbed-label" for="41bce767-fa80-49ca-acf9-3f131b1991e3">
 mask creation</label><div class="tabbed-content docutils">
 <p>You can create a shaped mask by</p>
 <ul class="simple">
@@ -692,14 +702,14 @@ mask creation</label><div class="tabbed-content docutils">
 <p>hit the <code class="docutils literal notranslate"><span class="pre">layer</span></code> button to bring up a visualisation of the mask on the currently depicted slices.
 <img alt="interactive mask creation image" src="../../_images/masking.gif" /></p>
 </div>
-<input id="b4a4eeb3-2887-4b2e-ac10-7ed9cb39eaaa" name="51cc8253-578b-480e-a11e-c862cd85dee7" type="radio">
-</input><label class="tabbed-label" for="b4a4eeb3-2887-4b2e-ac10-7ed9cb39eaaa">
+<input id="f3d82109-adb4-463d-86fe-24cd60a397ac" name="213e43be-d0c4-48f6-96c9-48f046e0d2da" type="radio">
+</input><label class="tabbed-label" for="f3d82109-adb4-463d-86fe-24cd60a397ac">
 saving a mask</label><div class="tabbed-content docutils">
 <p>You can save a mask by setting a filename in the <code class="docutils literal notranslate"><span class="pre">Mask</span></code> section and hitting <code class="docutils literal notranslate"><span class="pre">save</span></code>
 <img alt="save mask image" src="../../_images/savemask.gif" /></p>
 </div>
-<input id="d8caaabd-f182-49a2-ba4e-d1885ec00f47" name="51cc8253-578b-480e-a11e-c862cd85dee7" type="radio">
-</input><label class="tabbed-label" for="d8caaabd-f182-49a2-ba4e-d1885ec00f47">
+<input id="7d23d12d-5ba8-4ef4-8130-c7ee740bac6d" name="213e43be-d0c4-48f6-96c9-48f046e0d2da" type="radio">
+</input><label class="tabbed-label" for="7d23d12d-5ba8-4ef4-8130-c7ee740bac6d">
 saving a masked volume</label><div class="tabbed-content docutils">
 <p>You can apply a mask onto a volume and save the volume in the <code class="docutils literal notranslate"><span class="pre">File</span> <span class="pre">I/O</span></code> section
 <img alt="" src="../../_images/save_masked_vol.gif" /></p>

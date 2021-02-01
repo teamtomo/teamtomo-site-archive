@@ -58,7 +58,7 @@
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Preparation" href="preparation.html" />
+    <link rel="next" title="Download the data" href="preparation.html" />
     <link rel="prev" title="Image processing" href="../../theory/image-processing/introduction.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -106,6 +106,11 @@
    <li class="toctree-l2">
     <a class="reference internal" href="../../teamtomo/contributing/git_guide.html">
      A short guide to git(hub)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../teamtomo/contributing/screen-capture.html">
+     Screen capture
     </a>
    </li>
    <li class="toctree-l2">
@@ -205,12 +210,17 @@
   <ul class="collapse-ul">
    <li class="toctree-l2">
     <a class="reference internal" href="preparation.html">
-     Preparation
+     Download the data
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="preprocessing.html">
-     Preprocessing
+    <a class="reference internal" href="2d-preprocessing.html">
+     2D preprocessing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="tilt-series-to-tomograms.html">
+     Tilt-series to tomograms
     </a>
    </li>
    <li class="toctree-l2">
@@ -225,7 +235,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="particle-picking.html">
-     Finding particles on every VLP
+     Find particles on every VLP
     </a>
    </li>
    <li class="toctree-l2">
@@ -255,18 +265,18 @@
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2">
-    <a class="reference internal" href="../../mini-tutorials/dynamo/alignment-setup.html">
-     Running a simple subtomogram averaging experiment
+    <a class="reference internal" href="../../mini-tutorials/dynamo/simple-alignment.html">
+     Simple subtomogram averaging
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../mini-tutorials/dynamo/extract-from-catalogue.html">
-     Extracting particles from a catalogue
+     Extracting particles
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../mini-tutorials/dynamo/dipoles-to-vesicles.html">
-     Dipoles to vesicles
+     Spherical vesicle picking
     </a>
    </li>
    <li class="toctree-l2">
@@ -657,7 +667,7 @@ of the HIV-1 CA-SP1 hexamer.</p>
 <h2>A note about scripting<a class="headerlink" href="#a-note-about-scripting" title="Permalink to this headline">¶</a></h2>
 <p>As the software ecosystem for cryo-ET matures, some scripting is often required to achieve your goals.
 This tutorial is provided with all necessary
-<a class="reference external" href="https://github.com/open-subtomo/open-subtomo/tree/master/guides/EMPIAR-10164/scripts">scripts</a>.</p>
+<a class="reference external" href="https://github.com/teamtomo/teamtomo.github.io/tree/master/guides/EMPIAR-10164/scripts">scripts</a>.</p>
 <p>For illustrative purposes, the contents of these scripts will appear as <code class="docutils literal notranslate"><span class="pre">code</span> <span class="pre">blocks</span></code> in the tutorial when used.</p>
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% this is a comment</span>
 <span class="nb">disp</span><span class="p">(</span><span class="s">&#39;Hello World!&#39;</span><span class="p">)</span>
@@ -673,8 +683,8 @@ and
 <div class="section" id="requirements-and-setup">
 <h2>Requirements and Setup<a class="headerlink" href="#requirements-and-setup" title="Permalink to this headline">¶</a></h2>
 <div class="tabbed-set docutils">
-<input checked="checked" id="2c271189-e606-4c1e-9e90-0c302e80e947" name="ecf4b698-1af1-47f7-b829-2c36f83417d3" type="radio">
-</input><label class="tabbed-label" for="2c271189-e606-4c1e-9e90-0c302e80e947">
+<input checked="checked" id="10ef3ebe-eb18-4a08-a47b-2717ce5c3fdc" name="126775a0-7a11-43d3-b3ca-b7fd850013b7" type="radio">
+</input><label class="tabbed-label" for="10ef3ebe-eb18-4a08-a47b-2717ce5c3fdc">
 Hardware</label><div class="tabbed-content docutils">
 <ul class="simple">
 <li><p>A reasonably modern CPU.</p></li>
@@ -685,8 +695,8 @@ Hardware</label><div class="tabbed-content docutils">
 <p>More RAM will be required for particle extraction at the smallest pixel sizes; we used a machine with 128GB.
 To keep read/write times low, we recommend a Solid State Drive (SSD).</p>
 </div>
-<input id="6ec3ed22-bad8-4fb7-9831-e6add4c98534" name="ecf4b698-1af1-47f7-b829-2c36f83417d3" type="radio">
-</input><label class="tabbed-label" for="6ec3ed22-bad8-4fb7-9831-e6add4c98534">
+<input id="e0dbc982-c1ff-436d-9d1b-ffbd24b115e9" name="126775a0-7a11-43d3-b3ca-b7fd850013b7" type="radio">
+</input><label class="tabbed-label" for="e0dbc982-c1ff-436d-9d1b-ffbd24b115e9">
 Software</label><div class="tabbed-content docutils">
 <ul class="simple">
 <li><p>Access to both Windows and Linux operating systems</p></li>
@@ -697,7 +707,7 @@ Software</label><div class="tabbed-content docutils">
 <li><p><a class="reference external" href="https://wiki.dynamo.biozentrum.unibas.ch/w/index.php/Main_Page">Dynamo</a> 1.1.478 or later</p></li>
 <li><p><a class="reference external" href="https://github.com/alisterburt/dynamo2m">dynamo2m</a></p></li>
 <li><p><a class="reference external" href="https://github.com/alisterburt/autoalign_dynamo">autoalign_dynamo</a></p></li>
-<li><p><a class="reference external" href="https://github.com/open-subtomo/open-subtomo/tree/master/guides/EMPIAR-10164/scripts">scripts</a> provided with this guide</p></li>
+<li><p><a class="reference external" href="https://github.com/teamtomo/teamtomo.github.io/tree/master/guides/EMPIAR-10164/scripts">scripts</a> provided with this guide</p></li>
 </ul>
 <p>If you need help with setting up any of these tools, follow the link to the respective documentation, or check out our <span class="xref myst">mini tutorials</span>.</p>
 </div>
@@ -745,7 +755,7 @@ Software</label><div class="tabbed-content docutils">
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="../../theory/image-processing/introduction.html" title="previous page">Image processing</a>
-    <a class='right-next' id="next-link" href="preparation.html" title="next page">Preparation</a>
+    <a class='right-next' id="next-link" href="preparation.html" title="next page">Download the data</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

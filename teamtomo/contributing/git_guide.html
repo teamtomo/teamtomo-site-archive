@@ -58,7 +58,7 @@
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Wishlist" href="wishlist.html" />
+    <link rel="next" title="Screen capture" href="screen-capture.html" />
     <link rel="prev" title="Contributing" href="index.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -106,6 +106,11 @@
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
      A short guide to git(hub)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="screen-capture.html">
+     Screen capture
     </a>
    </li>
    <li class="toctree-l2">
@@ -205,12 +210,17 @@
   <ul class="collapse-ul">
    <li class="toctree-l2">
     <a class="reference internal" href="../../walkthroughs/EMPIAR-10164/preparation.html">
-     Preparation
+     Download the data
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../walkthroughs/EMPIAR-10164/preprocessing.html">
-     Preprocessing
+    <a class="reference internal" href="../../walkthroughs/EMPIAR-10164/2d-preprocessing.html">
+     2D preprocessing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../walkthroughs/EMPIAR-10164/tilt-series-to-tomograms.html">
+     Tilt-series to tomograms
     </a>
    </li>
    <li class="toctree-l2">
@@ -225,7 +235,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../walkthroughs/EMPIAR-10164/particle-picking.html">
-     Finding particles on every VLP
+     Find particles on every VLP
     </a>
    </li>
    <li class="toctree-l2">
@@ -255,18 +265,18 @@
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2">
-    <a class="reference internal" href="../../mini-tutorials/dynamo/alignment-setup.html">
-     Running a simple subtomogram averaging experiment
+    <a class="reference internal" href="../../mini-tutorials/dynamo/simple-alignment.html">
+     Simple subtomogram averaging
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../mini-tutorials/dynamo/extract-from-catalogue.html">
-     Extracting particles from a catalogue
+     Extracting particles
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../mini-tutorials/dynamo/dipoles-to-vesicles.html">
-     Dipoles to vesicles
+     Spherical vesicle picking
     </a>
    </li>
    <li class="toctree-l2">
@@ -604,45 +614,45 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#step-1-forking-the-project">
-   Step 1 - forking the project
+  <a class="reference internal nav-link" href="#forking-the-project">
+   ‘Forking’ the project
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#step-1-5-installing-git-lfs">
-     Step 1.5 - installing git lfs
+    <a class="reference internal nav-link" href="#installing-git-lfs">
+     Installing git lfs
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#step-2-downloading-the-project">
-   Step 2 - downloading the project
+  <a class="reference internal nav-link" href="#downloading-the-project">
+   Downloading the project
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#step-3-create-a-new-branch-for-your-contribution">
-   Step 3 - create a new branch for your contribution
+  <a class="reference internal nav-link" href="#create-a-new-branch-for-your-contribution">
+   Create a new branch for your contribution
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#step-4-add-your-file-s-and-update-the-table-of-contents">
-   Step 4 - add your file(s) and update the table of contents
+  <a class="reference internal nav-link" href="#add-your-file-s-and-update-the-table-of-contents">
+   Add your file(s) and update the table of contents
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#step-5-build-the-site-locally">
-   Step 5 - build the site locally
+  <a class="reference internal nav-link" href="#build-the-site-locally">
+   Build the site locally
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#step-6-upload-your-contribution">
-   Step 6 - upload your contribution
+  <a class="reference internal nav-link" href="#upload-your-contribution">
+   Upload your contribution
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#step-7-propose-integration-of-your-contribution">
-   Step 7 - propose integration of your contribution
+  <a class="reference internal nav-link" href="#propose-integration-of-your-contribution">
+   Propose integration of your contribution
   </a>
  </li>
 </ul>
@@ -658,42 +668,49 @@
                 
   <div class="section" id="a-short-guide-to-git-hub">
 <h1>A short guide to git(hub)<a class="headerlink" href="#a-short-guide-to-git-hub" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="step-1-forking-the-project">
-<h2>Step 1 - forking the project<a class="headerlink" href="#step-1-forking-the-project" title="Permalink to this headline">¶</a></h2>
-<p>The first step is ‘forking’ the project. A ‘fork’ is your own online copy of an existing project on GitHub.</p>
-<p>A guide to forking a project can be found <a class="reference external" href="https://docs.github.com/en/free-pro-team&#64;latest/github/getting-started-with-github/fork-a-repo">here</a>. If you’re in a hurry, simply log into your GitHub account, head to <a class="reference external" href="https://github.com/teamtomo/teamtomo.github.io">the repo</a> and click the <code class="docutils literal notranslate"><span class="pre">Fork</span></code> in the top left.</p>
-<div class="section" id="step-1-5-installing-git-lfs">
-<h3>Step 1.5 - installing git lfs<a class="headerlink" href="#step-1-5-installing-git-lfs" title="Permalink to this headline">¶</a></h3>
-<p>To keep the size of the repository small we use <a class="reference external" href="https://git-lfs.github.com/">git large files storage</a>. If you plan to add images to your contribution, you should install it. Check out <a class="reference external" href="https://github.com/git-lfs/git-lfs/wiki/Installation">this page</a> to find the commands needed for your specific operative system.</p>
-<p>Otherwise, simply install it <a class="reference external" href="https://git-lfs.github.com/">from the link</a>, add it to your <code class="docutils literal notranslate"><span class="pre">$PATH</span></code> and run the install command:</p>
+<div class="section" id="forking-the-project">
+<h2>‘Forking’ the project<a class="headerlink" href="#forking-the-project" title="Permalink to this headline">¶</a></h2>
+<p>The first step is ‘forking’ the project. A ‘fork’ is your own copy of an existing project on GitHub which lives on your GitHub account.</p>
+<p>A guide to forking a project can be found <a class="reference external" href="https://docs.github.com/en/free-pro-team&#64;latest/github/getting-started-with-github/fork-a-repo">here</a>. If you’re in a hurry, simply log into your GitHub account, head to <a class="reference external" href="https://github.com/teamtomo/teamtomo.github.io">the repo</a> and click the <code class="docutils literal notranslate"><span class="pre">Fork</span></code> in the top right.</p>
+<div class="section" id="installing-git-lfs">
+<h3>Installing git lfs<a class="headerlink" href="#installing-git-lfs" title="Permalink to this headline">¶</a></h3>
+<p>To keep the size of the repository small we use <a class="reference external" href="https://git-lfs.github.com/">git large files storage</a>. If you plan to add images to your contribution, you should install it. Check out <a class="reference external" href="https://github.com/git-lfs/git-lfs/wiki/Installation">this page</a> to find the commands needed for your specific operating system.</p>
+<p>Otherwise, simply install it from <a class="reference external" href="https://git-lfs.github.com/">the git-lfs website</a>, add it to your <code class="docutils literal notranslate"><span class="pre">$PATH</span></code> and run the install command:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git lfs install
 </pre></div>
 </div>
 </div>
 </div>
-<div class="section" id="step-2-downloading-the-project">
-<h2>Step 2 - downloading the project<a class="headerlink" href="#step-2-downloading-the-project" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="downloading-the-project">
+<h2>Downloading the project<a class="headerlink" href="#downloading-the-project" title="Permalink to this headline">¶</a></h2>
 <p>Navigate to the folder in which you would like the project to be stored in your filesystem then run the following command to clone the files locally:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/&lt;your-username&gt;/teamtomo.github.io.git
-<span class="nb">cd</span> open-subtomo
+<span class="nb">cd</span> teamtomo
 </pre></div>
 </div>
 <p>Make sure to replace <code class="docutils literal notranslate"><span class="pre">&lt;your-username&gt;</span></code> with your GitHub username.</p>
 </div>
-<div class="section" id="step-3-create-a-new-branch-for-your-contribution">
-<h2>Step 3 - create a new branch for your contribution<a class="headerlink" href="#step-3-create-a-new-branch-for-your-contribution" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="create-a-new-branch-for-your-contribution">
+<h2>Create a new branch for your contribution<a class="headerlink" href="#create-a-new-branch-for-your-contribution" title="Permalink to this headline">¶</a></h2>
 <p>Create a new git ‘branch’ for your contribution and switch to that branch.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git checkout -b &lt;my-contribution&gt;
 </pre></div>
 </div>
 </div>
-<div class="section" id="step-4-add-your-file-s-and-update-the-table-of-contents">
-<h2>Step 4 - add your file(s) and update the table of contents<a class="headerlink" href="#step-4-add-your-file-s-and-update-the-table-of-contents" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="add-your-file-s-and-update-the-table-of-contents">
+<h2>Add your file(s) and update the table of contents<a class="headerlink" href="#add-your-file-s-and-update-the-table-of-contents" title="Permalink to this headline">¶</a></h2>
 <p>Add your file(s) to where you think they should live within the project (take a look at the structure of the existing files for inspiration).
 Once this is done, update the table of contents file <code class="docutils literal notranslate"><span class="pre">_toc.yml</span></code> to include the necessary links.</p>
 </div>
-<div class="section" id="step-5-build-the-site-locally">
-<h2>Step 5 - build the site locally<a class="headerlink" href="#step-5-build-the-site-locally" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="build-the-site-locally">
+<h2>Build the site locally<a class="headerlink" href="#build-the-site-locally" title="Permalink to this headline">¶</a></h2>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>building the site requires a <code class="docutils literal notranslate"><span class="pre">Python</span></code> environment with access to the project dependencies, see our <a class="reference internal" href="../../computing/python/getting-started.html"><span class="doc std std-doc">getting started with Python pages</span></a> for more details.</p>
+</div>
+</div>
 <p>Build the site locally to check that everything looks the way it should with the following command.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>jupyter-book build .
 </pre></div>
@@ -701,8 +718,8 @@ Once this is done, update the table of contents file <code class="docutils liter
 <p>Once the site is built, a link to open the local copy of the site in your web browser will appear.
 Have a quick look at your contribution and if everything seems okay, move onto the next step.</p>
 </div>
-<div class="section" id="step-6-upload-your-contribution">
-<h2>Step 6 - upload your contribution<a class="headerlink" href="#step-6-upload-your-contribution" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="upload-your-contribution">
+<h2>Upload your contribution<a class="headerlink" href="#upload-your-contribution" title="Permalink to this headline">¶</a></h2>
 <p>Next you will upload your updated version of the project to your account on GitHub.
 First, save your changes in the current branch.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git add .
@@ -715,8 +732,8 @@ git commit -m <span class="s2">&quot;added a new mini-tutorial on subboxing&quot
 </div>
 <p>Replace <my-contribution> with whatever you prefer to call this branch.</p>
 </div>
-<div class="section" id="step-7-propose-integration-of-your-contribution">
-<h2>Step 7 - propose integration of your contribution<a class="headerlink" href="#step-7-propose-integration-of-your-contribution" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="propose-integration-of-your-contribution">
+<h2>Propose integration of your contribution<a class="headerlink" href="#propose-integration-of-your-contribution" title="Permalink to this headline">¶</a></h2>
 <p>Your contribution should now be present on your GitHub page.
 To propose merging your contribution into the main project,
 go to your version of the project on GitHub and click the <code class="docutils literal notranslate"><span class="pre">Compare</span> <span class="pre">&amp;</span> <span class="pre">pull</span> <span class="pre">request</span></code> button.
@@ -754,7 +771,7 @@ Make sure that you are “Comparing across forks” and that the repository on t
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="index.html" title="previous page">Contributing</a>
-    <a class='right-next' id="next-link" href="wishlist.html" title="next page">Wishlist</a>
+    <a class='right-next' id="next-link" href="screen-capture.html" title="next page">Screen capture</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

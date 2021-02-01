@@ -1,0 +1,865 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tilt-series to tomograms</title>
+    
+  <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/tabs.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"N": "\\mathbb{N}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}}, "tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Geometrical particle picking" href="geometrical-picking.html" />
+    <link rel="prev" title="2D preprocessing" href="2d-preprocessing.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo.svg" class="logo" alt="logo">
+  
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <p class="caption collapsible-parent">
+ <span class="caption-text">
+  teamtomo.org
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../teamtomo/about.html">
+   About the project
+  </a>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../teamtomo/contributing/index.html">
+   Contributing
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../teamtomo/contributing/git_guide.html">
+     A short guide to git(hub)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../teamtomo/contributing/screen-capture.html">
+     Screen capture
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../teamtomo/contributing/wishlist.html">
+     Wishlist
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Theory
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../theory/cryo-et/index.html">
+   Cryo-electron tomography
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../theory/cryo-et/tilt-schemes.html">
+     Tilt-schemes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../theory/cryo-et/tilt-series-alignment.html">
+     Tilt-series alignment
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../theory/subtomogram-averaging/index.html">
+   Subtomogram averaging
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../theory/subtomogram-averaging/preprocessing/index.html">
+     Preprocessing
+    </a>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../../theory/subtomogram-averaging/particle-picking/index.html">
+     Particle picking
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../theory/subtomogram-averaging/particle-picking/template-matching.html">
+       Template matching
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../theory/subtomogram-averaging/particle-picking/geometrical-supports.html">
+       Using a supporting geometry
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../theory/subtomogram-averaging/particle-picking/subboxing.html">
+       Subboxing
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../theory/subtomogram-averaging/refinement/index.html">
+     Refinement
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../theory/image-processing/introduction.html">
+   Image processing
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Walkthroughs
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="introduction.html">
+   EMPIAR-10164 (HIV VLPs)
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="preparation.html">
+     Download the data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="2d-preprocessing.html">
+     2D preprocessing
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Tilt-series to tomograms
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="geometrical-picking.html">
+     Geometrical particle picking
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ini-model.html">
+     Initial model generation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="particle-picking.html">
+     Find particles on every VLP
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="relion.html">
+     Particle pose optimisation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="m.html">
+     Multi-particle refinement
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  mini-tutorials
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../mini-tutorials/dynamo/index.html">
+   Dynamo
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../mini-tutorials/dynamo/simple-alignment.html">
+     Simple subtomogram averaging
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../mini-tutorials/dynamo/extract-from-catalogue.html">
+     Extracting particles
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../mini-tutorials/dynamo/dipoles-to-vesicles.html">
+     Spherical vesicle picking
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../mini-tutorials/dynamo/dtmslice-controls.html">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       dtmslice
+      </span>
+     </code>
+     viewing controls
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../mini-tutorials/dynamo/interactive-mask-creation.html">
+     Interactive mask creation
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Resources
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../resources/literature/index.html">
+   Literature
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../resources/literature/protocols/protocols.html">
+     Protocols
+    </a>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../../resources/literature/reviews/reviews.html">
+     Reviews
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../resources/literature/reviews/schur19.html">
+       Schur - 2019
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../resources/literature/reviews/lucic08.html">
+       Lučić - 2008
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../resources/literature/reviews/lucic05.html">
+       Lučić - 2005
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../../resources/literature/book-chapters/book-chapters.html">
+     Book chapters
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../resources/literature/book-chapters/subtomo-leigh19.html">
+       Subtomogram averaging from cryo-electron tomograms - Leigh 2019
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../resources/literature/book-chapters/cryo-et-sta-wan16.html">
+       Cryo-Electron Tomography and Subtomogram Averaging - Wan 2016
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../resources/literature/book-chapters/fiducial-alignments-mastronarde07.html">
+       Fiducial Marker and Hybrid Alignment Methods for Single- and Double-axis Tomography - Mastronarde 2007
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../resources/cryoet-software/cryoet-software.html">
+   Software packages
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../resources/cryoet-software/cryolo/cryolo.html">
+     crYOLO
+    </a>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../../resources/cryoet-software/dynamo/dynamo.html">
+     Dynamo
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../resources/cryoet-software/dynamo/starters-guide.html">
+       Starters guide
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../resources/cryoet-software/dynamo/advanced-starters-guide.html">
+       Advanced starters guide
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../resources/cryoet-software/dynamo/tilt-series-alignment.html">
+       Tilt-series alignment
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../resources/cryoet-software/dynamo/PCA.html">
+       PCA based classification
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../../resources/cryoet-software/eman2/eman2.html">
+     EMAN2
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../resources/cryoet-software/eman2/full-tutorial.html">
+       Complete tutorial
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../resources/cryoet-software/eman2/segmentation.html">
+       Neural-net based segmentation
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../../resources/cryoet-software/emclarity/emclarity.html">
+     emClarity
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../resources/cryoet-software/emclarity/tutorial.html">
+       tutorial
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../../resources/cryoet-software/imod/imod.html">
+     IMOD
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../resources/cryoet-software/imod/tomo-guide.html">
+       Tomography guide
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../resources/cryoet-software/imod/etomo-fiducial-tuto.html">
+       Etomo with fiducials
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../resources/cryoet-software/imod/etomo-patch-track-tuto.html">
+       Patch tracking in Etomo
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../resources/cryoet-software/imod/batch-alignment.html">
+       Batch tilt-series alignment
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../../resources/cryoet-software/m/m.html">
+     M
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../resources/cryoet-software/m/user-guide.html">
+       Warp/M
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../resources/cryoet-software/novactf/novactf.html">
+     NovaCTF
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../resources/cryoet-software/novasta/novasta.html">
+     NovaSTA
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../resources/cryoet-software/pytom/pytom.html">
+     PyTom
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../resources/cryoet-software/relion/relion.html">
+     RELION
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../resources/cryoet-software/stopgap/stopgap.html">
+     STOPGAP
+    </a>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../../resources/cryoet-software/warp/warp.html">
+     Warp
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../resources/cryoet-software/warp/user-guide.html">
+       Warp/M
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/walkthroughs/EMPIAR-10164/tilt-series-to-tomograms.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/teamtomo/teamtomo.github.io"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/teamtomo/teamtomo.github.io/issues/new?title=Issue%20on%20page%20%2Fwalkthroughs/EMPIAR-10164/tilt-series-to-tomograms.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/teamtomo/teamtomo.github.io/edit/master/./walkthroughs/EMPIAR-10164/tilt-series-to-tomograms.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tilt-series-alignment">
+   Tilt-series alignment
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#overview">
+     Overview
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#aligning-the-tilt-series">
+     Aligning the tilt-series
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#checking-the-results">
+       Checking the results
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tilt-series-ctf-estimation-and-tomogram-reconstruction">
+   Tilt-Series CTF Estimation and Tomogram reconstruction
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#import-aligned-tilt-series">
+     Import aligned tilt-series
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tilt-series-ctf-estimation">
+     Tilt-Series CTF estimation
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#check-tilt-handedness">
+       Check tilt handedness
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ctf-estimation">
+       CTF estimation
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#reconstruct-tomograms">
+     Reconstruct tomograms
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="tilt-series-to-tomograms">
+<h1>Tilt-series to tomograms<a class="headerlink" href="#tilt-series-to-tomograms" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="tilt-series-alignment">
+<span id="hiv-tilt-align"></span><h2>Tilt-series alignment<a class="headerlink" href="#tilt-series-alignment" title="Permalink to this headline">¶</a></h2>
+<p>To align our tilt-series we will use the <a class="reference external" href="https://github.com/alisterburt/autoalign_dynamo"><code class="docutils literal notranslate"><span class="pre">autoalign_dynamo</span></code> package</a>, which leverages Dynamo’s automated tilt series alignment workflows.</p>
+<p>This program aligns tilt-series in <code class="docutils literal notranslate"><span class="pre">Dynamo</span></code> and prepares all necessary metadata for import back into <code class="docutils literal notranslate"><span class="pre">Warp</span></code>.</p>
+<div class="section" id="overview">
+<h3>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h3>
+<p>Basic overview of the tilt-series alignment procedure in <code class="docutils literal notranslate"><span class="pre">Dynamo</span></code>:</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="seealso admonition">
+<p class="admonition-title">See also</p>
+<p>For a detailed, step-by-step explanation of the procedure, check out the <a class="reference external" href="https://www.wiki.dynamo.biozentrum.unibas.ch/w/index.php/Walkthrough_on_GUI_based_tilt_series_alignment">Walkthrough on GUI based tilt series alignment</a> on the Dynamo wiki.</p>
+</div>
+</div>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-20 docutils">
+<div class="card w-100 border-2 docutils">
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Estimation of the putative positions of fiducials in all the images by cross-correlation (CC) against a synthetic template.</p></li>
+<li><p class="card-text">Rejection of features that are not rotationally symmetric, and therefore likely not beads.</p></li>
+<li><p class="card-text">Indexing of bead observations, attempting to determine which beads correspond to the same underlying object in 3D.</p></li>
+<li><p class="card-text">Iterative refinement of the alignment parameters and bead positions.</p></li>
+<li><p class="card-text">Reintegration of missing observations based on an updated projection model.</p></li>
+<li><p class="card-text">Removal of observations with large residuals.</p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>This procedure explicitly attempts to maximise the number of observations which should increase the global accuracy of the final solution.</p>
+<p>To enable use of these workflows within the Warp preprocessing pipeline we provide a package <code class="docutils literal notranslate"><span class="pre">autoalign_dynamo</span></code>. <code class="docutils literal notranslate"><span class="pre">dautoalign4warp</span></code> is a function provided by this package which handles running the Dynamo alignment workflow on all tilt-series and prepares all metadata for import back into Warp. This procedure can be run on-the-fly, starting as soon as the first tilt-series has been generated by Warp.</p>
+</div>
+<div class="section" id="aligning-the-tilt-series">
+<h3>Aligning the tilt-series<a class="headerlink" href="#aligning-the-tilt-series" title="Permalink to this headline">¶</a></h3>
+<p>Open MATLAB, make sure that <a class="reference external" href="https://github.com/alisterburt/autoalign_dynamo#activation-and-running">dynamo and autoalign_dynamo are activated</a> and navigate to the <code class="docutils literal notranslate"><span class="pre">frames</span></code> directory.</p>
+<p>The command we need to use is:</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">dautoalign4warp</span><span class="p">(</span><span class="o">&lt;</span><span class="n">warp_tilt_series_directory</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">pixel_size_angstrom</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">fiducial_diameter_nm</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">nominal_rotation_angle</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">output_folder</span><span class="o">&gt;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Warp puts the generated tilt series in a new <code class="docutils literal notranslate"><span class="pre">imod</span></code> directory, one level below the <code class="docutils literal notranslate"><span class="pre">frames</span></code> directory.</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The nominal rotation angle is the angle of the tilt axis relative to the Y axis in the tilt-series (counter-clockwise positive).<br />
+It can usually be found in the mdoc file for a tilt series, under <code class="docutils literal notranslate"><span class="pre">Tilt</span> <span class="pre">axis</span> <span class="pre">angle</span></code>.
+If you don’t know, ask your microscope manager!</p>
+</div>
+</div>
+<p>For this dataset the fiducial diameter is 10 nm and the nominal rotation angle is 85.3 degrees.</p>
+<p>We can start aligning tilt-series with the following command:</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">dautoalign4warp</span><span class="p">(</span><span class="s">&#39;./imod&#39;</span><span class="p">,</span> <span class="mf">1.35</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">85.3</span><span class="p">,</span> <span class="s">&#39;./dynamo_alignments&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This command will generate the transforms needed to align a tilt series</p>
+<p>Once running, <code class="docutils literal notranslate"><span class="pre">autoalign_dynamo</span></code> will keep processing incoming data from Warp and generate the metadata necessary for tomogram reconstruction.
+As soon as the alignments are done, we can start CTF estimation on the tilt-series and reconstructing tomograms.</p>
+<div class="section" id="checking-the-results">
+<h4>Checking the results<a class="headerlink" href="#checking-the-results" title="Permalink to this headline">¶</a></h4>
+<p>In the <code class="docutils literal notranslate"><span class="pre">dynamo_alignments</span></code> folder there is a <code class="docutils literal notranslate"><span class="pre">.mod</span></code> file in a folder for each tilt-series.
+This model file can be opened with the tilt-series in <code class="docutils literal notranslate"><span class="pre">3dmod</span></code> to visually check that the beads have been detected and tracked appropriately.
+The <code class="docutils literal notranslate"><span class="pre">taSolution.log</span></code> file also contains useful information about the quality of the alignments.</p>
+<hr class="docutils" />
+</div>
+</div>
+</div>
+<div class="section" id="tilt-series-ctf-estimation-and-tomogram-reconstruction">
+<span id="hiv-reconstruct"></span><h2>Tilt-Series CTF Estimation and Tomogram reconstruction<a class="headerlink" href="#tilt-series-ctf-estimation-and-tomogram-reconstruction" title="Permalink to this headline">¶</a></h2>
+<p>Up to now we have:</p>
+<ul class="simple">
+<li><p>preprocessed the 2D images</p></li>
+<li><p>generated and aligned tilt-series</p></li>
+</ul>
+<p>We will now estimate the CTF parameters for each tilt-series,
+check that our CTF model has the correct handedness and reconstruct the tomograms.</p>
+<div class="section" id="import-aligned-tilt-series">
+<h3>Import aligned tilt-series<a class="headerlink" href="#import-aligned-tilt-series" title="Permalink to this headline">¶</a></h3>
+<p>To import the newly aligned tilt series back into Warp, click the <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">tilt</span> <span class="pre">series</span> <span class="pre">from</span> <span class="pre">IMOD</span></code> button and select the <code class="docutils literal notranslate"><span class="pre">frames</span></code> and <code class="docutils literal notranslate"><span class="pre">mdoc</span></code> folders as before. Then, set <code class="docutils literal notranslate"><span class="pre">Root</span> <span class="pre">folder</span> <span class="pre">with</span> <span class="pre">IMOD</span> <span class="pre">processing</span> <span class="pre">results</span></code> to the new <code class="docutils literal notranslate"><span class="pre">dynamo_alignments</span></code> directory.</p>
+<p>The checkboxes should now appear checked in the <code class="docutils literal notranslate"><span class="pre">Aligned</span></code> column on the right hand side of the import window.</p>
+<p>Differently from earlier, now we also need to enter the pixel size of the tilt-series and the electron dose that the sample was exposed to per tilt.</p>
+<p>For this dataset this is the binned pixel size of 1.35 <span class="math notranslate nohighlight">\(Å/px\)</span>,
+and according the the EMPIAR entry the dose is roughly 3 <span class="math notranslate nohighlight">\(e^-/Å^2\)</span> per tilt.</p>
+<a class="reference internal image-reference" href="../../_images/import-ts-alignments.png"><img alt="../../_images/import-ts-alignments.png" class="align-center" src="../../_images/import-ts-alignments.png" style="width: 450.8px; height: 280.8px;" /></a>
+</div>
+<div class="section" id="tilt-series-ctf-estimation">
+<h3>Tilt-Series CTF estimation<a class="headerlink" href="#tilt-series-ctf-estimation" title="Permalink to this headline">¶</a></h3>
+<p>In this step, Warp will reestimate the CTF parameters for each tilt series according to a 3D model of the underlying signal which accounts for defocus variations due to tilt angle, sample thickness and sample inclination relative to the imaging plane. Using this 3D model, individual particles can be reconstructed from images which have been CTF corrected according to their exact position within the reconstructed volume.</p>
+<div class="section" id="check-tilt-handedness">
+<h4>Check tilt handedness<a class="headerlink" href="#check-tilt-handedness" title="Permalink to this headline">¶</a></h4>
+<p>The tilt handedness check allows us to check that defocus varies across each image as expected by Warp’s CTF model for each tilt-series.</p>
+<p>To perform the check, we first estimate the CTF for one tilt-series by hitting <code class="docutils literal notranslate"><span class="pre">estimate</span> <span class="pre">for</span> <span class="pre">just</span> <span class="pre">this</span> <span class="pre">tilt-series</span></code> in the <code class="docutils literal notranslate"><span class="pre">Fourier</span> <span class="pre">Space</span></code> tab. Once this has completed, we have to hit <code class="docutils literal notranslate"><span class="pre">Check</span> <span class="pre">tilt</span> <span class="pre">handedness</span></code>. If Warp sees that the defocus estimates don’t match what it expects in terms of how the defocus changes with tilt-angle, it will offer the option to flip the defocus handedness of the CTF model for each loaded tilt-series. If the correlation found is not convincing, try other tilt-series in the dataset.</p>
+<p>Once we are sure about the tilt handedness, we can proceed with the tilt-series CTF estimation procedure.</p>
+</div>
+<div class="section" id="ctf-estimation">
+<h4>CTF estimation<a class="headerlink" href="#ctf-estimation" title="Permalink to this headline">¶</a></h4>
+<p>The settings for tilt-series CTF estimation should be the same as those used earlier when estimating CTF parameters for 2D micrographs. In this case, we do not control the spatiotemporal resolution of the CTF model. Simply click on <code class="docutils literal notranslate"><span class="pre">START</span> <span class="pre">PROCESSING</span></code> to proceed.</p>
+</div>
+</div>
+<div class="section" id="reconstruct-tomograms">
+<h3>Reconstruct tomograms<a class="headerlink" href="#reconstruct-tomograms" title="Permalink to this headline">¶</a></h3>
+<p>We now have everything we need to reconstruct our tomograms. In Warp, we don’t need to reconstruct whole tomograms at this step. Instead, downsampled tomograms can be generated for initial particle picking and volumes centered on each object of interest can be reconstructed later at the desired pixel size. This reduces the computational burden of generating and extracting particles from large, unbinned tomograms which can easily be over 100GB in size.</p>
+<img alt="../../_images/reconstruction-size.png" class="align-center" src="../../_images/reconstruction-size.png" />
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="tip admonition">
+<p class="admonition-title">Tip</p>
+<p>Starting with coarse pixel sizes significantly increases your ability to quickly test new ideas at the expense of the loss of high-resolution information. Generally, we aim for a pixel size which allows our object of interest to fit comfortably in a 32<span class="math notranslate nohighlight">\(px^3\)</span> box. If we don’t know the size of our object of interest 10-15 <span class="math notranslate nohighlight">\(Å/px\)</span> is usually a good starting point. For HIV-5-TS, we generate tomograms at 10 <span class="math notranslate nohighlight">\(Å/px\)</span>.</p>
+</div>
+</div>
+<p>We have to define the reconstruction area by setting the <code class="docutils literal notranslate"><span class="pre">Unbinned</span> <span class="pre">tomogram</span> <span class="pre">dimensions</span></code>. These are the dimensions that the tomogram would have if reconstructed at the pixel size of the tilt-series. To capture the full extent of the imaged area, we should use 4000 x 4000 for the x and y dimensions (because we downsampled our original ~8000x8000 super-resolution pixels by a factor of two). In z, we want the reconstruction to be large enough to include the entire imaged sample. In this case, 3000 <span class="math notranslate nohighlight">\(px\)</span> is more than enough.</p>
+<p>We can then click on <code class="docutils literal notranslate"><span class="pre">reconstruct</span> <span class="pre">full</span> <span class="pre">tomograms</span></code> at the top of the <code class="docutils literal notranslate"><span class="pre">Overview</span></code> tab to open the reconstruction dialog box.</p>
+<p>We invert contrast such that any averages of particles in the tomograms will be light-on-dark. Whilst not strictly necessary, this is a convention which facilitates visualisation in programs such as ChimeraX and the use of certain image processing tools which expect this inverted contrast.</p>
+<p>We also select <code class="docutils literal notranslate"><span class="pre">Also</span> <span class="pre">produce</span> <span class="pre">deconvolved</span> <span class="pre">version</span></code>; this generates a tomogram which has been filtered for visualisation alongside the unfiltered reconstruction suitable for subtomogram averaging.</p>
+<p>Leave <code class="docutils literal notranslate"><span class="pre">Reconstruct</span> <span class="pre">half-maps</span> <span class="pre">for</span> <span class="pre">denoising</span></code> and <code class="docutils literal notranslate"><span class="pre">Keep</span> <span class="pre">only</span> <span class="pre">fully</span> <span class="pre">covered</span> <span class="pre">voxels</span></code> unchecked for now, the first is useful if you want to denoise your data and the second will leave zeros in the regions not contributed to by all images in the tilt-series.</p>
+<p>Warp may have marked some tilt series as filtered out. Since we are not making active use of filters in this tutorial, this is not a problem. Simply select <code class="docutils literal notranslate"><span class="pre">Include</span> <span class="pre">items</span> <span class="pre">outside</span> <span class="pre">of</span> <span class="pre">filter</span> <span class="pre">ranges</span></code>. To learn more about the Warp filters, check out the <a class="reference external" href="http://www.warpem.com/warp/?page_id=185">Warp tutorial on frame series</a>.</p>
+<p>Once ready, click on <code class="docutils literal notranslate"><span class="pre">Reconstruct</span></code> to reconstruct the tomograms.</p>
+<img alt="../../_images/reconstruction-settings.png" class="align-center" src="../../_images/reconstruction-settings.png" />
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./walkthroughs/EMPIAR-10164"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="2d-preprocessing.html" title="previous page">2D preprocessing</a>
+    <a class='right-next' id="next-link" href="geometrical-picking.html" title="next page">Geometrical particle picking</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By the teamtomo.org contributors<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

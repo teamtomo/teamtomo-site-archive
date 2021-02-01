@@ -1,7 +1,7 @@
 # Interactive mask creation
 
 `Dynamo` contains some really useful interactive tools for creating shape masks.
-In this mini-tutorial, we will use a legacy version of the `dynamo_mapview` GUI to create and apply a shaped mask on a reference
+In this mini-tutorial, we will use a legacy version of the `dynamo_mapview` GUI to create and apply a shaped mask on a reference.
 
 ## Loading our data into mapview
 First, we load our volume `my_volume.mrc` into the GUI with the following command

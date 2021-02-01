@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dipoles to vesicles</title>
+    <title>Spherical vesicle picking</title>
     
   <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -59,7 +59,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="dtmslice viewing controls" href="dtmslice-controls.html" />
-    <link rel="prev" title="Extracting particles from a catalogue" href="extract-from-catalogue.html" />
+    <link rel="prev" title="Extracting particles" href="extract-from-catalogue.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -106,6 +106,11 @@
    <li class="toctree-l2">
     <a class="reference internal" href="../../teamtomo/contributing/git_guide.html">
      A short guide to git(hub)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../teamtomo/contributing/screen-capture.html">
+     Screen capture
     </a>
    </li>
    <li class="toctree-l2">
@@ -205,12 +210,17 @@
   <ul class="collapse-ul">
    <li class="toctree-l2">
     <a class="reference internal" href="../../walkthroughs/EMPIAR-10164/preparation.html">
-     Preparation
+     Download the data
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../walkthroughs/EMPIAR-10164/preprocessing.html">
-     Preprocessing
+    <a class="reference internal" href="../../walkthroughs/EMPIAR-10164/2d-preprocessing.html">
+     2D preprocessing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../walkthroughs/EMPIAR-10164/tilt-series-to-tomograms.html">
+     Tilt-series to tomograms
     </a>
    </li>
    <li class="toctree-l2">
@@ -225,7 +235,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../walkthroughs/EMPIAR-10164/particle-picking.html">
-     Finding particles on every VLP
+     Find particles on every VLP
     </a>
    </li>
    <li class="toctree-l2">
@@ -255,18 +265,18 @@
   </a>
   <ul class="current collapse-ul">
    <li class="toctree-l2">
-    <a class="reference internal" href="alignment-setup.html">
-     Running a simple subtomogram averaging experiment
+    <a class="reference internal" href="simple-alignment.html">
+     Simple subtomogram averaging
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="extract-from-catalogue.html">
-     Extracting particles from a catalogue
+     Extracting particles
     </a>
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     Dipoles to vesicles
+     Spherical vesicle picking
     </a>
    </li>
    <li class="toctree-l2">
@@ -614,11 +624,6 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#prerequisites">
-   Prerequisites
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#tomogram-annotation">
    Tomogram annotation
   </a>
@@ -662,12 +667,14 @@
         
               <div>
                 
-  <div class="section" id="dipoles-to-vesicles">
-<h1>Dipoles to vesicles<a class="headerlink" href="#dipoles-to-vesicles" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="spherical-vesicle-picking">
+<h1>Spherical vesicle picking<a class="headerlink" href="#spherical-vesicle-picking" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
 <p>This mini-tutorial will show you how to quickly and easily generate an oversampled set of positions
 and orientations on a spherical supporting geometry (such as a vesicle) in <code class="docutils literal notranslate"><span class="pre">Dynamo</span></code></p>
+<a class="reference internal image-reference" href="../../_images/hiv-oversampling.png"><img alt="../../_images/hiv-oversampling.png" class="align-center" src="../../_images/hiv-oversampling.png" style="width: 1000.0px; height: 444.0px;" /></a>
+<p>We start from a <code class="docutils literal notranslate"><span class="pre">Dynamo</span></code> catalogue containing the tomograms with vesicles we want to pick.</p>
 </div>
 <div class="section" id="motivation">
 <h2>Motivation<a class="headerlink" href="#motivation" title="Permalink to this headline">¶</a></h2>
@@ -675,12 +682,6 @@ and orientations on a spherical supporting geometry (such as a vesicle) in <code
 this is robust but increases the time spent on annotation.</p>
 <p>Spheres are uniquely defined by a center point and a radius.
 Center and edge points of a vesicle in a tomogram are easily annotated using the <code class="docutils literal notranslate"><span class="pre">dipoleSet</span></code> model type.</p>
-</div>
-<div class="section" id="prerequisites">
-<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>a <code class="docutils literal notranslate"><span class="pre">Dynamo</span></code> catalogue containing your tomograms</p></li>
-</ul>
 </div>
 <div class="section" id="tomogram-annotation">
 <h2>Tomogram annotation<a class="headerlink" href="#tomogram-annotation" title="Permalink to this headline">¶</a></h2>
@@ -751,7 +752,26 @@ Then, move the cursor to a point on the surface of the same vescicle and press <
 </div>
 <div class="section" id="convert-dipoleset-models-into-oversampled-vesicle-models">
 <h3>Convert dipoleSet models into oversampled Vesicle models<a class="headerlink" href="#convert-dipoleset-models-into-oversampled-vesicle-models" title="Permalink to this headline">¶</a></h3>
-<p>Once all the dipole models are picked, we can convert them into oversampled <code class="docutils literal notranslate"><span class="pre">Vesicle</span></code> models. For this, we will use the <code class="docutils literal notranslate"><span class="pre">dipoles2vescicles</span></code> function provided <a class="reference external" href="https://gist.github.com/alisterburt/818c604af41050532a378afb93ae556f">here</a>. The function generates a Dynamo <code class="docutils literal notranslate"><span class="pre">Vescicle</span></code> model for every dipole in each <code class="docutils literal notranslate"><span class="pre">dipoleSet</span></code> model in a catalogue.</p>
+<p>Once all the dipole models are picked, we can convert them into oversampled <code class="docutils literal notranslate"><span class="pre">Vesicle</span></code> models. For this, we will use the script <a class="reference external" href="https://gist.github.com/alisterburt/818c604af41050532a378afb93ae556f"><code class="docutils literal notranslate"><span class="pre">dipoles2vescicles.m</span></code></a>. The function generates a Dynamo <code class="docutils literal notranslate"><span class="pre">Vescicle</span></code> model for every dipole in each <code class="docutils literal notranslate"><span class="pre">dipoleSet</span></code> model in a catalogue.</p>
+<p>For example, to generate the <code class="docutils literal notranslate"><span class="pre">Vesicle</span></code> models from a catalogue called <code class="docutils literal notranslate"><span class="pre">catalogue</span></code> with an expected inter-particle distance of <code class="docutils literal notranslate"><span class="pre">7.5</span></code>px we would run the following command from the folder containing the catalogue:</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you aren’t sure how to use the provided function, check out <a class="reference internal" href="../../computing/matlab/add-to-path.html"><span class="doc std std-doc">this page</span></a></p>
+</div>
+</div>
+<div class="tabbed-set docutils">
+<input checked="checked" id="83c5a93f-39c9-4e3b-af32-d71cf8757a6c" name="d25878a7-a950-4312-b585-6b17dc8457eb" type="radio">
+</input><label class="tabbed-label" for="83c5a93f-39c9-4e3b-af32-d71cf8757a6c">
+Command</label><div class="tabbed-content docutils">
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">dipoles2vescicles</span><span class="p">(</span><span class="s">&#39;catalogue&#39;</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<input id="91459e1a-8f5b-4cbe-a42f-d1c17c46a471" name="d25878a7-a950-4312-b585-6b17dc8457eb" type="radio">
+</input><label class="tabbed-label" for="91459e1a-8f5b-4cbe-a42f-d1c17c46a471">
+Source code</label><div class="tabbed-content docutils">
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="nf">dipoles2vesicles</span><span class="p">(</span>catalogue_name, distance_between_particles<span class="p">)</span><span class="w"></span>
 <span class="c">%%% to be run in the folder which holds your catalogue</span>
 <span class="c">%%%</span>
@@ -810,16 +830,7 @@ Then, move the cursor to a point on the surface of the same vescicle and press <
 <span class="s">end</span>
 </pre></div>
 </div>
-<div class="margin sidebar">
-<p class="sidebar-title"></p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>If you aren’t sure how to use the provided function, check out <a class="reference internal" href="../../computing/matlab/add-to-path.html"><span class="doc std std-doc">this page</span></a></p>
 </div>
-</div>
-<p>For example, to generate the <code class="docutils literal notranslate"><span class="pre">Vesicle</span></code> models from a catalogue called <code class="docutils literal notranslate"><span class="pre">catalogue</span></code> with an expected inter-particle distance of <code class="docutils literal notranslate"><span class="pre">7.5</span></code>px we would run the following command from the folder containing the catalogue:</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">dipoles2vescicles</span><span class="p">(</span><span class="s">&#39;catalogue&#39;</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">)</span>
-</pre></div>
 </div>
 </div>
 </div>
@@ -853,7 +864,7 @@ Then, move the cursor to a point on the surface of the same vescicle and press <
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="extract-from-catalogue.html" title="previous page">Extracting particles from a catalogue</a>
+    <a class='left-prev' id="prev-link" href="extract-from-catalogue.html" title="previous page">Extracting particles</a>
     <a class='right-next' id="next-link" href="dtmslice-controls.html" title="next page"><code class="docutils literal notranslate"><span class="pre">dtmslice</span></code> viewing controls</a>
 
     </div>

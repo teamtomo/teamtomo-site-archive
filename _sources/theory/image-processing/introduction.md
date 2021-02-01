@@ -10,5 +10,3 @@ from Alvy Ray Smith titled *'A pixel is not a little square!'*.
 
 ![image of a grayscale image and its array values](introduction.assets/image-array.png)
 
-The colours you see when an image is displayed are the result of applying a colourmap to the array values, a function which maps values onto colours.
-How this function is chosen is somewhat arbitrary and can drastically change the way an image looks. 

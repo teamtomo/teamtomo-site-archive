@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Preprocessing</title>
+    <title>2D preprocessing</title>
     
   <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -58,8 +58,8 @@
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Geometrical particle picking" href="geometrical-picking.html" />
-    <link rel="prev" title="Preparation" href="preparation.html" />
+    <link rel="next" title="Tilt-series to tomograms" href="tilt-series-to-tomograms.html" />
+    <link rel="prev" title="Download the data" href="preparation.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -106,6 +106,11 @@
    <li class="toctree-l2">
     <a class="reference internal" href="../../teamtomo/contributing/git_guide.html">
      A short guide to git(hub)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../teamtomo/contributing/screen-capture.html">
+     Screen capture
     </a>
    </li>
    <li class="toctree-l2">
@@ -205,12 +210,17 @@
   <ul class="current collapse-ul">
    <li class="toctree-l2">
     <a class="reference internal" href="preparation.html">
-     Preparation
+     Download the data
     </a>
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     Preprocessing
+     2D preprocessing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="tilt-series-to-tomograms.html">
+     Tilt-series to tomograms
     </a>
    </li>
    <li class="toctree-l2">
@@ -225,7 +235,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="particle-picking.html">
-     Finding particles on every VLP
+     Find particles on every VLP
     </a>
    </li>
    <li class="toctree-l2">
@@ -255,18 +265,18 @@
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2">
-    <a class="reference internal" href="../../mini-tutorials/dynamo/alignment-setup.html">
-     Running a simple subtomogram averaging experiment
+    <a class="reference internal" href="../../mini-tutorials/dynamo/simple-alignment.html">
+     Simple subtomogram averaging
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../mini-tutorials/dynamo/extract-from-catalogue.html">
-     Extracting particles from a catalogue
+     Extracting particles
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../mini-tutorials/dynamo/dipoles-to-vesicles.html">
-     Dipoles to vesicles
+     Spherical vesicle picking
     </a>
    </li>
    <li class="toctree-l2">
@@ -555,7 +565,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/walkthroughs/EMPIAR-10164/preprocessing.md"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/walkthroughs/EMPIAR-10164/2d-preprocessing.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -575,10 +585,10 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/teamtomo/teamtomo.github.io/issues/new?title=Issue%20on%20page%20%2Fwalkthroughs/EMPIAR-10164/preprocessing.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/teamtomo/teamtomo.github.io/issues/new?title=Issue%20on%20page%20%2Fwalkthroughs/EMPIAR-10164/2d-preprocessing.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/teamtomo/teamtomo.github.io/edit/master/./walkthroughs/EMPIAR-10164/preprocessing.md"><button
+        <a class="edit-button" href="https://github.com/teamtomo/teamtomo.github.io/edit/master/./walkthroughs/EMPIAR-10164/2d-preprocessing.md"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -625,64 +635,6 @@
    </li>
   </ul>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#tilt-series-alignment">
-   Tilt-series alignment
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#overview">
-     Overview
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#aligning-the-tilt-series">
-     Aligning the tilt-series
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#checking-the-results">
-       Checking the results
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#tilt-series-ctf-estimation-and-tomogram-reconstruction">
-   Tilt-Series CTF Estimation and Tomogram reconstruction
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#import-aligned-tilt-series">
-     Import aligned tilt-series
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#tilt-series-ctf-estimation">
-     Tilt-Series CTF estimation
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#check-tilt-handedness">
-       Check tilt handedness
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#ctf-estimation">
-       CTF estimation
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#reconstruct-tomograms">
-     Reconstruct tomograms
-    </a>
-   </li>
-  </ul>
- </li>
 </ul>
 
         </nav>
@@ -694,21 +646,9 @@
         
               <div>
                 
-  <div class="section" id="preprocessing">
-<h1>Preprocessing<a class="headerlink" href="#preprocessing" title="Permalink to this headline">¶</a></h1>
-<p>In this chapter, we will detail the necessary steps to take you from multi-frame micrographs to tomograms.</p>
-<p>The main steps in this chapter are:</p>
-<ol>
-<li><p><a class="reference internal" href="#hiv-mic-preproc"><span class="std std-ref">Micrograph Preprocessing</span></a></p>
-<p>Process multi-frame micrographs and generate tilt series stacks</p>
-</li>
-<li><p><a class="reference internal" href="#hiv-tilt-align"><span class="std std-ref">Tilt-Series Alignment</span></a></p>
-<p>Estimate the image transformations required for tomogram reconstruction</p>
-</li>
-<li><p><a class="reference internal" href="#hiv-reconstruct"><span class="std std-ref">Tilt-Series CTF Estimation and Tomogram Reconstruction</span></a></p>
-<p>Reconstruction of 3D-CTF corrected downsampled tomograms and deconvolved volumes for visualisation</p>
-</li>
-</ol>
+  <div class="section" id="d-preprocessing">
+<h1>2D preprocessing<a class="headerlink" href="#d-preprocessing" title="Permalink to this headline">¶</a></h1>
+<p>In this chapter, we will detail the necessary steps to take you from the raw data we downloaded from <em>EMPIAR</em> (multi-frame micrographs) to tilt-series</p>
 <div class="section" id="micrograph-preprocessing">
 <span id="hiv-mic-preproc"></span><h2>Micrograph preprocessing<a class="headerlink" href="#micrograph-preprocessing" title="Permalink to this headline">¶</a></h2>
 <p>In this section, we will use <code class="docutils literal notranslate"><span class="pre">Warp</span></code> for the initial processing of the raw data. This will let us:</p>
@@ -730,12 +670,12 @@
 <div class="card w-100 border-2 docutils">
 <div class="card-body docutils">
 <div class="tabbed-set docutils">
-<input checked="checked" id="ff00fc57-1d12-46d7-876a-22f38e10e342" name="80678c80-8122-4d6e-b321-5ca5a18681b6" type="radio">
-</input><label class="tabbed-label" for="ff00fc57-1d12-46d7-876a-22f38e10e342">
+<input checked="checked" id="5bd65549-6763-4c1f-b8f6-ef2c9974caa8" name="bdd832c2-897b-4bef-a5c3-836837c97799" type="radio">
+</input><label class="tabbed-label" for="5bd65549-6763-4c1f-b8f6-ef2c9974caa8">
 Import</label><div class="tabbed-content docutils">
 <p class="card-text">To import new data into Warp, click on the path next to <code class="docutils literal notranslate"><span class="pre">Input</span></code> and select the <code class="docutils literal notranslate"><span class="pre">frames</span></code> directory. For the HIV-5-TS data, make sure that the selected format is <code class="docutils literal notranslate"><span class="pre">*.mrc</span></code>.</p>
 <p class="card-text">We then set the parameters as shown below.</p>
-<p class="card-text"><img alt="binning" src="https://i.ibb.co/tMdFXQb/binning.png" /></p>
+<a class="reference internal image-reference" href="../../_images/input-params.png"><img alt="../../_images/input-params.png" class="align-center" src="../../_images/input-params.png" style="width: 398.25px; height: 120.75px;" /></a>
 <p class="card-text">We need to correctly set the pixel size to match that of the raw data; in this case, 0.6750 <span class="math notranslate nohighlight">\(Å/px\)</span>.</p>
 <div class="margin sidebar">
 <p class="card-title sidebar-title"></p>
@@ -752,8 +692,8 @@ Make sure that the orientation of the reference and the images correspond!</p>
 </div>
 <p class="card-text">The EMPIAR entry for EMPIAR-10164 indicates that the images were already gain corrected. We can skip gain correction by leaving this section unchecked.</p>
 </div>
-<input id="2df9300f-fc94-4361-942a-38eeacf316d9" name="80678c80-8122-4d6e-b321-5ca5a18681b6" type="radio">
-</input><label class="tabbed-label" for="2df9300f-fc94-4361-942a-38eeacf316d9">
+<input id="a76d9447-30e1-470b-91a4-33c1bac29517" name="bdd832c2-897b-4bef-a5c3-836837c97799" type="radio">
+</input><label class="tabbed-label" for="a76d9447-30e1-470b-91a4-33c1bac29517">
 CTF and Motion</label><div class="tabbed-content docutils">
 <div class="margin sidebar">
 <p class="card-title sidebar-title"></p>
@@ -764,7 +704,7 @@ we will explain this in more detail later.</p>
 </div>
 </div>
 <p class="card-text">Accurate estimation of Contrast Transfer Function (CTF) parameters is essential for obtaining high resolution reconstructions.</p>
-<p class="card-text"><img alt="ctf parameters" src="https://i.ibb.co/Hpn7Lft/ctf.png" /></p>
+<a class="reference internal image-reference" href="../../_images/ctf-params.png"><img alt="../../_images/ctf-params.png" class="align-center" src="../../_images/ctf-params.png" style="width: 396.0px; height: 117.75px;" /></a>
 <p class="card-text">The following parameters depend entirely on the microscope setup used for data collection, for HIV-5-TS:</p>
 <div class="sphinx-bs container pb-4 docutils">
 <div class="row docutils">
@@ -779,7 +719,17 @@ we will explain this in more detail later.</p>
 <dt>Phase Shift</dt><dd><p class="card-text">Whether to model a phase shift in the CTF, usually only used for data collected with a phase plate.</p>
 </dd>
 </dl>
+</div>
+</div>
+</div>
+</div>
+</div>
 <p class="card-text">The remaining parameters should be set depending on the dataset:</p>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-20 docutils">
+<div class="card w-100 border-2 docutils">
+<div class="card-body docutils">
 <dl class="simple myst">
 <dt>Defocus</dt><dd><p class="card-text">The upper and lower limits for defocus estimation. When a dataset is expected to have higher or lower defoci, this range should be expanded.</p>
 </dd>
@@ -788,7 +738,17 @@ we will explain this in more detail later.</p>
 <dt>Amplitude</dt><dd><p class="card-text">The percentage of amplitude contrast for the CTF model. For cryo-EM typical values are 0.07-0.10.</p>
 </dd>
 </dl>
+</div>
+</div>
+</div>
+</div>
+</div>
 <p class="card-text">Some computational parameters can also be adjusted:</p>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-20 docutils">
+<div class="card w-100 border-2 docutils">
+<div class="card-body docutils">
 <dl class="simple myst">
 <dt>Window</dt><dd><p class="card-text">The size of power spectra used for CTF estimation.</p>
 </dd>
@@ -803,20 +763,20 @@ we will explain this in more detail later.</p>
 <p class="card-text">In order to compensate for both mechanical stage-drift and beam-induced sample motion,
 we estimate and correct for the inter-frame motion present in the image.
 In this case, we leave the motion correction parameters as defaults.</p>
-<p class="card-text"><img alt="motion corr" src="https://i.ibb.co/Pgxsjt5/motion.png" /></p>
+<a class="reference internal image-reference" href="../../_images/motion-params.png"><img alt="../../_images/motion-params.png" class="align-center" src="../../_images/motion-params.png" style="width: 398.25px; height: 54.0px;" /></a>
 </div>
-<input id="f3c1a586-7581-4e24-83a5-b504f3b9380c" name="80678c80-8122-4d6e-b321-5ca5a18681b6" type="radio">
-</input><label class="tabbed-label" for="f3c1a586-7581-4e24-83a5-b504f3b9380c">
+<input id="ea69e630-4639-487a-be32-877652f114fb" name="bdd832c2-897b-4bef-a5c3-836837c97799" type="radio">
+</input><label class="tabbed-label" for="ea69e630-4639-487a-be32-877652f114fb">
 Spatiotemporal models</label><div class="tabbed-content docutils">
 <p class="card-text">Warp allows us to estimate how CTF and inter-frame translational motion parameters change in both space and time.</p>
-<p class="card-text"><img alt="CTF and motion model" src="https://i.ibb.co/6mwzZKb/models.png" /></p>
+<a class="reference internal image-reference" href="../../_images/spatiotemporal-models.png"><img alt="../../_images/spatiotemporal-models.png" class="align-center" src="../../_images/spatiotemporal-models.png" style="width: 398.25px; height: 166.5px;" /></a>
 <p class="card-text">The resolution of this spatiotemporal model (x, y, t) can be set in the <strong>Models</strong> panel: the first two values represent the spatial resolution of the model in <em>x</em> and <em>y</em> , while the third value sets the temporal resolution (at most, the number of frames in a multi-frame micrograph).</p>
 <p class="card-text">For tilt-series data, a CTF model resolution of 2x2x1 is usually sufficient to observe how defocus changes across the image, which is required to determine the ‘tilt-handedness’ of the data. More accurate defocus values will be estimated in the tilt-series CTF estimation procedure prior to tomogram reconstruction.</p>
 <p class="card-text">A motion model of 1x1xn where n is the number of frames typically ensures that accurate estimates can be obtained from low-dose data. The alignment of individual frames can be improved once a high SNR reference has been obtained, this is performed in the multi-particle refinement step of the workflow.</p>
 <p class="card-text">For HIV-5-TS, EMPIAR indicates that we have 8 frames per image, so we set the resolution of the motion model to 1x1x8</p>
 </div>
-<input id="3942e3c2-b723-4397-8e94-9edc04dd9569" name="80678c80-8122-4d6e-b321-5ca5a18681b6" type="radio">
-</input><label class="tabbed-label" for="3942e3c2-b723-4397-8e94-9edc04dd9569">
+<input id="82dce396-c54b-43e5-911c-9c474b800347" name="bdd832c2-897b-4bef-a5c3-836837c97799" type="radio">
+</input><label class="tabbed-label" for="82dce396-c54b-43e5-911c-9c474b800347">
 Fiducials</label><div class="tabbed-content docutils">
 <p class="card-text">While gold fiducials are useful for the accurate alignment of tilt series, their high contrast will have negative effects on the final tomographic reconstruction. For this reason, we use Warp to mask out any beads prior to tomographic reconstruction.</p>
 <p class="card-text">The <code class="docutils literal notranslate"><span class="pre">Pick</span> <span class="pre">Particles</span></code> panel gives access to <code class="docutils literal notranslate"><span class="pre">BoxNet</span></code>, a deep convolutional neural network designed to pick particles and mask out unwanted subregions in single-particle cryo-EM. A version of BoxNet we retrained for to mask gold fiducials is <span class="xref myst">provided</span> with this tutorial.</p>
@@ -828,13 +788,13 @@ Fiducials</label><div class="tabbed-content docutils">
 </div>
 </div>
 <p class="card-text">In order to access it from Warp, the <code class="docutils literal notranslate"><span class="pre">BoxNet2MaskBeads_20200607</span></code> TODO better name directory must be placed in the Warp installation folder under the <code class="docutils literal notranslate"><span class="pre">boxnet2models</span></code> directory. Then, to select the pretrained model in Warp, click on the currently selected BoxNet model and select the <code class="docutils literal notranslate"><span class="pre">BoxNet2MaskBeads_20200607</span></code> model.</p>
-<p class="card-text"><img alt="boxnet" src="https://i.ibb.co/5BvkK9x/masking.png" /></p>
+<a class="reference internal image-reference" href="../../_images/boxnet-params.png"><img alt="../../_images/boxnet-params.png" class="align-center" src="../../_images/boxnet-params.png" style="width: 398.25px; height: 159.0px;" /></a>
 <p class="card-text">As we are only using this model for particle picking, the parameters relating to particle picking can be safely ignored.</p>
 </div>
-<input id="beaec205-dcd2-4dff-a402-cf8c3c691bd4" name="80678c80-8122-4d6e-b321-5ca5a18681b6" type="radio">
-</input><label class="tabbed-label" for="beaec205-dcd2-4dff-a402-cf8c3c691bd4">
+<input id="3f7e137d-2e52-4cc0-8e4f-844dcd48462b" name="bdd832c2-897b-4bef-a5c3-836837c97799" type="radio">
+</input><label class="tabbed-label" for="3f7e137d-2e52-4cc0-8e4f-844dcd48462b">
 Start Processing!</label><div class="tabbed-content docutils">
-<p class="card-text"><img alt="processing" src="https://i.ibb.co/9nPKyLy/process.png" /></p>
+<a class="reference internal image-reference" href="../../_images/output-params.png"><img alt="../../_images/output-params.png" class="align-center" src="../../_images/output-params.png" style="width: 398.25px; height: 183.0px;" /></a>
 <p class="card-text">In the <code class="docutils literal notranslate"><span class="pre">Output</span></code> panel, we can choose not to include frames at the beginning and end of a movie. The first frames from a multi-frame micrograph of a given exposure often display increased translational motion. In this case, we chose to include all frames from the micrograph to maximise the signal present in the final images.</p>
 <p class="card-text">By selecting <code class="docutils literal notranslate"><span class="pre">Average</span></code>, we ensure the output of one 2D image per multi-frame micrograph in which the inter-frame motion has been corrected according to the motion model</p>
 <p class="card-text"><code class="docutils literal notranslate"><span class="pre">Odd/even</span></code> frame averages can be generated to facilitate Noise2Noise based denoising, this is not covered in this guide but we recommend playing with it.</p>
@@ -871,7 +831,7 @@ Start Processing!</label><div class="tabbed-content docutils">
 <p>To quickly check the images, hover your mouse over the selection bar at the bottom of the screen and move it along its length to inspect the thumbnails. To inspect an image in more detail, click on the bar and the image will be enlarged.</p>
 <p>If an image is heavily contaminated, black, blurred, a grid bar blocks a significant part of it or you otherwise deem it unsuitable, deselect the image by clicking the checkbox next to its name. The bar should turn grey once an image is deselected.</p>
 <p>For this dataset we only have to discard two bad images: <code class="docutils literal notranslate"><span class="pre">TS_01_039</span></code> and <code class="docutils literal notranslate"><span class="pre">TS_03_039</span></code>.</p>
-<p><img alt="deselect bad image" src="https://i.ibb.co/nQsc77B/bad-image.png" /></p>
+<a class="reference internal image-reference" href="../../_images/deselect-bad-image.png"><img alt="../../_images/deselect-bad-image.png" class="align-center" src="../../_images/deselect-bad-image.png" style="width: 296.0px; height: 281.0px;" /></a>
 </div>
 <div class="section" id="stack-generation">
 <h3>Stack generation<a class="headerlink" href="#stack-generation" title="Permalink to this headline">¶</a></h3>
@@ -887,128 +847,7 @@ In this case, they are the <code class="docutils literal notranslate"><span clas
 </div>
 </div>
 <p>Click on <code class="docutils literal notranslate"><span class="pre">Create</span> <span class="pre">stacks</span> <span class="pre">for</span> <span class="pre">IMOD</span></code> to start exporting the data. We can immediately move on to the next step without having to wait for the stack generation to finish, thanks to <code class="docutils literal notranslate"><span class="pre">autoalign_dynamo</span></code>’s on-the-fly processing.</p>
-<p><img alt="create stack" src="https://i.ibb.co/YLp32wg/create-stack.png" /></p>
-<hr class="docutils" />
-</div>
-</div>
-<div class="section" id="tilt-series-alignment">
-<span id="hiv-tilt-align"></span><h2>Tilt-series alignment<a class="headerlink" href="#tilt-series-alignment" title="Permalink to this headline">¶</a></h2>
-<p>In this section, we will use the <code class="docutils literal notranslate"><span class="pre">autoalign_dynamo</span></code> package, which leverages Dynamo’s automated tilt series alignment workflows.</p>
-<p>This program aligns tilt-series in <code class="docutils literal notranslate"><span class="pre">Dynamo</span></code> and prepares all necessary metadata for import back into <code class="docutils literal notranslate"><span class="pre">Warp</span></code>.</p>
-<div class="section" id="overview">
-<h3>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h3>
-<p>Basic overview of the tilt-series alignment procedure in <code class="docutils literal notranslate"><span class="pre">Dynamo</span></code>:</p>
-<div class="margin sidebar">
-<p class="sidebar-title"></p>
-<div class="seealso admonition">
-<p class="admonition-title">See also</p>
-<p>For a detailed, step-by-step explanation of the procedure, check out the <a class="reference external" href="https://www.wiki.dynamo.biozentrum.unibas.ch/w/index.php/Walkthrough_on_GUI_based_tilt_series_alignment">Walkthrough on GUI based tilt series alignment</a> on the Dynamo wiki.</p>
-</div>
-</div>
-<div class="sphinx-bs container pb-4 docutils">
-<div class="row docutils">
-<div class="d-flex col-20 docutils">
-<div class="card w-100 border-2 docutils">
-<div class="card-body docutils">
-<ul class="simple">
-<li><p class="card-text">Estimation of the putative positions of fiducials in all the images by cross-correlation (CC) against a synthetic template.</p></li>
-<li><p class="card-text">Rejection of features that are not rotationally symmetric, and therefore likely not beads.</p></li>
-<li><p class="card-text">Indexing of bead observations, attempting to determine which beads correspond to the same underlying object in 3D.</p></li>
-<li><p class="card-text">Iterative refinement of the alignment parameters and bead positions.</p></li>
-<li><p class="card-text">Reintegration of missing observations based on an updated projection model.</p></li>
-<li><p class="card-text">Removal of observations with large residuals.</p></li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-</div>
-<p>This procedure explicitly attempts to maximise the number of observations which should increase the global accuracy of the final solution.</p>
-<p>To enable use of these workflows within the Warp preprocessing pipeline we provide a package <code class="docutils literal notranslate"><span class="pre">autoalign_dynamo</span></code>. <code class="docutils literal notranslate"><span class="pre">dautoalign4warp</span></code> is a function provided by this package which handles running the Dynamo alignment workflow on all tilt-series and prepares all metadata for import back into Warp. This procedure can be run on-the-fly, starting as soon as the first tilt-series has been generated by Warp.</p>
-</div>
-<div class="section" id="aligning-the-tilt-series">
-<h3>Aligning the tilt-series<a class="headerlink" href="#aligning-the-tilt-series" title="Permalink to this headline">¶</a></h3>
-<p>Open MATLAB, make sure that <a class="reference external" href="https://github.com/alisterburt/autoalign_dynamo#activation-and-running">dynamo and autoalign_dynamo are activated</a> and navigate to the <code class="docutils literal notranslate"><span class="pre">frames</span></code> directory.</p>
-<p>The command we need to use is:</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">dautoalign4warp</span><span class="p">(</span><span class="o">&lt;</span><span class="n">warp_tilt_series_directory</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">pixel_size_angstrom</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">fiducial_diameter_nm</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">nominal_rotation_angle</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">output_folder</span><span class="o">&gt;</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Warp puts the generated tilt series in a new <code class="docutils literal notranslate"><span class="pre">imod</span></code> directory, one level below the <code class="docutils literal notranslate"><span class="pre">frames</span></code> directory.</p>
-<div class="margin sidebar">
-<p class="sidebar-title"></p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The nominal rotation angle is the angle of the tilt axis relative to the Y axis in the tilt-series (counter-clockwise positive).<br />
-It can usually be found in the mdoc file for a tilt series, under <code class="docutils literal notranslate"><span class="pre">Tilt</span> <span class="pre">axis</span> <span class="pre">angle</span></code>.
-If you don’t know, ask your microscope manager!</p>
-</div>
-</div>
-<p>For this dataset the fiducial diameter is 10 nm and the nominal rotation angle is 85.3 degrees.</p>
-<p>We can start aligning tilt-series with the following command:</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">dautoalign4warp</span><span class="p">(</span><span class="s">&#39;./imod&#39;</span><span class="p">,</span> <span class="mf">1.35</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">85.3</span><span class="p">,</span> <span class="s">&#39;./dynamo_alignments&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>This command will generate the transforms needed to align a tilt series</p>
-<p>Once running, <code class="docutils literal notranslate"><span class="pre">autoalign_dynamo</span></code> will keep processing incoming data from Warp and generate the metadata necessary for tomogram reconstruction.
-As soon as the alignments are done, we can start CTF estimation on the tilt-series and reconstructing tomograms.</p>
-<div class="section" id="checking-the-results">
-<h4>Checking the results<a class="headerlink" href="#checking-the-results" title="Permalink to this headline">¶</a></h4>
-<p>TODO: add some details for checking the results, how to open the tomogram and the .mod file together in 3dmod and checking that the beads were tracked properly</p>
-<hr class="docutils" />
-</div>
-</div>
-</div>
-<div class="section" id="tilt-series-ctf-estimation-and-tomogram-reconstruction">
-<span id="hiv-reconstruct"></span><h2>Tilt-Series CTF Estimation and Tomogram reconstruction<a class="headerlink" href="#tilt-series-ctf-estimation-and-tomogram-reconstruction" title="Permalink to this headline">¶</a></h2>
-<p>Up to now we have:</p>
-<ul class="simple">
-<li><p>preprocessed the 2D images</p></li>
-<li><p>generated and aligned tilt-series</p></li>
-</ul>
-<p>We will now estimate the CTF parameters for each tilt-series,
-check that our CTF model has the correct handedness and reconstruct the tomograms.</p>
-<div class="section" id="import-aligned-tilt-series">
-<h3>Import aligned tilt-series<a class="headerlink" href="#import-aligned-tilt-series" title="Permalink to this headline">¶</a></h3>
-<p>To import the newly aligned tilt series back into Warp, click the <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">tilt</span> <span class="pre">series</span> <span class="pre">from</span> <span class="pre">IMOD</span></code> button and select the <code class="docutils literal notranslate"><span class="pre">frames</span></code> and <code class="docutils literal notranslate"><span class="pre">mdoc</span></code> folders as before. Then, set <code class="docutils literal notranslate"><span class="pre">Root</span> <span class="pre">folder</span> <span class="pre">with</span> <span class="pre">IMOD</span> <span class="pre">processing</span> <span class="pre">results</span></code> to the new <code class="docutils literal notranslate"><span class="pre">dynamo_alignments</span></code> directory.</p>
-<p>The checkboxes should now appear checked in the <code class="docutils literal notranslate"><span class="pre">Aligned</span></code> column on the right hand side of the import window.</p>
-<p>Differently from earlier, now we also need to enter the pixel size of the tilt-series and the electron dose that the sample was exposed to per tilt.</p>
-<p>For this dataset this is the binned pixel size of 1.35 <span class="math notranslate nohighlight">\(Å/px\)</span>,
-and according the the EMPIAR entry the dose is roughly 3 <span class="math notranslate nohighlight">\(e^-/Å^2\)</span> per tilt.</p>
-<p><img alt="import alignment" src="https://i.ibb.co/Jrr8K69/import-dynamo.png" /></p>
-</div>
-<div class="section" id="tilt-series-ctf-estimation">
-<h3>Tilt-Series CTF estimation<a class="headerlink" href="#tilt-series-ctf-estimation" title="Permalink to this headline">¶</a></h3>
-<p>In this step, Warp will reestimate the CTF parameters for each tilt series according to a 3D model of the underlying signal which accounts for defocus variations due to tilt angle, sample thickness and sample inclination relative to the imaging plane. Using this 3D model, individual particles can be reconstructed from images which have been CTF corrected according to their exact position within the reconstructed volume.</p>
-<div class="section" id="check-tilt-handedness">
-<h4>Check tilt handedness<a class="headerlink" href="#check-tilt-handedness" title="Permalink to this headline">¶</a></h4>
-<p>The tilt handedness check allows us to check that defocus varies across each image as expected by Warp’s CTF model for each tilt-series.</p>
-<p>To perform the check, we first estimate the CTF for one tilt-series by hitting <code class="docutils literal notranslate"><span class="pre">estimate</span> <span class="pre">for</span> <span class="pre">just</span> <span class="pre">this</span> <span class="pre">tilt-series</span></code> in the <code class="docutils literal notranslate"><span class="pre">Fourier</span> <span class="pre">Space</span></code> tab. Once this has completed, we have to hit <code class="docutils literal notranslate"><span class="pre">Check</span> <span class="pre">tilt</span> <span class="pre">handedness</span></code>. If Warp sees that the defocus estimates don’t match what it expects in terms of how the defocus changes with tilt-angle, it will offer the option to flip the defocus handedness of the CTF model for each loaded tilt-series. If the correlation found is not convincing, try other tilt-series in the dataset.</p>
-<p>Once we are sure about the tilt handedness, we can proceed with the tilt-series CTF estimation procedure.</p>
-</div>
-<div class="section" id="ctf-estimation">
-<h4>CTF estimation<a class="headerlink" href="#ctf-estimation" title="Permalink to this headline">¶</a></h4>
-<p>The settings for tilt-series CTF estimation should be the same as those used earlier when estimating CTF parameters for 2D micrographs. In this case, we do not control the spatiotemporal resolution of the CTF model. Simply click on <code class="docutils literal notranslate"><span class="pre">START</span> <span class="pre">PROCESSING</span></code> to proceed.</p>
-</div>
-</div>
-<div class="section" id="reconstruct-tomograms">
-<h3>Reconstruct tomograms<a class="headerlink" href="#reconstruct-tomograms" title="Permalink to this headline">¶</a></h3>
-<p>We now have everything we need to reconstruct our tomograms. In Warp, we don’t need to reconstruct whole tomograms at this step. Instead, downsampled tomograms can be generated for initial particle picking and volumes centered on each object of interest can be reconstructed later at the desired pixel size. This reduces the computational burden of generating and extracting particles from large, unbinned tomograms which can easily be over 100GB in size.</p>
-<p><img alt="reconstruction size" src="https://i.ibb.co/jHwXktH/reconstruction-size.png" /></p>
-<div class="margin sidebar">
-<p class="sidebar-title"></p>
-<div class="tip admonition">
-<p class="admonition-title">Tip</p>
-<p>Starting with coarse pixel sizes significantly increases your ability to quickly test new ideas at the expense of the loss of high-resolution information. Generally, we aim for a pixel size which allows our object of interest to fit comfortably in a 32<span class="math notranslate nohighlight">\(px^3\)</span> box. If we don’t know the size of our object of interest 10-15 <span class="math notranslate nohighlight">\(Å/px\)</span> is usually a good starting point. For HIV-5-TS, we generate tomograms at 10 <span class="math notranslate nohighlight">\(Å/px\)</span>.</p>
-</div>
-</div>
-<p>We have to define the reconstruction area by setting the <code class="docutils literal notranslate"><span class="pre">Unbinned</span> <span class="pre">tomogram</span> <span class="pre">dimensions</span></code>. These are the dimensions that the tomogram would have if reconstructed at the pixel size of the tilt-series. To capture the full extent of the imaged area, we should use 4000 x 4000 for the x and y dimensions (because we downsampled our original ~8000x8000 super-resolution pixels by a factor of two). In z, we want the reconstruction to be large enough to include the entire imaged sample. In this case, 3000 <span class="math notranslate nohighlight">\(px\)</span> is more than enough.</p>
-<p>We can then click on <code class="docutils literal notranslate"><span class="pre">reconstruct</span> <span class="pre">full</span> <span class="pre">tomograms</span></code> at the top of the <code class="docutils literal notranslate"><span class="pre">Overview</span></code> tab to open the reconstruction dialog box.</p>
-<p>We invert contrast such that any averages of particles in the tomograms will be light-on-dark. Whilst not strictly necessary, this is a convention which facilitates visualisation in programs such as ChimeraX and the use of certain image processing tools which expect this inverted contrast.</p>
-<p>We also select <code class="docutils literal notranslate"><span class="pre">Also</span> <span class="pre">produce</span> <span class="pre">deconvolved</span> <span class="pre">version</span></code>; this generates a tomogram which has been filtered for visualisation alongside the unfiltered reconstruction suitable for subtomogram averaging.</p>
-<p>Leave <code class="docutils literal notranslate"><span class="pre">Reconstruct</span> <span class="pre">half-maps</span> <span class="pre">for</span> <span class="pre">denoising</span></code> and <code class="docutils literal notranslate"><span class="pre">Keep</span> <span class="pre">only</span> <span class="pre">fully</span> <span class="pre">covered</span> <span class="pre">voxels</span></code> unchecked for now, the first is useful if you want to denoise your data and the second will leave zeros in the regions not contributed to by all images in the tilt-series.</p>
-<p>Warp may have marked some tilt series as filtered out. Since we are not making active use of filters in this tutorial, this is not a problem. Simply select <code class="docutils literal notranslate"><span class="pre">Include</span> <span class="pre">items</span> <span class="pre">outside</span> <span class="pre">of</span> <span class="pre">filter</span> <span class="pre">ranges</span></code>. To learn more about the Warp filters, check out the <a class="reference external" href="http://www.warpem.com/warp/?page_id=185">Warp tutorial on frame series</a>.</p>
-<p>Once ready, click on <code class="docutils literal notranslate"><span class="pre">Reconstruct</span></code> to reconstruct the tomograms.</p>
-<p><img alt="reconstruction parameters" src="https://i.ibb.co/QY5X9hc/reconstruction-settings.png" /></p>
+<a class="reference internal image-reference" href="../../_images/create-stack.png"><img alt="../../_images/create-stack.png" class="align-center" src="../../_images/create-stack.png" style="width: 566.5px; height: 353.5px;" /></a>
 </div>
 </div>
 </div>
@@ -1041,8 +880,8 @@ and according the the EMPIAR entry the dose is roughly 3 <span class="math notra
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="preparation.html" title="previous page">Preparation</a>
-    <a class='right-next' id="next-link" href="geometrical-picking.html" title="next page">Geometrical particle picking</a>
+    <a class='left-prev' id="prev-link" href="preparation.html" title="previous page">Download the data</a>
+    <a class='right-next' id="next-link" href="tilt-series-to-tomograms.html" title="next page">Tilt-series to tomograms</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

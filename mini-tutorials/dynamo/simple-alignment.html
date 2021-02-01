@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Running a simple subtomogram averaging experiment</title>
+    <title>Simple subtomogram averaging</title>
     
   <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -58,7 +58,7 @@
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Extracting particles from a catalogue" href="extract-from-catalogue.html" />
+    <link rel="next" title="Extracting particles" href="extract-from-catalogue.html" />
     <link rel="prev" title="Dynamo" href="index.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -106,6 +106,11 @@
    <li class="toctree-l2">
     <a class="reference internal" href="../../teamtomo/contributing/git_guide.html">
      A short guide to git(hub)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../teamtomo/contributing/screen-capture.html">
+     Screen capture
     </a>
    </li>
    <li class="toctree-l2">
@@ -205,12 +210,17 @@
   <ul class="collapse-ul">
    <li class="toctree-l2">
     <a class="reference internal" href="../../walkthroughs/EMPIAR-10164/preparation.html">
-     Preparation
+     Download the data
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../walkthroughs/EMPIAR-10164/preprocessing.html">
-     Preprocessing
+    <a class="reference internal" href="../../walkthroughs/EMPIAR-10164/2d-preprocessing.html">
+     2D preprocessing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../walkthroughs/EMPIAR-10164/tilt-series-to-tomograms.html">
+     Tilt-series to tomograms
     </a>
    </li>
    <li class="toctree-l2">
@@ -225,7 +235,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../walkthroughs/EMPIAR-10164/particle-picking.html">
-     Finding particles on every VLP
+     Find particles on every VLP
     </a>
    </li>
    <li class="toctree-l2">
@@ -256,17 +266,17 @@
   <ul class="current collapse-ul">
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     Running a simple subtomogram averaging experiment
+     Simple subtomogram averaging
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="extract-from-catalogue.html">
-     Extracting particles from a catalogue
+     Extracting particles
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="dipoles-to-vesicles.html">
-     Dipoles to vesicles
+     Spherical vesicle picking
     </a>
    </li>
    <li class="toctree-l2">
@@ -555,7 +565,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/mini-tutorials/dynamo/alignment-setup.md"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/mini-tutorials/dynamo/simple-alignment.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -575,10 +585,10 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/teamtomo/teamtomo.github.io/issues/new?title=Issue%20on%20page%20%2Fmini-tutorials/dynamo/alignment-setup.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/teamtomo/teamtomo.github.io/issues/new?title=Issue%20on%20page%20%2Fmini-tutorials/dynamo/simple-alignment.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/teamtomo/teamtomo.github.io/edit/master/./mini-tutorials/dynamo/alignment-setup.md"><button
+        <a class="edit-button" href="https://github.com/teamtomo/teamtomo.github.io/edit/master/./mini-tutorials/dynamo/simple-alignment.md"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -645,11 +655,23 @@
     <a class="reference internal nav-link" href="#alignment-parameters">
      Alignment parameters
     </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#computational-parameters">
+     Computational parameters
+    </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#optional-specifying-gpus">
-       (optional) specifying GPUs
+      <a class="reference internal nav-link" href="#hardware">
+       Hardware
       </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#optional-specifying-gpus">
+         (optional) specifying GPUs
+        </a>
+       </li>
+      </ul>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#mpi">
@@ -691,8 +713,8 @@
         
               <div>
                 
-  <div class="section" id="running-a-simple-subtomogram-averaging-experiment">
-<h1>Running a simple subtomogram averaging experiment<a class="headerlink" href="#running-a-simple-subtomogram-averaging-experiment" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="simple-subtomogram-averaging">
+<h1>Simple subtomogram averaging<a class="headerlink" href="#simple-subtomogram-averaging" title="Permalink to this headline">¶</a></h1>
 <p>This mini-tutorial will show you how to quickly set up and run a subtomogram averaging experiment in <code class="docutils literal notranslate"><span class="pre">Dynamo</span></code>.
 In <code class="docutils literal notranslate"><span class="pre">Dynamo</span></code> lingo, this is referred to as an ‘alignment project’.</p>
 <p>We will set up our alignment project from the ‘Dynamo current project’ GUI (<code class="docutils literal notranslate"><span class="pre">dcp</span></code>).</p>
@@ -713,7 +735,6 @@ You can also set up your project locally, then
 </div>
 <div class="section" id="setup">
 <h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
-<p>In this section, we will set up our alignment project.</p>
 <p>First, we need to open <code class="docutils literal notranslate"><span class="pre">Dynamo</span></code>, either activating it in <code class="docutils literal notranslate"><span class="pre">MATLAB</span></code> or using the standalone version.</p>
 <div class="section" id="open-the-dcp-gui">
 <h3>Open the <code class="docutils literal notranslate"><span class="pre">dcp</span></code> gui<a class="headerlink" href="#open-the-dcp-gui" title="Permalink to this headline">¶</a></h3>
@@ -749,59 +770,68 @@ Choose something descriptive, it might help you remember what you did in a few m
 <p>To keep your workspace tidy, close the dialogue boxes once you are finished with them. They tend to build up quickly!</p>
 </div>
 </div>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-20 docutils">
+<div class="card w-100 border-2 docutils">
+<div class="card-body docutils">
 <div class="tabbed-set docutils">
-<input checked="checked" id="1ab9587b-ca66-4d3b-abe9-fc139c547b5b" name="a1cd2530-b204-4a4b-99e0-f1d3de84f6b8" type="radio">
-</input><label class="tabbed-label" for="1ab9587b-ca66-4d3b-abe9-fc139c547b5b">
+<input checked="checked" id="10f921f6-c5fd-4eac-8f24-5b7487c7672a" name="d1190670-7f3f-4b1b-8310-bfea34bdfb1f" type="radio">
+</input><label class="tabbed-label" for="10f921f6-c5fd-4eac-8f24-5b7487c7672a">
 particles</label><div class="tabbed-content docutils">
-<p>Click on the <code class="docutils literal notranslate"><span class="pre">particles</span></code> button in the <code class="docutils literal notranslate"><span class="pre">Input:</span> <span class="pre">files</span></code> row.
+<p class="card-text">Click on the <code class="docutils literal notranslate"><span class="pre">particles</span></code> button in the <code class="docutils literal notranslate"><span class="pre">Input:</span> <span class="pre">files</span></code> row.
 In the dialogue box which pops up, enter the name of your data file.</p>
-<p><img alt="select particles image" src="../../_images/select-particles.gif" /></p>
+<p class="card-text"><img alt="select particles image" src="../../_images/select-particles.gif" /></p>
 </div>
-<input id="799757d7-c13f-46d2-bcf7-eee3a322adce" name="a1cd2530-b204-4a4b-99e0-f1d3de84f6b8" type="radio">
-</input><label class="tabbed-label" for="799757d7-c13f-46d2-bcf7-eee3a322adce">
+<input id="a6f0c584-d640-47c3-9459-bb79fd7197f6" name="d1190670-7f3f-4b1b-8310-bfea34bdfb1f" type="radio">
+</input><label class="tabbed-label" for="a6f0c584-d640-47c3-9459-bb79fd7197f6">
 table</label><div class="tabbed-content docutils">
-<p>Click on the <code class="docutils literal notranslate"><span class="pre">table</span></code> button in the <code class="docutils literal notranslate"><span class="pre">Input:</span> <span class="pre">files</span></code> row. In the dialogue box which pops up, enter the name of your table file.
+<p class="card-text">Click on the <code class="docutils literal notranslate"><span class="pre">table</span></code> button in the <code class="docutils literal notranslate"><span class="pre">Input:</span> <span class="pre">files</span></code> row. In the dialogue box which pops up, enter the name of your table file.
 If you don’t have a template, you can generate a blank table or a random table using the buttons in the Dialogue box.
 <img alt="select table image" src="../../_images/select-table.gif" /></p>
 </div>
-<input id="7579e3a5-6371-4f1e-9be8-2f028b8c2310" name="a1cd2530-b204-4a4b-99e0-f1d3de84f6b8" type="radio">
-</input><label class="tabbed-label" for="7579e3a5-6371-4f1e-9be8-2f028b8c2310">
+<input id="c86a7bef-bb69-4d3c-b6b8-49a5aad7ae21" name="d1190670-7f3f-4b1b-8310-bfea34bdfb1f" type="radio">
+</input><label class="tabbed-label" for="c86a7bef-bb69-4d3c-b6b8-49a5aad7ae21">
 template</label><div class="tabbed-content docutils">
-<p>Click on the <code class="docutils literal notranslate"><span class="pre">template</span></code> button in the <code class="docutils literal notranslate"><span class="pre">Input:</span> <span class="pre">files</span></code> row. In the dialogue box which pops up, enter the name of your template file.</p>
-<p>If you don’t have a template, a random subset of the data can be used to generate an initial reference volume from the GUI by selecting
+<p class="card-text">Click on the <code class="docutils literal notranslate"><span class="pre">template</span></code> button in the <code class="docutils literal notranslate"><span class="pre">Input:</span> <span class="pre">files</span></code> row. In the dialogue box which pops up, enter the name of your template file.</p>
+<p class="card-text">If you don’t have a template, a random subset of the data can be used to generate an initial reference volume from the GUI by selecting
 one of the options in the <code class="docutils literal notranslate"><span class="pre">I</span> <span class="pre">want</span> <span class="pre">to</span> <span class="pre">create</span> <span class="pre">a</span> <span class="pre">template</span></code> section, setting the desired number of particles and hitting <code class="docutils literal notranslate"><span class="pre">Average</span> <span class="pre">data</span></code>.</p>
-<p><img alt="create template image" src="../../_images/create-template.gif" /></p>
+<p class="card-text"><img alt="create template image" src="../../_images/create-template.gif" /></p>
 </div>
-<input id="89dfac73-8031-46a6-ad91-c6bd6675874b" name="a1cd2530-b204-4a4b-99e0-f1d3de84f6b8" type="radio">
-</input><label class="tabbed-label" for="89dfac73-8031-46a6-ad91-c6bd6675874b">
+<input id="1ee33c0b-a7d5-4da8-a185-b0c48e97d541" name="d1190670-7f3f-4b1b-8310-bfea34bdfb1f" type="radio">
+</input><label class="tabbed-label" for="1ee33c0b-a7d5-4da8-a185-b0c48e97d541">
 masks</label><div class="tabbed-content docutils">
-<p>Click on the <code class="docutils literal notranslate"><span class="pre">masks</span></code> button in the <code class="docutils literal notranslate"><span class="pre">Input:</span> <span class="pre">files</span></code> row. In the dialogue box which pops up, you can enter up to four files</p>
+<p class="card-text">Click on the <code class="docutils literal notranslate"><span class="pre">masks</span></code> button in the <code class="docutils literal notranslate"><span class="pre">Input:</span> <span class="pre">files</span></code> row. In the dialogue box which pops up, you can enter up to four files</p>
 <ul class="simple">
-<li><p>an alignment mask</p></li>
-<li><p>a classification mask</p></li>
-<li><p>a Fourier mask for the template</p></li>
-<li><p>a Fourier shell correlation mask</p></li>
+<li><p class="card-text">an alignment mask</p></li>
+<li><p class="card-text">a classification mask</p></li>
+<li><p class="card-text">a Fourier mask for the template</p></li>
+<li><p class="card-text">a Fourier shell correlation mask</p></li>
 </ul>
-<p><img alt="default masks image" src="../../_images/masks-default.gif" /></p>
-<p>The <code class="docutils literal notranslate"><span class="pre">Use</span> <span class="pre">default</span> <span class="pre">masks</span></code> button will create masks covering the full extend of real space and fourier space for each mask automatically.</p>
+<p class="card-text"><img alt="default masks image" src="../../_images/masks-default.gif" /></p>
+<p class="card-text">The <code class="docutils literal notranslate"><span class="pre">Use</span> <span class="pre">default</span> <span class="pre">masks</span></code> button will create masks covering the full extend of real space and fourier space for each mask automatically.</p>
 <div class="margin sidebar">
-<p class="sidebar-title"></p>
+<p class="card-title sidebar-title"></p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>You can check that your mask properly covers your template using the <code class="docutils literal notranslate"><span class="pre">View</span> <span class="pre">mask</span> <span class="pre">-&gt;</span> <span class="pre">overlay</span> <span class="pre">x/y/z</span></code> menu options.</p>
+<p class="card-text">You can check that your mask properly covers your template using the <code class="docutils literal notranslate"><span class="pre">View</span> <span class="pre">mask</span> <span class="pre">-&gt;</span> <span class="pre">overlay</span> <span class="pre">x/y/z</span></code> menu options.</p>
 </div>
 </div>
-<p>The alignment mask defines a masked region of real space in which cross correlations used for alignments will be calculated.
+<p class="card-text">The alignment mask defines a masked region of real space in which cross correlations used for alignments will be calculated.
 The classification mask defines a masked region of real space in which cross correlations used for classification will be calculated.
 The Fourier mask for the template defines the region of Fourier space in which you have information in your template (reference) volume.
 The Fourier shell correlation mask defines a masked region of real space in which Fourier shell calculations will be calculated.</p>
-<p>Each mask can be created from the GUI directly, or an external mask can be provided. The classification mask and the Fourier shell correlation mask are not
+<p class="card-text">Each mask can be created from the GUI directly, or an external mask can be provided. The classification mask and the Fourier shell correlation mask are not
 relevant for simple, single reference alignment projects such as the one we are setting up.</p>
 </div>
 </div>
 </div>
 </div>
-<hr class="docutils" />
+</div>
+</div>
+</div>
+</div>
+</div>
 <div class="section" id="alignment-parameters">
 <h3>Alignment parameters<a class="headerlink" href="#alignment-parameters" title="Permalink to this headline">¶</a></h3>
 <p>From the <code class="docutils literal notranslate"><span class="pre">dcp</span></code> GUI click <code class="docutils literal notranslate"><span class="pre">numerical</span> <span class="pre">parameters</span></code> in the <code class="docutils literal notranslate"><span class="pre">Input:</span> <span class="pre">settings</span></code> row. This will open up a separate window in which many parameters relating to the numerical aspects of your alignments can be defined.</p>
@@ -811,33 +841,31 @@ relevant for simple, single reference alignment projects such as the one we are 
 <p>You should think carefully about how much you allow particles to move during an iterative alignment experiment. Particles have a tendency to ‘wander off’ in low SNR environments, restricting the evolution of shifts appropriately (<code class="docutils literal notranslate"><span class="pre">shift</span> <span class="pre">limiting</span> <span class="pre">way</span></code> 3 or 4) can reduce this problem.</p>
 <p>If your angular parameters come from a geometrical model, restricting angular searches ensures the particles do not deviate too much from initial estimates.</p>
 </div>
-<p>Key points:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Key info:
-- Hit `alt` on your keyboard or the `?` button for more info on a parameter
-- Alignment projects can be split up into rounds with different alignment parameters
-- Each round can have an arbitrary number of iterations
-- Each round employs a multilevel refinement [angular sampling scheme](https://wiki.dynamo.biozentrum.unibas.ch/w/index.php/Multilevel_refinement)
-- High and low pass thresholds (in Fourier pixels) define which spatial frequencies are aligned
-- Shifts are x, y, z shifts in the reference frame of each experimental particle
-- The evolution of particle positions can be restricted using the `shift limiting way` option.
-
-
-You can get a depiction of your current angular search parameters from the `Angles -&gt; Show sketch of scanning angles -&gt; Round X` menu options.
-
-![scanning angles image](alignment-setup.assets/scanning-angles.gif)
-
-### Computational parameters
-Computational parameters are used to tell the projects what it needs to know about the computing environment where it will be run.
-
-Click `computing environment` from the `dcp` GUI, a new window will open in which parameters can be edited.
-
-
-#### Hardware
-````{margin}
-```{tip}
-Running projects in the `standalone` modus leaves your `Dynamo` shell free for designing projects, making masks and performing other analyses.
-```
-</pre></div>
+<p>Key info:</p>
+<ul class="simple">
+<li><p>Hit <code class="docutils literal notranslate"><span class="pre">alt</span></code> on your keyboard or the <code class="docutils literal notranslate"><span class="pre">?</span></code> button for more info on a parameter</p></li>
+<li><p>Alignment projects can be split up into rounds with different alignment parameters</p></li>
+<li><p>Each round can have an arbitrary number of iterations</p></li>
+<li><p>Each round employs a multilevel refinement <a class="reference external" href="https://wiki.dynamo.biozentrum.unibas.ch/w/index.php/Multilevel_refinement">angular sampling scheme</a></p></li>
+<li><p>High and low pass thresholds (in Fourier pixels) define which spatial frequencies are aligned</p></li>
+<li><p>Shifts are x, y, z shifts in the reference frame of each experimental particle</p></li>
+<li><p>The evolution of particle positions can be restricted using the <code class="docutils literal notranslate"><span class="pre">shift</span> <span class="pre">limiting</span> <span class="pre">way</span></code> option.</p></li>
+</ul>
+<p>You can get a depiction of your current angular search parameters from the <code class="docutils literal notranslate"><span class="pre">Angles</span> <span class="pre">-&gt;</span> <span class="pre">Show</span> <span class="pre">sketch</span> <span class="pre">of</span> <span class="pre">scanning</span> <span class="pre">angles</span> <span class="pre">-&gt;</span> <span class="pre">Round</span> <span class="pre">X</span></code> menu options.</p>
+<p><img alt="scanning angles image" src="../../_images/scanning-angles.gif" /></p>
+</div>
+<div class="section" id="computational-parameters">
+<h3>Computational parameters<a class="headerlink" href="#computational-parameters" title="Permalink to this headline">¶</a></h3>
+<p>Computational parameters are used to tell the projects what it needs to know about the computing environment where it will be run.</p>
+<p>Click <code class="docutils literal notranslate"><span class="pre">computing</span> <span class="pre">environment</span></code> from the <code class="docutils literal notranslate"><span class="pre">dcp</span></code> GUI, a new window will open in which parameters can be edited.</p>
+<div class="section" id="hardware">
+<h4>Hardware<a class="headerlink" href="#hardware" title="Permalink to this headline">¶</a></h4>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Running projects in the <code class="docutils literal notranslate"><span class="pre">standalone</span></code> modus leaves your <code class="docutils literal notranslate"><span class="pre">Dynamo</span></code> shell free for designing projects, making masks and performing other analyses.</p>
+</div>
 </div>
 <p>First, choose the hardware on which you will be running your alignment project. We typically use <code class="docutils literal notranslate"><span class="pre">GPU</span> <span class="pre">(standalone)</span></code>.</p>
 <div class="admonition attention">
@@ -845,10 +873,11 @@ Running projects in the `standalone` modus leaves your `Dynamo` shell free for d
 <p>If running in a GPU modus, you should use only one CPU core in this box!</p>
 </div>
 <div class="section" id="optional-specifying-gpus">
-<h4>(optional) specifying GPUs<a class="headerlink" href="#optional-specifying-gpus" title="Permalink to this headline">¶</a></h4>
+<h5>(optional) specifying GPUs<a class="headerlink" href="#optional-specifying-gpus" title="Permalink to this headline">¶</a></h5>
 <p>Specify the GPU identifiers for GPUs you would like to use for alignment. These are typically enumerated from 0.</p>
 <p>e.g. for a 4 GPU system, set this to <code class="docutils literal notranslate"><span class="pre">0,1,2,3</span></code></p>
 <p>Leave the motor as <code class="docutils literal notranslate"><span class="pre">spp</span></code> (this stands for sub-pixel precision).</p>
+</div>
 </div>
 <div class="section" id="mpi">
 <h4>MPI<a class="headerlink" href="#mpi" title="Permalink to this headline">¶</a></h4>
@@ -869,9 +898,13 @@ This should be set to the number of logical (not hyperthreaded) cores available 
 </div>
 <div class="section" id="running-the-project">
 <h2>Running the project<a class="headerlink" href="#running-the-project" title="Permalink to this headline">¶</a></h2>
-<p>If running a project in the <code class="docutils literal notranslate"><span class="pre">MATLAB</span></code> modus, just type <code class="docutils literal notranslate"><span class="pre">run</span> <span class="pre">&lt;my_new_project&gt;.m</span></code> in your <code class="docutils literal notranslate"><span class="pre">Dynamo</span></code> shell.</p>
+<p>If running a project in the <code class="docutils literal notranslate"><span class="pre">MATLAB</span></code> modus, just type this in your <code class="docutils literal notranslate"><span class="pre">Dynamo</span></code> shell:</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">run</span> <span class="o">&lt;</span><span class="n">my_new_project</span><span class="o">&gt;</span><span class="p">.</span><span class="n">m</span>` 
+</pre></div>
+</div>
 <p>If running using the <code class="docutils literal notranslate"><span class="pre">standalone</span></code>, you first have to activate <code class="docutils literal notranslate"><span class="pre">Dynamo</span></code> in the shell. Usually this is achieved by running:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> /path/to/dynamo/installation/dynamo_activate_linux_shipped_MCR.sh
+
 ./&lt;my_new_project&gt;.exe
 </pre></div>
 </div>
@@ -914,7 +947,7 @@ This should be set to the number of logical (not hyperthreaded) cores available 
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="index.html" title="previous page">Dynamo</a>
-    <a class='right-next' id="next-link" href="extract-from-catalogue.html" title="next page">Extracting particles from a catalogue</a>
+    <a class='right-next' id="next-link" href="extract-from-catalogue.html" title="next page">Extracting particles</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

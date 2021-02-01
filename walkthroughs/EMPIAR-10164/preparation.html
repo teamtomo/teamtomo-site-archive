@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Preparation</title>
+    <title>Download the data</title>
     
   <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -58,7 +58,7 @@
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Preprocessing" href="preprocessing.html" />
+    <link rel="next" title="2D preprocessing" href="2d-preprocessing.html" />
     <link rel="prev" title="Introduction" href="introduction.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -106,6 +106,11 @@
    <li class="toctree-l2">
     <a class="reference internal" href="../../teamtomo/contributing/git_guide.html">
      A short guide to git(hub)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../teamtomo/contributing/screen-capture.html">
+     Screen capture
     </a>
    </li>
    <li class="toctree-l2">
@@ -205,12 +210,17 @@
   <ul class="current collapse-ul">
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     Preparation
+     Download the data
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="preprocessing.html">
-     Preprocessing
+    <a class="reference internal" href="2d-preprocessing.html">
+     2D preprocessing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="tilt-series-to-tomograms.html">
+     Tilt-series to tomograms
     </a>
    </li>
    <li class="toctree-l2">
@@ -225,7 +235,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="particle-picking.html">
-     Finding particles on every VLP
+     Find particles on every VLP
     </a>
    </li>
    <li class="toctree-l2">
@@ -255,18 +265,18 @@
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2">
-    <a class="reference internal" href="../../mini-tutorials/dynamo/alignment-setup.html">
-     Running a simple subtomogram averaging experiment
+    <a class="reference internal" href="../../mini-tutorials/dynamo/simple-alignment.html">
+     Simple subtomogram averaging
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../mini-tutorials/dynamo/extract-from-catalogue.html">
-     Extracting particles from a catalogue
+     Extracting particles
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../mini-tutorials/dynamo/dipoles-to-vesicles.html">
-     Dipoles to vesicles
+     Spherical vesicle picking
     </a>
    </li>
    <li class="toctree-l2">
@@ -605,20 +615,20 @@
         
               <div>
                 
-  <div class="section" id="preparation">
-<h1>Preparation<a class="headerlink" href="#preparation" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="download-the-data">
+<h1>Download the data<a class="headerlink" href="#download-the-data" title="Permalink to this headline">¶</a></h1>
+<p>The five tilt series subset of EMPIAR-10164 used for this guide should first be downloaded from
+<a class="reference external" href="https://www.ebi.ac.uk/pdbe/emdb/empiar/entry/10164/">EMPIAR</a>.</p>
+<p>For this purpose, we provide a simple shell script
+(<a class="reference external" href="https://github.com/teamtomo/teamtomo.github.io/blob/master/walkthroughs/EMPIAR-10164/scripts/download.sh"><code class="docutils literal notranslate"><span class="pre">download.sh</span></code></a>).</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Downloading the data may take a few hours. Start this early!</p>
 </div>
-<p>The five tilt series subset of EMPIAR-10164 used for this guide should first be downloaded from
-<a class="reference external" href="https://www.ebi.ac.uk/pdbe/emdb/empiar/entry/10164/">EMPIAR</a>.</p>
-<p>For this purpose, we provide a simple shell script
-(<a class="reference external" href="https://github.com/open-subtomo/open-subtomo/blob/master/guides/EMPIAR-10164/scripts/download.sh"><code class="docutils literal notranslate"><span class="pre">download.sh</span></code></a>).</p>
 <p><code class="docutils literal notranslate"><span class="pre">download.sh</span></code> organises files according to the directory structure expected by the rest of the guide.</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="d540878b-213f-4e3c-b06e-89bedf7d026e" name="381a8540-31c9-4060-8994-298c5e6b35ef" type="radio">
-</input><label class="tabbed-label" for="d540878b-213f-4e3c-b06e-89bedf7d026e">
+<input checked="checked" id="be3d2224-402e-48ce-8a1d-960b8b5e9895" name="f967e790-c7b1-4b7b-960a-b45fe837ec28" type="radio">
+</input><label class="tabbed-label" for="be3d2224-402e-48ce-8a1d-960b8b5e9895">
 shell script</label><div class="tabbed-content docutils">
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="s2">&quot;Downloading the raw data. This may take a couple of hours!&quot;</span>
 <span class="nb">echo</span>
@@ -633,8 +643,8 @@ shell script</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="71c23ac1-90e1-4e8b-9592-ce1d6620944b" name="381a8540-31c9-4060-8994-298c5e6b35ef" type="radio">
-</input><label class="tabbed-label" for="71c23ac1-90e1-4e8b-9592-ce1d6620944b">
+<input id="e321951e-8193-47c0-883a-d00151fffbbc" name="f967e790-c7b1-4b7b-960a-b45fe837ec28" type="radio">
+</input><label class="tabbed-label" for="e321951e-8193-47c0-883a-d00151fffbbc">
 directory structure</label><div class="tabbed-content docutils">
 <div class="highlight-{code notranslate"><div class="highlight"><pre><span></span>.
 ├── frames
@@ -648,13 +658,13 @@ directory structure</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="ccd1ea6c-601e-4bdc-b1b0-1ba452f4e3ed" name="381a8540-31c9-4060-8994-298c5e6b35ef" type="radio">
-</input><label class="tabbed-label" for="ccd1ea6c-601e-4bdc-b1b0-1ba452f4e3ed">
+<input id="2dab3ab4-dbb8-4f11-bce1-d4d16aa94f4e" name="f967e790-c7b1-4b7b-960a-b45fe837ec28" type="radio">
+</input><label class="tabbed-label" for="2dab3ab4-dbb8-4f11-bce1-d4d16aa94f4e">
 file extensions</label><div class="tabbed-content docutils">
 <p>Files with the <code class="docutils literal notranslate"><span class="pre">.mrc</span></code> extension are multi-frame micrographs for each tilt angle in a tilt series.</p>
 <p>They are in the <a class="reference external" href="https://www.ccpem.ac.uk/mrc_format/mrc2014.php">MRC2014</a> file format.</p>
-<p>Files with the <code class="docutils literal notranslate"><span class="pre">.mdoc</span></code> extension are <a class="reference external" href="https://bio3d.colorado.edu/SerialEM/">SerialEM</a> metadata files.</p>
-<p>They contain metadata about images in a tilt-series.</p>
+<p>Files with the <code class="docutils literal notranslate"><span class="pre">.mdoc</span></code> extension are <a class="reference external" href="https://bio3d.colorado.edu/SerialEM/">SerialEM</a> metadata files, we have one per tilt-series.</p>
+<p>They are plain text files containing metadata about images in a tilt-series.</p>
 </div>
 </div>
 </div>
@@ -688,7 +698,7 @@ file extensions</label><div class="tabbed-content docutils">
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="introduction.html" title="previous page">Introduction</a>
-    <a class='right-next' id="next-link" href="preprocessing.html" title="next page">Preprocessing</a>
+    <a class='right-next' id="next-link" href="2d-preprocessing.html" title="next page">2D preprocessing</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
