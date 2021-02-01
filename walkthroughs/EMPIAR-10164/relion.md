@@ -47,7 +47,7 @@ We reconstruct at a box twice as large as before because we have halved the pixe
 :width: 300px
 ```
 
-When ready, click on `EXPORT`. To prepare the directory structure for relion, we will choose to put the output `.star` file inside a new `root/relion` folder and call it `subtomograms_5Apx.star`.
+When ready, click on `EXPORT`. To prepare the directory structure for relion, we will choose to put the output `.star` file inside a new `relion` folder in the project root directory, and call it `subtomograms_5Apx.star`.
 
 ## 3D auto-refine in RELION
 

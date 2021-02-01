@@ -41,7 +41,7 @@ We have provided a function `warp2catalogue` in the `autoalign_dynamo` package w
 
 The function takes two arguments: the warp reconstruction directory and the pixel spacing of the reconstructed tomograms.
 
-Let's create a new `dynamo` folder in the root directory, and navigate to it in Matlab. Then, we run:
+Let's create a new `dynamo` folder in the project root directory, and navigate to it in Matlab. Then, we run:
 ```matlab
 warp2catalogue('../frames/reconstruction', 10)
 ```
