@@ -13,8 +13,7 @@ In this section, we will use `Warp` for the initial processing of the raw data. 
 
 ### Raw data preprocessing in Warp
 
-```{admonition} See also
-:class: seealso
+```{seealso}
 The following tabs detail the parameter settings as appropriate for this application. If you seek additional information, check out the [Warp User Guide](http://www.warpem.com/warp/?page_id=51).
 ```
 ``````{panels}
@@ -39,8 +38,7 @@ With a binning factor of *n*, the frames will be Fourier-cropped to $size/2^n$.
 
 For HIV-5-TS, the data were collected in super resolution mode, the physical pixel size is 1.35 $Å/px$. Processing data without first downsampling may reduce the aliasing of high-frequency signals in the image but significantly increases the computational overhead. In this case we will use Warp to downsample the data by a factor of 2, in order to return to the physical pixel size of the detector.
 
-```{admonition} Be careful!
-:class: attention
+```{attention}
 When processing other data, you may need to provide a gain reference here. 
 Make sure that the orientation of the reference and the images correspond!
 ```
@@ -137,8 +135,7 @@ While gold fiducials are useful for the accurate alignment of tilt series, their
 The `Pick Particles` panel gives access to `BoxNet`, a deep convolutional neural network designed to pick particles and mask out unwanted subregions in single-particle cryo-EM. A version of `BoxNet` that we retrained to mask gold fiducials [is available here](https://doi.org/10.5281/zenodo.4486376) under the name `GoldNet`.
 
 ````{margin}
-```{admonition} Be careful!
-:class: attention
+```{attention}
 GoldNet was retrained on 3 tilt series from a high magnification dataset (1.7 $Å/px$) containing 10 $nm$ gold beads. We have succesfully used it on a variety of datasets, but there is no guaranteee it will work on yours. To learn more about retraining BoxNet, [see this page](http://www.multiparticle.com/warp/?page_id=137).
 ```
 ````
@@ -171,8 +168,7 @@ We are now ready to press **START PROCESSING**. This will:
 - Generate one micrograph per tilt in which the motion has been corrected according to the motion model
 - Generate masks around gold fiducials in each image using the provided BoxNet model
 
-```{admonition} Monitoring the results
-:class: tip
+```{tip}
 During processing, you can check the results by switching to the `Real Space` and `Fourier Space` tabs at the top of the Warp interface. Explore these sections, checking that the CTF model matches the experimental curve, the defocus estimates appear to change as expected with tilt angle and that beads masks seem appropriate.
 ```
 
@@ -184,8 +180,7 @@ During processing, you can check the results by switching to the `Real Space` an
 Images in each tilt-series must be assembled into an `IMOD` stack in order to use `Dynamo` for the tilt-series alignment, but before doing so we should discard any bad images in our dataset. To do so, switch to the `Real Space` tab at the top and manually inspect all the tilt images.
 
 ````{margin}
-```{admonition} Tip
-:class: tip
+```{tip}
 With larger datasets, quickly scanning images in this way can be inconvenient. To make this a bit easier, use the search bar to display only a subset of the dataset (For HIV-5-TS we could search `TS_01`, `TS_02`...)
 ```
 ````

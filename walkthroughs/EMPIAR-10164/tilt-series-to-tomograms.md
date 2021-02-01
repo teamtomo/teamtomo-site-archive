@@ -10,8 +10,7 @@ This program aligns tilt-series in `Dynamo` and prepares all necessary metadata 
 Basic overview of the tilt-series alignment procedure in `Dynamo`:
 
 ````{margin}
-```{admonition} See also
-:class: seealso
+```{seealso}
 For a detailed, step-by-step explanation of the procedure, check out the [Walkthrough on GUI based tilt series alignment](https://www.wiki.dynamo.biozentrum.unibas.ch/w/index.php/Walkthrough_on_GUI_based_tilt_series_alignment) on the Dynamo wiki.
 ```
 ````
@@ -117,8 +116,7 @@ We now have everything we need to reconstruct our tomograms. In Warp, we don't n
 ```
 
 ````{margin}
-```{admonition} Tip
-:class: tip
+```{tip}
 Starting with coarse pixel sizes significantly increases your ability to quickly test new ideas at the expense of the loss of high-resolution information. Generally, we aim for a pixel size which allows our object of interest to fit comfortably in a 32$px^3$ box. If we don't know the size of our object of interest 10-15 $Å/px$ is usually a good starting point. For HIV-5-TS, we generate tomograms at 10 $Å/px$.
 ```
 ````
