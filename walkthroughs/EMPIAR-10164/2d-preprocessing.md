@@ -1,11 +1,9 @@
+(hiv:mic-preproc)=
 # 2D preprocessing
 
-In this chapter, we will detail the necessary steps to take you from the raw data we downloaded from *EMPIAR* (multi-frame micrographs) to tilt-series
+In this section we will take you from the raw data we downloaded from *EMPIAR* (multi-frame micrographs) to tilt-series.
 
-(hiv:mic-preproc)=
-## Micrograph preprocessing
-
-In this section, we will use `Warp` for the initial processing of the raw data. This will let us:
+We will use `Warp` for the initial processing of the raw data. This will let us:
 - obtain an initial estimate for defocus and inter-frame motion
 - merge frames into single images according on the estimated motion
 - detect and mask gold fiducials for tomogram reconstruction
