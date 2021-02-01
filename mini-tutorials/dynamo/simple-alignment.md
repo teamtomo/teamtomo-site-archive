@@ -111,8 +111,7 @@ relevant for simple, single reference alignment projects such as the one we are 
 From the `dcp` GUI click `numerical parameters` in the `Input: settings` row. This will open up a separate window in which many parameters relating to the numerical aspects of your alignments can be defined.
 
 ```{image} simple-alignment.assets/numerical-params.png
-:align: center
-:scale: 50%
+:width: 600px
 ```
 
 ```{attention}

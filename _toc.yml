@@ -59,21 +59,21 @@
 
 - part: computing
   chapters:
-    - file: resources/programming/python/index
+    - file: computing/python/index
       sections:
-        - file: resources/programming/python/getting-started
-        - file: resources/programming/python/virtual-environments
-        - file: resources/programming/python/useful-packages/useful-packages
+        - file: computing/python/getting-started
+        - file: computing/python/virtual-environments
+        - file: computing/python/useful-packages/useful-packages
           sections:
-            - file: resources/programming/python/useful-packages/dynamotable
-            - file: resources/programming/python/useful-packages/emfile
-            - file: resources/programming/python/useful-packages/eulerangles
-            - file: resources/programming/python/useful-packages/mrcfile
-            - file: resources/programming/python/useful-packages/napari
-            - file: resources/programming/python/useful-packages/starfile
-    - file: resources/programming/matlab/index
+            - file: computing/python/useful-packages/dynamotable
+            - file: computing/python/useful-packages/emfile
+            - file: computing/python/useful-packages/eulerangles
+            - file: computing/python/useful-packages/mrcfile
+            - file: computing/python/useful-packages/napari
+            - file: computing/python/useful-packages/starfile
+    - file: computing/matlab/index
       sections:
-        - file: resources/programming/matlab/add-to-path
+        - file: computing/matlab/add-to-path
 
 
 - part: Resources

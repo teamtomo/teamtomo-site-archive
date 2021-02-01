@@ -10,6 +10,8 @@ only_build_toc_files: false
 execute:
   execute_notebooks: cache
 
+exclude_patterns: [README.md]
+
 parse:
   myst_extended_syntax: true
 
@@ -59,6 +61,4 @@ sphinx:
           \newcommand{\emat}{\end{array}\right]}
     language: en
 
-  extra_extensions:
-    sphinx_inline_tabs
-
+  extra_extensions: [sphinx_inline_tabs]

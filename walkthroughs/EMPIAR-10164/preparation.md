@@ -27,7 +27,7 @@ done
 ````
 
 ````{tabbed} directory structure
-```{code block} bash
+```bash
 .
 ├── frames
 │   ├── TS_01_000_0.0.mrc
