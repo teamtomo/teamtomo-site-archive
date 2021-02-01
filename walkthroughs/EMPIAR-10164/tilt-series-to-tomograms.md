@@ -1,4 +1,10 @@
 # Tilt-series to tomograms
+
+In this section we will
+- align our tilt-series
+- perform a more accurate tilt-series CTF estimation procedure
+- reconstruct our tomograms at 10 Å/px
+
 (hiv:tilt-align)=
 ## Tilt-series alignment
 
