@@ -14,7 +14,7 @@ kernelspec:
 ---
 
 # teamtomo.org - home
-[teamtomo.org](teamtomo.org) is an *open* and *collaborative* platform for sharing knowledge in the cryo-electron tomography (cryo-ET) [community](https://twitter.com/hashtag/teamtomo).
+[teamtomo.org](https://teamtomo.org) is an *open* and *collaborative* platform for sharing knowledge in the cryo-electron tomography (cryo-ET) [community](https://twitter.com/hashtag/teamtomo).
 
 Cryo-ET is a 3D imaging modality which uses [transmission electron microscopes](https://en.wikipedia.org/wiki/Transmission_electron_microscopy) to image proteins, their assemblies and thin cellular sections in their native state with high spatial resolution.
 
@@ -22,7 +22,7 @@ Cryo-ET is a 3D imaging modality which uses [transmission electron microscopes](
 
 Subtomogram averaging can be used to align and average many copies of the same object, increasing both the signal-to-noise ratio and interpretable resolution.
 
-If you're new to cryo-ET and subtomogram averaging, check out this [introduction to Cryo-ET](theory/cryo-et/index) or get hands-on with one of our [data processing walkthroughs](walkthroughs/EMPIAR-10164/introduction.md). Looking for something more specific? Check out the [mini-tutorials](mini-tutorials/index) and [resources](resources/index) sections!
+If you're new to cryo-ET and subtomogram averaging, check out this [introduction to Cryo-ET](theory/cryo-et/index) or get hands-on with one of our [data processing walkthroughs](walkthroughs/EMPIAR-10164/introduction.md). Looking for something more specific? Check out of our [mini-tutorials](mini-tutorials/dynamo/index.md) or our [resource pages](resources/literature/index.md)!
 
 Still haven't found what you were looking for? Ask the community by sending an email to the [CCP-EM mailing list](https://www.jiscmail.ac.uk/cgi-bin/webadmin?A0=CCPEM), or use [#teamtomo](https://twitter.com/hashtag/teamtomo) on Twitter.
 

@@ -61,6 +61,4 @@ sphinx:
           \newcommand{\emat}{\end{array}\right]}
     language: en
 
-  extra_extensions:
-    sphinx_inline_tabs
-
+  extra_extensions: [sphinx_inline_tabs]

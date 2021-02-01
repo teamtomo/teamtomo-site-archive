@@ -138,16 +138,16 @@ For HIV-5-TS, EMPIAR indicates that we have 8 frames per image, so we set the re
 `````{tabbed} Fiducials
 While gold fiducials are useful for the accurate alignment of tilt series, their high contrast will have negative effects on the final tomographic reconstruction. For this reason, we use Warp to mask out any beads prior to tomographic reconstruction.
 
-The `Pick Particles` panel gives access to `BoxNet`, a deep convolutional neural network designed to pick particles and mask out unwanted subregions in single-particle cryo-EM. A version of BoxNet we retrained for to mask gold fiducials is [provided](TODO:add-link) with this tutorial.
+The `Pick Particles` panel gives access to `BoxNet`, a deep convolutional neural network designed to pick particles and mask out unwanted subregions in single-particle cryo-EM. A version of `BoxNet` that we retrained to mask gold fiducials [is available here](https://doi.org/10.5281/zenodo.4486376) under the name `GoldNet`.
 
 ````{margin}
 ```{admonition} Be careful!
 :class: attention
-The provided version of BoxNet was retrained on 3 tilt series from a high magnification dataset (1.7 $Å/px$) containing 10 $nm$ gold beads. We have succesfully used it on a variety of datasets, but there is no guaranteee it will work on yours. To learn more about retraining BoxNet, [see this page](http://www.multiparticle.com/warp/?page_id=137).
+GoldNet was retrained on 3 tilt series from a high magnification dataset (1.7 $Å/px$) containing 10 $nm$ gold beads. We have succesfully used it on a variety of datasets, but there is no guaranteee it will work on yours. To learn more about retraining BoxNet, [see this page](http://www.multiparticle.com/warp/?page_id=137).
 ```
 ````
 
-In order to access it from Warp, the `BoxNet2MaskBeads_20200607` TODO better name directory must be placed in the Warp installation folder under the `boxnet2models` directory. Then, to select the pretrained model in Warp, click on the currently selected BoxNet model and select the `BoxNet2MaskBeads_20200607` model.
+In order to access it from Warp, extract the `GoldNet` directory and place it in the Warp installation folder under the `boxnet2models` directory. Then, to select the pretrained model in Warp, click on the currently selected BoxNet model and select the `GoldNet` model.
 
 ```{image} preprocessing.assets/boxnet-params.png
 :scale: 75%

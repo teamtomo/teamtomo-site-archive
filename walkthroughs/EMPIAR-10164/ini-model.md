@@ -26,7 +26,7 @@ From the `Overview` tab in Warp, we quickly see that `TS_01` and `TS_03` have si
 
 ````{margin}
 ```{note}
-A box sidelength of 32 corresponds to a 320$Å$. While this is much larger than the expected 75$Å$ inter-particle distance, signal from neighbouring particles in lattices can help to drive correct alignments at the beginning of a project. When working at smaller pixel sizes a bigger box can also help to avoid [CTF aliasing](TODO).
+A box sidelength of 32 corresponds to a 320$Å$. While this is much larger than the expected 75$Å$ inter-particle distance, signal from neighbouring particles in lattices can help to drive correct alignments at the beginning of a project. When working at smaller pixel sizes a bigger box can also help to avoid CTF aliasing.
 ```
 ````
 
