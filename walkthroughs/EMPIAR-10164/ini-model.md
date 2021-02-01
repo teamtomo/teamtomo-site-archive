@@ -77,7 +77,7 @@ Press `Alt` when a parameter is selected for a detailed description.
 ```
 ````
 `numerical parameters`
-: set the numerical parameters for the alignment procedure as shown below. Check out the [mini-tutorial] for a more in-depth explanation. At this stage, we don't enforce symmetry during refinement. We hope that any symmetry present should appear after aligning our particles. 
+: set the numerical parameters for the alignment procedure as shown below. Check out the [mini-tutorial](../../mini-tutorials/dynamo/simple-alignment.md) for a more in-depth explanation. At this stage, we don't enforce symmetry during refinement. We hope that any symmetry present should appear after aligning our particles. 
 
 ```{image} ini-model.assets/numerical-params.png
 :width: 400px
@@ -187,8 +187,6 @@ dwrite(v_aligned_c6, 'average_aligned_along_z_c6.em');
 
 
 To run the script, open `dynamo/inimodel/results/ite_0008/averages` in Matlab. Copy the script into this directory, and execute it by running `align_symmetry_axis`. Once the script has finished, compare the initial average, the template, the aligned average and the symmetrised aligned average to check that the alignment worked as intended.
-
-%% comparison of all 4 volumes here, Z and Y projections
 
 ```{image} ini-model.assets/aligned-to-z.png
 :width: 300px
