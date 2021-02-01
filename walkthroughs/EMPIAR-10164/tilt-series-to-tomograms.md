@@ -89,8 +89,7 @@ For this dataset this is the binned pixel size of 1.35 $Å/px$,
 and according the the EMPIAR entry the dose is roughly 3 $e^-/Å^2$ per tilt.
 
 ```{image} preprocessing.assets/import-ts-alignments.png
-:align: center
-:scale: 40%
+:width: 500px
 ```
 
 ### Tilt-Series CTF estimation
@@ -114,7 +113,7 @@ The settings for tilt-series CTF estimation should be the same as those used ear
 We now have everything we need to reconstruct our tomograms. In Warp, we don't need to reconstruct whole tomograms at this step. Instead, downsampled tomograms can be generated for initial particle picking and volumes centered on each object of interest can be reconstructed later at the desired pixel size. This reduces the computational burden of generating and extracting particles from large, unbinned tomograms which can easily be over 100GB in size.
 
 ```{image} preprocessing.assets/reconstruction-size.png
-:align: center
+:width: 400px
 ```
 
 ````{margin}
@@ -139,5 +138,5 @@ Warp may have marked some tilt series as filtered out. Since we are not making a
 Once ready, click on `Reconstruct` to reconstruct the tomograms.
 
 ```{image} preprocessing.assets/reconstruction-settings.png
-:align: center
+:width: 300px
 ```

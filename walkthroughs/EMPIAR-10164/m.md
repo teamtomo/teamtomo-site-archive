@@ -54,8 +54,12 @@ Afterwards, three iterations as follows:
 
 If everything went well, after the second round of refinements you should be able to get to something like this:
 
-![result1](m.assets/result1.png)
+```{image} m.assets/result1.png
+:width: 500px
+```
+
+Here's a closer look to the map compared to the available structures:
 
 ![result2](m.assets/result2.png)
 
-Congratulations!
+Congratulations with your reconstruction!

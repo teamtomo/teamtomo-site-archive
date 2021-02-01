@@ -26,8 +26,7 @@ To import new data into Warp, click on the path next to `Input` and select the `
 We then set the parameters as shown below.
 
 ```{image} preprocessing.assets/input-params.png
-:scale: 75%
-:align: center
+:width: 400px
 ```
 
 We need to correctly set the pixel size to match that of the raw data; in this case, 0.6750 $Ã…/px$. 
@@ -61,8 +60,7 @@ we will explain this in more detail later.
 Accurate estimation of Contrast Transfer Function (CTF) parameters is essential for obtaining high resolution reconstructions.
 
 ```{image} preprocessing.assets/ctf-params.png
-:scale: 75%
-:align: center
+:width: 400px
 ```
 
 The following parameters depend entirely on the microscope setup used for data collection, for HIV-5-TS:
@@ -113,8 +111,7 @@ we estimate and correct for the inter-frame motion present in the image.
 In this case, we leave the motion correction parameters as defaults.
 
 ```{image} preprocessing.assets/motion-params.png
-:scale: 75%
-:align: center
+:width: 400px
 ```
 `````
 
@@ -122,8 +119,7 @@ In this case, we leave the motion correction parameters as defaults.
 Warp allows us to estimate how CTF and inter-frame translational motion parameters change in both space and time.
 
 ```{image} preprocessing.assets/spatiotemporal-models.png
-:scale: 75%
-:align: center
+:width: 400px
 ```
 
 The resolution of this spatiotemporal model (x, y, t) can be set in the **Models** panel: the first two values represent the spatial resolution of the model in *x* and *y* , while the third value sets the temporal resolution (at most, the number of frames in a multi-frame micrograph). 
@@ -150,8 +146,7 @@ GoldNet was retrained on 3 tilt series from a high magnification dataset (1.7 $Ã
 In order to access it from Warp, extract the `GoldNet` directory and place it in the Warp installation folder under the `boxnet2models` directory. Then, to select the pretrained model in Warp, click on the currently selected BoxNet model and select the `GoldNet` model.
 
 ```{image} preprocessing.assets/boxnet-params.png
-:scale: 75%
-:align: center
+:width: 400px
 ```
 
 As we are only using this model for particle picking, the parameters relating to particle picking can be safely ignored.
@@ -160,8 +155,7 @@ As we are only using this model for particle picking, the parameters relating to
 `````{tabbed} Start Processing!
 
 ```{image} preprocessing.assets/output-params.png
-:scale: 75%
-:align: center
+:width: 400px
 ```
 
 In the `Output` panel, we can choose not to include frames at the beginning and end of a movie. The first frames from a multi-frame micrograph of a given exposure often display increased translational motion. In this case, we chose to include all frames from the micrograph to maximise the signal present in the final images. 
@@ -203,8 +197,7 @@ If an image is heavily contaminated, black, blurred, a grid bar blocks a signifi
 For this dataset we only have to discard two bad images: `TS_01_039` and `TS_03_039`.
 
 ```{image} preprocessing.assets/deselect-bad-image.png
-:align: center
-:scale: 50%
+:width: 400px
 ```
 
 ### Stack generation
@@ -223,6 +216,5 @@ For now, we don't need to set the pixel size and electron dose per tilt, nor we 
 Click on `Create stacks for IMOD` to start exporting the data. We can immediately move on to the next step without having to wait for the stack generation to finish, thanks to `autoalign_dynamo`'s on-the-fly processing.
 
 ```{image} preprocessing.assets/create-stack.png
-:align: center
-:scale: 50%
+:width: 600px
 ```

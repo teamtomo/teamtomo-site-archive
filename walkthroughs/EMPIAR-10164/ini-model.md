@@ -1,8 +1,7 @@
 # Initial model generation
 
 ```{image} ini-model.assets/hiv-initial-positions.png
-:scale: 25%
-:align: center
+:width: 250px
 ```
 
 Now that the Dynamo catalogue contains initial estimates for the positions and orientations of our particles, we need to obtain an initial model of our lattice structure which will later allow us to find more accurate estimates of the positions and orientations of our particles for the whole dataset. For this, we will work on a small subset of the VLPs.
@@ -64,8 +63,7 @@ While we don't expect to see any detailed structure in this map, but it's worth 
 : since we don't have one, we generate one from a subset of our particles. Using 500 particles at this step is a good starting point. This will generate a reconstruction from 500 particles using our initial alignments from the vesicle model stored in the `crop.tbl` file. 
 
 ```{image} ini-model.assets/first-template-all.png
-:scale: 30%
-:align: center
+:width: 400px
 ```
 
 
@@ -82,13 +80,13 @@ Press `Alt` when a parameter is selected for a detailed description.
 : set the numerical parameters for the alignment procedure as shown below. Check out the [mini-tutorial] for a more in-depth explanation. At this stage, we don't enforce symmetry during refinement. We hope that any symmetry present should appear after aligning our particles. 
 
 ```{image} ini-model.assets/numerical-params.png
-:scale: 50%
+:width: 400px
 ```
 
 We perform initial alignments with only local out-of-plane searches (defined by the `cone range` parameter), making use of the initial estimates from our geometrical models.
 
 ```{image} ini-model.assets/scanning-angles.png
-:scale: 50%
+:width: 400px
 ```
 
 `computing environment`
@@ -120,8 +118,7 @@ We can look at the result of our first alignment project using tools from the `d
 In contrast to our previous reconstruction from particles with initial estimates for positions and orientations, in this map we clearly see a hexagonal lattice starting to take shape, containing 2-, 3- and 6-fold symmetry axes.
 
 ```{image} ini-model.assets/first-aligned-all.png
-:scale: 50%
-:align: center
+:width: 400px
 ```
 
 --- 
@@ -194,8 +191,7 @@ To run the script, open `dynamo/inimodel/results/ite_0008/averages` in Matlab. C
 %% comparison of all 4 volumes here, Z and Y projections
 
 ```{image} ini-model.assets/aligned-to-z.png
-:scale: 50%
-:align: center
+:width: 300px
 ```
 
 We now have an initial model with the 6-fold symmetry axis aligned to the center of the volume. We can use this initial model to obtain good estimates for particle positions and orientations of HIV-1 CA-SP1 hexamers for the whole dataset.
