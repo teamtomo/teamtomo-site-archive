@@ -19,7 +19,7 @@ We make use of the version control system [git](https://git-scm.com/) and the
 
 ````{admonition} Images and large files
 :class: attention
-If you are already familiar with git and want to get started right away, you should know that to keep the size of the repository small and contributions easier to manage we use [git large files storage](https://git-lfs.github.com/). Getting git lfs integrated to your workflow is as easy as [installing it](https://git-lfs.github.com/), adding it to your `$PATH` and running:
+If you are already familiar with git and want to get started right away, you should know that to keep the size of the repository small and contributions easier to manage we use [git large files storage](https://git-lfs.github.com/). Getting git lfs integrated to your workflow is as easy as [installing it](https://git-lfs.github.com/) and running:
 ```
 git lfs install
 ```
