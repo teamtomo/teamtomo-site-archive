@@ -458,6 +458,11 @@
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2">
+    <a class="reference internal" href="../../resources/cryoet-software/appion-protomo/appion-protomo.html">
+     Appion-Protomo
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../../resources/cryoet-software/cryolo/cryolo.html">
      crYOLO
     </a>
@@ -844,15 +849,15 @@
 <p>In order to take advantage of the symmetry present in the structure during refinement we first need to recenter the average on its 6-fold symmetry axis and align that axis along the z axis of our volume.</p>
 <p>To center and align the 6-fold symmetry axis, we will use a script provided with this tutorial, <a class="reference external" href="https://github.com/teamtomo/teamtomo.github.io/blob/master/walkthroughs/EMPIAR-10164/scripts/align_symmetry_axis.m"><code class="docutils literal notranslate"><span class="pre">align_symmetry_axis.m</span></code></a>. The script generates a synthetic template of a lattice with a 6-fold symmetry axis centered and aligned along the z-axis. The volume from our first subtomogram averaging experiment is then aligned to this synthetic template and C6 symmetry is applied. This produces an initial model with the symmetry axis correctly aligned for further experiments.</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="40fac318-016d-4d50-b53d-8f0a41ffc001" name="ebad54e9-05ef-4c31-8bd3-4aac4076c9bc" type="radio">
-</input><label class="tabbed-label" for="40fac318-016d-4d50-b53d-8f0a41ffc001">
+<input checked="checked" id="08e67eca-acad-4e46-ad91-dd0594e2b48f" name="805a78f5-bc9f-4af2-bc5b-865a9943e1b5" type="radio">
+</input><label class="tabbed-label" for="08e67eca-acad-4e46-ad91-dd0594e2b48f">
 command</label><div class="tabbed-content docutils">
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">align_symmetry_axis</span>
 </pre></div>
 </div>
 </div>
-<input id="411f4863-d12a-4960-9a2b-bc685ff8820e" name="ebad54e9-05ef-4c31-8bd3-4aac4076c9bc" type="radio">
-</input><label class="tabbed-label" for="411f4863-d12a-4960-9a2b-bc685ff8820e">
+<input id="1fb113e2-22b5-4789-8f33-0436f704e35b" name="805a78f5-bc9f-4af2-bc5b-865a9943e1b5" type="radio">
+</input><label class="tabbed-label" for="1fb113e2-22b5-4789-8f33-0436f704e35b">
 source code</label><div class="tabbed-content docutils">
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">v</span> <span class="p">=</span> <span class="n">dread</span><span class="p">(</span><span class="s">&#39;average_ref_001_ite_0008.em&#39;</span><span class="p">);</span>
 
