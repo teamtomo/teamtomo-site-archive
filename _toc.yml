@@ -93,6 +93,7 @@
             - file: resources/literature/book-chapters/fiducial-alignments-mastronarde07
     - file: resources/cryoet-software/cryoet-software
       sections:
+        - file: resources/cryoet-software/appion-protomo/appion-protomo
         - file: resources/cryoet-software/cryolo/cryolo
         - file: resources/cryoet-software/dynamo/dynamo
           sections:
@@ -121,6 +122,7 @@
         - file: resources/cryoet-software/pytom/pytom
         - file: resources/cryoet-software/relion/relion
         - file: resources/cryoet-software/stopgap/stopgap
+        - file: resources/cryoet-software/topaz_denoise_3d/topaz_denoise_3d
         - file: resources/cryoet-software/warp/warp
           sections:
             - file: resources/cryoet-software/warp/user-guide
