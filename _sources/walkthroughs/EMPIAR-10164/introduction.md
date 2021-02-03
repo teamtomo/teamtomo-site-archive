@@ -29,7 +29,7 @@ of the HIV-1 CA-SP1 hexamer.
 ## A note about scripting
 As the software ecosystem for cryo-ET matures, some scripting is often required to achieve your goals. 
 This tutorial is provided with all necessary 
-[scripts](https://github.com/teamtomo/teamtomo.github.io/tree/master/guides/EMPIAR-10164/scripts).
+[scripts](https://github.com/teamtomo/teamtomo.github.io/tree/master/walkthroughs/EMPIAR-10164/scripts).
 
 For illustrative purposes, the contents of these scripts will appear as `code blocks` in the tutorial when used. 
 
