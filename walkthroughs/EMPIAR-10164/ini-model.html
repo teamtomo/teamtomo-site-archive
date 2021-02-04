@@ -770,14 +770,12 @@
 <p>We run <code class="docutils literal notranslate"><span class="pre">dcp</span></code> from MATLAB to open the “Dynamo current project” GUI. This GUI is designed to be used in a sequential way: we will need to provide a few parameters before launching the project.</p>
 <p>For a full tutorial on how to setting up a simple subtomogram averaging project in Dynamo, click <a class="reference internal" href="../../mini-tutorials/dynamo/simple-alignment.html"><span class="doc std std-doc">here</span></a>.</p>
 <p>In our case, we set it up as follows:</p>
-<dl class="simple myst">
-<dt><code class="docutils literal notranslate"><span class="pre">project</span></code></dt><dd><p>we call our project <code class="docutils literal notranslate"><span class="pre">inimodel</span></code></p>
-</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">particles</span></code></dt><dd><p>the <code class="docutils literal notranslate"><span class="pre">inimodelData.Boxes</span></code> Dynamo data folder.</p>
-</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">table</span></code></dt><dd><p>the <code class="docutils literal notranslate"><span class="pre">inimodelData.Boxes/crop.tbl</span></code> particle metadata (table) file. When we cropped particles in the Dynamo catalogue, it created this metadata file for us and puts it inside the data folder. When selecting your table file, click <code class="docutils literal notranslate"><span class="pre">look</span> <span class="pre">inside</span> <span class="pre">data</span> <span class="pre">folder</span></code> and pick the <code class="docutils literal notranslate"><span class="pre">crop.tbl</span></code> file.</p>
-</dd>
-</dl>
+<p><code class="docutils literal notranslate"><span class="pre">project</span></code>
+: we call our project <code class="docutils literal notranslate"><span class="pre">inimodel</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">particles</span></code>
+: the <code class="docutils literal notranslate"><span class="pre">inimodelData.Boxes</span></code> Dynamo data folder.</p>
+<p><code class="docutils literal notranslate"><span class="pre">table</span></code>
+: the <code class="docutils literal notranslate"><span class="pre">inimodelData.Boxes/crop.tbl</span></code> particle metadata (table) file. When we cropped particles in the Dynamo catalogue, it created this metadata file for us and puts it inside the data folder. When selecting your table file, click <code class="docutils literal notranslate"><span class="pre">look</span> <span class="pre">inside</span> <span class="pre">data</span> <span class="pre">folder</span></code> and pick the <code class="docutils literal notranslate"><span class="pre">crop.tbl</span></code> file.</p>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="admonition tip">
@@ -785,15 +783,11 @@
 <p>While we don’t expect to see any detailed structure in this map, but it’s worth checking that it matches what we expect to see. If you right click on the file path at the top of the template GUI, you can choose to <code class="docutils literal notranslate"><span class="pre">[view]</span></code> the volume. Our initial picking contained no knowledge about the specific positions of each particle within the lattice. Because of this, we expect to see a curved, membrane like density and blurred density for the lattice proteins in the average.</p>
 </div>
 </div>
-<dl class="simple myst">
-<dt><code class="docutils literal notranslate"><span class="pre">template</span></code></dt><dd><p>since we don’t have one, we generate one from a subset of our particles. Using 500 particles at this step is a good starting point. This will generate a reconstruction from 500 particles using our initial alignments from the vesicle model stored in the <code class="docutils literal notranslate"><span class="pre">crop.tbl</span></code> file.</p>
-</dd>
-</dl>
+<p><code class="docutils literal notranslate"><span class="pre">template</span></code>
+: since we don’t have one, we generate one from a subset of our particles. Using 500 particles at this step is a good starting point. This will generate a reconstruction from 500 particles using our initial alignments from the vesicle model stored in the <code class="docutils literal notranslate"><span class="pre">crop.tbl</span></code> file.</p>
 <a class="reference internal image-reference" href="../../_images/first-template-all.png"><img alt="../../_images/first-template-all.png" src="../../_images/first-template-all.png" style="width: 400px;" /></a>
-<dl class="simple myst">
-<dt><code class="docutils literal notranslate"><span class="pre">masks</span></code></dt><dd><p><code class="docutils literal notranslate"><span class="pre">Use</span> <span class="pre">default</span> <span class="pre">masks</span></code> will give us appropriate masks at this stage that cover the full extent of our 32px box. At this stage, we aren’t very sure of our particle positions and orientations as they haven’t undergone any alignment. We want our mask to include the whole box so that signal from multiple neighbouring particles in the lattice can help to drive initial alignments.</p>
-</dd>
-</dl>
+<p><code class="docutils literal notranslate"><span class="pre">masks</span></code>
+: <code class="docutils literal notranslate"><span class="pre">Use</span> <span class="pre">default</span> <span class="pre">masks</span></code> will give us appropriate masks at this stage that cover the full extent of our 32px box. At this stage, we aren’t very sure of our particle positions and orientations as they haven’t undergone any alignment. We want our mask to include the whole box so that signal from multiple neighbouring particles in the lattice can help to drive initial alignments.</p>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="admonition note">
@@ -801,19 +795,15 @@
 <p>Press <code class="docutils literal notranslate"><span class="pre">Alt</span></code> when a parameter is selected for a detailed description.</p>
 </div>
 </div>
-<dl class="simple myst">
-<dt><code class="docutils literal notranslate"><span class="pre">numerical</span> <span class="pre">parameters</span></code></dt><dd><p>set the numerical parameters for the alignment procedure as shown below. Check out the <a class="reference internal" href="../../mini-tutorials/dynamo/simple-alignment.html"><span class="doc std std-doc">mini-tutorial</span></a> for a more in-depth explanation. At this stage, we don’t enforce symmetry during refinement. We hope that any symmetry present should appear after aligning our particles.</p>
-</dd>
-</dl>
+<p><code class="docutils literal notranslate"><span class="pre">numerical</span> <span class="pre">parameters</span></code>
+: set the numerical parameters for the alignment procedure as shown below. Check out the <a class="reference internal" href="../../mini-tutorials/dynamo/simple-alignment.html"><span class="doc std std-doc">mini-tutorial</span></a> for a more in-depth explanation. At this stage, we don’t enforce symmetry during refinement. We hope that any symmetry present should appear after aligning our particles.</p>
 <a class="reference internal image-reference" href="../../_images/numerical-params1.png"><img alt="../../_images/numerical-params1.png" src="../../_images/numerical-params1.png" style="width: 400px;" /></a>
 <p>We perform initial alignments with only local out-of-plane searches (defined by the <code class="docutils literal notranslate"><span class="pre">cone</span> <span class="pre">range</span></code> parameter), making use of the initial estimates from our geometrical models.</p>
 <a class="reference internal image-reference" href="../../_images/scanning-angles.png"><img alt="../../_images/scanning-angles.png" src="../../_images/scanning-angles.png" style="width: 400px;" /></a>
-<dl class="simple myst">
-<dt><code class="docutils literal notranslate"><span class="pre">computing</span> <span class="pre">environment</span></code></dt><dd><p>this will depend on your computing environment, including number of available CPUs/GPUs. We typically run projects in the <code class="docutils literal notranslate"><span class="pre">gpu_standalone</span></code> modus on 4 GPUs. Running in the standalone modus allows you to continue with other work in the matlab shell while the alignment project runs. In this modus, the number of CPU cores should be 1. The number of CPU cores used during averaging can be changed to the number of logical CPU cores on your machine. Specific GPUs can be selected by their index as seen in <code class="docutils literal notranslate"><span class="pre">nvidia-smi</span></code>.</p>
-</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">check</span></code> and <code class="docutils literal notranslate"><span class="pre">unfold</span></code></dt><dd><p>run a sanity <code class="docutils literal notranslate"><span class="pre">check</span></code> to make sure the project seems correctly setup, then <code class="docutils literal notranslate"><span class="pre">unfold</span></code> to prepare an executable for the alignment project. If running a project on a remote machine without graphical access, a project can be set up locally and sent to the remote machine as a tarball. For information on this, please see <a class="reference external" href="https://wiki.dynamo.biozentrum.unibas.ch/w/index.php/Tarring_projects">this wiki page</a>.</p>
-</dd>
-</dl>
+<p><code class="docutils literal notranslate"><span class="pre">computing</span> <span class="pre">environment</span></code>
+: this will depend on your computing environment, including number of available CPUs/GPUs. We typically run projects in the <code class="docutils literal notranslate"><span class="pre">gpu_standalone</span></code> modus on 4 GPUs. Running in the standalone modus allows you to continue with other work in the matlab shell while the alignment project runs. In this modus, the number of CPU cores should be 1. The number of CPU cores used during averaging can be changed to the number of logical CPU cores on your machine. Specific GPUs can be selected by their index as seen in <code class="docutils literal notranslate"><span class="pre">nvidia-smi</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">check</span></code> and <code class="docutils literal notranslate"><span class="pre">unfold</span></code>
+: run a sanity <code class="docutils literal notranslate"><span class="pre">check</span></code> to make sure the project seems correctly setup, then <code class="docutils literal notranslate"><span class="pre">unfold</span></code> to prepare an executable for the alignment project. If running a project on a remote machine without graphical access, a project can be set up locally and sent to the remote machine as a tarball. For information on this, please see <a class="reference external" href="https://wiki.dynamo.biozentrum.unibas.ch/w/index.php/Tarring_projects">this wiki page</a>.</p>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="admonition tip">
@@ -849,15 +839,15 @@
 <p>In order to take advantage of the symmetry present in the structure during refinement we first need to recenter the average on its 6-fold symmetry axis and align that axis along the z axis of our volume.</p>
 <p>To center and align the 6-fold symmetry axis, we will use a script provided with this tutorial, <a class="reference external" href="https://github.com/teamtomo/teamtomo.github.io/blob/master/walkthroughs/EMPIAR-10164/scripts/align_symmetry_axis.m"><code class="docutils literal notranslate"><span class="pre">align_symmetry_axis.m</span></code></a>. The script generates a synthetic template of a lattice with a 6-fold symmetry axis centered and aligned along the z-axis. The volume from our first subtomogram averaging experiment is then aligned to this synthetic template and C6 symmetry is applied. This produces an initial model with the symmetry axis correctly aligned for further experiments.</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="08e67eca-acad-4e46-ad91-dd0594e2b48f" name="805a78f5-bc9f-4af2-bc5b-865a9943e1b5" type="radio">
-</input><label class="tabbed-label" for="08e67eca-acad-4e46-ad91-dd0594e2b48f">
+<input checked="checked" id="9e8bf6c3-8e87-4df2-9718-dca2a302859d" name="5fb5eb7d-695a-4b72-b3fa-5442069c0945" type="radio">
+</input><label class="tabbed-label" for="9e8bf6c3-8e87-4df2-9718-dca2a302859d">
 command</label><div class="tabbed-content docutils">
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">align_symmetry_axis</span>
 </pre></div>
 </div>
 </div>
-<input id="1fb113e2-22b5-4789-8f33-0436f704e35b" name="805a78f5-bc9f-4af2-bc5b-865a9943e1b5" type="radio">
-</input><label class="tabbed-label" for="1fb113e2-22b5-4789-8f33-0436f704e35b">
+<input id="a174123b-a695-4760-a02a-bad9e74c0575" name="5fb5eb7d-695a-4b72-b3fa-5442069c0945" type="radio">
+</input><label class="tabbed-label" for="a174123b-a695-4760-a02a-bad9e74c0575">
 source code</label><div class="tabbed-content docutils">
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">v</span> <span class="p">=</span> <span class="n">dread</span><span class="p">(</span><span class="s">&#39;average_ref_001_ite_0008.em&#39;</span><span class="p">);</span>
 

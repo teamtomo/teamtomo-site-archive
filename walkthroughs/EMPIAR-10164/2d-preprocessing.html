@@ -751,8 +751,8 @@
 <div class="card w-100 border-2 docutils">
 <div class="card-body docutils">
 <div class="tabbed-set docutils">
-<input checked="checked" id="9e8c9709-a9b0-4c3b-a0f9-f5a346326ef0" name="d2f10817-b0c6-4385-acc9-d29d6b326362" type="radio">
-</input><label class="tabbed-label" for="9e8c9709-a9b0-4c3b-a0f9-f5a346326ef0">
+<input checked="checked" id="7ade7176-44ca-4243-8820-65aa2082b071" name="cb28e9f5-d8ec-42cf-b3fb-2a0e99ebfb14" type="radio">
+</input><label class="tabbed-label" for="7ade7176-44ca-4243-8820-65aa2082b071">
 Import</label><div class="tabbed-content docutils">
 <p class="card-text">To import new data into Warp, click on the path next to <code class="docutils literal notranslate"><span class="pre">Input</span></code> and select the <code class="docutils literal notranslate"><span class="pre">frames</span></code> directory. For the HIV-5-TS data, make sure that the selected format is <code class="docutils literal notranslate"><span class="pre">*.mrc</span></code>.</p>
 <p class="card-text">We then set the parameters as shown below.</p>
@@ -773,8 +773,8 @@ Make sure that the orientation of the reference and the images correspond!</p>
 </div>
 <p class="card-text">The EMPIAR entry for EMPIAR-10164 indicates that the images were already gain corrected. We can skip gain correction by leaving this section unchecked.</p>
 </div>
-<input id="60d5356d-d120-45d8-8116-0fd5ec365672" name="d2f10817-b0c6-4385-acc9-d29d6b326362" type="radio">
-</input><label class="tabbed-label" for="60d5356d-d120-45d8-8116-0fd5ec365672">
+<input id="a45fb023-a4a8-4d56-94e9-3d60d6ea99a9" name="cb28e9f5-d8ec-42cf-b3fb-2a0e99ebfb14" type="radio">
+</input><label class="tabbed-label" for="a45fb023-a4a8-4d56-94e9-3d60d6ea99a9">
 CTF and Motion</label><div class="tabbed-content docutils">
 <div class="margin sidebar">
 <p class="card-title sidebar-title"></p>
@@ -792,14 +792,12 @@ we will explain this in more detail later.</p>
 <div class="d-flex col-20 docutils">
 <div class="card w-100 border-2 docutils">
 <div class="card-body docutils">
-<dl class="simple myst">
-<dt>Voltage</dt><dd><p class="card-text">The acceleration voltage used in the electron microscope</p>
-</dd>
-<dt>Cs</dt><dd><p class="card-text">The spherical aberration of the electron microscope</p>
-</dd>
-<dt>Phase Shift</dt><dd><p class="card-text">Whether to model a phase shift in the CTF, usually only used for data collected with a phase plate.</p>
-</dd>
-</dl>
+<p class="card-text">Voltage
+: The acceleration voltage used in the electron microscope</p>
+<p class="card-text">Cs
+: The spherical aberration of the electron microscope</p>
+<p class="card-text">Phase Shift
+: Whether to model a phase shift in the CTF, usually only used for data collected with a phase plate.</p>
 </div>
 </div>
 </div>
@@ -811,14 +809,12 @@ we will explain this in more detail later.</p>
 <div class="d-flex col-20 docutils">
 <div class="card w-100 border-2 docutils">
 <div class="card-body docutils">
-<dl class="simple myst">
-<dt>Defocus</dt><dd><p class="card-text">The upper and lower limits for defocus estimation. When a dataset is expected to have higher or lower defoci, this range should be expanded.</p>
-</dd>
-<dt>Use Movie Sum</dt><dd><p class="card-text">Whether to use the movie sum for CTF parameter estimation. Activating this should lead to slightly better results for low-dose images.</p>
-</dd>
-<dt>Amplitude</dt><dd><p class="card-text">The percentage of amplitude contrast for the CTF model. For cryo-EM typical values are 0.07-0.10.</p>
-</dd>
-</dl>
+<p class="card-text">Defocus
+: The upper and lower limits for defocus estimation. When a dataset is expected to have higher or lower defoci, this range should be expanded.</p>
+<p class="card-text">Use Movie Sum
+: Whether to use the movie sum for CTF parameter estimation. Activating this should lead to slightly better results for low-dose images.</p>
+<p class="card-text">Amplitude
+: The percentage of amplitude contrast for the CTF model. For cryo-EM typical values are 0.07-0.10.</p>
 </div>
 </div>
 </div>
@@ -830,12 +826,10 @@ we will explain this in more detail later.</p>
 <div class="d-flex col-20 docutils">
 <div class="card w-100 border-2 docutils">
 <div class="card-body docutils">
-<dl class="simple myst">
-<dt>Window</dt><dd><p class="card-text">The size of power spectra used for CTF estimation.</p>
-</dd>
-<dt>Range</dt><dd><p class="card-text">The range of spatial frequencies to use for fitting. At low frequencies, data often doesn’t match the CTF model. At high frequencies there is often not enough signal for accurate CTF estimation. In our experience, 40.0-5.0 is usually a good range for high magnification tilt-series images (1-3  <span class="math notranslate nohighlight">\(Å/px\)</span>) with ca. 3 <span class="math notranslate nohighlight">\(e^-/Å^2/tilt\)</span> image.</p>
-</dd>
-</dl>
+<p class="card-text">Window
+: The size of power spectra used for CTF estimation.</p>
+<p class="card-text">Range
+: The range of spatial frequencies to use for fitting. At low frequencies, data often doesn’t match the CTF model. At high frequencies there is often not enough signal for accurate CTF estimation. In our experience, 40.0-5.0 is usually a good range for high magnification tilt-series images (1-3  <span class="math notranslate nohighlight">\(Å/px\)</span>) with ca. 3 <span class="math notranslate nohighlight">\(e^-/Å^2/tilt\)</span> image.</p>
 </div>
 </div>
 </div>
@@ -846,8 +840,8 @@ we estimate and correct for the inter-frame motion present in the image.
 In this case, we leave the motion correction parameters as defaults.</p>
 <a class="reference internal image-reference" href="../../_images/motion-params.png"><img alt="../../_images/motion-params.png" src="../../_images/motion-params.png" style="width: 400px;" /></a>
 </div>
-<input id="e5d72b32-ece1-4dfe-b202-de12589da72c" name="d2f10817-b0c6-4385-acc9-d29d6b326362" type="radio">
-</input><label class="tabbed-label" for="e5d72b32-ece1-4dfe-b202-de12589da72c">
+<input id="0bee77fd-70fc-4543-9374-d50cdb6e355d" name="cb28e9f5-d8ec-42cf-b3fb-2a0e99ebfb14" type="radio">
+</input><label class="tabbed-label" for="0bee77fd-70fc-4543-9374-d50cdb6e355d">
 Spatiotemporal models</label><div class="tabbed-content docutils">
 <p class="card-text">Warp allows us to estimate how CTF and inter-frame translational motion parameters change in both space and time.</p>
 <a class="reference internal image-reference" href="../../_images/spatiotemporal-models.png"><img alt="../../_images/spatiotemporal-models.png" src="../../_images/spatiotemporal-models.png" style="width: 400px;" /></a>
@@ -856,8 +850,8 @@ Spatiotemporal models</label><div class="tabbed-content docutils">
 <p class="card-text">A motion model of 1x1xn where n is the number of frames typically ensures that accurate estimates can be obtained from low-dose data. The alignment of individual frames can be improved once a high SNR reference has been obtained, this is performed in the multi-particle refinement step of the workflow.</p>
 <p class="card-text">For HIV-5-TS, EMPIAR indicates that we have 8 frames per image, so we set the resolution of the motion model to 1x1x8</p>
 </div>
-<input id="58ae3188-07e3-4bc2-9517-d1a7dd6912d9" name="d2f10817-b0c6-4385-acc9-d29d6b326362" type="radio">
-</input><label class="tabbed-label" for="58ae3188-07e3-4bc2-9517-d1a7dd6912d9">
+<input id="56b3d9cc-00df-455c-82fb-ec7ee4f45e1b" name="cb28e9f5-d8ec-42cf-b3fb-2a0e99ebfb14" type="radio">
+</input><label class="tabbed-label" for="56b3d9cc-00df-455c-82fb-ec7ee4f45e1b">
 Fiducials</label><div class="tabbed-content docutils">
 <p class="card-text">While gold fiducials are useful for the accurate alignment of tilt series, their high contrast will have negative effects on the final tomographic reconstruction. For this reason, we use Warp to mask out any beads prior to tomographic reconstruction.</p>
 <p class="card-text">The <code class="docutils literal notranslate"><span class="pre">Pick</span> <span class="pre">Particles</span></code> panel gives access to <code class="docutils literal notranslate"><span class="pre">BoxNet</span></code>, a deep convolutional neural network designed to pick particles and mask out unwanted subregions in single-particle cryo-EM. A version of <code class="docutils literal notranslate"><span class="pre">BoxNet</span></code> that we retrained to mask gold fiducials <a class="reference external" href="https://doi.org/10.5281/zenodo.4486376">is available here</a> under the name <code class="docutils literal notranslate"><span class="pre">GoldNet</span></code>.</p>
@@ -872,8 +866,8 @@ Fiducials</label><div class="tabbed-content docutils">
 <a class="reference internal image-reference" href="../../_images/boxnet-params.png"><img alt="../../_images/boxnet-params.png" src="../../_images/boxnet-params.png" style="width: 400px;" /></a>
 <p class="card-text">As we are only using this model for particle picking, the parameters relating to particle picking can be safely ignored.</p>
 </div>
-<input id="2f0cca44-8f68-4a89-b841-219e900ab750" name="d2f10817-b0c6-4385-acc9-d29d6b326362" type="radio">
-</input><label class="tabbed-label" for="2f0cca44-8f68-4a89-b841-219e900ab750">
+<input id="ee190c52-fc44-48be-b3e7-e69d5db14a07" name="cb28e9f5-d8ec-42cf-b3fb-2a0e99ebfb14" type="radio">
+</input><label class="tabbed-label" for="ee190c52-fc44-48be-b3e7-e69d5db14a07">
 Start Processing!</label><div class="tabbed-content docutils">
 <a class="reference internal image-reference" href="../../_images/output-params.png"><img alt="../../_images/output-params.png" src="../../_images/output-params.png" style="width: 400px;" /></a>
 <p class="card-text">In the <code class="docutils literal notranslate"><span class="pre">Output</span></code> panel, we can choose not to include frames at the beginning and end of a movie. The first frames from a multi-frame micrograph of a given exposure often display increased translational motion. In this case, we chose to include all frames from the micrograph to maximise the signal present in the final images.</p>

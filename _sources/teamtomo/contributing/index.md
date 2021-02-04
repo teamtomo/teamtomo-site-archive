@@ -17,11 +17,13 @@ Everything is written in `Markdown`, a simple markup language for plain text fil
 We make use of the version control system [git](https://git-scm.com/) and the 
 [Pull Request](https://docs.github.com/en/free-pro-team@latest/github/collaborating-with-issues-and-pull-requests/about-pull-requests) mechanism on GitHub to manage contributions. If you're new to git and GitHub, check out our [short guide to git(hub)](git_guide) to learn how to set up a github account, fork this project and create a Pull Request with your contribution.
 
-````{admonition} Images and large files
-:class: attention
+## Quick start
 If you are already familiar with git and want to get started right away, you should know that to keep the size of the repository small and contributions easier to manage we use [git large files storage](https://git-lfs.github.com/). Getting git lfs integrated to your workflow is as easy as [installing it](https://git-lfs.github.com/) and running:
 ```
 git lfs install
 ```
-to set up [lfs hooks and filters](https://github.com/git-lfs/git-lfs/blob/master/docs/man/git-lfs-install.1.ronn). You can then simply proceed as normal!
-````
+to set up [lfs hooks and filters](https://github.com/git-lfs/git-lfs/blob/master/docs/man/git-lfs-install.1.ronn).
+
+To contribute to the book, you then just need two things:
+1. Place the [markdown](https://www.markdownguide.org/cheat-sheet/) file with the contents of your page inside the appropriate directory (look at the other files for inspiration)
+2. Add your section to the table of contents file: `_toc.yml`.
