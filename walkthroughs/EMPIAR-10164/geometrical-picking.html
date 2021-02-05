@@ -769,6 +769,13 @@
 <li><p>The lattice is always parallel to the membrane, imparting an orientation normal to the surface of the sphere  onto each particle will provide a consistent estimate for the initial orientation of the particles in the lattice.</p></li>
 </ul>
 <p>Dynamo contains many geometrical modelling tools which can help with these geometrical approaches to subtomogram averaging projects. We will make use of a limited subset of these tools in this tutorial, for an overview of the available geometrical models please see <a class="reference external" href="https://wiki.dynamo.biozentrum.unibas.ch/w/index.php/Model#Types_of_models">here</a>. Becoming familiar with the available tools and thinking about how you can use the geometry of your system to your advantage will help with many subtomogram averaging projects. Below, we used <code class="docutils literal notranslate"><span class="pre">dynamo_tomoslice</span></code> to  estimate the lattice spacing in our tomograms, 7.8 px at 10 Å/px this tool will be introduced shortly.</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To replicate our measurement, <a class="reference internal" href="../../mini-tutorials/dynamo/dtmslice-controls.html"><span class="doc std std-doc">open a tomogram in <code class="docutils literal notranslate"><span class="pre">dynamo_tomoslice</span></code></span></a> and press <code class="docutils literal notranslate"><span class="pre">1</span></code> while hovering the mouse over a “hole” in the VLP surface pattern to place a marker. Do the same by pressing <code class="docutils literal notranslate"><span class="pre">2</span></code> on a neighboring hole, then right click on the dashed line between the markers to show the distance.</p>
+</div>
+</div>
 <a class="reference internal image-reference" href="../../_images/lattice-spacing.png"><img alt="../../_images/lattice-spacing.png" src="../../_images/lattice-spacing.png" style="width: 400px;" /></a>
 </div>
 <div class="section" id="generating-a-dynamo-catalogue-for-particle-picking">
@@ -784,7 +791,7 @@
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">dcm</span> <span class="s">warp_catalogue</span>
 </pre></div>
 </div>
-<p>From the catalogue manager which opens up, tomograms can be opened in an interactive browser called <code class="docutils literal notranslate"><span class="pre">dynamo_tomoslice</span></code> by first selecting the tomogram of interest then using the <code class="docutils literal notranslate"><span class="pre">Selected</span> <span class="pre">volume</span> <span class="pre">-&gt;</span> <span class="pre">Open</span> <span class="pre">full</span> <span class="pre">volume</span> <span class="pre">with</span> <span class="pre">tomoslice</span></code> menu options.</p>
+<p>From the catalogue manager which opens up, tomograms can be opened in an interactive browser called <code class="docutils literal notranslate"><span class="pre">dynamo_tomoslice</span></code> by first selecting the tomogram of interest then using the <code class="docutils literal notranslate"><span class="pre">View</span> <span class="pre">volume</span> <span class="pre">-&gt;</span> <span class="pre">Open</span> <span class="pre">full</span> <span class="pre">volume</span> <span class="pre">with</span> <span class="pre">tomoslice</span></code> menu options.</p>
 <p>At this point we recommend getting comfortable with basic manipulation of the tomoslice viewer. As you can probably tell by the number of buttons and menus, this viewer contains many powerful tools. Don’t be scared! Read the <a class="reference external" href="https://wiki.dynamo.biozentrum.unibas.ch/w/index.php/Dtmslice">wiki page</a> describing how to use it. Once you feel comfortable, move onto the next section where we will annotate our VLPs to provide initial positions and orientations for subtomogram averaging.</p>
 </div>
 <div class="section" id="vlp-annotation">

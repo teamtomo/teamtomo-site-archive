@@ -29,6 +29,12 @@ We can use this information to help us in our efforts to reconstruct this lattic
 
 Dynamo contains many geometrical modelling tools which can help with these geometrical approaches to subtomogram averaging projects. We will make use of a limited subset of these tools in this tutorial, for an overview of the available geometrical models please see [here](https://wiki.dynamo.biozentrum.unibas.ch/w/index.php/Model#Types_of_models). Becoming familiar with the available tools and thinking about how you can use the geometry of your system to your advantage will help with many subtomogram averaging projects. Below, we used `dynamo_tomoslice` to  estimate the lattice spacing in our tomograms, 7.8 px at 10 Å/px this tool will be introduced shortly.
 
+````{margin}
+```{note}
+To replicate our measurement, [open a tomogram in `dynamo_tomoslice`](../../mini-tutorials/dynamo/dtmslice-controls) and press `1` while hovering the mouse over a "hole" in the VLP surface pattern to place a marker. Do the same by pressing `2` on a neighboring hole, then right click on the dashed line between the markers to show the distance.
+```
+````
+
 ```{image} geometrical-picking.assets/lattice-spacing.png
 :width: 400px
 ```
@@ -51,7 +57,7 @@ This will generate the catalogue with the name `warp_catalogue` inside the `dyna
 dcm warp_catalogue
 ```
 
-From the catalogue manager which opens up, tomograms can be opened in an interactive browser called `dynamo_tomoslice` by first selecting the tomogram of interest then using the `Selected volume -> Open full volume with tomoslice` menu options.
+From the catalogue manager which opens up, tomograms can be opened in an interactive browser called `dynamo_tomoslice` by first selecting the tomogram of interest then using the `View volume -> Open full volume with tomoslice` menu options.
 
 At this point we recommend getting comfortable with basic manipulation of the tomoslice viewer. As you can probably tell by the number of buttons and menus, this viewer contains many powerful tools. Don't be scared! Read the [wiki page](https://wiki.dynamo.biozentrum.unibas.ch/w/index.php/Dtmslice) describing how to use it. Once you feel comfortable, move onto the next section where we will annotate our VLPs to provide initial positions and orientations for subtomogram averaging.
 

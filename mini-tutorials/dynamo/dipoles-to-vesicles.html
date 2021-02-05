@@ -842,7 +842,7 @@ Then, move the cursor to a point on the surface of the same vescicle and press <
 </div>
 <div class="section" id="convert-dipoleset-models-into-oversampled-vesicle-models">
 <h3>Convert dipoleSet models into oversampled Vesicle models<a class="headerlink" href="#convert-dipoleset-models-into-oversampled-vesicle-models" title="Permalink to this headline">¶</a></h3>
-<p>Once all the dipole models are picked, we can convert them into oversampled <code class="docutils literal notranslate"><span class="pre">Vesicle</span></code> models. For this, we will use the script <a class="reference external" href="https://gist.github.com/alisterburt/818c604af41050532a378afb93ae556f"><code class="docutils literal notranslate"><span class="pre">dipoles2vescicles.m</span></code></a>. The function generates a Dynamo <code class="docutils literal notranslate"><span class="pre">Vescicle</span></code> model for every dipole in each <code class="docutils literal notranslate"><span class="pre">dipoleSet</span></code> model in a catalogue.</p>
+<p>Once all the dipole models are picked, we can convert them into oversampled <code class="docutils literal notranslate"><span class="pre">Vesicle</span></code> models. For this, we will use the script <a class="reference external" href="https://gist.github.com/alisterburt/818c604af41050532a378afb93ae556f"><code class="docutils literal notranslate"><span class="pre">dipoles2vesicles.m</span></code></a>. The function generates a Dynamo <code class="docutils literal notranslate"><span class="pre">Vescicle</span></code> model for every dipole in each <code class="docutils literal notranslate"><span class="pre">dipoleSet</span></code> model in a catalogue.</p>
 <p>For example, to generate the <code class="docutils literal notranslate"><span class="pre">Vesicle</span></code> models from a catalogue called <code class="docutils literal notranslate"><span class="pre">catalogue</span></code> with an expected inter-particle distance of <code class="docutils literal notranslate"><span class="pre">7.5</span></code>px we would run the following command from the folder containing the catalogue:</p>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
@@ -852,15 +852,15 @@ Then, move the cursor to a point on the surface of the same vescicle and press <
 </div>
 </div>
 <div class="tabbed-set docutils">
-<input checked="checked" id="44b982a3-db19-4879-b6a7-14865d3cc984" name="68679670-235d-4913-9329-229168f8fbcc" type="radio">
-</input><label class="tabbed-label" for="44b982a3-db19-4879-b6a7-14865d3cc984">
+<input checked="checked" id="a46d50a9-7654-4e25-905d-49e6df461f53" name="d809f919-808e-4992-beef-f75d9c75f951" type="radio">
+</input><label class="tabbed-label" for="a46d50a9-7654-4e25-905d-49e6df461f53">
 Command</label><div class="tabbed-content docutils">
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">dipoles2vescicles</span><span class="p">(</span><span class="s">&#39;catalogue&#39;</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">)</span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">dipoles2vesicles</span><span class="p">(</span><span class="s">&#39;warp_catalogue&#39;</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<input id="a0939eaf-8221-4a38-a8df-0b3c1e9040c3" name="68679670-235d-4913-9329-229168f8fbcc" type="radio">
-</input><label class="tabbed-label" for="a0939eaf-8221-4a38-a8df-0b3c1e9040c3">
+<input id="8c414b8e-d1e7-4fd6-9483-4006ac71fa1b" name="d809f919-808e-4992-beef-f75d9c75f951" type="radio">
+</input><label class="tabbed-label" for="8c414b8e-d1e7-4fd6-9483-4006ac71fa1b">
 Source code</label><div class="tabbed-content docutils">
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="nf">dipoles2vesicles</span><span class="p">(</span>catalogue_name, distance_between_particles<span class="p">)</span><span class="w"></span>
 <span class="c">%%% to be run in the folder which holds your catalogue</span>

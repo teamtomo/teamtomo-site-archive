@@ -751,8 +751,8 @@
 <div class="card w-100 border-2 docutils">
 <div class="card-body docutils">
 <div class="tabbed-set docutils">
-<input checked="checked" id="7ade7176-44ca-4243-8820-65aa2082b071" name="cb28e9f5-d8ec-42cf-b3fb-2a0e99ebfb14" type="radio">
-</input><label class="tabbed-label" for="7ade7176-44ca-4243-8820-65aa2082b071">
+<input checked="checked" id="ab904077-9944-4215-a965-32fccec91d59" name="6fe7785e-2dbf-48d7-9218-61e6764eb949" type="radio">
+</input><label class="tabbed-label" for="ab904077-9944-4215-a965-32fccec91d59">
 Import</label><div class="tabbed-content docutils">
 <p class="card-text">To import new data into Warp, click on the path next to <code class="docutils literal notranslate"><span class="pre">Input</span></code> and select the <code class="docutils literal notranslate"><span class="pre">frames</span></code> directory. For the HIV-5-TS data, make sure that the selected format is <code class="docutils literal notranslate"><span class="pre">*.mrc</span></code>.</p>
 <p class="card-text">We then set the parameters as shown below.</p>
@@ -765,7 +765,7 @@ Import</label><div class="tabbed-content docutils">
 <p class="card-text">With a binning factor of <em>n</em>, the frames will be Fourier-cropped to <span class="math notranslate nohighlight">\(size/2^n\)</span>.</p>
 </div>
 </div>
-<p class="card-text">For HIV-5-TS, the data were collected in super resolution mode, the physical pixel size is 1.35 <span class="math notranslate nohighlight">\(Å/px\)</span>. Processing data without first downsampling may reduce the aliasing of high-frequency signals in the image but significantly increases the computational overhead. In this case we will use Warp to downsample the data by a factor of 2, in order to return to the physical pixel size of the detector.</p>
+<p class="card-text">For HIV-5-TS, the data were collected in super resolution mode, the physical pixel size is 1.35 <span class="math notranslate nohighlight">\(Å/px\)</span>. Processing data without first downsampling may reduce the aliasing of high-frequency signals in the image but significantly increases the computational overhead. In this case we will use Warp to downsample the data by a factor of 2, in order to return to the physical pixel size of the detector. For now, the exposure can be left at zero. For tilt-series data, dose-dependent exposure weighting (dose-weighting) is dealt with at a later stage.</p>
 <div class="admonition attention">
 <p class="admonition-title">Attention</p>
 <p class="card-text">When processing other data, you may need to provide a gain reference here.
@@ -773,8 +773,8 @@ Make sure that the orientation of the reference and the images correspond!</p>
 </div>
 <p class="card-text">The EMPIAR entry for EMPIAR-10164 indicates that the images were already gain corrected. We can skip gain correction by leaving this section unchecked.</p>
 </div>
-<input id="a45fb023-a4a8-4d56-94e9-3d60d6ea99a9" name="cb28e9f5-d8ec-42cf-b3fb-2a0e99ebfb14" type="radio">
-</input><label class="tabbed-label" for="a45fb023-a4a8-4d56-94e9-3d60d6ea99a9">
+<input id="c43eb3db-6c4d-49ab-9bab-6a458bed48ef" name="6fe7785e-2dbf-48d7-9218-61e6764eb949" type="radio">
+</input><label class="tabbed-label" for="c43eb3db-6c4d-49ab-9bab-6a458bed48ef">
 CTF and Motion</label><div class="tabbed-content docutils">
 <div class="margin sidebar">
 <p class="card-title sidebar-title"></p>
@@ -840,8 +840,8 @@ we estimate and correct for the inter-frame motion present in the image.
 In this case, we leave the motion correction parameters as defaults.</p>
 <a class="reference internal image-reference" href="../../_images/motion-params.png"><img alt="../../_images/motion-params.png" src="../../_images/motion-params.png" style="width: 400px;" /></a>
 </div>
-<input id="0bee77fd-70fc-4543-9374-d50cdb6e355d" name="cb28e9f5-d8ec-42cf-b3fb-2a0e99ebfb14" type="radio">
-</input><label class="tabbed-label" for="0bee77fd-70fc-4543-9374-d50cdb6e355d">
+<input id="a2ae46bc-7fa8-43f8-93fb-eaaaf3f48c0c" name="6fe7785e-2dbf-48d7-9218-61e6764eb949" type="radio">
+</input><label class="tabbed-label" for="a2ae46bc-7fa8-43f8-93fb-eaaaf3f48c0c">
 Spatiotemporal models</label><div class="tabbed-content docutils">
 <p class="card-text">Warp allows us to estimate how CTF and inter-frame translational motion parameters change in both space and time.</p>
 <a class="reference internal image-reference" href="../../_images/spatiotemporal-models.png"><img alt="../../_images/spatiotemporal-models.png" src="../../_images/spatiotemporal-models.png" style="width: 400px;" /></a>
@@ -850,8 +850,8 @@ Spatiotemporal models</label><div class="tabbed-content docutils">
 <p class="card-text">A motion model of 1x1xn where n is the number of frames typically ensures that accurate estimates can be obtained from low-dose data. The alignment of individual frames can be improved once a high SNR reference has been obtained, this is performed in the multi-particle refinement step of the workflow.</p>
 <p class="card-text">For HIV-5-TS, EMPIAR indicates that we have 8 frames per image, so we set the resolution of the motion model to 1x1x8</p>
 </div>
-<input id="56b3d9cc-00df-455c-82fb-ec7ee4f45e1b" name="cb28e9f5-d8ec-42cf-b3fb-2a0e99ebfb14" type="radio">
-</input><label class="tabbed-label" for="56b3d9cc-00df-455c-82fb-ec7ee4f45e1b">
+<input id="155390ff-022f-4930-8b86-d2be6df854c0" name="6fe7785e-2dbf-48d7-9218-61e6764eb949" type="radio">
+</input><label class="tabbed-label" for="155390ff-022f-4930-8b86-d2be6df854c0">
 Fiducials</label><div class="tabbed-content docutils">
 <p class="card-text">While gold fiducials are useful for the accurate alignment of tilt series, their high contrast will have negative effects on the final tomographic reconstruction. For this reason, we use Warp to mask out any beads prior to tomographic reconstruction.</p>
 <p class="card-text">The <code class="docutils literal notranslate"><span class="pre">Pick</span> <span class="pre">Particles</span></code> panel gives access to <code class="docutils literal notranslate"><span class="pre">BoxNet</span></code>, a deep convolutional neural network designed to pick particles and mask out unwanted subregions in single-particle cryo-EM. A version of <code class="docutils literal notranslate"><span class="pre">BoxNet</span></code> that we retrained to mask gold fiducials <a class="reference external" href="https://doi.org/10.5281/zenodo.4486376">is available here</a> under the name <code class="docutils literal notranslate"><span class="pre">GoldNet</span></code>.</p>
@@ -866,8 +866,8 @@ Fiducials</label><div class="tabbed-content docutils">
 <a class="reference internal image-reference" href="../../_images/boxnet-params.png"><img alt="../../_images/boxnet-params.png" src="../../_images/boxnet-params.png" style="width: 400px;" /></a>
 <p class="card-text">As we are only using this model for particle picking, the parameters relating to particle picking can be safely ignored.</p>
 </div>
-<input id="ee190c52-fc44-48be-b3e7-e69d5db14a07" name="cb28e9f5-d8ec-42cf-b3fb-2a0e99ebfb14" type="radio">
-</input><label class="tabbed-label" for="ee190c52-fc44-48be-b3e7-e69d5db14a07">
+<input id="af891132-8c15-4860-a14d-11f50acda7ff" name="6fe7785e-2dbf-48d7-9218-61e6764eb949" type="radio">
+</input><label class="tabbed-label" for="af891132-8c15-4860-a14d-11f50acda7ff">
 Start Processing!</label><div class="tabbed-content docutils">
 <a class="reference internal image-reference" href="../../_images/output-params.png"><img alt="../../_images/output-params.png" src="../../_images/output-params.png" style="width: 400px;" /></a>
 <p class="card-text">In the <code class="docutils literal notranslate"><span class="pre">Output</span></code> panel, we can choose not to include frames at the beginning and end of a movie. The first frames from a multi-frame micrograph of a given exposure often display increased translational motion. In this case, we chose to include all frames from the micrograph to maximise the signal present in the final images.</p>
