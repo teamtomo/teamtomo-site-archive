@@ -94,7 +94,7 @@ If you aren't sure how to use the provided function, check out [this page](../..
 
 ````{tabbed} Command
 ```matlab
-dipoles2vesicles('catalogue', 7.5)
+dipoles2vesicles('warp_catalogue', 7.5)
 ```
 ````
 
