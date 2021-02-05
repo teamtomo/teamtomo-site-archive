@@ -57,7 +57,7 @@ This will generate the catalogue with the name `warp_catalogue` inside the `dyna
 dcm warp_catalogue
 ```
 
-From the catalogue manager which opens up, tomograms can be opened in an interactive browser called `dynamo_tomoslice` by first selecting the tomogram of interest then using the `Selected volume -> Open full volume with tomoslice` menu options.
+From the catalogue manager which opens up, tomograms can be opened in an interactive browser called `dynamo_tomoslice` by first selecting the tomogram of interest then using the `View volume -> Open full volume with tomoslice` menu options.
 
 At this point we recommend getting comfortable with basic manipulation of the tomoslice viewer. As you can probably tell by the number of buttons and menus, this viewer contains many powerful tools. Don't be scared! Read the [wiki page](https://wiki.dynamo.biozentrum.unibas.ch/w/index.php/Dtmslice) describing how to use it. Once you feel comfortable, move onto the next section where we will annotate our VLPs to provide initial positions and orientations for subtomogram averaging.
 
