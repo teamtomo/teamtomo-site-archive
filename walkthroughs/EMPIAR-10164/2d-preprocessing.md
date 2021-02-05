@@ -34,7 +34,7 @@ With a binning factor of *n*, the frames will be Fourier-cropped to $size/2^n$.
 ```
 ````
 
-For HIV-5-TS, the data were collected in super resolution mode, the physical pixel size is 1.35 $Å/px$. Processing data without first downsampling may reduce the aliasing of high-frequency signals in the image but significantly increases the computational overhead. In this case we will use Warp to downsample the data by a factor of 2, in order to return to the physical pixel size of the detector. For now, the exposure can be left at zero. For tilt-series date, dose-dependent exposure weighting (dose-weighting) is dealt with at a later stage.
+For HIV-5-TS, the data were collected in super resolution mode, the physical pixel size is 1.35 $Å/px$. Processing data without first downsampling may reduce the aliasing of high-frequency signals in the image but significantly increases the computational overhead. In this case we will use Warp to downsample the data by a factor of 2, in order to return to the physical pixel size of the detector. For now, the exposure can be left at zero. For tilt-series data, dose-dependent exposure weighting (dose-weighting) is dealt with at a later stage.
 
 ```{attention}
 When processing other data, you may need to provide a gain reference here. 
