@@ -60,7 +60,11 @@ To keep read/write times low, we recommend a Solid State Drive (SSD).
 
 ```{tabbed} Software
 - Access to both Windows and Linux operating systems
-- [MATLAB](https://fr.mathworks.com/products/matlab.html) r2019a or later
+- [MATLAB](https://fr.mathworks.com/products/matlab.html) r2019a or later with the following toolboxes installed
+  - Image Processing Toolbox
+  - Parallel Computing Toolbox
+  - Computer Vision Toolbox
+  - Curve Fitting Toolbox
 - [IMOD](https://bio3d.colorado.edu/imod/)
 - [Warp](http://www.warpem.com/) v1.0.9 or later
 - [Relion](https://www3.mrc-lmb.cam.ac.uk/relion/index.php?title=Main_Page) 3.0.8 or later
