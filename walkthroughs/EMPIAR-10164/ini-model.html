@@ -894,15 +894,15 @@
 <p>In order to take advantage of the symmetry present in the structure during refinement we first need to recenter the average on its 6-fold symmetry axis and align that axis along the z axis of our volume.</p>
 <p>To center and align the 6-fold symmetry axis, we will use a script provided with this tutorial, <a class="reference external" href="https://github.com/teamtomo/teamtomo.github.io/blob/master/walkthroughs/EMPIAR-10164/scripts/align_symmetry_axis.m"><code class="docutils literal notranslate"><span class="pre">align_symmetry_axis.m</span></code></a>. The script generates a synthetic template of a lattice with a 6-fold symmetry axis centered and aligned along the z-axis. The volume from our first subtomogram averaging experiment is then aligned to this synthetic template and C6 symmetry is applied. This produces an initial model with the symmetry axis correctly aligned for further experiments.</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="84cc60e9-a66d-4639-8803-593407ad9d80" name="14669220-0a21-4e67-9e35-fe57e5959ea8" type="radio">
-</input><label class="tabbed-label" for="84cc60e9-a66d-4639-8803-593407ad9d80">
+<input checked="checked" id="832a9efa-54eb-4ac8-89b6-3f6aef9eb335" name="eb7dc661-f09b-438e-b62d-9d2424247030" type="radio">
+</input><label class="tabbed-label" for="832a9efa-54eb-4ac8-89b6-3f6aef9eb335">
 command</label><div class="tabbed-content docutils">
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">align_symmetry_axis</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
-<input id="cd857eeb-1622-4714-b5a3-68cf3314f93b" name="14669220-0a21-4e67-9e35-fe57e5959ea8" type="radio">
-</input><label class="tabbed-label" for="cd857eeb-1622-4714-b5a3-68cf3314f93b">
+<input id="6f95bf8c-28bb-4232-80eb-31a82ce036cc" name="eb7dc661-f09b-438e-b62d-9d2424247030" type="radio">
+</input><label class="tabbed-label" for="6f95bf8c-28bb-4232-80eb-31a82ce036cc">
 source code</label><div class="tabbed-content docutils">
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">v</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">dread</span><span class="p">(</span><span class="s">&#39;average_ref_001_ite_0008.em&#39;</span><span class="p">);</span><span class="w"></span>
 

@@ -861,6 +861,10 @@ package. The script takes a <code class="docutils literal notranslate"><span cla
 <p class="admonition-title">Note</p>
 <p>We reconstruct at a box twice as large as before because we have halved the pixel spacing.</p>
 </div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Note that the <code class="docutils literal notranslate"><span class="pre">particle</span> <span class="pre">diameter</span></code> is used to generate a normalization mask, and does <em>not</em> affect the size of the box. Here we choose a size that encompasses only the central hexamer, since that’s the part we are interested in.</p>
+</div>
 </div>
 <a class="reference internal image-reference" href="../../_images/subtomo-reconstruction.png"><img alt="../../_images/subtomo-reconstruction.png" src="../../_images/subtomo-reconstruction.png" style="width: 300px;" /></a>
 <p>When ready, click on <code class="docutils literal notranslate"><span class="pre">EXPORT</span></code>. To prepare the directory structure for relion, we will choose to put the output <code class="docutils literal notranslate"><span class="pre">.star</span></code> file inside a new <code class="docutils literal notranslate"><span class="pre">relion</span></code> folder in the project root directory, and call it <code class="docutils literal notranslate"><span class="pre">subtomograms_5Apx.star</span></code>.</p>
@@ -913,46 +917,46 @@ tail subtomograms_5Apx.star -n +31 <span class="p">|</span> shuf -n <span class=
 <div class="card w-100 border-2 docutils">
 <div class="card-body docutils">
 <div class="tabbed-set docutils">
-<input checked="checked" id="56b23137-b760-4117-b905-295333b6e02e" name="76800388-b361-4486-a42f-2d4d96644f5e" type="radio">
-</input><label class="tabbed-label" for="56b23137-b760-4117-b905-295333b6e02e">
+<input checked="checked" id="19419c23-757e-431a-afd1-e099800faf3b" name="a13b67b7-d3a2-4b6c-9a92-9b2b4c839aeb" type="radio">
+</input><label class="tabbed-label" for="19419c23-757e-431a-afd1-e099800faf3b">
 I/O</label><div class="tabbed-content docutils">
 <p class="card-text">We will refine without a mask for now as this refinement serves only to make sure that the particles remain well centered and we expect to go significantly beyond 10Å.</p>
 <p class="card-text"><img alt="relion 1" src="../../_images/relion-1.png" /></p>
 </div>
-<input id="e7644603-dac8-4876-b5a3-a85c494638de" name="76800388-b361-4486-a42f-2d4d96644f5e" type="radio">
-</input><label class="tabbed-label" for="e7644603-dac8-4876-b5a3-a85c494638de">
+<input id="c5b451ad-a3cd-4de5-9326-1ef7c0a7168a" name="a13b67b7-d3a2-4b6c-9a92-9b2b4c839aeb" type="radio">
+</input><label class="tabbed-label" for="c5b451ad-a3cd-4de5-9326-1ef7c0a7168a">
 Reference</label><div class="tabbed-content docutils">
 <p class="card-text">We use a conservative initial lowpass of 30Å to avoid overfitting, and C6 symmetry based on our understanding of the lattice from the inital model generation.</p>
 <p class="card-text"><img alt="relion 2" src="../../_images/relion-2.png" /></p>
 </div>
-<input id="6b645e32-3010-4541-9c7d-8f63e4cbaa5e" name="76800388-b361-4486-a42f-2d4d96644f5e" type="radio">
-</input><label class="tabbed-label" for="6b645e32-3010-4541-9c7d-8f63e4cbaa5e">
+<input id="89b4fee9-7951-4d6f-84b4-7f7c6e6ec061" name="a13b67b7-d3a2-4b6c-9a92-9b2b4c839aeb" type="radio">
+</input><label class="tabbed-label" for="89b4fee9-7951-4d6f-84b4-7f7c6e6ec061">
 CTF</label><div class="tabbed-content docutils">
 <p class="card-text"><img alt="relion 3" src="../../_images/relion-3.png" /></p>
 </div>
-<input id="18fcbda6-4909-44d2-9b3b-f5dcc3af770d" name="76800388-b361-4486-a42f-2d4d96644f5e" type="radio">
-</input><label class="tabbed-label" for="18fcbda6-4909-44d2-9b3b-f5dcc3af770d">
+<input id="624c2d5f-efb9-4260-9791-cc7a97e327ea" name="a13b67b7-d3a2-4b6c-9a92-9b2b4c839aeb" type="radio">
+</input><label class="tabbed-label" for="624c2d5f-efb9-4260-9791-cc7a97e327ea">
 Optimisation</label><div class="tabbed-content docutils">
 <p class="card-text">We use a particle diameter covering the whole box to continue making use of the signal from neighbouring hexamers to drive alignment. We will change this once we start aiming for more optimal refinements focussed on the central hexamer.</p>
 <p class="card-text"><img alt="relion 4" src="../../_images/relion-4.png" /></p>
 </div>
-<input id="34698c0c-6ced-457d-8edb-31a8ecbbf2af" name="76800388-b361-4486-a42f-2d4d96644f5e" type="radio">
-</input><label class="tabbed-label" for="34698c0c-6ced-457d-8edb-31a8ecbbf2af">
+<input id="9d131a5c-3684-47c9-9344-6272f989eaac" name="a13b67b7-d3a2-4b6c-9a92-9b2b4c839aeb" type="radio">
+</input><label class="tabbed-label" for="9d131a5c-3684-47c9-9344-6272f989eaac">
 Auto-sampling</label><div class="tabbed-content docutils">
 <p class="card-text"><img alt="relion 5" src="../../_images/relion-5.png" /></p>
 </div>
-<input id="6a9426cd-16d8-43dc-8b4c-ba94a8054ffd" name="76800388-b361-4486-a42f-2d4d96644f5e" type="radio">
-</input><label class="tabbed-label" for="6a9426cd-16d8-43dc-8b4c-ba94a8054ffd">
+<input id="0ab90f21-b649-40a8-afea-f9f5a4c54751" name="a13b67b7-d3a2-4b6c-9a92-9b2b4c839aeb" type="radio">
+</input><label class="tabbed-label" for="0ab90f21-b649-40a8-afea-f9f5a4c54751">
 Helix</label><div class="tabbed-content docutils">
 <p class="card-text">Leave this disabled, we are not performing helical refinement in this case.</p>
 </div>
-<input id="0c255e13-6b4e-42a1-9854-6a10179a86e2" name="76800388-b361-4486-a42f-2d4d96644f5e" type="radio">
-</input><label class="tabbed-label" for="0c255e13-6b4e-42a1-9854-6a10179a86e2">
+<input id="84c7c643-82be-4c0d-a50b-d6b4289bbefb" name="a13b67b7-d3a2-4b6c-9a92-9b2b4c839aeb" type="radio">
+</input><label class="tabbed-label" for="84c7c643-82be-4c0d-a50b-d6b4289bbefb">
 Compute</label><div class="tabbed-content docutils">
 <p class="card-text"><img alt="relion 6" src="../../_images/relion-6.png" /></p>
 </div>
-<input id="25d9d068-fdc5-4ca0-92a8-e3159d6e1585" name="76800388-b361-4486-a42f-2d4d96644f5e" type="radio">
-</input><label class="tabbed-label" for="25d9d068-fdc5-4ca0-92a8-e3159d6e1585">
+<input id="2735e002-a5d1-40f6-a102-07bcc0460b33" name="a13b67b7-d3a2-4b6c-9a92-9b2b4c839aeb" type="radio">
+</input><label class="tabbed-label" for="2735e002-a5d1-40f6-a102-07bcc0460b33">
 Running</label><div class="tabbed-content docutils">
 <p class="card-text">The specific computational parameters will depend upon the configuration of your computing resources. Here, we are running on a cluster node with:</p>
 <ul class="simple">

@@ -41,6 +41,10 @@ We can now use the generated `.star` file to reconstruct subtomograms from our t
 ```{note}
 We reconstruct at a box twice as large as before because we have halved the pixel spacing.
 ```
+
+```{note}
+Note that the `particle diameter` is used to generate a normalization mask, and does *not* affect the size of the box. Here we choose a size that encompasses only the central hexamer, since that's the part we are interested in.
+```
 ````
 
 ```{image} relion.assets/subtomo-reconstruction.png
