@@ -1,128 +1,116 @@
-# Table of contents
-# Learn more at https://jupyterbook.org/customize/toc.html
-- file: index
-
-
-- part: teamtomo.org
+format: jb-book
+root: index
+parts:
+- caption: teamtomo.org
   chapters:
-    - file: teamtomo/about
-    - file: teamtomo/contributing/index
-      sections:
-          - file: teamtomo/contributing/git_guide
-          - file: teamtomo/contributing/screen-capture
-          - file: teamtomo/contributing/wishlist
-
-
-- part: Theory
+  - file: teamtomo/about
+  - file: teamtomo/contributing/index
+    sections:
+    - file: teamtomo/contributing/git_guide
+    - file: teamtomo/contributing/screen-capture
+    - file: teamtomo/contributing/wishlist
+- caption: Theory
   chapters:
-    - file: theory/cryo-et/index
+  - file: theory/cryo-et/index
+    sections:
+    - file: theory/cryo-et/tilt-schemes
+    - file: theory/cryo-et/tilt-series-alignment
+  - file: theory/subtomogram-averaging/index
+    sections:
+    - file: theory/subtomogram-averaging/preprocessing/index
+    - file: theory/subtomogram-averaging/particle-picking/index
       sections:
-        - file: theory/cryo-et/tilt-schemes
-        - file: theory/cryo-et/tilt-series-alignment
-    - file: theory/subtomogram-averaging/index
-      sections:
-        - file: theory/subtomogram-averaging/preprocessing/index
-        - file: theory/subtomogram-averaging/particle-picking/index
-          sections:
-            - file: theory/subtomogram-averaging/particle-picking/template-matching
-            - file: theory/subtomogram-averaging/particle-picking/geometrical-supports
-            - file: theory/subtomogram-averaging/particle-picking/subboxing
-        - file: theory/subtomogram-averaging/refinement/index
-    - file: theory/image-processing/introduction
-
-
-- part: Walkthroughs
+      - file: theory/subtomogram-averaging/particle-picking/template-matching
+      - file: theory/subtomogram-averaging/particle-picking/geometrical-supports
+      - file: theory/subtomogram-averaging/particle-picking/subboxing
+    - file: theory/subtomogram-averaging/refinement/index
+  - file: theory/image-processing/introduction
+- caption: Walkthroughs
   chapters:
-    - file: walkthroughs/EMPIAR-10164/introduction
-      title: EMPIAR-10164 (HIV VLPs)
-      sections:
-        - file: walkthroughs/EMPIAR-10164/preparation
-        - file: walkthroughs/EMPIAR-10164/2d-preprocessing
-        - file: walkthroughs/EMPIAR-10164/tilt-series-to-tomograms
-        - file: walkthroughs/EMPIAR-10164/geometrical-picking
-        - file: walkthroughs/EMPIAR-10164/ini-model
-        - file: walkthroughs/EMPIAR-10164/particle-picking
-        - file: walkthroughs/EMPIAR-10164/relion
-        - file: walkthroughs/EMPIAR-10164/m
-
-
-- part: mini-tutorials
+  - file: walkthroughs/EMPIAR-10164/introduction
+    title: EMPIAR-10164 (HIV VLPs)
+    sections:
+    - file: walkthroughs/EMPIAR-10164/preparation
+    - file: walkthroughs/EMPIAR-10164/2d-preprocessing
+    - file: walkthroughs/EMPIAR-10164/tilt-series-to-tomograms
+    - file: walkthroughs/EMPIAR-10164/geometrical-picking
+    - file: walkthroughs/EMPIAR-10164/ini-model
+    - file: walkthroughs/EMPIAR-10164/particle-picking
+    - file: walkthroughs/EMPIAR-10164/relion
+    - file: walkthroughs/EMPIAR-10164/m
+- caption: mini-tutorials
   chapters:
-    - file: mini-tutorials/dynamo/index
-      sections:
-        - file: mini-tutorials/dynamo/simple-alignment
-        - file: mini-tutorials/dynamo/extract-from-catalogue
-        - file: mini-tutorials/dynamo/dipoles-to-vesicles
-        - file: mini-tutorials/dynamo/dtmslice-controls
-        - file: mini-tutorials/dynamo/interactive-mask-creation
-
-
-- part: computing
+  - file: mini-tutorials/dynamo/index
+    sections:
+    - file: mini-tutorials/dynamo/simple-alignment
+    - file: mini-tutorials/dynamo/extract-from-catalogue
+    - file: mini-tutorials/dynamo/dipoles-to-vesicles
+    - file: mini-tutorials/dynamo/dtmslice-controls
+    - file: mini-tutorials/dynamo/interactive-mask-creation
+- caption: computing
   chapters:
-    - file: computing/python/index
+  - file: computing/python/index
+    sections:
+    - file: computing/python/getting-started
+    - file: computing/python/virtual-environments
+    - file: computing/python/useful-packages/useful-packages
       sections:
-        - file: computing/python/getting-started
-        - file: computing/python/virtual-environments
-        - file: computing/python/useful-packages/useful-packages
-          sections:
-            - file: computing/python/useful-packages/dynamotable
-            - file: computing/python/useful-packages/emfile
-            - file: computing/python/useful-packages/eulerangles
-            - file: computing/python/useful-packages/mrcfile
-            - file: computing/python/useful-packages/napari
-            - file: computing/python/useful-packages/starfile
-    - file: computing/matlab/index
-      sections:
-        - file: computing/matlab/add-to-path
-
-
-- part: Resources
+      - file: computing/python/useful-packages/dynamotable
+      - file: computing/python/useful-packages/emfile
+      - file: computing/python/useful-packages/eulerangles
+      - file: computing/python/useful-packages/mrcfile
+      - file: computing/python/useful-packages/napari
+      - file: computing/python/useful-packages/starfile
+  - file: computing/matlab/index
+    sections:
+    - file: computing/matlab/add-to-path
+- caption: Resources
   chapters:
-    - file: resources/literature/index
+  - file: resources/literature/index
+    sections:
+    - file: resources/literature/protocols/protocols
+    - file: resources/literature/reviews/reviews
       sections:
-        - file: resources/literature/protocols/protocols
-        - file: resources/literature/reviews/reviews
-          sections:
-            - file: resources/literature/reviews/schur19
-            - file: resources/literature/reviews/lucic08
-            - file: resources/literature/reviews/lucic05
-        - file: resources/literature/book-chapters/book-chapters
-          sections:
-            - file: resources/literature/book-chapters/subtomo-leigh19
-            - file: resources/literature/book-chapters/cryo-et-sta-wan16
-            - file: resources/literature/book-chapters/fiducial-alignments-mastronarde07
-    - file: resources/cryoet-software/cryoet-software
+      - file: resources/literature/reviews/schur19
+      - file: resources/literature/reviews/lucic08
+      - file: resources/literature/reviews/lucic05
+    - file: resources/literature/book-chapters/book-chapters
       sections:
-        - file: resources/cryoet-software/appion-protomo/appion-protomo
-        - file: resources/cryoet-software/cryolo/cryolo
-        - file: resources/cryoet-software/dynamo/dynamo
-          sections:
-            - file: resources/cryoet-software/dynamo/starters-guide
-            - file: resources/cryoet-software/dynamo/advanced-starters-guide
-            - file: resources/cryoet-software/dynamo/tilt-series-alignment
-            - file: resources/cryoet-software/dynamo/PCA
-        - file: resources/cryoet-software/eman2/eman2
-          sections:
-            - file: resources/cryoet-software/eman2/full-tutorial
-            - file: resources/cryoet-software/eman2/segmentation
-        - file: resources/cryoet-software/emclarity/emclarity
-          sections:
-            - file: resources/cryoet-software/emclarity/tutorial
-        - file: resources/cryoet-software/imod/imod
-          sections:
-            - file: resources/cryoet-software/imod/tomo-guide
-            - file: resources/cryoet-software/imod/etomo-fiducial-tuto
-            - file: resources/cryoet-software/imod/etomo-patch-track-tuto
-            - file: resources/cryoet-software/imod/batch-alignment
-        - file: resources/cryoet-software/m/m
-          sections:
-            - file: resources/cryoet-software/m/user-guide
-        - file: resources/cryoet-software/novactf/novactf
-        - file: resources/cryoet-software/novasta/novasta
-        - file: resources/cryoet-software/pytom/pytom
-        - file: resources/cryoet-software/relion/relion
-        - file: resources/cryoet-software/stopgap/stopgap
-        - file: resources/cryoet-software/topaz_denoise_3d/topaz_denoise_3d
-        - file: resources/cryoet-software/warp/warp
-          sections:
-            - file: resources/cryoet-software/warp/user-guide
+      - file: resources/literature/book-chapters/subtomo-leigh19
+      - file: resources/literature/book-chapters/cryo-et-sta-wan16
+      - file: resources/literature/book-chapters/fiducial-alignments-mastronarde07
+  - file: resources/cryoet-software/cryoet-software
+    sections:
+    - file: resources/cryoet-software/appion-protomo/appion-protomo
+    - file: resources/cryoet-software/cryolo/cryolo
+    - file: resources/cryoet-software/dynamo/dynamo
+      sections:
+      - file: resources/cryoet-software/dynamo/starters-guide
+      - file: resources/cryoet-software/dynamo/advanced-starters-guide
+      - file: resources/cryoet-software/dynamo/tilt-series-alignment
+      - file: resources/cryoet-software/dynamo/PCA
+    - file: resources/cryoet-software/eman2/eman2
+      sections:
+      - file: resources/cryoet-software/eman2/full-tutorial
+      - file: resources/cryoet-software/eman2/segmentation
+    - file: resources/cryoet-software/emclarity/emclarity
+      sections:
+      - file: resources/cryoet-software/emclarity/tutorial
+    - file: resources/cryoet-software/imod/imod
+      sections:
+      - file: resources/cryoet-software/imod/tomo-guide
+      - file: resources/cryoet-software/imod/etomo-fiducial-tuto
+      - file: resources/cryoet-software/imod/etomo-patch-track-tuto
+      - file: resources/cryoet-software/imod/batch-alignment
+    - file: resources/cryoet-software/m/m
+      sections:
+      - file: resources/cryoet-software/m/user-guide
+    - file: resources/cryoet-software/novactf/novactf
+    - file: resources/cryoet-software/novasta/novasta
+    - file: resources/cryoet-software/pytom/pytom
+    - file: resources/cryoet-software/relion/relion
+    - file: resources/cryoet-software/stopgap/stopgap
+    - file: resources/cryoet-software/topaz_denoise_3d/topaz_denoise_3d
+    - file: resources/cryoet-software/warp/warp
+      sections:
+      - file: resources/cryoet-software/warp/user-guide
