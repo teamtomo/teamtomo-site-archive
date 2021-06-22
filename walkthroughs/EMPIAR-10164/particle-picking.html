@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Find particles on every VLP</title>
     
-  <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
 
     
   <link rel="stylesheet"
@@ -19,14 +20,10 @@
 
     
       
-  <link rel="stylesheet"
-    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
@@ -35,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.d3f166471bb80abb5163.js">
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
 
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -46,9 +43,7 @@
     <script src="../../_static/copybutton.js"></script>
     <script src="../../_static/tabs.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"N": "\\mathbb{N}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}}, "tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -61,14 +56,14 @@
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Particle pose optimisation" href="relion.html" />
     <link rel="prev" title="Initial model generation" href="ini-model.html" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
-
-
-
+    
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
     
 
     <div class="container-xl">
@@ -77,33 +72,38 @@
 <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
         <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="../../index.html">
-  
-  <img src="../../_static/logo.svg" class="logo" alt="logo">
-  
-  
-</a>
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      <img src="../../_static/logo.svg" class="logo" alt="logo">
+      
+      
+    </a>
 </div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form>
-<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-    <p class="caption collapsible-parent">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <p class="caption">
  <span class="caption-text">
   teamtomo.org
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../../teamtomo/about.html">
    About the project
   </a>
  </li>
- <li class="toctree-l1 collapsible-parent">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../../teamtomo/contributing/index.html">
    Contributing
   </a>
-  <ul class="collapse-ul">
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../../teamtomo/contributing/git_guide.html">
      A short guide to git(hub)
@@ -120,21 +120,24 @@
     </a>
    </li>
   </ul>
-  <i class="fas fa-chevron-down">
-  </i>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption">
  <span class="caption-text">
   Theory
  </span>
 </p>
-<ul class="nav sidenav_l1">
- <li class="toctree-l1 collapsible-parent">
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../../theory/cryo-et/index.html">
    Cryo-electron tomography
   </a>
-  <ul class="collapse-ul">
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../../theory/cryo-et/tilt-schemes.html">
      Tilt-schemes
@@ -146,24 +149,32 @@
     </a>
    </li>
   </ul>
-  <i class="fas fa-chevron-down">
-  </i>
  </li>
- <li class="toctree-l1 collapsible-parent">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../../theory/subtomogram-averaging/index.html">
    Subtomogram averaging
   </a>
-  <ul class="collapse-ul">
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../../theory/subtomogram-averaging/preprocessing/index.html">
      Preprocessing
     </a>
    </li>
-   <li class="toctree-l2 collapsible-parent">
+   <li class="toctree-l2 has-children">
     <a class="reference internal" href="../../theory/subtomogram-averaging/particle-picking/index.html">
      Particle picking
     </a>
-    <ul class="collapse-ul">
+    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+    <label for="toctree-checkbox-4">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
      <li class="toctree-l3">
       <a class="reference internal" href="../../theory/subtomogram-averaging/particle-picking/template-matching.html">
        Template matching
@@ -180,8 +191,6 @@
       </a>
      </li>
     </ul>
-    <i class="fas fa-chevron-down">
-    </i>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../theory/subtomogram-averaging/refinement/index.html">
@@ -189,8 +198,6 @@
     </a>
    </li>
   </ul>
-  <i class="fas fa-chevron-down">
-  </i>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../theory/image-processing/introduction.html">
@@ -198,17 +205,22 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption">
  <span class="caption-text">
   Walkthroughs
  </span>
 </p>
-<ul class="current nav sidenav_l1">
- <li class="toctree-l1 current active collapsible-parent">
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="introduction.html">
    EMPIAR-10164 (HIV VLPs)
   </a>
-  <ul class="current collapse-ul">
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="preparation.html">
      Download the data
@@ -250,21 +262,24 @@
     </a>
    </li>
   </ul>
-  <i class="fas fa-chevron-down">
-  </i>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption">
  <span class="caption-text">
   mini-tutorials
  </span>
 </p>
-<ul class="nav sidenav_l1">
- <li class="toctree-l1 collapsible-parent">
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../../mini-tutorials/dynamo/index.html">
    Dynamo
   </a>
-  <ul class="collapse-ul">
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../../mini-tutorials/dynamo/simple-alignment.html">
      Simple subtomogram averaging
@@ -296,21 +311,24 @@
     </a>
    </li>
   </ul>
-  <i class="fas fa-chevron-down">
-  </i>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption">
  <span class="caption-text">
   computing
  </span>
 </p>
-<ul class="nav sidenav_l1">
- <li class="toctree-l1 collapsible-parent">
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../../computing/python/index.html">
    Python
   </a>
-  <ul class="collapse-ul">
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../../computing/python/getting-started.html">
      Getting started
@@ -321,11 +339,16 @@
      Virtual environments
     </a>
    </li>
-   <li class="toctree-l2 collapsible-parent">
+   <li class="toctree-l2 has-children">
     <a class="reference internal" href="../../computing/python/useful-packages/useful-packages.html">
      Useful packages
     </a>
-    <ul class="collapse-ul">
+    <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+    <label for="toctree-checkbox-8">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
      <li class="toctree-l3">
       <a class="reference internal" href="../../computing/python/useful-packages/dynamotable.html">
        dynamotable
@@ -357,18 +380,19 @@
       </a>
      </li>
     </ul>
-    <i class="fas fa-chevron-down">
-    </i>
    </li>
   </ul>
-  <i class="fas fa-chevron-down">
-  </i>
  </li>
- <li class="toctree-l1 collapsible-parent">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../../computing/matlab/index.html">
    MATLAB
   </a>
-  <ul class="collapse-ul">
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../../computing/matlab/add-to-path.html">
      Adding scripts/functions to your PATH in
@@ -380,31 +404,39 @@
     </a>
    </li>
   </ul>
-  <i class="fas fa-chevron-down">
-  </i>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption">
  <span class="caption-text">
   Resources
  </span>
 </p>
-<ul class="nav sidenav_l1">
- <li class="toctree-l1 collapsible-parent">
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../../resources/literature/index.html">
    Literature
   </a>
-  <ul class="collapse-ul">
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../../resources/literature/protocols/protocols.html">
      Protocols
     </a>
    </li>
-   <li class="toctree-l2 collapsible-parent">
+   <li class="toctree-l2 has-children">
     <a class="reference internal" href="../../resources/literature/reviews/reviews.html">
      Reviews
     </a>
-    <ul class="collapse-ul">
+    <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+    <label for="toctree-checkbox-11">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
      <li class="toctree-l3">
       <a class="reference internal" href="../../resources/literature/reviews/schur19.html">
        Schur - 2019
@@ -421,14 +453,17 @@
       </a>
      </li>
     </ul>
-    <i class="fas fa-chevron-down">
-    </i>
    </li>
-   <li class="toctree-l2 collapsible-parent">
+   <li class="toctree-l2 has-children">
     <a class="reference internal" href="../../resources/literature/book-chapters/book-chapters.html">
      Book chapters
     </a>
-    <ul class="collapse-ul">
+    <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+    <label for="toctree-checkbox-12">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
      <li class="toctree-l3">
       <a class="reference internal" href="../../resources/literature/book-chapters/subtomo-leigh19.html">
        Subtomogram averaging from cryo-electron tomograms - Leigh 2019
@@ -445,18 +480,19 @@
       </a>
      </li>
     </ul>
-    <i class="fas fa-chevron-down">
-    </i>
    </li>
   </ul>
-  <i class="fas fa-chevron-down">
-  </i>
  </li>
- <li class="toctree-l1 collapsible-parent">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../../resources/cryoet-software/cryoet-software.html">
    Software packages
   </a>
-  <ul class="collapse-ul">
+  <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+  <label for="toctree-checkbox-13">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../../resources/cryoet-software/appion-protomo/appion-protomo.html">
      Appion-Protomo
@@ -467,11 +503,16 @@
      crYOLO
     </a>
    </li>
-   <li class="toctree-l2 collapsible-parent">
+   <li class="toctree-l2 has-children">
     <a class="reference internal" href="../../resources/cryoet-software/dynamo/dynamo.html">
      Dynamo
     </a>
-    <ul class="collapse-ul">
+    <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
+    <label for="toctree-checkbox-14">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
      <li class="toctree-l3">
       <a class="reference internal" href="../../resources/cryoet-software/dynamo/starters-guide.html">
        Starters guide
@@ -493,14 +534,17 @@
       </a>
      </li>
     </ul>
-    <i class="fas fa-chevron-down">
-    </i>
    </li>
-   <li class="toctree-l2 collapsible-parent">
+   <li class="toctree-l2 has-children">
     <a class="reference internal" href="../../resources/cryoet-software/eman2/eman2.html">
      EMAN2
     </a>
-    <ul class="collapse-ul">
+    <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
+    <label for="toctree-checkbox-15">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
      <li class="toctree-l3">
       <a class="reference internal" href="../../resources/cryoet-software/eman2/full-tutorial.html">
        Complete tutorial
@@ -512,28 +556,34 @@
       </a>
      </li>
     </ul>
-    <i class="fas fa-chevron-down">
-    </i>
    </li>
-   <li class="toctree-l2 collapsible-parent">
+   <li class="toctree-l2 has-children">
     <a class="reference internal" href="../../resources/cryoet-software/emclarity/emclarity.html">
      emClarity
     </a>
-    <ul class="collapse-ul">
+    <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
+    <label for="toctree-checkbox-16">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
      <li class="toctree-l3">
       <a class="reference internal" href="../../resources/cryoet-software/emclarity/tutorial.html">
        tutorial
       </a>
      </li>
     </ul>
-    <i class="fas fa-chevron-down">
-    </i>
    </li>
-   <li class="toctree-l2 collapsible-parent">
+   <li class="toctree-l2 has-children">
     <a class="reference internal" href="../../resources/cryoet-software/imod/imod.html">
      IMOD
     </a>
-    <ul class="collapse-ul">
+    <input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/>
+    <label for="toctree-checkbox-17">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
      <li class="toctree-l3">
       <a class="reference internal" href="../../resources/cryoet-software/imod/tomo-guide.html">
        Tomography guide
@@ -555,22 +605,23 @@
       </a>
      </li>
     </ul>
-    <i class="fas fa-chevron-down">
-    </i>
    </li>
-   <li class="toctree-l2 collapsible-parent">
+   <li class="toctree-l2 has-children">
     <a class="reference internal" href="../../resources/cryoet-software/m/m.html">
      M
     </a>
-    <ul class="collapse-ul">
+    <input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
+    <label for="toctree-checkbox-18">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
      <li class="toctree-l3">
       <a class="reference internal" href="../../resources/cryoet-software/m/user-guide.html">
        Warp/M
       </a>
      </li>
     </ul>
-    <i class="fas fa-chevron-down">
-    </i>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../resources/cryoet-software/novactf/novactf.html">
@@ -597,26 +648,28 @@
      STOPGAP
     </a>
    </li>
-   <li class="toctree-l2 collapsible-parent">
+   <li class="toctree-l2 has-children">
     <a class="reference internal" href="../../resources/cryoet-software/warp/warp.html">
      Warp
     </a>
-    <ul class="collapse-ul">
+    <input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/>
+    <label for="toctree-checkbox-19">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
      <li class="toctree-l3">
       <a class="reference internal" href="../../resources/cryoet-software/warp/user-guide.html">
        Warp/M
       </a>
      </li>
     </ul>
-    <i class="fas fa-chevron-down">
-    </i>
    </li>
   </ul>
-  <i class="fas fa-chevron-down">
-  </i>
  </li>
 </ul>
 
+    </div>
 </nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
@@ -632,21 +685,21 @@
           
 <main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
     
-    <div class="row topbar fixed-top container-xl">
-    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
-    </div>
-    <div class="col pl-2 topbar-main">
-        
-        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-            <i class="fas fa-bars"></i>
-            <i class="fas fa-arrow-left"></i>
-            <i class="fas fa-arrow-up"></i>
-        </button>
-        
-        
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
             class="fas fa-download"></i></button>
@@ -664,7 +717,7 @@
     </div>
 </div>
 
-        <!-- Source interaction buttons -->
+            <!-- Source interaction buttons -->
 
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
@@ -684,25 +737,25 @@
     </div>
 </div>
 
+            <!-- Full screen (wrap in <a> to have style consistency -->
 
-        <!-- Full screen (wrap in <a> to have style consistency -->
-        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-                title="Fullscreen mode"><i
-                    class="fas fa-expand"></i></button></a>
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
 
-        <!-- Launch buttons -->
+            <!-- Launch buttons -->
 
-    </div>
-
-    <!-- Table of contents -->
-    <div class="d-none d-md-block col-md-2 bd-toc show">
-        
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> Contents
         </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#particle-extraction">
    Particle extraction
@@ -720,8 +773,8 @@
  </li>
 </ul>
 
-        </nav>
-        
+            </nav>
+        </div>
     </div>
 </div>
     <div id="main-content" class="row">
@@ -747,7 +800,7 @@
 <p>Next we set up a new alignment project using <code class="docutils literal notranslate"><span class="pre">dcp</span></code>. This time, the aim is to align each oversampled initial particle position to the closest real particle position in the lattice. The important difference compared to the previous step are:</p>
 <ul class="simple">
 <li><p>Input data should be the whole dataset, not the subset, and the the relative <code class="docutils literal notranslate"><span class="pre">.tbl</span></code> file.</p></li>
-<li><p>Template should now be the aligned, symmetrised initial model that we generated in the last section: <code class="docutils literal notranslate"><span class="pre">dynamo/inimodel/ite_0004/averages/average_aligned_along_z_c6.em</span></code>.</p></li>
+<li><p>Template should now be the aligned, symmetrised initial model that we generated in the last section: <code class="docutils literal notranslate"><span class="pre">dynamo/inimodel/ite_0008/averages/average_aligned_along_z_c6.em</span></code>.</p></li>
 <li><p>We only want to run for one iteration. Now that we’re working with the full dataset, calculations take significantly longer. Because our initial model is good one iteration of alignment should allow us to see the lattice structure appear in the particle positions.</p></li>
 <li><p>We only want to perform local in plane and out of plane angular searches, since we are already fairly sure about our out of plane angles because they come from our <code class="docutils literal notranslate"><span class="pre">Vesicle</span></code> models. The in plane searches can be limited because of the C6 symmetry of the reference</p></li>
 <li><p>We should adjust the shifts so that particles can only move half of the lattice spacing in the x and y direction. We expect to find a lattice of particles with roughly 7.5 nm spacing. If we allow each particle to shift a maximum of 4nm in each direction it should be guaranteed to find the closest true position in the lattice, without moving too far. This maximises the chances of finding all lattice positions from the beginning.</p></li>
@@ -768,40 +821,40 @@
 <p>We can now take a look at the resulting particle positions, written in the output file <code class="docutils literal notranslate"><span class="pre">dynamo/findparticles/results/ite_0001/refined_table_ref_001_ite_0001.tbl</span></code>.</p>
 <p>We can use <a class="reference external" href="https://github.com/teamtomo/teamtomo.github.io/tree/master/walkthroughs/EMPIAR-10164/scripts/view_particles.m"><code class="docutils literal notranslate"><span class="pre">view_particles.m</span></code></a>  to open a 3D viewer and examine them. Open matlab in <code class="docutils literal notranslate"><span class="pre">dynamo/findparticles/results/ite_0001/</span></code> and run:</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="8bddb9ab-719a-41b1-a4fc-302eaead051e" name="87d6005c-0bec-4494-a923-53e13626d069" type="radio">
-</input><label class="tabbed-label" for="8bddb9ab-719a-41b1-a4fc-302eaead051e">
+<input checked="checked" id="0baf6cbf-befe-4b19-9530-0d981564ed77" name="a4a34bb6-9366-47de-bfb7-7e0779ce4285" type="radio">
+</input><label class="tabbed-label" for="0baf6cbf-befe-4b19-9530-0d981564ed77">
 Command</label><div class="tabbed-content docutils">
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">view_particles</span><span class="p">(</span><span class="s">&#39;refined_table_ref_001_ite_0001.tbl&#39;</span><span class="p">)</span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">view_particles</span><span class="p">(</span><span class="s">&#39;refined_table_ref_001_ite_0001.tbl&#39;</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
-<input id="2ce94cfc-33ab-46b5-a9f1-668ff1894cfc" name="87d6005c-0bec-4494-a923-53e13626d069" type="radio">
-</input><label class="tabbed-label" for="2ce94cfc-33ab-46b5-a9f1-668ff1894cfc">
+<input id="0aaa5ced-43fa-430e-a332-89a184c2c808" name="a4a34bb6-9366-47de-bfb7-7e0779ce4285" type="radio">
+</input><label class="tabbed-label" for="0aaa5ced-43fa-430e-a332-89a184c2c808">
 Source code</label><div class="tabbed-content docutils">
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span>gui<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">view_particles</span><span class="p">(</span>table<span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="c">% read the table</span>
-    <span class="n">table</span> <span class="p">=</span> <span class="n">dread</span><span class="p">(</span><span class="n">table</span><span class="p">)</span>
-    <span class="c">% get unique keys of each volume</span>
-    <span class="n">keys</span> <span class="p">=</span> <span class="n">unique</span><span class="p">(</span><span class="n">table</span><span class="p">(:,</span> <span class="mi">20</span><span class="p">));</span>
+<span class="w">    </span><span class="c">% read the table</span><span class="w"></span>
+<span class="w">    </span><span class="nb">table</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">dread</span><span class="p">(</span><span class="nb">table</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="c">% get unique keys of each volume</span><span class="w"></span>
+<span class="w">    </span><span class="nb">keys</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">unique</span><span class="p">(</span><span class="nb">table</span><span class="p">(:,</span><span class="w"> </span><span class="mi">20</span><span class="p">));</span><span class="w"></span>
 
-    <span class="c">% open the viewer gui</span>
-    <span class="n">gui</span> <span class="p">=</span> <span class="n">mbgraph</span><span class="p">.</span><span class="n">montage</span><span class="p">();</span>
+<span class="w">    </span><span class="c">% open the viewer gui</span><span class="w"></span>
+<span class="w">    </span><span class="n">gui</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">mbgraph</span><span class="p">.</span><span class="n">montage</span><span class="p">();</span><span class="w"></span>
 
-    <span class="c">% loop through volume keys</span>
-    <span class="n">for</span> <span class="s">key_idx</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="nb">size</span><span class="p">(</span><span class="n">keys</span><span class="p">)</span>
-        <span class="n">key</span> <span class="p">=</span> <span class="n">keys</span><span class="p">(</span><span class="n">key_idx</span><span class="p">);</span>
-        <span class="c">% extract the table corresponding to this volume</span>
-        <span class="n">idx</span> <span class="p">=</span> <span class="n">table</span><span class="p">(:,</span> <span class="mi">20</span><span class="p">)</span> <span class="o">==</span> <span class="n">key_idx</span><span class="p">;</span>
-        <span class="n">subtable</span> <span class="p">=</span> <span class="n">table</span><span class="p">(</span><span class="n">idx</span><span class="p">,</span> <span class="p">:);</span>
-        <span class="c">% draw the particles as points and lines</span>
-        <span class="n">ax</span> <span class="p">=</span> <span class="n">gui</span><span class="p">.</span><span class="n">gca</span><span class="p">;</span>
-        <span class="n">sketch</span> <span class="p">=</span> <span class="n">dpktbl</span><span class="p">.</span><span class="n">plots</span><span class="p">.</span><span class="n">sketch</span><span class="p">(</span><span class="n">subtable</span><span class="p">,</span> <span class="s">&#39;haxis&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="p">);</span>
-        <span class="c">% create a new frame for the next volume</span>
-        <span class="n">if</span> <span class="s">key_idx~=size(keys,</span> <span class="s">1)</span>
-            <span class="n">gui</span><span class="p">.</span><span class="n">step</span><span class="p">;</span>
-        <span class="n">end</span>
-    <span class="s">end</span>
-<span class="k">end</span>
+<span class="w">    </span><span class="c">% loop through volume keys</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">key_idx</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="p">:</span><span class="nb">size</span><span class="p">(</span><span class="nb">keys</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="n">key</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">keys</span><span class="p">(</span><span class="n">key_idx</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="c">% extract the table corresponding to this volume</span><span class="w"></span>
+<span class="w">        </span><span class="n">idx</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">table</span><span class="p">(:,</span><span class="w"> </span><span class="mi">20</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">key_idx</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">subtable</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">table</span><span class="p">(</span><span class="n">idx</span><span class="p">,</span><span class="w"> </span><span class="p">:);</span><span class="w"></span>
+<span class="w">        </span><span class="c">% draw the particles as points and lines</span><span class="w"></span>
+<span class="w">        </span><span class="n">ax</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">gui</span><span class="p">.</span><span class="n">gca</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">sketch</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">dpktbl</span><span class="p">.</span><span class="n">plots</span><span class="p">.</span><span class="n">sketch</span><span class="p">(</span><span class="n">subtable</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;haxis&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">ax</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="c">% create a new frame for the next volume</span><span class="w"></span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">key_idx</span><span class="o">~=</span><span class="nb">size</span><span class="p">(</span><span class="nb">keys</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="n">gui</span><span class="p">.</span><span class="n">step</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">end</span><span class="w"></span>
+<span class="w">    </span><span class="k">end</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
@@ -818,25 +871,25 @@ Source code</label><div class="tabbed-content docutils">
 <p>However, the first cleaning step we should take is removing duplicate particles (remember, we oversampled the surface compared to the expected particle density!). To do so, we will use a simple matlab script, <a class="reference external" href="https://github.com/teamtomo/teamtomo.github.io/tree/master/walkthroughs/EMPIAR-10164/scripts/remove_duplicates.m"><code class="docutils literal notranslate"><span class="pre">remove_duplicates.m</span></code></a>.</p>
 <p>To run, simply open MATLAB in <code class="docutils literal notranslate"><span class="pre">dynamo/findparticles/results/ite_0001/averages</span></code> and run:</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="2b2e5824-a2a3-4cb4-a2d4-ef1d421340f5" name="5ac97949-f24e-43d0-805a-3511fc30a1eb" type="radio">
-</input><label class="tabbed-label" for="2b2e5824-a2a3-4cb4-a2d4-ef1d421340f5">
+<input checked="checked" id="b9488904-495a-4e85-a04f-3ede995ddffd" name="0776c3e3-e918-49da-985a-1961d01507e9" type="radio">
+</input><label class="tabbed-label" for="b9488904-495a-4e85-a04f-3ede995ddffd">
 Command</label><div class="tabbed-content docutils">
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">remove_duplicates</span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">remove_duplicates</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
-<input id="132eb9d6-21bf-4af5-a8b6-b0e032b770f1" name="5ac97949-f24e-43d0-805a-3511fc30a1eb" type="radio">
-</input><label class="tabbed-label" for="132eb9d6-21bf-4af5-a8b6-b0e032b770f1">
+<input id="b822878a-305a-4070-a44a-1ebd75967e0a" name="0776c3e3-e918-49da-985a-1961d01507e9" type="radio">
+</input><label class="tabbed-label" for="b822878a-305a-4070-a44a-1ebd75967e0a">
 Source code</label><div class="tabbed-content docutils">
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% read table</span>
-<span class="n">table</span> <span class="p">=</span> <span class="n">dread</span><span class="p">(</span><span class="s">&#39;refined_table_ref_001_ite_0001.tbl&#39;</span><span class="p">);</span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% read table</span><span class="w"></span>
+<span class="nb">table</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">dread</span><span class="p">(</span><span class="s">&#39;refined_table_ref_001_ite_0001.tbl&#39;</span><span class="p">);</span><span class="w"></span>
 
-<span class="c">% remove duplicates</span>
-<span class="n">threshold</span> <span class="p">=</span> <span class="mi">4</span><span class="p">;</span>
-<span class="n">nodup</span> <span class="p">=</span> <span class="n">dpktbl</span><span class="p">.</span><span class="n">exclusionPerVolume</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">threshold</span><span class="p">)</span>
+<span class="c">% remove duplicates</span><span class="w"></span>
+<span class="n">threshold</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span><span class="w"></span>
+<span class="n">nodup</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">dpktbl</span><span class="p">.</span><span class="n">exclusionPerVolume</span><span class="p">(</span><span class="nb">table</span><span class="p">,</span><span class="w"> </span><span class="n">threshold</span><span class="p">)</span><span class="w"></span>
 
-<span class="c">% write out table</span>
-<span class="n">dwrite</span><span class="p">(</span><span class="n">nodup</span><span class="p">,</span> <span class="s">&#39;result_10Apx_nodup.tbl&#39;</span><span class="p">);</span>
+<span class="c">% write out table</span><span class="w"></span>
+<span class="n">dwrite</span><span class="p">(</span><span class="n">nodup</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;result_10Apx_nodup.tbl&#39;</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
@@ -845,37 +898,37 @@ Source code</label><div class="tabbed-content docutils">
 <p>The next step is to remove particles that don’t belong to the lattice. To do so, we use <a class="reference external" href="https://github.com/teamtomo/teamtomo.github.io/tree/master/walkthroughs/EMPIAR-10164/scripts/check_radial_distribution.m"><code class="docutils literal notranslate"><span class="pre">check_radial_distribution.m</span></code></a>.</p>
 <p>Once again, in the same directory, simply run:</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="af74e6ce-7969-4e30-a7a0-40f7ca40e275" name="64f5851f-2367-4fd6-9e05-59beb0d42899" type="radio">
-</input><label class="tabbed-label" for="af74e6ce-7969-4e30-a7a0-40f7ca40e275">
+<input checked="checked" id="7656c5f2-489f-41a6-b99b-172da73699f4" name="9bd6e21e-0522-4ed5-8600-a16afb31001b" type="radio">
+</input><label class="tabbed-label" for="7656c5f2-489f-41a6-b99b-172da73699f4">
 Command</label><div class="tabbed-content docutils">
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">check_radial_distribution</span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">check_radial_distribution</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
-<input id="26398a9b-7550-4ba2-8e49-791275656731" name="64f5851f-2367-4fd6-9e05-59beb0d42899" type="radio">
-</input><label class="tabbed-label" for="26398a9b-7550-4ba2-8e49-791275656731">
+<input id="57cb5e9d-f834-492b-a835-02496f447f7d" name="9bd6e21e-0522-4ed5-8600-a16afb31001b" type="radio">
+</input><label class="tabbed-label" for="57cb5e9d-f834-492b-a835-02496f447f7d">
 Source code</label><div class="tabbed-content docutils">
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% check number of neighbours in radial shells, 1 px thick shells</span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% check number of neighbours in radial shells, 1 px thick shells</span><span class="w"></span>
 
-<span class="c">% read table</span>
-<span class="n">table</span> <span class="p">=</span> <span class="n">dread</span><span class="p">(</span><span class="s">&#39;result_10Apx_nodup.tbl&#39;</span><span class="p">);</span>
+<span class="c">% read table</span><span class="w"></span>
+<span class="nb">table</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">dread</span><span class="p">(</span><span class="s">&#39;result_10Apx_nodup.tbl&#39;</span><span class="p">);</span><span class="w"></span>
 
-<span class="c">% check average number of neighbours in shells</span>
-<span class="c">% initialise result vector</span>
-<span class="n">neighbours_in_shells</span> <span class="p">=</span> <span class="nb">zeros</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
-<span class="n">shell_starts</span> <span class="p">=</span> <span class="nb">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span>
+<span class="c">% check average number of neighbours in shells</span><span class="w"></span>
+<span class="c">% initialise result vector</span><span class="w"></span>
+<span class="n">neighbours_in_shells</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">zeros</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="n">shell_starts</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">19</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">);</span><span class="w"></span>
 
-<span class="c">% check number of neighbours in shell, count and append to result</span>
-<span class="k">for</span> <span class="n">shell_start_idx</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="nb">size</span><span class="p">(</span><span class="n">shell_starts</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-    <span class="n">min_dist</span> <span class="p">=</span> <span class="n">shell_starts</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">shell_start_idx</span><span class="p">);</span>
-    <span class="n">max_dist</span> <span class="p">=</span> <span class="n">min_dist</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
-    <span class="n">n_neighbours</span> <span class="p">=</span> <span class="n">dtneighbours_in_range</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">min_dist</span><span class="p">,</span> <span class="n">max_dist</span><span class="p">);</span>
-    <span class="n">neighbours_in_shells</span><span class="p">(</span><span class="n">shell_start_idx</span><span class="p">)</span> <span class="p">=</span> <span class="n">mean</span><span class="p">(</span><span class="n">n_neighbours</span><span class="p">);</span>
-<span class="n">end</span>
+<span class="c">% check number of neighbours in shell, count and append to result</span><span class="w"></span>
+<span class="k">for</span><span class="w"> </span><span class="n">shell_start_idx</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="p">:</span><span class="nb">size</span><span class="p">(</span><span class="n">shell_starts</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">min_dist</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">shell_starts</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">shell_start_idx</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">max_dist</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">min_dist</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">n_neighbours</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">dtneighbours_in_range</span><span class="p">(</span><span class="nb">table</span><span class="p">,</span><span class="w"> </span><span class="n">min_dist</span><span class="p">,</span><span class="w"> </span><span class="n">max_dist</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">neighbours_in_shells</span><span class="p">(</span><span class="n">shell_start_idx</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">mean</span><span class="p">(</span><span class="n">n_neighbours</span><span class="p">);</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
 
-<span class="s">plot(shell_starts</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">neighbours_in_shells</span><span class="p">)</span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">shell_starts</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span><span class="w"> </span><span class="n">neighbours_in_shells</span><span class="p">)</span><span class="w"></span>
 
-<span class="c">% plot shows most particles have more neighbours at 5.5-8.5px distance</span>
+<span class="c">% plot shows most particles have more neighbours at 5.5-8.5px distance</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
@@ -891,15 +944,15 @@ Source code</label><div class="tabbed-content docutils">
 <p><img alt="radial distribution" src="../../_images/radial-distance-profile.png" /></p>
 <p>This confirms the previously measured interparticle distance and the fact that most particles slid into ordered positions in the lattice. We can use the first peak to select against particles that don’t conform to this distribution. The next script, <a class="reference external" href="https://github.com/teamtomo/teamtomo.github.io/tree/master/walkthroughs/EMPIAR-10164/scripts/subset_table_based_on_neighbours.m"><code class="docutils literal notranslate"><span class="pre">subset_table_based_on_neighbours.m</span></code></a>, removes all particles that don’t have at least 3 neighbours in the radial shell at distance 7.5 px. To use it, run:</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="a5b00167-6501-4c48-a934-82896fab6f57" name="d159ecb0-c6ca-4682-87d8-2d99f813a6f6" type="radio">
-</input><label class="tabbed-label" for="a5b00167-6501-4c48-a934-82896fab6f57">
+<input checked="checked" id="20f9b1d1-a90d-47fa-8308-1a94f6d3290b" name="5bfc44ef-170c-4fe2-8f37-9e635b7e8492" type="radio">
+</input><label class="tabbed-label" for="20f9b1d1-a90d-47fa-8308-1a94f6d3290b">
 Command</label><div class="tabbed-content docutils">
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">subset_table_based_on_neighbours</span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">subset_table_based_on_neighbours</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
-<input id="3c885eae-f6c4-420e-9681-3779ec19835f" name="d159ecb0-c6ca-4682-87d8-2d99f813a6f6" type="radio">
-</input><label class="tabbed-label" for="3c885eae-f6c4-420e-9681-3779ec19835f">
+<input id="f4bcd22d-7fc8-42ea-a09f-7aa553b1cf18" name="5bfc44ef-170c-4fe2-8f37-9e635b7e8492" type="radio">
+</input><label class="tabbed-label" for="f4bcd22d-7fc8-42ea-a09f-7aa553b1cf18">
 Source code</label><div class="tabbed-content docutils">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">read</span> <span class="n">table</span>
 <span class="n">table</span> <span class="o">=</span> <span class="n">dread</span><span class="p">(</span><span class="s1">&#39;result_10Apx_nodup.tbl&#39;</span><span class="p">);</span>
@@ -948,15 +1001,15 @@ Source code</label><div class="tabbed-content docutils">
 
               </div>
               
-        </div>
-    </div>
-    
-    
-    <div class='prev-next-bottom'>
         
+        <div class='prev-next-bottom'>
+            
     <a class='left-prev' id="prev-link" href="ini-model.html" title="previous page">Initial model generation</a>
     <a class='right-next' id="next-link" href="relion.html" title="next page">Particle pose optimisation</a>
 
+        </div>
+        
+        </div>
     </div>
     <footer class="footer mt-5 mt-md-0">
     <div class="container">
@@ -973,11 +1026,9 @@ Source code</label><div class="tabbed-content docutils">
 
       </div>
     </div>
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
-    
-  <script src="../../_static/js/index.d3f166471bb80abb5163.js"></script>
-
-
-    
+  
   </body>
 </html>
