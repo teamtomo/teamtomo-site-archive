@@ -17,7 +17,7 @@ Unless you already did it after [extracting a subset of particles](hiv:extract-s
 Next we set up a new alignment project using `dcp`. This time, the aim is to align each oversampled initial particle position to the closest real particle position in the lattice. The important difference compared to the previous step are:
 
 - Input data should be the whole dataset, not the subset, and the the relative `.tbl` file.
-- Template should now be the aligned, symmetrised initial model that we generated in the last section: `dynamo/inimodel/ite_0004/averages/average_aligned_along_z_c6.em`.
+- Template should now be the aligned, symmetrised initial model that we generated in the last section: `dynamo/inimodel/ite_0008/averages/average_aligned_along_z_c6.em`.
 - We only want to run for one iteration. Now that we're working with the full dataset, calculations take significantly longer. Because our initial model is good one iteration of alignment should allow us to see the lattice structure appear in the particle positions.
 - We only want to perform local in plane and out of plane angular searches, since we are already fairly sure about our out of plane angles because they come from our `Vesicle` models. The in plane searches can be limited because of the C6 symmetry of the reference
 - We should adjust the shifts so that particles can only move half of the lattice spacing in the x and y direction. We expect to find a lattice of particles with roughly 7.5 nm spacing. If we allow each particle to shift a maximum of 4nm in each direction it should be guaranteed to find the closest true position in the lattice, without moving too far. This maximises the chances of finding all lattice positions from the beginning.
