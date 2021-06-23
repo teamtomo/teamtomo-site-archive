@@ -839,7 +839,7 @@ We work in this way to take advantage of Warp’s CTF correction and the CTF vol
 <p>Our metadata is currently in the dynamo format.
 We need to convert our particle positions and orientations into a format Warp understands, we will use the <code class="docutils literal notranslate"><span class="pre">dynamo2warp</span></code> script provided by the
 <a class="reference external" href="https://github.com/alisterburt/dynamo2m"><code class="docutils literal notranslate"><span class="pre">dynamo2m</span></code></a>
-package. The script takes a <code class="docutils literal notranslate"><span class="pre">.tbl</span></code> file (which we generated at the end of the previous section) and a table map file. The table map file contains a mapping from particle indexes to file names, to match to the column 20 of the <code class="docutils literal notranslate"><span class="pre">.tbl</span></code> file. In our case, this file is located in <code class="docutils literal notranslate"><span class="pre">dynamo/oversampledData.Boxes/indices_column20.doc</span></code>.</p>
+package. The script takes a <code class="docutils literal notranslate"><span class="pre">.tbl</span></code> file (which we generated at the end of the previous section) and a table map file. The table map file contains a mapping from particle indexes to file names, to match to the column 20 of the <code class="docutils literal notranslate"><span class="pre">.tbl</span></code> file. In our case, this file is located in <code class="docutils literal notranslate"><span class="pre">dynamo/findparticlesData.Boxes/indices_column20.doc</span></code>.</p>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="admonition tip">
@@ -848,7 +848,7 @@ package. The script takes a <code class="docutils literal notranslate"><span cla
 </div>
 </div>
 <p>In a terminal, run:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>dynamo2warp -i result_10Apx_nodup_neighbourcleaning.tbl -tm ../../../../oversampledData.Boxes/indices_column20.doc -o result_10Apx_nodup_neighbourcleaning_data.star
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>dynamo2warp -i result_10Apx_nodup_neighbourcleaning.tbl -tm ../../../../findparticlesData.Boxes/indices_column20.doc -o result_10Apx_nodup_neighbourcleaning_data.star
 </pre></div>
 </div>
 </div>
@@ -917,46 +917,46 @@ tail subtomograms_5Apx.star -n +31 <span class="p">|</span> shuf -n <span class=
 <div class="card w-100 border-2 docutils">
 <div class="card-body docutils">
 <div class="tabbed-set docutils">
-<input checked="checked" id="19419c23-757e-431a-afd1-e099800faf3b" name="a13b67b7-d3a2-4b6c-9a92-9b2b4c839aeb" type="radio">
-</input><label class="tabbed-label" for="19419c23-757e-431a-afd1-e099800faf3b">
+<input checked="checked" id="db0ded4d-2090-46e5-807a-c8c609e0d312" name="6520c063-5af4-4290-b02c-8f96368b4fde" type="radio">
+</input><label class="tabbed-label" for="db0ded4d-2090-46e5-807a-c8c609e0d312">
 I/O</label><div class="tabbed-content docutils">
 <p class="card-text">We will refine without a mask for now as this refinement serves only to make sure that the particles remain well centered and we expect to go significantly beyond 10Å.</p>
 <p class="card-text"><img alt="relion 1" src="../../_images/relion-1.png" /></p>
 </div>
-<input id="c5b451ad-a3cd-4de5-9326-1ef7c0a7168a" name="a13b67b7-d3a2-4b6c-9a92-9b2b4c839aeb" type="radio">
-</input><label class="tabbed-label" for="c5b451ad-a3cd-4de5-9326-1ef7c0a7168a">
+<input id="11ab9f86-5c9c-4471-a83c-6a31590a9837" name="6520c063-5af4-4290-b02c-8f96368b4fde" type="radio">
+</input><label class="tabbed-label" for="11ab9f86-5c9c-4471-a83c-6a31590a9837">
 Reference</label><div class="tabbed-content docutils">
 <p class="card-text">We use a conservative initial lowpass of 30Å to avoid overfitting, and C6 symmetry based on our understanding of the lattice from the inital model generation.</p>
 <p class="card-text"><img alt="relion 2" src="../../_images/relion-2.png" /></p>
 </div>
-<input id="89b4fee9-7951-4d6f-84b4-7f7c6e6ec061" name="a13b67b7-d3a2-4b6c-9a92-9b2b4c839aeb" type="radio">
-</input><label class="tabbed-label" for="89b4fee9-7951-4d6f-84b4-7f7c6e6ec061">
+<input id="70bff934-2d70-46f1-b006-7c71b36b22f3" name="6520c063-5af4-4290-b02c-8f96368b4fde" type="radio">
+</input><label class="tabbed-label" for="70bff934-2d70-46f1-b006-7c71b36b22f3">
 CTF</label><div class="tabbed-content docutils">
 <p class="card-text"><img alt="relion 3" src="../../_images/relion-3.png" /></p>
 </div>
-<input id="624c2d5f-efb9-4260-9791-cc7a97e327ea" name="a13b67b7-d3a2-4b6c-9a92-9b2b4c839aeb" type="radio">
-</input><label class="tabbed-label" for="624c2d5f-efb9-4260-9791-cc7a97e327ea">
+<input id="f9178a78-c889-4330-adb0-4339be0ea9e7" name="6520c063-5af4-4290-b02c-8f96368b4fde" type="radio">
+</input><label class="tabbed-label" for="f9178a78-c889-4330-adb0-4339be0ea9e7">
 Optimisation</label><div class="tabbed-content docutils">
 <p class="card-text">We use a particle diameter covering the whole box to continue making use of the signal from neighbouring hexamers to drive alignment. We will change this once we start aiming for more optimal refinements focussed on the central hexamer.</p>
 <p class="card-text"><img alt="relion 4" src="../../_images/relion-4.png" /></p>
 </div>
-<input id="9d131a5c-3684-47c9-9344-6272f989eaac" name="a13b67b7-d3a2-4b6c-9a92-9b2b4c839aeb" type="radio">
-</input><label class="tabbed-label" for="9d131a5c-3684-47c9-9344-6272f989eaac">
+<input id="b0cec8e7-ed19-4ed8-b6fd-b808d9502782" name="6520c063-5af4-4290-b02c-8f96368b4fde" type="radio">
+</input><label class="tabbed-label" for="b0cec8e7-ed19-4ed8-b6fd-b808d9502782">
 Auto-sampling</label><div class="tabbed-content docutils">
 <p class="card-text"><img alt="relion 5" src="../../_images/relion-5.png" /></p>
 </div>
-<input id="0ab90f21-b649-40a8-afea-f9f5a4c54751" name="a13b67b7-d3a2-4b6c-9a92-9b2b4c839aeb" type="radio">
-</input><label class="tabbed-label" for="0ab90f21-b649-40a8-afea-f9f5a4c54751">
+<input id="1d9a42b0-b731-4af8-bbb8-5ec45472a871" name="6520c063-5af4-4290-b02c-8f96368b4fde" type="radio">
+</input><label class="tabbed-label" for="1d9a42b0-b731-4af8-bbb8-5ec45472a871">
 Helix</label><div class="tabbed-content docutils">
 <p class="card-text">Leave this disabled, we are not performing helical refinement in this case.</p>
 </div>
-<input id="84c7c643-82be-4c0d-a50b-d6b4289bbefb" name="a13b67b7-d3a2-4b6c-9a92-9b2b4c839aeb" type="radio">
-</input><label class="tabbed-label" for="84c7c643-82be-4c0d-a50b-d6b4289bbefb">
+<input id="9a5807a2-7b1f-407f-bb42-07178d8e3e74" name="6520c063-5af4-4290-b02c-8f96368b4fde" type="radio">
+</input><label class="tabbed-label" for="9a5807a2-7b1f-407f-bb42-07178d8e3e74">
 Compute</label><div class="tabbed-content docutils">
 <p class="card-text"><img alt="relion 6" src="../../_images/relion-6.png" /></p>
 </div>
-<input id="2735e002-a5d1-40f6-a102-07bcc0460b33" name="a13b67b7-d3a2-4b6c-9a92-9b2b4c839aeb" type="radio">
-</input><label class="tabbed-label" for="2735e002-a5d1-40f6-a102-07bcc0460b33">
+<input id="1e49027d-fab7-4ac8-b1ff-944cf0267db9" name="6520c063-5af4-4290-b02c-8f96368b4fde" type="radio">
+</input><label class="tabbed-label" for="1e49027d-fab7-4ac8-b1ff-944cf0267db9">
 Running</label><div class="tabbed-content docutils">
 <p class="card-text">The specific computational parameters will depend upon the configuration of your computing resources. Here, we are running on a cluster node with:</p>
 <ul class="simple">
