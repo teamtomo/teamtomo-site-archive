@@ -821,15 +821,15 @@
 <p>We can now take a look at the resulting particle positions, written in the output file <code class="docutils literal notranslate"><span class="pre">dynamo/findparticles/results/ite_0001/refined_table_ref_001_ite_0001.tbl</span></code>.</p>
 <p>We can use <a class="reference external" href="https://github.com/teamtomo/teamtomo.github.io/tree/master/walkthroughs/EMPIAR-10164/scripts/view_particles.m"><code class="docutils literal notranslate"><span class="pre">view_particles.m</span></code></a>  to open a 3D viewer and examine them. Open matlab in <code class="docutils literal notranslate"><span class="pre">dynamo/findparticles/results/ite_0001/</span></code> and run:</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="73b7fbe2-3e50-4395-86ab-0b3e791b7a8f" name="37732007-2839-4961-97f8-97995dadec2d" type="radio">
-</input><label class="tabbed-label" for="73b7fbe2-3e50-4395-86ab-0b3e791b7a8f">
+<input checked="checked" id="4e208890-13fd-4cc5-aafc-4966e56c02a1" name="cb25898a-7212-45c9-95f2-81db7c74b061" type="radio">
+</input><label class="tabbed-label" for="4e208890-13fd-4cc5-aafc-4966e56c02a1">
 Command</label><div class="tabbed-content docutils">
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">view_particles</span><span class="p">(</span><span class="s">&#39;refined_table_ref_001_ite_0001.tbl&#39;</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
-<input id="3000c710-9249-48d7-a09e-76a8febcde57" name="37732007-2839-4961-97f8-97995dadec2d" type="radio">
-</input><label class="tabbed-label" for="3000c710-9249-48d7-a09e-76a8febcde57">
+<input id="ca47c95e-d6e5-48e8-a661-45e37d2f12d6" name="cb25898a-7212-45c9-95f2-81db7c74b061" type="radio">
+</input><label class="tabbed-label" for="ca47c95e-d6e5-48e8-a661-45e37d2f12d6">
 Source code</label><div class="tabbed-content docutils">
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span>gui<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">view_particles</span><span class="p">(</span>table<span class="p">)</span><span class="w"></span>
 <span class="w">    </span><span class="c">% read the table</span><span class="w"></span>
@@ -871,15 +871,15 @@ Source code</label><div class="tabbed-content docutils">
 <p>However, the first cleaning step we should take is removing duplicate particles (remember, we oversampled the surface compared to the expected particle density!). To do so, we will use a simple matlab script, <a class="reference external" href="https://github.com/teamtomo/teamtomo.github.io/tree/master/walkthroughs/EMPIAR-10164/scripts/remove_duplicates.m"><code class="docutils literal notranslate"><span class="pre">remove_duplicates.m</span></code></a>.</p>
 <p>To run, simply open MATLAB in <code class="docutils literal notranslate"><span class="pre">dynamo/findparticles/results/ite_0001/averages</span></code> and run:</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="65efbe1f-26cc-4477-a0bd-65695f93f44b" name="bc704117-e81b-487a-9d06-8994d14f9743" type="radio">
-</input><label class="tabbed-label" for="65efbe1f-26cc-4477-a0bd-65695f93f44b">
+<input checked="checked" id="ce0e2ba0-f75c-45b8-b2bc-17e2e1d34f90" name="801485f9-34d5-46c9-83db-08258e6c9c51" type="radio">
+</input><label class="tabbed-label" for="ce0e2ba0-f75c-45b8-b2bc-17e2e1d34f90">
 Command</label><div class="tabbed-content docutils">
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">remove_duplicates</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
-<input id="af78d4fb-6a1d-4b47-a5d6-924b5afbee50" name="bc704117-e81b-487a-9d06-8994d14f9743" type="radio">
-</input><label class="tabbed-label" for="af78d4fb-6a1d-4b47-a5d6-924b5afbee50">
+<input id="147a0234-bc4c-4ac1-90e4-1d65eb62fda8" name="801485f9-34d5-46c9-83db-08258e6c9c51" type="radio">
+</input><label class="tabbed-label" for="147a0234-bc4c-4ac1-90e4-1d65eb62fda8">
 Source code</label><div class="tabbed-content docutils">
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% read table</span><span class="w"></span>
 <span class="nb">table</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">dread</span><span class="p">(</span><span class="s">&#39;refined_table_ref_001_ite_0001.tbl&#39;</span><span class="p">);</span><span class="w"></span>
@@ -898,15 +898,15 @@ Source code</label><div class="tabbed-content docutils">
 <p>The next step is to remove particles that don’t belong to the lattice. To do so, we use <a class="reference external" href="https://github.com/teamtomo/teamtomo.github.io/tree/master/walkthroughs/EMPIAR-10164/scripts/check_radial_distribution.m"><code class="docutils literal notranslate"><span class="pre">check_radial_distribution.m</span></code></a>.</p>
 <p>Once again, in the same directory, simply run:</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="c6d340e2-7dd7-44bb-b998-ff1fe4cf7c77" name="0c6fb4d0-ab0d-4a9e-8ba2-41b158c02eeb" type="radio">
-</input><label class="tabbed-label" for="c6d340e2-7dd7-44bb-b998-ff1fe4cf7c77">
+<input checked="checked" id="a953c54b-376f-4c06-ba1a-ba2076f0f95b" name="c9ac2321-d928-4f0e-9367-e129e008e3d1" type="radio">
+</input><label class="tabbed-label" for="a953c54b-376f-4c06-ba1a-ba2076f0f95b">
 Command</label><div class="tabbed-content docutils">
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">check_radial_distribution</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
-<input id="efd76f3e-0e46-428d-a6e3-a2e4f67f57cf" name="0c6fb4d0-ab0d-4a9e-8ba2-41b158c02eeb" type="radio">
-</input><label class="tabbed-label" for="efd76f3e-0e46-428d-a6e3-a2e4f67f57cf">
+<input id="a73ea820-101d-41a9-99c7-47bc70d77ee3" name="c9ac2321-d928-4f0e-9367-e129e008e3d1" type="radio">
+</input><label class="tabbed-label" for="a73ea820-101d-41a9-99c7-47bc70d77ee3">
 Source code</label><div class="tabbed-content docutils">
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% check number of neighbours in radial shells, 1 px thick shells</span><span class="w"></span>
 
@@ -944,15 +944,15 @@ Source code</label><div class="tabbed-content docutils">
 <p><img alt="radial distribution" src="../../_images/radial-distance-profile.png" /></p>
 <p>This confirms the previously measured interparticle distance and the fact that most particles slid into ordered positions in the lattice. We can use the first peak to select against particles that don’t conform to this distribution. The next script, <a class="reference external" href="https://github.com/teamtomo/teamtomo.github.io/tree/master/walkthroughs/EMPIAR-10164/scripts/subset_table_based_on_neighbours.m"><code class="docutils literal notranslate"><span class="pre">subset_table_based_on_neighbours.m</span></code></a>, removes all particles that don’t have at least 3 neighbours in the radial shell at distance 7.5 px. To use it, run:</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="78c1b093-bc4a-4ef2-88bb-50145e5d9ef6" name="b848b31e-9250-47cb-a6d9-767063fed22f" type="radio">
-</input><label class="tabbed-label" for="78c1b093-bc4a-4ef2-88bb-50145e5d9ef6">
+<input checked="checked" id="b4ac36d6-291d-44e0-9609-bdfd19c21f56" name="bc3f823e-ff76-40fc-81b9-07334c2ca6e2" type="radio">
+</input><label class="tabbed-label" for="b4ac36d6-291d-44e0-9609-bdfd19c21f56">
 Command</label><div class="tabbed-content docutils">
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">subset_table_based_on_neighbours</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
-<input id="a6722e69-2fc7-4240-a1c1-3a5e3b3c0cdf" name="b848b31e-9250-47cb-a6d9-767063fed22f" type="radio">
-</input><label class="tabbed-label" for="a6722e69-2fc7-4240-a1c1-3a5e3b3c0cdf">
+<input id="e27ce737-c5c4-48ad-b847-f2acc564e68f" name="bc3f823e-ff76-40fc-81b9-07334c2ca6e2" type="radio">
+</input><label class="tabbed-label" for="e27ce737-c5c4-48ad-b847-f2acc564e68f">
 Source code</label><div class="tabbed-content docutils">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">read</span> <span class="n">table</span>
 <span class="n">table</span> <span class="o">=</span> <span class="n">dread</span><span class="p">(</span><span class="s1">&#39;result_10Apx_nodup.tbl&#39;</span><span class="p">);</span>
@@ -970,6 +970,32 @@ Source code</label><div class="tabbed-content docutils">
 <span class="o">%</span> <span class="n">write</span> <span class="n">out</span> <span class="n">table</span>
 <span class="n">dwrite</span><span class="p">(</span><span class="n">subset</span><span class="p">,</span> <span class="s1">&#39;result_10Apx_nodup_neighbourcleaning.tbl&#39;</span><span class="p">);</span>
 <span class="n">compare_two_tables</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">subset</span><span class="p">);</span>
+
+<span class="o">%</span> <span class="n">function</span> <span class="k">for</span> <span class="n">calculating</span> <span class="n">number</span> <span class="n">of</span> <span class="n">neighbours</span> <span class="ow">in</span> <span class="n">a</span> <span class="n">distance</span> <span class="nb">range</span>
+<span class="n">function</span> <span class="n">n_neighbours</span> <span class="o">=</span> <span class="n">dtneighbours_in_range</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">min_dist</span><span class="p">,</span> <span class="n">max_dist</span><span class="p">)</span>
+    <span class="o">%</span> <span class="n">read</span> <span class="n">table</span>
+    <span class="k">if</span> <span class="n">ischar</span><span class="p">(</span><span class="n">table</span><span class="p">)</span>
+        <span class="n">table</span> <span class="o">=</span> <span class="n">dread</span><span class="p">(</span><span class="n">table</span><span class="p">);</span>
+    <span class="n">end</span>
+    <span class="o">%</span> <span class="n">prep</span> <span class="n">output</span>
+    <span class="n">n_neighbours</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">size</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="o">%</span> <span class="n">get</span> <span class="n">unique</span> <span class="n">tomogram</span> <span class="n">index</span> <span class="n">values</span>
+    <span class="n">tomogram_idxs</span> <span class="o">=</span> <span class="n">unique</span><span class="p">(</span><span class="n">table</span><span class="p">(:,</span><span class="mi">20</span><span class="p">));</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="n">size</span><span class="p">(</span><span class="n">tomogram_idxs</span><span class="p">)</span>
+        <span class="o">%</span> <span class="n">get</span> <span class="n">table</span> <span class="n">per</span> <span class="n">volume</span>
+        <span class="n">tomo_idx</span> <span class="o">=</span> <span class="n">tomogram_idxs</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+        <span class="n">table_idx</span> <span class="o">=</span> <span class="n">table</span><span class="p">(:,</span> <span class="mi">20</span><span class="p">)</span> <span class="o">==</span> <span class="n">tomo_idx</span><span class="p">;</span>
+        <span class="n">current_table</span> <span class="o">=</span> <span class="n">table</span><span class="p">(</span><span class="n">table_idx</span><span class="p">,</span> <span class="p">:);</span>
+        <span class="o">%</span> <span class="n">get</span> <span class="n">xyz</span> <span class="n">coords</span>
+        <span class="n">xyz</span> <span class="o">=</span> <span class="n">current_table</span><span class="p">(:,</span> <span class="mi">4</span><span class="p">:</span><span class="mi">6</span><span class="p">)</span> <span class="o">+</span> <span class="n">current_table</span><span class="p">(:,</span> <span class="mi">24</span><span class="p">:</span><span class="mi">26</span><span class="p">);</span>
+        <span class="o">%</span> <span class="n">get</span> <span class="n">neighbours</span> <span class="ow">in</span> <span class="nb">range</span>
+        <span class="n">distance_matrix_</span> <span class="o">=</span> <span class="n">squareform</span><span class="p">(</span><span class="n">pdist</span><span class="p">(</span><span class="n">xyz</span><span class="p">));</span>
+        <span class="n">neighbours_</span> <span class="o">=</span> <span class="n">distance_matrix_</span> <span class="o">&gt;=</span> <span class="n">min_dist</span> <span class="o">&amp;</span> <span class="n">distance_matrix_</span> <span class="o">&lt;=</span> <span class="n">max_dist</span><span class="p">;</span>
+        <span class="n">n_neighbours_</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">neighbours_</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+        <span class="o">%</span> <span class="n">insert</span> <span class="ow">in</span> <span class="n">output</span>
+        <span class="n">n_neighbours</span><span class="p">(</span><span class="n">table_idx</span><span class="p">)</span> <span class="o">=</span> <span class="n">n_neighbours_</span><span class="p">;</span>
+    <span class="n">end</span>
+<span class="n">end</span>
 </pre></div>
 </div>
 </div>
