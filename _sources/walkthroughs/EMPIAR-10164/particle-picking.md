@@ -37,7 +37,7 @@ The provided scripts are just a few lines long, and are given for convenience an
 ```
 ````
 
-We can now take a look at the resulting particle positions, written in the output file `dynamo/findparticles/results/ite_0001/refined_table_ref_001_ite_0001.tbl`.
+We can now take a look at the resulting particle positions, written in the output file `dynamo/findparticles/results/ite_0001/averages/refined_table_ref_001_ite_0001.tbl`.
 
 We can use [`view_particles.m`](https://github.com/teamtomo/teamtomo.github.io/tree/master/walkthroughs/EMPIAR-10164/scripts/view_particles.m)  to open a 3D viewer and examine them. Open matlab in `dynamo/findparticles/results/ite_0001/` and run:
 
