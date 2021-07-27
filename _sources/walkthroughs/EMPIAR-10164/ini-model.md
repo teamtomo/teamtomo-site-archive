@@ -176,7 +176,7 @@ sal = dalign(v, template ,'cr',60,'cs',20,'ir',90, 'is', 30, 'rf', 5, 'dim', box
 v_aligned = sal.aligned_particle;
 v_aligned_c6 = dynamo_sym(v_aligned, 'c6');
 
-dmapview{v, template, v_aligned, v_aligned_c6}
+dmapview({v, template, v_aligned, v_aligned_c6})
 
 % write out averages
 dwrite(template, 'synthetic_template.em');
