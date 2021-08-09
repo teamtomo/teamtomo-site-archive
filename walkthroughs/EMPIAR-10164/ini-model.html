@@ -23,7 +23,7 @@
 
     
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/sphinx-book-theme.e8e5499552300ddf5d7adccae7cc3b70.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.5f77b4aec8189eecf79907ce328c390d.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
@@ -894,15 +894,15 @@
 <p>In order to take advantage of the symmetry present in the structure during refinement we first need to recenter the average on its 6-fold symmetry axis and align that axis along the z axis of our volume.</p>
 <p>To center and align the 6-fold symmetry axis, we will use a script provided with this tutorial, <a class="reference external" href="https://github.com/teamtomo/teamtomo.github.io/blob/master/walkthroughs/EMPIAR-10164/scripts/align_symmetry_axis.m"><code class="docutils literal notranslate"><span class="pre">align_symmetry_axis.m</span></code></a>. The script generates a synthetic template of a lattice with a 6-fold symmetry axis centered and aligned along the z-axis. The volume from our first subtomogram averaging experiment is then aligned to this synthetic template and C6 symmetry is applied. This produces an initial model with the symmetry axis correctly aligned for further experiments.</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="ac407894-4933-4ac9-836d-63404afbdd70" name="07e27b1a-4fb6-47ba-9ef5-1c5af49dca19" type="radio">
-</input><label class="tabbed-label" for="ac407894-4933-4ac9-836d-63404afbdd70">
+<input checked="checked" id="28b11ac3-3173-4cb9-8bed-284d58a7dfbd" name="c2b9fef7-7921-4842-b940-7a8d594c4820" type="radio">
+</input><label class="tabbed-label" for="28b11ac3-3173-4cb9-8bed-284d58a7dfbd">
 command</label><div class="tabbed-content docutils">
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">align_symmetry_axis</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
-<input id="6e1b8ee6-8089-4f5e-ba9a-3e3790af8305" name="07e27b1a-4fb6-47ba-9ef5-1c5af49dca19" type="radio">
-</input><label class="tabbed-label" for="6e1b8ee6-8089-4f5e-ba9a-3e3790af8305">
+<input id="831996a0-e857-4fd8-9244-db03576fba1f" name="c2b9fef7-7921-4842-b940-7a8d594c4820" type="radio">
+</input><label class="tabbed-label" for="831996a0-e857-4fd8-9244-db03576fba1f">
 source code</label><div class="tabbed-content docutils">
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">v</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">dread</span><span class="p">(</span><span class="s">&#39;average_ref_001_ite_0008.em&#39;</span><span class="p">);</span><span class="w"></span>
 

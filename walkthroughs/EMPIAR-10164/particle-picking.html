@@ -23,7 +23,7 @@
 
     
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/sphinx-book-theme.e8e5499552300ddf5d7adccae7cc3b70.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.5f77b4aec8189eecf79907ce328c390d.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
@@ -821,15 +821,15 @@
 <p>We can now take a look at the resulting particle positions, written in the output file <code class="docutils literal notranslate"><span class="pre">dynamo/findparticles/results/ite_0001/averages/refined_table_ref_001_ite_0001.tbl</span></code>.</p>
 <p>We can use <a class="reference external" href="https://github.com/teamtomo/teamtomo.github.io/tree/master/walkthroughs/EMPIAR-10164/scripts/view_particles.m"><code class="docutils literal notranslate"><span class="pre">view_particles.m</span></code></a>  to open a 3D viewer and examine them. Open matlab in <code class="docutils literal notranslate"><span class="pre">dynamo/findparticles/results/ite_0001/</span></code> and run:</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="c6aad561-6705-4956-a7c8-6329a086854b" name="1e69d185-b1b0-4bfd-8355-9a9109fe6010" type="radio">
-</input><label class="tabbed-label" for="c6aad561-6705-4956-a7c8-6329a086854b">
+<input checked="checked" id="a22ff3fb-772b-423e-9524-0afdc6a6d647" name="ac1d5134-6c0e-40bc-ab6d-b3c21c1c71e1" type="radio">
+</input><label class="tabbed-label" for="a22ff3fb-772b-423e-9524-0afdc6a6d647">
 Command</label><div class="tabbed-content docutils">
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">view_particles</span><span class="p">(</span><span class="s">&#39;refined_table_ref_001_ite_0001.tbl&#39;</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
-<input id="609a9f9d-7bdb-4469-9ac8-c835ba78b979" name="1e69d185-b1b0-4bfd-8355-9a9109fe6010" type="radio">
-</input><label class="tabbed-label" for="609a9f9d-7bdb-4469-9ac8-c835ba78b979">
+<input id="e3ee3dd3-8a7e-48f1-baf6-b35320146a49" name="ac1d5134-6c0e-40bc-ab6d-b3c21c1c71e1" type="radio">
+</input><label class="tabbed-label" for="e3ee3dd3-8a7e-48f1-baf6-b35320146a49">
 Source code</label><div class="tabbed-content docutils">
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span>gui<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">view_particles</span><span class="p">(</span>table<span class="p">)</span><span class="w"></span>
 <span class="w">    </span><span class="c">% read the table</span><span class="w"></span>
@@ -871,15 +871,15 @@ Source code</label><div class="tabbed-content docutils">
 <p>However, the first cleaning step we should take is removing duplicate particles (remember, we oversampled the surface compared to the expected particle density!). To do so, we will use a simple matlab script, <a class="reference external" href="https://github.com/teamtomo/teamtomo.github.io/tree/master/walkthroughs/EMPIAR-10164/scripts/remove_duplicates.m"><code class="docutils literal notranslate"><span class="pre">remove_duplicates.m</span></code></a>.</p>
 <p>To run, simply open MATLAB in <code class="docutils literal notranslate"><span class="pre">dynamo/findparticles/results/ite_0001/averages</span></code> and run:</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="cf4e16f4-a744-475a-be82-5258ef6b2e7d" name="754bb7b1-00ed-4fa7-8bc1-e20eefe29144" type="radio">
-</input><label class="tabbed-label" for="cf4e16f4-a744-475a-be82-5258ef6b2e7d">
+<input checked="checked" id="19e03116-fe6c-4ef7-9f33-96623a93e5ee" name="3cafb766-1e0b-4bb4-955f-fe5390bc9ef9" type="radio">
+</input><label class="tabbed-label" for="19e03116-fe6c-4ef7-9f33-96623a93e5ee">
 Command</label><div class="tabbed-content docutils">
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">remove_duplicates</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
-<input id="fcf79716-2ca5-45d1-bbba-4313e3be8a8d" name="754bb7b1-00ed-4fa7-8bc1-e20eefe29144" type="radio">
-</input><label class="tabbed-label" for="fcf79716-2ca5-45d1-bbba-4313e3be8a8d">
+<input id="82d7dc1b-962a-4f06-98c5-ff4b2bdea2dd" name="3cafb766-1e0b-4bb4-955f-fe5390bc9ef9" type="radio">
+</input><label class="tabbed-label" for="82d7dc1b-962a-4f06-98c5-ff4b2bdea2dd">
 Source code</label><div class="tabbed-content docutils">
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% read table</span><span class="w"></span>
 <span class="nb">table</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">dread</span><span class="p">(</span><span class="s">&#39;refined_table_ref_001_ite_0001.tbl&#39;</span><span class="p">);</span><span class="w"></span>
@@ -898,15 +898,15 @@ Source code</label><div class="tabbed-content docutils">
 <p>The next step is to remove particles that don’t belong to the lattice. To do so, we use <a class="reference external" href="https://github.com/teamtomo/teamtomo.github.io/tree/master/walkthroughs/EMPIAR-10164/scripts/check_radial_distribution.m"><code class="docutils literal notranslate"><span class="pre">check_radial_distribution.m</span></code></a>.</p>
 <p>Once again, in the same directory, simply run:</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="7edb11a0-c3f9-4822-8b1f-97eda7df7d3f" name="7431ccfc-2486-4513-8d92-1ff87cb46ecf" type="radio">
-</input><label class="tabbed-label" for="7edb11a0-c3f9-4822-8b1f-97eda7df7d3f">
+<input checked="checked" id="ab514347-2a9c-49dd-a890-03e8204d3d85" name="bf99162e-4982-4150-89db-8bf5893dd3d6" type="radio">
+</input><label class="tabbed-label" for="ab514347-2a9c-49dd-a890-03e8204d3d85">
 Command</label><div class="tabbed-content docutils">
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">check_radial_distribution</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
-<input id="44946500-d006-40f0-86be-66d6ae5d7228" name="7431ccfc-2486-4513-8d92-1ff87cb46ecf" type="radio">
-</input><label class="tabbed-label" for="44946500-d006-40f0-86be-66d6ae5d7228">
+<input id="9004660b-42f5-4565-8cc0-53f95a73e0bf" name="bf99162e-4982-4150-89db-8bf5893dd3d6" type="radio">
+</input><label class="tabbed-label" for="9004660b-42f5-4565-8cc0-53f95a73e0bf">
 Source code</label><div class="tabbed-content docutils">
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% check number of neighbours in radial shells, 1 px thick shells</span><span class="w"></span>
 
@@ -944,15 +944,15 @@ Source code</label><div class="tabbed-content docutils">
 <p><img alt="radial distribution" src="../../_images/radial-distance-profile.png" /></p>
 <p>This confirms the previously measured interparticle distance and the fact that most particles slid into ordered positions in the lattice. We can use the first peak to select against particles that don’t conform to this distribution. The next script, <a class="reference external" href="https://github.com/teamtomo/teamtomo.github.io/tree/master/walkthroughs/EMPIAR-10164/scripts/subset_table_based_on_neighbours.m"><code class="docutils literal notranslate"><span class="pre">subset_table_based_on_neighbours.m</span></code></a>, removes all particles that don’t have at least 3 neighbours in the radial shell at distance 7.5 px. To use it, run:</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="4b3ef792-58ee-4733-afed-1f3853311064" name="3745fd81-4448-45c9-a485-9886335a3b51" type="radio">
-</input><label class="tabbed-label" for="4b3ef792-58ee-4733-afed-1f3853311064">
+<input checked="checked" id="5a6e9993-eb0f-4903-9245-3accc2f085cb" name="9ebf879b-a554-4570-aefd-2644dd77bd91" type="radio">
+</input><label class="tabbed-label" for="5a6e9993-eb0f-4903-9245-3accc2f085cb">
 Command</label><div class="tabbed-content docutils">
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">subset_table_based_on_neighbours</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
-<input id="6c7d950b-41d3-48d2-9552-2c085ff58a6c" name="3745fd81-4448-45c9-a485-9886335a3b51" type="radio">
-</input><label class="tabbed-label" for="6c7d950b-41d3-48d2-9552-2c085ff58a6c">
+<input id="19043e53-b7c1-488c-a3da-18eec9f8f458" name="9ebf879b-a554-4570-aefd-2644dd77bd91" type="radio">
+</input><label class="tabbed-label" for="19043e53-b7c1-488c-a3da-18eec9f8f458">
 Source code</label><div class="tabbed-content docutils">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">read</span> <span class="n">table</span>
 <span class="n">table</span> <span class="o">=</span> <span class="n">dread</span><span class="p">(</span><span class="s1">&#39;result_10Apx_nodup.tbl&#39;</span><span class="p">);</span>
