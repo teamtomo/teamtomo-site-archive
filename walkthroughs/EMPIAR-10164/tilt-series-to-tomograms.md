@@ -127,7 +127,7 @@ Starting with coarse pixel sizes significantly increases your ability to quickly
 ```
 ````
 
-We have to define the reconstruction area by setting the `Unbinned tomogram dimensions`. These are the dimensions that the tomogram would have if reconstructed at the pixel size of the tilt-series. To capture the full extent of the imaged area, we should use 7420 x 7676 for the x and y dimensions. In z, we want the reconstruction to be large enough to include the entire imaged sample. In this case, 3000 $px$ is more than enough.
+We have to define the reconstruction area by setting the `Unbinned tomogram dimensions`. These are the dimensions that the tomogram would have if reconstructed at the pixel size of the unbinned tilt images. To capture the full extent of the imaged area, we should use 8000 x 8000 for the x and y dimensions. In z, we want the reconstruction to be large enough to include the entire imaged sample. In this case, 6000 $px$ is more than enough.
 
 We can then click on `reconstruct full tomograms` at the top of the `Overview` tab to open the reconstruction dialog box.
 
