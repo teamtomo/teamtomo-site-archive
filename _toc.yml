@@ -107,6 +107,7 @@ parts:
       - file: resources/cryoet-software/m/user-guide
     - file: resources/cryoet-software/novactf/novactf
     - file: resources/cryoet-software/novasta/novasta
+    - file: resources/cryoet-software/peet/peet
     - file: resources/cryoet-software/pytom/pytom
     - file: resources/cryoet-software/relion/relion
     - file: resources/cryoet-software/stopgap/stopgap
