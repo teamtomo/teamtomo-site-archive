@@ -133,13 +133,14 @@ In order to take advantage of the symmetry present in the structure during refin
 
 To center and align the 6-fold symmetry axis, we will use a script provided with this tutorial, [`align_symmetry_axis.m`](https://github.com/teamtomo/teamtomo.github.io/blob/master/walkthroughs/EMPIAR-10164/scripts/align_symmetry_axis.m). The script generates a synthetic template of a lattice with a 6-fold symmetry axis centered and aligned along the z-axis. The volume from our first subtomogram averaging experiment is then aligned to this synthetic template and C6 symmetry is applied. This produces an initial model with the symmetry axis correctly aligned for further experiments.
 
-````{tabbed} command
+`````{tab-set}
+````{tab-item} command
 ```matlab
 align_symmetry_axis
 ```
 ````
 
-````{tabbed} source code
+````{tab-item} source code
 ```matlab
 v = dread('average_ref_001_ite_0008.em');
 
@@ -184,6 +185,7 @@ dwrite(v_aligned, 'average_aligned_along_z.em');
 dwrite(v_aligned_c6, 'average_aligned_along_z_c6.em');
 ```
 ````
+`````
 
 
 To run the script, open `dynamo/inimodel/results/ite_0008/averages` in Matlab. Copy the script into this directory, and execute it by running `align_symmetry_axis`. Once the script has finished, compare the initial average, the template, the aligned average and the symmetrised aligned average to check that the alignment worked as intended.

@@ -12,8 +12,21 @@ execute:
 
 exclude_patterns: [README.md]
 
-parse:
-  myst_extended_syntax: true
+myst_enable_extensions: [
+    "amsmath",
+    "colon_fence",
+    "deflist",
+    "dollarmath",
+    "fieldlist",
+    "html_admonition",
+    "html_image",
+    "linkify",
+    "replacements",
+    "smartquotes",
+    "strikethrough",
+    "substitution",
+    "tasklist",
+]
 
 html:
   favicon: assets/favicon.ico
@@ -46,7 +59,7 @@ sphinx:
       .Rmd:
         - jupytext.reads
         - fmt: Rmd
-    mathjax_config:
+    mathjax3_config:
       TeX:
         Macros:
           "N": "\\mathbb{N}"

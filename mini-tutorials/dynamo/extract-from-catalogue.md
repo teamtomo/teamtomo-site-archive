@@ -13,20 +13,19 @@ If you have been picking your particles/supporting geometries in `dtmslice`, ope
 
 Open your catalogue in `dcm` and click through the tabs below to see the whole procedure
 
-```{tabbed} select tomograms
+``````{tab-set}
+```{tab-item} select tomograms
 Select the tomograms you would like to crop from (or use the select all button)
 ![select volumes](extract-from-catalogue.assets/select-all-volumes.gif)
 ```
 
-```{tabbed} open volume list manager
+```{tab-item} create volume list
 The volume list manager can create volume list (`.vll`) files containing the information needed for cropping particles.
 
 Open the volume list manager from the `Crop particles` menu at the top of the `dcm` window.
 
 ![open volume list manager](extract-from-catalogue.assets/open-volume-list-manager.gif)
-```
 
-```{tabbed} create volume list file
 Create a volume list (`.vll`) file by 
 - picking the models from which you want to crop in the GUI 
 - hitting the `create list` button.
@@ -34,8 +33,7 @@ Create a volume list (`.vll`) file by
 ![create volume list file](extract-from-catalogue.assets/create-volume-list.gif)
 ```
 
-``````{tabbed} extract particles
-
+`````{tab-item} extract particles
 ````{margin}
 ```{note} Dynamo data folder
 A Dynamo data folder contains
@@ -59,3 +57,5 @@ Read more [here](https://wiki.dynamo.biozentrum.unibas.ch/w/index.php/Generic_da
 
 ---
 Once complete, you will have a `Dynamo` format data folder containing your particles, you're ready for refinements!
+`````
+``````

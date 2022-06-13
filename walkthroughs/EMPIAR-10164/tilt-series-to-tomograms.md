@@ -21,9 +21,7 @@ For a detailed, step-by-step explanation of the procedure, check out the [Walkth
 ```
 ````
 
-```{panels}
-:column: col-20
-:card: border-2
+```{card}
 - Estimation of the putative positions of fiducials in all the images by cross-correlation (CC) against a synthetic template.
 - Rejection of features that are not rotationally symmetric, and therefore likely not beads.
 - Indexing of bead observations, attempting to determine which beads correspond to the same underlying object in 3D.
