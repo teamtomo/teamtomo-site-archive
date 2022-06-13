@@ -13,40 +13,43 @@ dpkdev.legacy.dynamo_mapview('my_volume.mrc');
 ## Getting comfortable with the viewer
 Here we go over some of the controls available in this viewer, you might have noticed there are a lot!
 
-```{tabbed} x/y/z view
+````{tab-set}
+```{tab-item} x/y/z view
 You can switch between viewing x-, y- or z-slices with the `x`, `y` and `z` buttons.
 
 ![xyz switching image](interactive-mask-creation.assets/xyz.gif)
 ```
 
-```{tabbed} slice mode
+```{tab-item} slice mode
 You can switch between viewing either a single projection or a set of slices
 
 ![singleproj image](interactive-mask-creation.assets/singleproj.gif)
 ```
 
-```{tabbed} Fourier filters
+```{tab-item} Fourier filters
 Bandpass filters can be applied from the GUI by setting the `band` parameters then hitting the `band` button. The filter frequencies are set in Fourier pixels.
 
 ![bandpass image](interactive-mask-creation.assets/bandpass.gif)
 ```
 
-```{tabbed} symmetry
+```{tab-item} symmetry
 Symmetry can be applied from the GUI. Symmetry is applied along the z-axis of the volume.
 
 ![symmetry image](interactive-mask-creation.assets/sym.gif)
 ```
 
-```{tabbed} reset
+```{tab-item} reset
 The volume visualised can be reset to its original state at any time with the `reset` button.
 
 ![reset button image](interactive-mask-creation.assets/reset.gif)
 ```
+````
 
 ## Mask creation
 This section covers the basics of mask creation in `dpkdev.legacy.dynamo_mapview()`
 
-```{tabbed} mask creation
+````{tab-set}
+```{tab-item} mask creation
 You can create a shaped mask by 
 - selecting the check-box next to the word shape in the `Mask` section
 - selecting either `cylinder` or `ellipsoid`
@@ -56,12 +59,13 @@ hit the `layer` button to bring up a visualisation of the mask on the currently 
 ![interactive mask creation image](interactive-mask-creation.assets/masking.gif)
 ```
 
-```{tabbed} saving a mask
+```{tab-item} saving a mask
 You can save a mask by setting a filename in the `Mask` section and hitting `save`
 ![save mask image](interactive-mask-creation.assets/savemask.gif)
 ```
 
-```{tabbed} saving a masked volume
+```{tab-item} saving a masked volume
 You can apply a mask onto a volume and save the volume in the `File I/O` section
 ![](interactive-mask-creation.assets/save_masked_vol.gif)
 ```
+````

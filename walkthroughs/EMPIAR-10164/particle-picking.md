@@ -41,13 +41,14 @@ We can now take a look at the resulting particle positions, written in the outpu
 
 We can use [`view_particles.m`](https://github.com/teamtomo/teamtomo.github.io/tree/master/walkthroughs/EMPIAR-10164/scripts/view_particles.m)  to open a 3D viewer and examine them. Open matlab in `dynamo/findparticles/results/ite_0001/` and run:
 
-````{tabbed} Command
+`````{tab-set}
+````{tab-item} Command
 ```matlab
 view_particles('refined_table_ref_001_ite_0001.tbl')
 ```
 ````
 
-````{tabbed} Source code
+````{tab-item} Source code
 ```matlab
 function gui = view_particles(table)
     % read the table
@@ -75,6 +76,7 @@ function gui = view_particles(table)
 end
 ```
 ````
+`````
 
 ````{margin}
 ```{tip}
@@ -91,13 +93,14 @@ As you can see, there are regions where particle positions appear to form regula
 However, the first cleaning step we should take is removing duplicate particles (remember, we oversampled the surface compared to the expected particle density!). To do so, we will use a simple matlab script, [`remove_duplicates.m`](https://github.com/teamtomo/teamtomo.github.io/tree/master/walkthroughs/EMPIAR-10164/scripts/remove_duplicates.m).
 
 To run, simply open MATLAB in `dynamo/findparticles/results/ite_0001/averages` and run:
-````{tabbed} Command
+`````{tab-set}
+````{tab-item} Command
 ```matlab
 remove_duplicates
 ```
 ````
 
-````{tabbed} Source code
+````{tab-item} Source code
 ```matlab
 % read table
 table = dread('refined_table_ref_001_ite_0001.tbl');
@@ -110,19 +113,21 @@ nodup = dpktbl.exclusionPerVolume(table, threshold)
 dwrite(nodup, 'result_10Apx_nodup.tbl');
 ```
 ````
+`````
 
 This will create a new table called `result_10Apx_nodup.tbl`, reducing clusters of multiple particles within 4 pixels (half the distance we measured earlier) to a single particle.
 
 The next step is to remove particles that don't belong to the lattice. To do so, we use [`check_radial_distribution.m`](https://github.com/teamtomo/teamtomo.github.io/tree/master/walkthroughs/EMPIAR-10164/scripts/check_radial_distribution.m).
 
 Once again, in the same directory, simply run:
-````{tabbed} Command
+`````{tab-set}
+````{tab-item} Command
 ```matlab
 check_radial_distribution
 ```
 ````
 
-````{tabbed} Source code
+````{tab-item} Source code
 ```matlab
 % check number of neighbours in radial shells, 1 px thick shells
 
@@ -147,6 +152,7 @@ plot(shell_starts + 0.5, neighbours_in_shells)
 % plot shows most particles have more neighbours at 5.5-8.5px distance
 ```
 ````
+`````
 
 This will open a plot of the radial distribution of neighbouring particles for the whole dataset. Here, we can see a high peak at around 7.5 px, and periodic peaks after that.
 
@@ -160,13 +166,14 @@ If you are wondering why the second peak has two sub-peaks: it's the honeycomb p
 
 This confirms the previously measured interparticle distance and the fact that most particles slid into ordered positions in the lattice. We can use the first peak to select against particles that don't conform to this distribution. The next script, [`subset_table_based_on_neighbours.m`](https://github.com/teamtomo/teamtomo.github.io/tree/master/walkthroughs/EMPIAR-10164/scripts/subset_table_based_on_neighbours.m), removes all particles that don't have at least 3 neighbours in the radial shell at distance 7.5 px. To use it, run:
 
-````{tabbed} Command
+`````{tab-set}
+````{tab-item} Command
 ```matlab
 subset_table_based_on_neighbours
 ```
 ````
 
-````{tabbed} Source code
+````{tab-item} Source code
 ```
 % read table
 table = dread('result_10Apx_nodup.tbl');
@@ -212,6 +219,7 @@ function n_neighbours = dtneighbours_in_range(table, min_dist, max_dist)
 end
 ```
 ````
+`````
 
 When finished, the script will open a viewer to inspect the table before and after the processing. Switching to a less clean dataset (for example `TS_43`) will make it clear that most bad particles were removed.
 

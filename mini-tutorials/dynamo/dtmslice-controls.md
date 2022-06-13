@@ -17,20 +17,21 @@ Important parameters of the slice are
 - the `opacity` of the slice
 
 ## Viewing controls
-```{tabbed} general
+````{tab-set}
+```{tab-item} general
 Some parameters can be controlled from the `Shown slice` controls on the left hand side of `dtmslice`
 
 ![shown slice controls](dtmslice-controls.assets/shown-slice.png)
 ```
 
-```{tabbed} moving a slice
+```{tab-item} moving a slice
 A slice can be moved along it's projection direction by `left-click` + dragging the mouse
 or using the mouse wheel.
 
 ![moving a slice](dtmslice-controls.assets/move-slice.gif)
 ```
 
-```{tabbed} projection direction
+```{tab-item} projection direction
 The projection direction can easily be changed between 
 'x', 'y' or 'z' by hitting the `x`, `y` or `z` keys with your mouse on the slice. 
 Mouse position controls the new position of the slice.
@@ -38,19 +39,20 @@ Mouse position controls the new position of the slice.
 ![xyz-projection](dtmslice-controls.assets/xyzproj.gif)
 ```
 
-```{tabbed} scene perspective
+```{tab-item} scene perspective
 You can move the camera around the scene by `ctrl` + `left-click` + dragging the mouse.
 
 ![move camera](dtmslice-controls.assets/move-camera.gif)
 ```
 
-```{tabbed} saving slices
+```{tab-item} saving slices
 You can save a copy of the active slice in `dtmslice` by hitting the `s` key.
 
 ![save slice](dtmslice-controls.assets/save-slice.gif)
 ```
 
-```{tabbed} slice thickness
+```{tab-item} slice thickness
 A `thickness` of 10 means that the displayed slice will be an average over 10 slices 
 along the projection direction.
 ```
+````

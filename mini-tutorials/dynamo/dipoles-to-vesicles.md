@@ -34,9 +34,7 @@ For a full guide on how to interact with `dipoleSet` models, check out the relev
 ```
 ````
 
-```{panels}
-:column: col-20
-:card: border-2
+```{card}
 `dtmslice` controls
 ^^^
 If you haven't used `dtmslice` before, get familiar by reading [this page](dtmslice-controls) and playing with it for five minutes.
@@ -92,13 +90,14 @@ If you aren't sure how to use the provided function, check out [this page](../..
 ```
 ````
 
-````{tabbed} Command
+`````{tab-set}
+````{tab-item} Command
 ```matlab
 dipoles2vesicles('warp_catalogue', 7.5)
 ```
 ````
 
-````{tabbed} Source code
+````{tab-item} Source code
 ```matlab
 function dipoles2vesicles(catalogue_name, distance_between_particles)
 %%% to be run in the folder which holds your catalogue
@@ -158,3 +157,4 @@ function vesicles_from_dipoles(model_file, expected_inter_particle_distance)
 end
 ```
 ````
+`````
