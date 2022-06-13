@@ -37,7 +37,7 @@ The provided scripts are just a few lines long, and are given for convenience an
 ```
 ````
 
-We can now take a look at the resulting particle positions, written in the output file `dynamo/findparticles/results/ite_0001/refined_table_ref_001_ite_0001.tbl`.
+We can now take a look at the resulting particle positions, written in the output file `dynamo/findparticles/results/ite_0001/averages/refined_table_ref_001_ite_0001.tbl`.
 
 We can use [`view_particles.m`](https://github.com/teamtomo/teamtomo.github.io/tree/master/walkthroughs/EMPIAR-10164/scripts/view_particles.m)  to open a 3D viewer and examine them. Open matlab in `dynamo/findparticles/results/ite_0001/` and run:
 
@@ -191,6 +191,32 @@ subset = table(idx, :);
 % write out table
 dwrite(subset, 'result_10Apx_nodup_neighbourcleaning.tbl');
 compare_two_tables(table, subset);
+
+% function for calculating number of neighbours in a distance range
+function n_neighbours = dtneighbours_in_range(table, min_dist, max_dist)
+    % read table
+    if ischar(table)
+        table = dread(table);
+    end
+    % prep output
+    n_neighbours = zeros(size(table, 1), 1);
+    % get unique tomogram index values
+    tomogram_idxs = unique(table(:,20));
+    for i = 1:size(tomogram_idxs)
+        % get table per volume
+        tomo_idx = tomogram_idxs(i);
+        table_idx = table(:, 20) == tomo_idx;
+        current_table = table(table_idx, :);
+        % get xyz coords
+        xyz = current_table(:, 4:6) + current_table(:, 24:26);
+        % get neighbours in range
+        distance_matrix_ = squareform(pdist(xyz));
+        neighbours_ = distance_matrix_ >= min_dist & distance_matrix_ <= max_dist;
+        n_neighbours_ = sum(neighbours_, 1);
+        % insert in output
+        n_neighbours(table_idx) = n_neighbours_;
+    end
+end
 ```
 ````
 `````

@@ -21,7 +21,7 @@ Subtomogram averaging becomes very slow when performing refinements with lots of
 Our metadata is currently in the dynamo format.
 We need to convert our particle positions and orientations into a format Warp understands, we will use the `dynamo2warp` script provided by the 
 [`dynamo2m`](https://github.com/alisterburt/dynamo2m)
-package. The script takes a `.tbl` file (which we generated at the end of the previous section) and a table map file. The table map file contains a mapping from particle indexes to file names, to match to the column 20 of the `.tbl` file. In our case, this file is located in `dynamo/oversampledData.Boxes/indices_column20.doc`.
+package. The script takes a `.tbl` file (which we generated at the end of the previous section) and a table map file. The table map file contains a mapping from particle indexes to file names, to match to the column 20 of the `.tbl` file. In our case, this file is located in `dynamo/findparticlesData.Boxes/indices_column20.doc`.
 
 ````{margin}
 ```{tip}
@@ -31,7 +31,7 @@ the scripts in `dynamo2m` can also be run interactively, just type `dynamo2warp`
 
 In a terminal, run:
 ```bash
-dynamo2warp -i result_10Apx_nodup_neighbourcleaning.tbl -tm ../../../../oversampledData.Boxes/indices_column20.doc -o result_10Apx_nodup_neighbourcleaning_data.star
+dynamo2warp -i result_10Apx_nodup_neighbourcleaning.tbl -tm ../../../../findparticlesData.Boxes/indices_column20.doc -o result_10Apx_nodup_neighbourcleaning_data.star
 ```
 
 ### Subtomogram reconstruction in Warp
@@ -40,6 +40,10 @@ We can now use the generated `.star` file to reconstruct subtomograms from our t
 ````{margin}
 ```{note}
 We reconstruct at a box twice as large as before because we have halved the pixel spacing.
+```
+
+```{note}
+Note that the `particle diameter` is used to generate a normalization mask, and does *not* affect the size of the box. Here we choose a size that encompasses only the central hexamer, since that's the part we are interested in.
 ```
 ````
 
