@@ -4,11 +4,13 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Initial model generation</title>
     
-  <link href="../../_static/css/theme.css" rel="stylesheet" />
-  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,51 +20,67 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/sphinx-book-theme.5f77b4aec8189eecf79907ce328c390d.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
-    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <script src="../../_static/tabs.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"N": "\\mathbb{N}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}}, "tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script>window.MathJax = {"TeX": {"Macros": {"N": "\\mathbb{N}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Find particles on every VLP" href="particle-picking.html" />
     <link rel="prev" title="Geometrical particle picking" href="geometrical-picking.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="en">
+    
+
+    <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -71,10 +89,15 @@
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
       
       <img src="../../_static/logo.svg" class="logo" alt="logo">
       
@@ -83,9 +106,9 @@
 </div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <p class="caption">
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   teamtomo.org
  </span>
@@ -124,7 +147,7 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Theory
  </span>
@@ -207,7 +230,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Walkthroughs
  </span>
@@ -266,7 +289,7 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   mini-tutorials
  </span>
@@ -315,7 +338,7 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   computing
  </span>
@@ -408,7 +431,7 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Resources
  </span>
@@ -636,6 +659,11 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="../../resources/cryoet-software/peet/peet.html">
+     PEET
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../../resources/cryoet-software/pytom/pytom.html">
      PyTom
     </a>
@@ -648,6 +676,11 @@
    <li class="toctree-l2">
     <a class="reference internal" href="../../resources/cryoet-software/stopgap/stopgap.html">
      STOPGAP
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../resources/cryoet-software/topaz_denoise_3d/topaz_denoise_3d.html">
+     Topaz Denoise 3D
     </a>
    </li>
    <li class="toctree-l2 has-children">
@@ -672,92 +705,197 @@
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/walkthroughs/EMPIAR-10164/ini-model.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/teamtomo/teamtomo.github.io"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/teamtomo/teamtomo.github.io/issues/new?title=Issue%20on%20page%20%2Fwalkthroughs/EMPIAR-10164/ini-model.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/teamtomo/teamtomo.github.io/edit/master/./walkthroughs/EMPIAR-10164/ini-model.md"><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/teamtomo/teamtomo.github.io"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/teamtomo/teamtomo.github.io/issues/new?title=Issue%20on%20page%20%2Fwalkthroughs/EMPIAR-10164/ini-model.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/teamtomo/teamtomo.github.io/edit/master/./walkthroughs/EMPIAR-10164/ini-model.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/walkthroughs/EMPIAR-10164/ini-model.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#extracting-a-subset-of-particles">
    Extracting a subset of particles
@@ -780,47 +918,85 @@
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Initial model generation</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#extracting-a-subset-of-particles">
+   Extracting a subset of particles
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aligning-the-particles">
+   Aligning the particles
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#assessing-the-results">
+   Assessing the results
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aligning-and-centering-the-6-fold-symmetry-axis">
+   Aligning and centering the 6-fold symmetry axis
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="section" id="initial-model-generation">
-<h1>Initial model generation<a class="headerlink" href="#initial-model-generation" title="Permalink to this headline">¶</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="initial-model-generation">
+<h1>Initial model generation<a class="headerlink" href="#initial-model-generation" title="Permalink to this headline">#</a></h1>
 <a class="reference internal image-reference" href="../../_images/hiv-initial-positions.png"><img alt="../../_images/hiv-initial-positions.png" src="../../_images/hiv-initial-positions.png" style="width: 250px;" /></a>
 <p>Now that the Dynamo catalogue contains initial estimates for the positions and orientations of our particles, we need to obtain an initial model of our lattice structure which will later allow us to find more accurate estimates of the positions and orientations of our particles for the whole dataset. For this, we will work on a small subset of the VLPs.</p>
-<div class="margin sidebar">
+<aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Working on a small subset initially allows you to move quickly, testing lots of different approaches and optimising your approach. How small this subset should be will depend on the quality of your data, your initial particle picking and your object of interest.</p>
 </div>
-</div>
+</aside>
 <p>With data of such good quality and so many particles per VLP, two of our vesicle models should be more than enough for generating a good initial model of the underlying lattice structure.</p>
 <p>When choosing an initial subset, it can be a good idea to choose VLPs with different defoci. This ensures that nodes of the CTF are at different spatial frequencies within the subset and thus no region of Fourier space should be particularly undersampled. The Jiang lab at Purdue University have a CTF simulation <a class="reference external" href="https://ctf-simulation.herokuapp.com/">web app</a> which is useful for visualising the effect of defocus on the CTF.</p>
 <p>Choosing a subset which contains all available views of the particle is also important, ensuring maximum coverage of Fourier space in a resulting reconstruction</p>
 <p>From the <code class="docutils literal notranslate"><span class="pre">Overview</span></code> tab in Warp, we quickly see that <code class="docutils literal notranslate"><span class="pre">TS_01</span></code> and <code class="docutils literal notranslate"><span class="pre">TS_03</span></code> have significantly different defoci, so we choose to use one vescicle from each of these tomograms.</p>
-<div class="section" id="extracting-a-subset-of-particles">
-<span id="hiv-extract-subset"></span><h2>Extracting a subset of particles<a class="headerlink" href="#extracting-a-subset-of-particles" title="Permalink to this headline">¶</a></h2>
-<div class="margin sidebar">
+<section id="extracting-a-subset-of-particles">
+<span id="hiv-extract-subset"></span><h2>Extracting a subset of particles<a class="headerlink" href="#extracting-a-subset-of-particles" title="Permalink to this headline">#</a></h2>
+<aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>A box sidelength of 32 corresponds to a 320<span class="math notranslate nohighlight">\(Å\)</span>. While this is much larger than the expected 75<span class="math notranslate nohighlight">\(Å\)</span> inter-particle distance, signal from neighbouring particles in lattices can help to drive correct alignments at the beginning of a project. When working at smaller pixel sizes a bigger box can also help to avoid CTF aliasing.</p>
 </div>
-</div>
+</aside>
 <p>Extract particles from your <code class="docutils literal notranslate"><span class="pre">Dynamo</span></code> catalogue with a sidelength of <code class="docutils literal notranslate"><span class="pre">32</span></code> following <a class="reference internal" href="../../mini-tutorials/dynamo/extract-from-catalogue.html"><span class="doc std std-doc">this mini-tutorial</span></a>. To make things faster, for now we can extract particles from one vesicle in <code class="docutils literal notranslate"><span class="pre">TS_01</span></code> and one in <code class="docutils literal notranslate"><span class="pre">TS_03</span></code>. We call this volume list file created at this stage <code class="docutils literal notranslate"><span class="pre">inimodel.vll</span></code>) and extract a data folder called <code class="docutils literal notranslate"><span class="pre">inimodelData.Boxes</span></code>.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Later, we will perform an alignment on particles from every VLP. You can save some time by launching a separate particle extraction for the whole dataset at this stage.</p>
 </div>
-</div>
-<div class="section" id="aligning-the-particles">
-<h2>Aligning the particles<a class="headerlink" href="#aligning-the-particles" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="aligning-the-particles">
+<h2>Aligning the particles<a class="headerlink" href="#aligning-the-particles" title="Permalink to this headline">#</a></h2>
 <p>Once the particle volumes are extracted for our two VLPs, we want to perform a first rough alignment to see how the particles align and average.</p>
 <p>We run <code class="docutils literal notranslate"><span class="pre">dcp</span></code> from MATLAB to open the “Dynamo current project” GUI. This GUI is designed to be used in a sequential way: we will need to provide a few parameters before launching the project.</p>
 <p>For a full tutorial on how to setting up a simple subtomogram averaging project in Dynamo, click <a class="reference internal" href="../../mini-tutorials/dynamo/simple-alignment.html"><span class="doc std std-doc">here</span></a>.</p>
@@ -831,25 +1007,25 @@
 : the <code class="docutils literal notranslate"><span class="pre">inimodelData.Boxes</span></code> Dynamo data folder.</p>
 <p><code class="docutils literal notranslate"><span class="pre">table</span></code>
 : the <code class="docutils literal notranslate"><span class="pre">inimodelData.Boxes/crop.tbl</span></code> particle metadata (table) file. When we cropped particles in the Dynamo catalogue, it created this metadata file for us and puts it inside the data folder. When selecting your table file, click <code class="docutils literal notranslate"><span class="pre">look</span> <span class="pre">inside</span> <span class="pre">data</span> <span class="pre">folder</span></code> and pick the <code class="docutils literal notranslate"><span class="pre">crop.tbl</span></code> file.</p>
-<div class="margin sidebar">
+<aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>While we don’t expect to see any detailed structure in this map, but it’s worth checking that it matches what we expect to see. If you right click on the file path at the top of the template GUI, you can choose to <code class="docutils literal notranslate"><span class="pre">[view]</span></code> the volume. Our initial picking contained no knowledge about the specific positions of each particle within the lattice. Because of this, we expect to see a curved, membrane like density and blurred density for the lattice proteins in the average.</p>
 </div>
-</div>
+</aside>
 <p><code class="docutils literal notranslate"><span class="pre">template</span></code>
 : since we don’t have one, we generate one from a subset of our particles. Using 500 particles at this step is a good starting point. This will generate a reconstruction from 500 particles using our initial alignments from the vesicle model stored in the <code class="docutils literal notranslate"><span class="pre">crop.tbl</span></code> file.</p>
 <a class="reference internal image-reference" href="../../_images/first-template-all.png"><img alt="../../_images/first-template-all.png" src="../../_images/first-template-all.png" style="width: 400px;" /></a>
 <p><code class="docutils literal notranslate"><span class="pre">masks</span></code>
 : <code class="docutils literal notranslate"><span class="pre">Use</span> <span class="pre">default</span> <span class="pre">masks</span></code> will give us appropriate masks at this stage that cover the full extent of our 32px box. At this stage, we aren’t very sure of our particle positions and orientations as they haven’t undergone any alignment. We want our mask to include the whole box so that signal from multiple neighbouring particles in the lattice can help to drive initial alignments.</p>
-<div class="margin sidebar">
+<aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Press <code class="docutils literal notranslate"><span class="pre">Alt</span></code> when a parameter is selected for a detailed description.</p>
 </div>
-</div>
+</aside>
 <p><code class="docutils literal notranslate"><span class="pre">numerical</span> <span class="pre">parameters</span></code>
 : set the numerical parameters for the alignment procedure as shown below. Check out the <a class="reference internal" href="../../mini-tutorials/dynamo/simple-alignment.html"><span class="doc std std-doc">mini-tutorial</span></a> for a more in-depth explanation. At this stage, we don’t enforce symmetry during refinement. We hope that any symmetry present should appear after aligning our particles.</p>
 <a class="reference internal image-reference" href="../../_images/numerical-params1.png"><img alt="../../_images/numerical-params1.png" src="../../_images/numerical-params1.png" style="width: 400px;" /></a>
@@ -859,13 +1035,13 @@
 : this will depend on your computing environment, including number of available CPUs/GPUs. We typically run projects in the <code class="docutils literal notranslate"><span class="pre">gpu_standalone</span></code> modus on 4 GPUs. Running in the standalone modus allows you to continue with other work in the matlab shell while the alignment project runs. In this modus, the number of CPU cores should be 1. The number of CPU cores used during averaging can be changed to the number of logical CPU cores on your machine. Specific GPUs can be selected by their index as seen in <code class="docutils literal notranslate"><span class="pre">nvidia-smi</span></code>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">check</span></code> and <code class="docutils literal notranslate"><span class="pre">unfold</span></code>
 : run a sanity <code class="docutils literal notranslate"><span class="pre">check</span></code> to make sure the project seems correctly setup, then <code class="docutils literal notranslate"><span class="pre">unfold</span></code> to prepare an executable for the alignment project. If running a project on a remote machine without graphical access, a project can be set up locally and sent to the remote machine as a tarball. For information on this, please see <a class="reference external" href="https://wiki.dynamo.biozentrum.unibas.ch/w/index.php/Tarring_projects">this wiki page</a>.</p>
-<div class="margin sidebar">
+<aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>You can track the progress of the project from the <code class="docutils literal notranslate"><span class="pre">dcp</span></code> GUI by clicking on the <code class="docutils literal notranslate"><span class="pre">progress</span></code> button.</p>
 </div>
-</div>
+</aside>
 <p>We can now run the executable. To do so, open the <code class="docutils literal notranslate"><span class="pre">dynamo</span></code> directory in a terminal and run:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> <span class="nv">$DYNAMO_ROOT</span>/dynamo_activate_linux_shipped_MCR.sh
 </pre></div>
@@ -874,36 +1050,36 @@
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./inimodel.exe
 </pre></div>
 </div>
-</div>
-<div class="section" id="assessing-the-results">
-<h2>Assessing the results<a class="headerlink" href="#assessing-the-results" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="assessing-the-results">
+<h2>Assessing the results<a class="headerlink" href="#assessing-the-results" title="Permalink to this headline">#</a></h2>
 <p>We can look at the result of our first alignment project using tools from the <code class="docutils literal notranslate"><span class="pre">dcp</span></code> GUI under show. Alternatively, the file containing the average can be found at <code class="docutils literal notranslate"><span class="pre">dynamo/inimodel/results/ite_0008/averages/average_ref_001_ite_0008.em</span></code> and visualised with any volume visualisation tool.</p>
 <p>In contrast to our previous reconstruction from particles with initial estimates for positions and orientations, in this map we clearly see a hexagonal lattice starting to take shape, containing 2-, 3- and 6-fold symmetry axes.</p>
 <a class="reference internal image-reference" href="../../_images/first-aligned-all.png"><img alt="../../_images/first-aligned-all.png" src="../../_images/first-aligned-all.png" style="width: 400px;" /></a>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="aligning-and-centering-the-6-fold-symmetry-axis">
-<h2>Aligning and centering the 6-fold symmetry axis<a class="headerlink" href="#aligning-and-centering-the-6-fold-symmetry-axis" title="Permalink to this headline">¶</a></h2>
-<div class="margin sidebar">
+<section id="aligning-and-centering-the-6-fold-symmetry-axis">
+<h2>Aligning and centering the 6-fold symmetry axis<a class="headerlink" href="#aligning-and-centering-the-6-fold-symmetry-axis" title="Permalink to this headline">#</a></h2>
+<aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>By convention, rotational symmetry axes for <span class="math notranslate nohighlight">\(C_n\)</span> symmetries in electron microscopy software are aligned along the Z axis of the volume.</p>
 </div>
-</div>
+</aside>
 <p>In order to take advantage of the symmetry present in the structure during refinement we first need to recenter the average on its 6-fold symmetry axis and align that axis along the z axis of our volume.</p>
 <p>To center and align the 6-fold symmetry axis, we will use a script provided with this tutorial, <a class="reference external" href="https://github.com/teamtomo/teamtomo.github.io/blob/master/walkthroughs/EMPIAR-10164/scripts/align_symmetry_axis.m"><code class="docutils literal notranslate"><span class="pre">align_symmetry_axis.m</span></code></a>. The script generates a synthetic template of a lattice with a 6-fold symmetry axis centered and aligned along the z-axis. The volume from our first subtomogram averaging experiment is then aligned to this synthetic template and C6 symmetry is applied. This produces an initial model with the symmetry axis correctly aligned for further experiments.</p>
-<div class="tabbed-set docutils">
-<input checked="checked" id="28b11ac3-3173-4cb9-8bed-284d58a7dfbd" name="c2b9fef7-7921-4842-b940-7a8d594c4820" type="radio">
-</input><label class="tabbed-label" for="28b11ac3-3173-4cb9-8bed-284d58a7dfbd">
-command</label><div class="tabbed-content docutils">
+<div class="sd-tab-set docutils">
+<input checked="checked" id="67462ab0-16ed-4bf8-bdd7-5b47be9f38ec" name="ac096063-5691-4b32-b255-ca971d377da3" type="radio">
+</input><label class="sd-tab-label" for="67462ab0-16ed-4bf8-bdd7-5b47be9f38ec">
+command</label><div class="sd-tab-content docutils">
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">align_symmetry_axis</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
-<input id="831996a0-e857-4fd8-9244-db03576fba1f" name="c2b9fef7-7921-4842-b940-7a8d594c4820" type="radio">
-</input><label class="tabbed-label" for="831996a0-e857-4fd8-9244-db03576fba1f">
-source code</label><div class="tabbed-content docutils">
+<input id="42b8a300-7910-4561-ae8d-79b9c950a780" name="ac096063-5691-4b32-b255-ca971d377da3" type="radio">
+</input><label class="sd-tab-label" for="42b8a300-7910-4561-ae8d-79b9c950a780">
+source code</label><div class="sd-tab-content docutils">
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">v</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">dread</span><span class="p">(</span><span class="s">&#39;average_ref_001_ite_0008.em&#39;</span><span class="p">);</span><span class="w"></span>
 
 <span class="n">rod_radius</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"></span>
@@ -952,8 +1128,8 @@ source code</label><div class="tabbed-content docutils">
 <p>To run the script, open <code class="docutils literal notranslate"><span class="pre">dynamo/inimodel/results/ite_0008/averages</span></code> in Matlab. Copy the script into this directory, and execute it by running <code class="docutils literal notranslate"><span class="pre">align_symmetry_axis</span></code>. Once the script has finished, compare the initial average, the template, the aligned average and the symmetrised aligned average to check that the alignment worked as intended.</p>
 <a class="reference internal image-reference" href="../../_images/aligned-to-z.png"><img alt="../../_images/aligned-to-z.png" src="../../_images/aligned-to-z.png" style="width: 300px;" /></a>
 <p>We now have an initial model with the 6-fold symmetry axis aligned to the center of the volume. We can use this initial model to obtain good estimates for particle positions and orientations of HIV-1 CA-SP1 hexamers for the whole dataset.</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -977,34 +1153,48 @@ source code</label><div class="tabbed-content docutils">
 
               </div>
               
-        
-        <div class='prev-next-bottom'>
-            
-    <a class='left-prev' id="prev-link" href="geometrical-picking.html" title="previous page">Geometrical particle picking</a>
-    <a class='right-next' id="next-link" href="particle-picking.html" title="next page">Find particles on every VLP</a>
-
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="geometrical-picking.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Geometrical particle picking</p>
         </div>
-        
+    </a>
+    <a class='right-next' id="next-link" href="particle-picking.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Find particles on every VLP</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
-    <div class="container">
-      <p>
-        
-          By the teamtomo.org contributors<br/>
-        
-            &copy; Copyright 2021.<br/>
-      </p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By the teamtomo.org contributors<br/>
+  
+      &copy; Copyright 2021.<br/>
+</p>
+        </footer>
     </div>
-  </footer>
-</main>
+    
+</div>
 
 
       </div>
     </div>
   
-  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
 
-  
+
   </body>
 </html>

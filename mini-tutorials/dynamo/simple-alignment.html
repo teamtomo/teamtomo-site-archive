@@ -4,11 +4,13 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Simple subtomogram averaging</title>
     
-  <link href="../../_static/css/theme.css" rel="stylesheet" />
-  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,38 +20,37 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/sphinx-book-theme.5f77b4aec8189eecf79907ce328c390d.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
-    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <script src="../../_static/tabs.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -57,10 +58,27 @@
     <link rel="next" title="Extracting particles" href="extract-from-catalogue.html" />
     <link rel="prev" title="Dynamo" href="index.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="en">
+    
+
+    <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -69,10 +87,15 @@
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
       
       <img src="../../_static/logo.svg" class="logo" alt="logo">
       
@@ -81,9 +104,9 @@
 </div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <p class="caption">
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   teamtomo.org
  </span>
@@ -122,7 +145,7 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Theory
  </span>
@@ -205,7 +228,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Walkthroughs
  </span>
@@ -264,7 +287,7 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   mini-tutorials
  </span>
@@ -313,7 +336,7 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   computing
  </span>
@@ -406,7 +429,7 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Resources
  </span>
@@ -634,6 +657,11 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="../../resources/cryoet-software/peet/peet.html">
+     PEET
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../../resources/cryoet-software/pytom/pytom.html">
      PyTom
     </a>
@@ -646,6 +674,11 @@
    <li class="toctree-l2">
     <a class="reference internal" href="../../resources/cryoet-software/stopgap/stopgap.html">
      STOPGAP
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../resources/cryoet-software/topaz_denoise_3d/topaz_denoise_3d.html">
+     Topaz Denoise 3D
     </a>
    </li>
    <li class="toctree-l2 has-children">
@@ -670,92 +703,197 @@
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/mini-tutorials/dynamo/simple-alignment.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/teamtomo/teamtomo.github.io"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/teamtomo/teamtomo.github.io/issues/new?title=Issue%20on%20page%20%2Fmini-tutorials/dynamo/simple-alignment.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/teamtomo/teamtomo.github.io/edit/master/./mini-tutorials/dynamo/simple-alignment.md"><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/teamtomo/teamtomo.github.io"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/teamtomo/teamtomo.github.io/issues/new?title=Issue%20on%20page%20%2Fmini-tutorials/dynamo/simple-alignment.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/teamtomo/teamtomo.github.io/edit/master/./mini-tutorials/dynamo/simple-alignment.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/mini-tutorials/dynamo/simple-alignment.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#prerequisites">
    Prerequisites
@@ -847,17 +985,124 @@
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Simple subtomogram averaging</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#prerequisites">
+   Prerequisites
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#setup">
+   Setup
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#open-the-dcp-gui">
+     Open the
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       dcp
+      </span>
+     </code>
+     gui
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#name-the-project">
+     Name the project
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#input-files">
+     Input files
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#input-your-particles">
+       Input your particles
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#alignment-parameters">
+     Alignment parameters
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#computational-parameters">
+     Computational parameters
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#hardware">
+       Hardware
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#optional-specifying-gpus">
+         (optional) specifying GPUs
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mpi">
+       MPI
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#parallelized-averaging-step">
+       Parallelized averaging step
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#unfolding-the-project">
+   Unfolding the project
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#running-the-project">
+   Running the project
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#looking-at-the-results">
+   Looking at the results
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="section" id="simple-subtomogram-averaging">
-<h1>Simple subtomogram averaging<a class="headerlink" href="#simple-subtomogram-averaging" title="Permalink to this headline">¶</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="simple-subtomogram-averaging">
+<h1>Simple subtomogram averaging<a class="headerlink" href="#simple-subtomogram-averaging" title="Permalink to this headline">#</a></h1>
 <p>This mini-tutorial will show you how to quickly set up and run a subtomogram averaging experiment in <code class="docutils literal notranslate"><span class="pre">Dynamo</span></code>.
 In <code class="docutils literal notranslate"><span class="pre">Dynamo</span></code> lingo, this is referred to as an ‘alignment project’.</p>
 <p>We will set up our alignment project from the ‘Dynamo current project’ GUI (<code class="docutils literal notranslate"><span class="pre">dcp</span></code>).</p>
@@ -867,21 +1112,21 @@ or the
 <a class="reference external" href="https://wiki.dynamo.biozentrum.unibas.ch/w/index.php/Scripted_creation_of_a_project_in_the_Linux_command_line">Linux command line</a>.
 You can also set up your project locally, then
 <a class="reference external" href="https://wiki.dynamo.biozentrum.unibas.ch/w/index.php/Tarring_projects">bundle it up and send it to a remote machine/cluster</a>.</p>
-<div class="section" id="prerequisites">
-<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
+<section id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>a set of particles in a <code class="docutils literal notranslate"><span class="pre">Dynamo</span></code> <a class="reference external" href="https://wiki.dynamo.biozentrum.unibas.ch/w/index.php/Generic_data_containers">data container</a></p></li>
 <li><p>(optional) metadata for each particle in a <code class="docutils literal notranslate"><span class="pre">Dynamo</span></code> <a class="reference external" href="https://wiki.dynamo.biozentrum.unibas.ch/w/index.php/Table">table file</a></p></li>
 <li><p>(optional) a reference volume with the same dimensions as your particles</p></li>
 <li><p>(optional) a mask around your region of interest</p></li>
 </ul>
-</div>
-<div class="section" id="setup">
-<h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="setup">
+<h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">#</a></h2>
 <p>First, we need to open <code class="docutils literal notranslate"><span class="pre">Dynamo</span></code>, either activating it in <code class="docutils literal notranslate"><span class="pre">MATLAB</span></code> or using the standalone version.</p>
-<div class="section" id="open-the-dcp-gui">
-<h3>Open the <code class="docutils literal notranslate"><span class="pre">dcp</span></code> gui<a class="headerlink" href="#open-the-dcp-gui" title="Permalink to this headline">¶</a></h3>
-<div class="margin sidebar">
+<section id="open-the-dcp-gui">
+<h3>Open the <code class="docutils literal notranslate"><span class="pre">dcp</span></code> gui<a class="headerlink" href="#open-the-dcp-gui" title="Permalink to this headline">#</a></h3>
+<aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -890,93 +1135,87 @@ You can also set up your project locally, then
 </pre></div>
 </div>
 </div>
-</div>
+</aside>
 <p>The <code class="docutils literal notranslate"><span class="pre">dcp</span></code> GUI is the main tool in <code class="docutils literal notranslate"><span class="pre">Dynamo</span></code> for interactively designing subtomogram averaging experiments.</p>
 <p>To open the GUI simply run <code class="docutils literal notranslate"><span class="pre">dcp</span></code> from your <code class="docutils literal notranslate"><span class="pre">Dynamo</span></code> shell.</p>
-</div>
-<div class="section" id="name-the-project">
-<h3>Name the project<a class="headerlink" href="#name-the-project" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="name-the-project">
+<h3>Name the project<a class="headerlink" href="#name-the-project" title="Permalink to this headline">#</a></h3>
 <p>Click in the box to the right of <code class="docutils literal notranslate"><span class="pre">Project</span> <span class="pre">name</span></code> and write a name for your project.
 Choose something descriptive, it might help you remember what you did in a few months time!</p>
 <p>Hit <code class="docutils literal notranslate"><span class="pre">Enter</span></code>. In the dialogue box which pops up, confirm that you would like to create a new project by clicking <code class="docutils literal notranslate"><span class="pre">Create</span> <span class="pre">new</span> <span class="pre">project</span></code>.</p>
 <p><img alt="name your project image" src="../../_images/name-project.gif" /></p>
-</div>
-<div class="section" id="input-files">
-<h3>Input files<a class="headerlink" href="#input-files" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="input-your-particles">
-<h4>Input your particles<a class="headerlink" href="#input-your-particles" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="input-files">
+<h3>Input files<a class="headerlink" href="#input-files" title="Permalink to this headline">#</a></h3>
+<section id="input-your-particles">
+<h4>Input your particles<a class="headerlink" href="#input-your-particles" title="Permalink to this headline">#</a></h4>
 <p>Click on the <code class="docutils literal notranslate"><span class="pre">particles</span></code> button in the <code class="docutils literal notranslate"><span class="pre">Input:</span> <span class="pre">files</span></code> row. In the dialogue box which pops up, enter the name of your data file.</p>
-<div class="margin sidebar">
+<aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>To keep your workspace tidy, close the dialogue boxes once you are finished with them. They tend to build up quickly!</p>
 </div>
-</div>
-<div class="sphinx-bs container pb-4 docutils">
-<div class="row docutils">
-<div class="d-flex col-20 docutils">
-<div class="card w-100 border-2 docutils">
-<div class="card-body docutils">
-<div class="tabbed-set docutils">
-<input checked="checked" id="d2b91e0c-b39b-4ebd-82de-a189ccb460ce" name="b481af85-b51d-47b1-ae10-f7c852f232d6" type="radio">
-</input><label class="tabbed-label" for="d2b91e0c-b39b-4ebd-82de-a189ccb460ce">
-particles</label><div class="tabbed-content docutils">
-<p class="card-text">Click on the <code class="docutils literal notranslate"><span class="pre">particles</span></code> button in the <code class="docutils literal notranslate"><span class="pre">Input:</span> <span class="pre">files</span></code> row.
+</aside>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-tab-set docutils">
+<input checked="checked" id="d8aa1bbe-073e-47c7-8f81-1f0db62d48c5" name="cc5d0b93-13e7-41d4-a65a-b83fe8e84c89" type="radio">
+</input><label class="sd-tab-label" for="d8aa1bbe-073e-47c7-8f81-1f0db62d48c5">
+particles</label><div class="sd-tab-content docutils">
+<p class="sd-card-text">Click on the <code class="docutils literal notranslate"><span class="pre">particles</span></code> button in the <code class="docutils literal notranslate"><span class="pre">Input:</span> <span class="pre">files</span></code> row.
 In the dialogue box which pops up, enter the name of your data file.</p>
-<p class="card-text"><img alt="select particles image" src="../../_images/select-particles.gif" /></p>
+<p class="sd-card-text"><img alt="select particles image" src="../../_images/select-particles.gif" /></p>
 </div>
-<input id="a2448d3a-6c6d-485c-83e2-ff51378c5ce8" name="b481af85-b51d-47b1-ae10-f7c852f232d6" type="radio">
-</input><label class="tabbed-label" for="a2448d3a-6c6d-485c-83e2-ff51378c5ce8">
-table</label><div class="tabbed-content docutils">
-<p class="card-text">Click on the <code class="docutils literal notranslate"><span class="pre">table</span></code> button in the <code class="docutils literal notranslate"><span class="pre">Input:</span> <span class="pre">files</span></code> row. In the dialogue box which pops up, enter the name of your table file.
+<input id="3a049628-1974-4d18-b7dd-a5fc63454a44" name="cc5d0b93-13e7-41d4-a65a-b83fe8e84c89" type="radio">
+</input><label class="sd-tab-label" for="3a049628-1974-4d18-b7dd-a5fc63454a44">
+table</label><div class="sd-tab-content docutils">
+<p class="sd-card-text">Click on the <code class="docutils literal notranslate"><span class="pre">table</span></code> button in the <code class="docutils literal notranslate"><span class="pre">Input:</span> <span class="pre">files</span></code> row. In the dialogue box which pops up, enter the name of your table file.
 If you don’t have a template, you can generate a blank table or a random table using the buttons in the Dialogue box.
 <img alt="select table image" src="../../_images/select-table.gif" /></p>
 </div>
-<input id="75486b98-cc3a-4f99-a91e-8ba18c08cbf3" name="b481af85-b51d-47b1-ae10-f7c852f232d6" type="radio">
-</input><label class="tabbed-label" for="75486b98-cc3a-4f99-a91e-8ba18c08cbf3">
-template</label><div class="tabbed-content docutils">
-<p class="card-text">Click on the <code class="docutils literal notranslate"><span class="pre">template</span></code> button in the <code class="docutils literal notranslate"><span class="pre">Input:</span> <span class="pre">files</span></code> row. In the dialogue box which pops up, enter the name of your template file.</p>
-<p class="card-text">If you don’t have a template, a random subset of the data can be used to generate an initial reference volume from the GUI by selecting
+<input id="ded1ddf0-b924-48df-b8d5-dc566c21933a" name="cc5d0b93-13e7-41d4-a65a-b83fe8e84c89" type="radio">
+</input><label class="sd-tab-label" for="ded1ddf0-b924-48df-b8d5-dc566c21933a">
+template</label><div class="sd-tab-content docutils">
+<p class="sd-card-text">Click on the <code class="docutils literal notranslate"><span class="pre">template</span></code> button in the <code class="docutils literal notranslate"><span class="pre">Input:</span> <span class="pre">files</span></code> row. In the dialogue box which pops up, enter the name of your template file.</p>
+<p class="sd-card-text">If you don’t have a template, a random subset of the data can be used to generate an initial reference volume from the GUI by selecting
 one of the options in the <code class="docutils literal notranslate"><span class="pre">I</span> <span class="pre">want</span> <span class="pre">to</span> <span class="pre">create</span> <span class="pre">a</span> <span class="pre">template</span></code> section, setting the desired number of particles and hitting <code class="docutils literal notranslate"><span class="pre">Average</span> <span class="pre">data</span></code>.</p>
-<p class="card-text"><img alt="create template image" src="../../_images/create-template.gif" /></p>
+<p class="sd-card-text"><img alt="create template image" src="../../_images/create-template.gif" /></p>
 </div>
-<input id="05a0a229-c9e8-441d-b85e-e7d9c724b14b" name="b481af85-b51d-47b1-ae10-f7c852f232d6" type="radio">
-</input><label class="tabbed-label" for="05a0a229-c9e8-441d-b85e-e7d9c724b14b">
-masks</label><div class="tabbed-content docutils">
-<p class="card-text">Click on the <code class="docutils literal notranslate"><span class="pre">masks</span></code> button in the <code class="docutils literal notranslate"><span class="pre">Input:</span> <span class="pre">files</span></code> row. In the dialogue box which pops up, you can enter up to four files</p>
+<input id="31c72443-2ec8-4edf-933d-546173cb01ef" name="cc5d0b93-13e7-41d4-a65a-b83fe8e84c89" type="radio">
+</input><label class="sd-tab-label" for="31c72443-2ec8-4edf-933d-546173cb01ef">
+masks</label><div class="sd-tab-content docutils">
+<p class="sd-card-text">Click on the <code class="docutils literal notranslate"><span class="pre">masks</span></code> button in the <code class="docutils literal notranslate"><span class="pre">Input:</span> <span class="pre">files</span></code> row. In the dialogue box which pops up, you can enter up to four files</p>
 <ul class="simple">
-<li><p class="card-text">an alignment mask</p></li>
-<li><p class="card-text">a classification mask</p></li>
-<li><p class="card-text">a Fourier mask for the template</p></li>
-<li><p class="card-text">a Fourier shell correlation mask</p></li>
+<li><p class="sd-card-text">an alignment mask</p></li>
+<li><p class="sd-card-text">a classification mask</p></li>
+<li><p class="sd-card-text">a Fourier mask for the template</p></li>
+<li><p class="sd-card-text">a Fourier shell correlation mask</p></li>
 </ul>
-<p class="card-text"><img alt="default masks image" src="../../_images/masks-default.gif" /></p>
-<p class="card-text">The <code class="docutils literal notranslate"><span class="pre">Use</span> <span class="pre">default</span> <span class="pre">masks</span></code> button will create masks covering the full extend of real space and fourier space for each mask automatically.</p>
-<div class="margin sidebar">
-<p class="card-title sidebar-title"></p>
+<p class="sd-card-text"><img alt="default masks image" src="../../_images/masks-default.gif" /></p>
+<p class="sd-card-text">The <code class="docutils literal notranslate"><span class="pre">Use</span> <span class="pre">default</span> <span class="pre">masks</span></code> button will create masks covering the full extend of real space and fourier space for each mask automatically.</p>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p class="card-text">You can check that your mask properly covers your template using the <code class="docutils literal notranslate"><span class="pre">View</span> <span class="pre">mask</span> <span class="pre">-&gt;</span> <span class="pre">overlay</span> <span class="pre">x/y/z</span></code> menu options.</p>
+<p class="sd-card-text">You can check that your mask properly covers your template using the <code class="docutils literal notranslate"><span class="pre">View</span> <span class="pre">mask</span> <span class="pre">-&gt;</span> <span class="pre">overlay</span> <span class="pre">x/y/z</span></code> menu options.</p>
 </div>
-</div>
-<p class="card-text">The alignment mask defines a masked region of real space in which cross correlations used for alignments will be calculated.
+</aside>
+<p class="sd-card-text">The alignment mask defines a masked region of real space in which cross correlations used for alignments will be calculated.
 The classification mask defines a masked region of real space in which cross correlations used for classification will be calculated.
 The Fourier mask for the template defines the region of Fourier space in which you have information in your template (reference) volume.
 The Fourier shell correlation mask defines a masked region of real space in which Fourier shell calculations will be calculated.</p>
-<p class="card-text">Each mask can be created from the GUI directly, or an external mask can be provided. The classification mask and the Fourier shell correlation mask are not
+<p class="sd-card-text">Each mask can be created from the GUI directly, or an external mask can be provided. The classification mask and the Fourier shell correlation mask are not
 relevant for simple, single reference alignment projects such as the one we are setting up.</p>
 </div>
 </div>
 </div>
 </div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="alignment-parameters">
-<h3>Alignment parameters<a class="headerlink" href="#alignment-parameters" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="alignment-parameters">
+<h3>Alignment parameters<a class="headerlink" href="#alignment-parameters" title="Permalink to this headline">#</a></h3>
 <p>From the <code class="docutils literal notranslate"><span class="pre">dcp</span></code> GUI click <code class="docutils literal notranslate"><span class="pre">numerical</span> <span class="pre">parameters</span></code> in the <code class="docutils literal notranslate"><span class="pre">Input:</span> <span class="pre">settings</span></code> row. This will open up a separate window in which many parameters relating to the numerical aspects of your alignments can be defined.</p>
 <a class="reference internal image-reference" href="../../_images/numerical-params.png"><img alt="../../_images/numerical-params.png" src="../../_images/numerical-params.png" style="width: 600px;" /></a>
 <div class="admonition attention">
@@ -996,51 +1235,51 @@ relevant for simple, single reference alignment projects such as the one we are 
 </ul>
 <p>You can get a depiction of your current angular search parameters from the <code class="docutils literal notranslate"><span class="pre">Angles</span> <span class="pre">-&gt;</span> <span class="pre">Show</span> <span class="pre">sketch</span> <span class="pre">of</span> <span class="pre">scanning</span> <span class="pre">angles</span> <span class="pre">-&gt;</span> <span class="pre">Round</span> <span class="pre">X</span></code> menu options.</p>
 <p><img alt="scanning angles image" src="../../_images/scanning-angles.gif" /></p>
-</div>
-<div class="section" id="computational-parameters">
-<h3>Computational parameters<a class="headerlink" href="#computational-parameters" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="computational-parameters">
+<h3>Computational parameters<a class="headerlink" href="#computational-parameters" title="Permalink to this headline">#</a></h3>
 <p>Computational parameters are used to tell the projects what it needs to know about the computing environment where it will be run.</p>
 <p>Click <code class="docutils literal notranslate"><span class="pre">computing</span> <span class="pre">environment</span></code> from the <code class="docutils literal notranslate"><span class="pre">dcp</span></code> GUI, a new window will open in which parameters can be edited.</p>
-<div class="section" id="hardware">
-<h4>Hardware<a class="headerlink" href="#hardware" title="Permalink to this headline">¶</a></h4>
-<div class="margin sidebar">
+<section id="hardware">
+<h4>Hardware<a class="headerlink" href="#hardware" title="Permalink to this headline">#</a></h4>
+<aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Running projects in the <code class="docutils literal notranslate"><span class="pre">standalone</span></code> modus leaves your <code class="docutils literal notranslate"><span class="pre">Dynamo</span></code> shell free for designing projects, making masks and performing other analyses.</p>
 </div>
-</div>
+</aside>
 <p>First, choose the hardware on which you will be running your alignment project. We typically use <code class="docutils literal notranslate"><span class="pre">GPU</span> <span class="pre">(standalone)</span></code>.</p>
 <div class="admonition attention">
 <p class="admonition-title">Attention</p>
 <p>If running in a GPU modus, you should use only one CPU core in this box!</p>
 </div>
-<div class="section" id="optional-specifying-gpus">
-<h5>(optional) specifying GPUs<a class="headerlink" href="#optional-specifying-gpus" title="Permalink to this headline">¶</a></h5>
+<section id="optional-specifying-gpus">
+<h5>(optional) specifying GPUs<a class="headerlink" href="#optional-specifying-gpus" title="Permalink to this headline">#</a></h5>
 <p>Specify the GPU identifiers for GPUs you would like to use for alignment. These are typically enumerated from 0.</p>
 <p>e.g. for a 4 GPU system, set this to <code class="docutils literal notranslate"><span class="pre">0,1,2,3</span></code></p>
 <p>Leave the motor as <code class="docutils literal notranslate"><span class="pre">spp</span></code> (this stands for sub-pixel precision).</p>
-</div>
-</div>
-<div class="section" id="mpi">
-<h4>MPI<a class="headerlink" href="#mpi" title="Permalink to this headline">¶</a></h4>
+</section>
+</section>
+<section id="mpi">
+<h4>MPI<a class="headerlink" href="#mpi" title="Permalink to this headline">#</a></h4>
 <p>This section can be used to select a cluster submission script which works with your system. More info <a class="reference external" href="https://wiki.dynamo.biozentrum.unibas.ch/w/index.php/MPI_Cluster">here</a>.</p>
-</div>
-<div class="section" id="parallelized-averaging-step">
-<h4>Parallelized averaging step<a class="headerlink" href="#parallelized-averaging-step" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="parallelized-averaging-step">
+<h4>Parallelized averaging step<a class="headerlink" href="#parallelized-averaging-step" title="Permalink to this headline">#</a></h4>
 <p>This section allows a user to specify how many cores they would like to use for the ‘averaging’ step between each iteration of subtomogram averaging.
 This should be set to the number of logical (not hyperthreaded) cores available on the system used for executing the project.</p>
-</div>
-</div>
-</div>
-<div class="section" id="unfolding-the-project">
-<h2>Unfolding the project<a class="headerlink" href="#unfolding-the-project" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+</section>
+<section id="unfolding-the-project">
+<h2>Unfolding the project<a class="headerlink" href="#unfolding-the-project" title="Permalink to this headline">#</a></h2>
 <p>Unfolding a project means getting it ready to run on your system. If executing on a remote system, the project should be unfolded on that system.</p>
 <p>To unfold a project, first hit <code class="docutils literal notranslate"><span class="pre">check</span></code>, then <code class="docutils literal notranslate"><span class="pre">unfold</span></code> from the control section of the <code class="docutils literal notranslate"><span class="pre">dcp</span></code> GUI.</p>
 <p>This will create a file <code class="docutils literal notranslate"><span class="pre">&lt;my_new_project&gt;.exe</span></code> or <code class="docutils literal notranslate"><span class="pre">&lt;my_new_project.m&gt;</span></code> depending on whether the project will run in the standalone or the <code class="docutils literal notranslate"><span class="pre">MATLAB</span></code> environment.</p>
-</div>
-<div class="section" id="running-the-project">
-<h2>Running the project<a class="headerlink" href="#running-the-project" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="running-the-project">
+<h2>Running the project<a class="headerlink" href="#running-the-project" title="Permalink to this headline">#</a></h2>
 <p>If running a project in the <code class="docutils literal notranslate"><span class="pre">MATLAB</span></code> modus, just type this in your <code class="docutils literal notranslate"><span class="pre">Dynamo</span></code> shell:</p>
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="nb">run</span><span class="w"> </span><span class="o">&lt;</span><span class="n">my_new_project</span><span class="o">&gt;</span><span class="p">.</span><span class="n">m</span>`<span class="w"> </span>
 </pre></div>
@@ -1051,15 +1290,15 @@ This should be set to the number of logical (not hyperthreaded) cores available 
 ./&lt;my_new_project&gt;.exe
 </pre></div>
 </div>
-</div>
-<div class="section" id="looking-at-the-results">
-<h2>Looking at the results<a class="headerlink" href="#looking-at-the-results" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="looking-at-the-results">
+<h2>Looking at the results<a class="headerlink" href="#looking-at-the-results" title="Permalink to this headline">#</a></h2>
 <p>Hitting the <code class="docutils literal notranslate"><span class="pre">show</span></code> button from the <code class="docutils literal notranslate"><span class="pre">Results</span></code> row of the <code class="docutils literal notranslate"><span class="pre">dcp</span></code> GUI opens up a new window for looking at the results of an alignment project.</p>
 <p>Hitting the <code class="docutils literal notranslate"><span class="pre">progress</span></code> button will tell you the current status of the alignment project.</p>
 <p>From the results GUI, averages and associated particle metadata can be visualised in various tools. You can also open your maps directly in other packages such as <code class="docutils literal notranslate"><span class="pre">ChimeraX</span></code>.</p>
 <p>Visualising particle positions and orientations can also be useful to check that an alignment procedure is behaving as you expect.</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1083,34 +1322,48 @@ This should be set to the number of logical (not hyperthreaded) cores available 
 
               </div>
               
-        
-        <div class='prev-next-bottom'>
-            
-    <a class='left-prev' id="prev-link" href="index.html" title="previous page">Dynamo</a>
-    <a class='right-next' id="next-link" href="extract-from-catalogue.html" title="next page">Extracting particles</a>
-
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="index.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Dynamo</p>
         </div>
-        
+    </a>
+    <a class='right-next' id="next-link" href="extract-from-catalogue.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Extracting particles</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
-    <div class="container">
-      <p>
-        
-          By the teamtomo.org contributors<br/>
-        
-            &copy; Copyright 2021.<br/>
-      </p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By the teamtomo.org contributors<br/>
+  
+      &copy; Copyright 2021.<br/>
+</p>
+        </footer>
     </div>
-  </footer>
-</main>
+    
+</div>
 
 
       </div>
     </div>
   
-  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
 
-  
+
   </body>
 </html>

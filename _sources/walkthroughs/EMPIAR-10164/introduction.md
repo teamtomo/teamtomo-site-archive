@@ -47,7 +47,8 @@ and
 [educational resources](https://www.youtube.com/watch?v=5rNu16O3YNE&t=4103s).
 
 ## Requirements and Setup
-```{tabbed} Hardware
+````{tab-set}
+```{tab-item} Hardware
 - A reasonably modern CPU.
 - At least 32 GB RAM.
 - At least 1 NVIDIA GPU, with at least 8 GB of dedicated memory.
@@ -58,7 +59,7 @@ To keep read/write times low, we recommend a Solid State Drive (SSD).
 ```
 
 
-```{tabbed} Software
+```{tab-item} Software
 - Access to both Windows and Linux operating systems
 - [MATLAB](https://fr.mathworks.com/products/matlab.html) r2019a or later with the following toolboxes installed
   - Image Processing Toolbox
@@ -75,6 +76,7 @@ To keep read/write times low, we recommend a Solid State Drive (SSD).
 
 If you need help with setting up any of these tools, follow the link to the respective documentation, or check out the [software packages](../../resources/cryoet-software/cryoet-software.md) and [computing](../../computing/matlab/index.md) sections.
 ```
+````
 
 ## Documentation links
 If you are looking for a more in-depth explanation of a parameter, setting or tool, you are encouraged to check out the documentation of any software packages we used.

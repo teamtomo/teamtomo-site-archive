@@ -100,45 +100,43 @@ To learn more about the meaning of each option, click on the question marks on t
 ```
 ````
 
-````{panels}
-:column: col-20
-:card: border-2
-
-```{tabbed} I/O
+`````{card}
+````{tab-set}
+```{tab-item} I/O
 We will refine without a mask for now as this refinement serves only to make sure that the particles remain well centered and we expect to go significantly beyond 10Å.
 
 ![relion 1](relion.assets/relion-1.png)
 ```
 
-```{tabbed} Reference
+```{tab-item} Reference
 We use a conservative initial lowpass of 30Å to avoid overfitting, and C6 symmetry based on our understanding of the lattice from the inital model generation.
 
 ![relion 2](relion.assets/relion-2.png)
 ```
 
-```{tabbed} CTF
+```{tab-item} CTF
 ![relion 3](relion.assets/relion-3.png)
 ```
 
-```{tabbed} Optimisation
+```{tab-item} Optimisation
 We use a particle diameter covering the whole box to continue making use of the signal from neighbouring hexamers to drive alignment. We will change this once we start aiming for more optimal refinements focussed on the central hexamer.
 
 ![relion 4](relion.assets/relion-4.png)
 ```
 
-```{tabbed} Auto-sampling
+```{tab-item} Auto-sampling
 ![relion 5](relion.assets/relion-5.png)
 ```
 
-```{tabbed} Helix
+```{tab-item} Helix
 Leave this disabled, we are not performing helical refinement in this case.
 ```
 
-```{tabbed} Compute
+```{tab-item} Compute
 ![relion 6](relion.assets/relion-6.png)
 ```
 
-```{tabbed} Running
+```{tab-item} Running
 The specific computational parameters will depend upon the configuration of your computing resources. Here, we are running on a cluster node with:
 
 - 4 x GeForce GTX 1080 TI GPUs 
@@ -152,6 +150,7 @@ and which uses `slurm` to manage its jobs.
 Once ready, click on `Run!` to start processing. **This will take several hours**!
 ```
 ````
+`````
 
 ## Subtomogram reconstruction at 1.6Å/px
 

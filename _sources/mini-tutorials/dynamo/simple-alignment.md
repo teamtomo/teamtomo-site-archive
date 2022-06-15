@@ -54,23 +54,22 @@ To keep your workspace tidy, close the dialogue boxes once you are finished with
 ```
 ````
 
-``````{panels}
-:column: col-20
-:card: border-2
-```{tabbed} particles
+```````{card}
+``````{tab-set}
+```{tab-item} particles
 Click on the `particles` button in the `Input: files` row. 
 In the dialogue box which pops up, enter the name of your data file.
 
 ![select particles image](simple-alignment.assets/select-particles.gif)
 ```
 
-```{tabbed} table
+```{tab-item} table
 Click on the `table` button in the `Input: files` row. In the dialogue box which pops up, enter the name of your table file.
 If you don't have a template, you can generate a blank table or a random table using the buttons in the Dialogue box.
 ![select table image](simple-alignment.assets/select-table.gif)
 ```
 
-```{tabbed} template
+```{tab-item} template
 Click on the `template` button in the `Input: files` row. In the dialogue box which pops up, enter the name of your template file.
 
 If you don't have a template, a random subset of the data can be used to generate an initial reference volume from the GUI by selecting
@@ -79,7 +78,7 @@ one of the options in the `I want to create a template` section, setting the des
 ![create template image](simple-alignment.assets/create-template.gif)
 ```
 
-`````{tabbed} masks
+`````{tab-item} masks
 Click on the `masks` button in the `Input: files` row. In the dialogue box which pops up, you can enter up to four files
 
 - an alignment mask
@@ -105,6 +104,7 @@ Each mask can be created from the GUI directly, or an external mask can be provi
 relevant for simple, single reference alignment projects such as the one we are setting up.
 `````
 ``````
+```````
 
 ### Alignment parameters
 

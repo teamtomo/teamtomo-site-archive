@@ -4,11 +4,13 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>2D preprocessing</title>
     
-  <link href="../../_static/css/theme.css" rel="stylesheet" />
-  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,51 +20,67 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/sphinx-book-theme.5f77b4aec8189eecf79907ce328c390d.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
-    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <script src="../../_static/tabs.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"N": "\\mathbb{N}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}}, "tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script>window.MathJax = {"TeX": {"Macros": {"N": "\\mathbb{N}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Tilt-series to tomograms" href="tilt-series-to-tomograms.html" />
     <link rel="prev" title="Download the data" href="preparation.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="en">
+    
+
+    <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -71,10 +89,15 @@
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
       
       <img src="../../_static/logo.svg" class="logo" alt="logo">
       
@@ -83,9 +106,9 @@
 </div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <p class="caption">
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   teamtomo.org
  </span>
@@ -124,7 +147,7 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Theory
  </span>
@@ -207,7 +230,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Walkthroughs
  </span>
@@ -266,7 +289,7 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   mini-tutorials
  </span>
@@ -315,7 +338,7 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   computing
  </span>
@@ -408,7 +431,7 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Resources
  </span>
@@ -636,6 +659,11 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="../../resources/cryoet-software/peet/peet.html">
+     PEET
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../../resources/cryoet-software/pytom/pytom.html">
      PyTom
     </a>
@@ -648,6 +676,11 @@
    <li class="toctree-l2">
     <a class="reference internal" href="../../resources/cryoet-software/stopgap/stopgap.html">
      STOPGAP
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../resources/cryoet-software/topaz_denoise_3d/topaz_denoise_3d.html">
+     Topaz Denoise 3D
     </a>
    </li>
    <li class="toctree-l2 has-children">
@@ -672,92 +705,197 @@
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/walkthroughs/EMPIAR-10164/2d-preprocessing.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/teamtomo/teamtomo.github.io"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/teamtomo/teamtomo.github.io/issues/new?title=Issue%20on%20page%20%2Fwalkthroughs/EMPIAR-10164/2d-preprocessing.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/teamtomo/teamtomo.github.io/edit/master/./walkthroughs/EMPIAR-10164/2d-preprocessing.md"><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/teamtomo/teamtomo.github.io"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/teamtomo/teamtomo.github.io/issues/new?title=Issue%20on%20page%20%2Fwalkthroughs/EMPIAR-10164/2d-preprocessing.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/teamtomo/teamtomo.github.io/edit/master/./walkthroughs/EMPIAR-10164/2d-preprocessing.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/walkthroughs/EMPIAR-10164/2d-preprocessing.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#raw-data-preprocessing-in-warp">
    Raw data preprocessing in Warp
@@ -775,17 +913,50 @@
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>2D preprocessing</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#raw-data-preprocessing-in-warp">
+   Raw data preprocessing in Warp
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#deselect-bad-images">
+   Deselect bad images
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#stack-generation">
+   Stack generation
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="section" id="d-preprocessing">
-<span id="hiv-mic-preproc"></span><h1>2D preprocessing<a class="headerlink" href="#d-preprocessing" title="Permalink to this headline">¶</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="d-preprocessing">
+<span id="hiv-mic-preproc"></span><h1>2D preprocessing<a class="headerlink" href="#d-preprocessing" title="Permalink to this headline">#</a></h1>
 <p>In this section we will take you from the raw data we downloaded from <em>EMPIAR</em> (multi-frame micrographs) to tilt-series.</p>
 <p>We will use <code class="docutils literal notranslate"><span class="pre">Warp</span></code> for the initial processing of the raw data. This will let us:</p>
 <ul class="simple">
@@ -794,191 +965,167 @@
 <li><p>detect and mask gold fiducials for tomogram reconstruction</p></li>
 <li><p>prepare the image stacks for tilt-series alignment in <code class="docutils literal notranslate"><span class="pre">Dynamo</span></code></p></li>
 </ul>
-<div class="section" id="raw-data-preprocessing-in-warp">
-<h2>Raw data preprocessing in Warp<a class="headerlink" href="#raw-data-preprocessing-in-warp" title="Permalink to this headline">¶</a></h2>
+<section id="raw-data-preprocessing-in-warp">
+<h2>Raw data preprocessing in Warp<a class="headerlink" href="#raw-data-preprocessing-in-warp" title="Permalink to this headline">#</a></h2>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <p>The following tabs detail the parameter settings as appropriate for this application. If you seek additional information, check out the <a class="reference external" href="http://www.warpem.com/warp/?page_id=51">Warp User Guide</a>.</p>
 </div>
-<div class="sphinx-bs container pb-4 docutils">
-<div class="row docutils">
-<div class="d-flex col-20 docutils">
-<div class="card w-100 border-2 docutils">
-<div class="card-body docutils">
-<div class="tabbed-set docutils">
-<input checked="checked" id="039dced0-3e11-4258-bad7-c3008b79ffba" name="f1142418-e5a9-408d-8fe6-ef21de840f48" type="radio">
-</input><label class="tabbed-label" for="039dced0-3e11-4258-bad7-c3008b79ffba">
-Import</label><div class="tabbed-content docutils">
-<p class="card-text">To import new data into Warp, click on the path next to <code class="docutils literal notranslate"><span class="pre">Input</span></code> and select the <code class="docutils literal notranslate"><span class="pre">frames</span></code> directory. For the HIV-5-TS data, make sure that the selected format is <code class="docutils literal notranslate"><span class="pre">*.mrc</span></code>.</p>
-<p class="card-text">We then set the parameters as shown below.</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-tab-set docutils">
+<input checked="checked" id="2547bb06-8404-495d-90ff-30686b9148ef" name="469756ba-a712-496e-a280-bb97cf5c03f8" type="radio">
+</input><label class="sd-tab-label" for="2547bb06-8404-495d-90ff-30686b9148ef">
+Import</label><div class="sd-tab-content docutils">
+<p class="sd-card-text">To import new data into Warp, click on the path next to <code class="docutils literal notranslate"><span class="pre">Input</span></code> and select the <code class="docutils literal notranslate"><span class="pre">frames</span></code> directory. For the HIV-5-TS data, make sure that the selected format is <code class="docutils literal notranslate"><span class="pre">*.mrc</span></code>.</p>
+<p class="sd-card-text">We then set the parameters as shown below.</p>
 <a class="reference internal image-reference" href="../../_images/input-params.png"><img alt="../../_images/input-params.png" src="../../_images/input-params.png" style="width: 400px;" /></a>
-<p class="card-text">We need to correctly set the pixel size to match that of the raw data; in this case, 0.6750 <span class="math notranslate nohighlight">\(Å/px\)</span>.</p>
-<div class="margin sidebar">
-<p class="card-title sidebar-title"></p>
+<p class="sd-card-text">We need to correctly set the pixel size to match that of the raw data; in this case, 0.6750 <span class="math notranslate nohighlight">\(Å/px\)</span>.</p>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p class="card-text">With a binning factor of <em>n</em>, the frames will be Fourier-cropped to <span class="math notranslate nohighlight">\(size/2^n\)</span>.</p>
+<p class="sd-card-text">With a binning factor of <em>n</em>, the frames will be Fourier-cropped to <span class="math notranslate nohighlight">\(size/2^n\)</span>.</p>
 </div>
-</div>
-<p class="card-text">For HIV-5-TS, the data were collected in super resolution mode, the physical pixel size is 1.35 <span class="math notranslate nohighlight">\(Å/px\)</span>. Processing data without first downsampling may reduce the aliasing of high-frequency signals in the image but significantly increases the computational overhead. In this case we will use Warp to downsample the data by a factor of 2, in order to return to the physical pixel size of the detector. For now, the exposure can be left at zero. For tilt-series data, dose-dependent exposure weighting (dose-weighting) is dealt with at a later stage.</p>
+</aside>
+<p class="sd-card-text">For HIV-5-TS, the data were collected in super resolution mode, the physical pixel size is 1.35 <span class="math notranslate nohighlight">\(Å/px\)</span>. Processing data without first downsampling may reduce the aliasing of high-frequency signals in the image but significantly increases the computational overhead. In this case we will use Warp to downsample the data by a factor of 2, in order to return to the physical pixel size of the detector. For now, the exposure can be left at zero. For tilt-series data, dose-dependent exposure weighting (dose-weighting) is dealt with at a later stage.</p>
 <div class="admonition attention">
 <p class="admonition-title">Attention</p>
-<p class="card-text">When processing other data, you may need to provide a gain reference here.
+<p class="sd-card-text">When processing other data, you may need to provide a gain reference here.
 Make sure that the orientation of the reference and the images correspond!</p>
 </div>
-<p class="card-text">The EMPIAR entry for EMPIAR-10164 indicates that the images were already gain corrected. We can skip gain correction by leaving this section unchecked.</p>
+<p class="sd-card-text">The EMPIAR entry for EMPIAR-10164 indicates that the images were already gain corrected. We can skip gain correction by leaving this section unchecked.</p>
 </div>
-<input id="ebb93cc2-f2ad-4dbd-9b48-97040e98bc25" name="f1142418-e5a9-408d-8fe6-ef21de840f48" type="radio">
-</input><label class="tabbed-label" for="ebb93cc2-f2ad-4dbd-9b48-97040e98bc25">
-CTF and Motion</label><div class="tabbed-content docutils">
-<div class="margin sidebar">
-<p class="card-title sidebar-title"></p>
+<input id="aac6e42d-0ef4-4998-9925-e6294b971b10" name="469756ba-a712-496e-a280-bb97cf5c03f8" type="radio">
+</input><label class="sd-tab-label" for="aac6e42d-0ef4-4998-9925-e6294b971b10">
+CTF and Motion</label><div class="sd-tab-content docutils">
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p class="card-text">The CTF estimation performed at this stage is only used for tilt handedness evaluation;
+<p class="sd-card-text">The CTF estimation performed at this stage is only used for tilt handedness evaluation;
 we will explain this in more detail later.</p>
 </div>
-</div>
-<p class="card-text">Accurate estimation of Contrast Transfer Function (CTF) parameters is essential for obtaining high resolution reconstructions.</p>
+</aside>
+<p class="sd-card-text">Accurate estimation of Contrast Transfer Function (CTF) parameters is essential for obtaining high resolution reconstructions.</p>
 <a class="reference internal image-reference" href="../../_images/ctf-params.png"><img alt="../../_images/ctf-params.png" src="../../_images/ctf-params.png" style="width: 400px;" /></a>
-<p class="card-text">The following parameters depend entirely on the microscope setup used for data collection, for HIV-5-TS:</p>
-<div class="sphinx-bs container pb-4 docutils">
-<div class="row docutils">
-<div class="d-flex col-20 docutils">
-<div class="card w-100 border-2 docutils">
-<div class="card-body docutils">
-<p class="card-text">Voltage
+<p class="sd-card-text">The following parameters depend entirely on the microscope setup used for data collection, for HIV-5-TS:</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Voltage
 : The acceleration voltage used in the electron microscope</p>
-<p class="card-text">Cs
+<p class="sd-card-text">Cs
 : The spherical aberration of the electron microscope</p>
-<p class="card-text">Phase Shift
+<p class="sd-card-text">Phase Shift
 : Whether to model a phase shift in the CTF, usually only used for data collected with a phase plate.</p>
 </div>
 </div>
-</div>
-</div>
-</div>
-<p class="card-text">The remaining parameters should be set depending on the dataset:</p>
-<div class="sphinx-bs container pb-4 docutils">
-<div class="row docutils">
-<div class="d-flex col-20 docutils">
-<div class="card w-100 border-2 docutils">
-<div class="card-body docutils">
-<p class="card-text">Defocus
+<p class="sd-card-text">The remaining parameters should be set depending on the dataset:</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Defocus
 : The upper and lower limits for defocus estimation. When a dataset is expected to have higher or lower defoci, this range should be expanded.</p>
-<p class="card-text">Use Movie Sum
+<p class="sd-card-text">Use Movie Sum
 : Whether to use the movie sum for CTF parameter estimation. Activating this should lead to slightly better results for low-dose images.</p>
-<p class="card-text">Amplitude
+<p class="sd-card-text">Amplitude
 : The percentage of amplitude contrast for the CTF model. For cryo-EM typical values are 0.07-0.10.</p>
 </div>
 </div>
-</div>
-</div>
-</div>
-<p class="card-text">Some computational parameters can also be adjusted:</p>
-<div class="sphinx-bs container pb-4 docutils">
-<div class="row docutils">
-<div class="d-flex col-20 docutils">
-<div class="card w-100 border-2 docutils">
-<div class="card-body docutils">
-<p class="card-text">Window
+<p class="sd-card-text">Some computational parameters can also be adjusted:</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Window
 : The size of power spectra used for CTF estimation.</p>
-<p class="card-text">Range
+<p class="sd-card-text">Range
 : The range of spatial frequencies to use for fitting. At low frequencies, data often doesn’t match the CTF model. At high frequencies there is often not enough signal for accurate CTF estimation. In our experience, 40.0-5.0 is usually a good range for high magnification tilt-series images (1-3  <span class="math notranslate nohighlight">\(Å/px\)</span>) with ca. 3 <span class="math notranslate nohighlight">\(e^-/Å^2/tilt\)</span> image.</p>
 </div>
 </div>
-</div>
-</div>
-</div>
-<p class="card-text">In order to compensate for both mechanical stage-drift and beam-induced sample motion,
+<p class="sd-card-text">In order to compensate for both mechanical stage-drift and beam-induced sample motion,
 we estimate and correct for the inter-frame motion present in the image.
 In this case, we leave the motion correction parameters as defaults.</p>
 <a class="reference internal image-reference" href="../../_images/motion-params.png"><img alt="../../_images/motion-params.png" src="../../_images/motion-params.png" style="width: 400px;" /></a>
 </div>
-<input id="5d69c154-d6a0-4fbf-a2b0-8790bbc94aba" name="f1142418-e5a9-408d-8fe6-ef21de840f48" type="radio">
-</input><label class="tabbed-label" for="5d69c154-d6a0-4fbf-a2b0-8790bbc94aba">
-Spatiotemporal models</label><div class="tabbed-content docutils">
-<p class="card-text">Warp allows us to estimate how CTF and inter-frame translational motion parameters change in both space and time.</p>
+<input id="45b0c0c3-7983-425d-a007-8eab7634d20d" name="469756ba-a712-496e-a280-bb97cf5c03f8" type="radio">
+</input><label class="sd-tab-label" for="45b0c0c3-7983-425d-a007-8eab7634d20d">
+Spatiotemporal models</label><div class="sd-tab-content docutils">
+<p class="sd-card-text">Warp allows us to estimate how CTF and inter-frame translational motion parameters change in both space and time.</p>
 <a class="reference internal image-reference" href="../../_images/spatiotemporal-models.png"><img alt="../../_images/spatiotemporal-models.png" src="../../_images/spatiotemporal-models.png" style="width: 400px;" /></a>
-<p class="card-text">The resolution of this spatiotemporal model (x, y, t) can be set in the <strong>Models</strong> panel: the first two values represent the spatial resolution of the model in <em>x</em> and <em>y</em> , while the third value sets the temporal resolution (at most, the number of frames in a multi-frame micrograph).</p>
-<p class="card-text">For tilt-series data, a CTF model resolution of 2x2x1 is usually sufficient to observe how defocus changes across the image, which is required to determine the ‘tilt-handedness’ of the data. More accurate defocus values will be estimated in the tilt-series CTF estimation procedure prior to tomogram reconstruction.</p>
-<p class="card-text">A motion model of 1x1xn where n is the number of frames typically ensures that accurate estimates can be obtained from low-dose data. The alignment of individual frames can be improved once a high SNR reference has been obtained, this is performed in the multi-particle refinement step of the workflow.</p>
-<p class="card-text">For HIV-5-TS, EMPIAR indicates that we have 8 frames per image, so we set the resolution of the motion model to 1x1x8</p>
+<p class="sd-card-text">The resolution of this spatiotemporal model (x, y, t) can be set in the <strong>Models</strong> panel: the first two values represent the spatial resolution of the model in <em>x</em> and <em>y</em> , while the third value sets the temporal resolution (at most, the number of frames in a multi-frame micrograph).</p>
+<p class="sd-card-text">For tilt-series data, a CTF model resolution of 2x2x1 is usually sufficient to observe how defocus changes across the image, which is required to determine the ‘tilt-handedness’ of the data. More accurate defocus values will be estimated in the tilt-series CTF estimation procedure prior to tomogram reconstruction.</p>
+<p class="sd-card-text">A motion model of 1x1xn where n is the number of frames typically ensures that accurate estimates can be obtained from low-dose data. The alignment of individual frames can be improved once a high SNR reference has been obtained, this is performed in the multi-particle refinement step of the workflow.</p>
+<p class="sd-card-text">For HIV-5-TS, EMPIAR indicates that we have 8 frames per image, so we set the resolution of the motion model to 1x1x8</p>
 </div>
-<input id="dbcc3f2c-4ffd-4ca5-ab86-f6bf6fb9940a" name="f1142418-e5a9-408d-8fe6-ef21de840f48" type="radio">
-</input><label class="tabbed-label" for="dbcc3f2c-4ffd-4ca5-ab86-f6bf6fb9940a">
-Fiducials</label><div class="tabbed-content docutils">
-<p class="card-text">While gold fiducials are useful for the accurate alignment of tilt series, their high contrast will have negative effects on the final tomographic reconstruction. For this reason, we use Warp to mask out any beads prior to tomographic reconstruction.</p>
-<p class="card-text">The <code class="docutils literal notranslate"><span class="pre">Pick</span> <span class="pre">Particles</span></code> panel gives access to <code class="docutils literal notranslate"><span class="pre">BoxNet</span></code>, a deep convolutional neural network designed to pick particles and mask out unwanted subregions in single-particle cryo-EM. A version of <code class="docutils literal notranslate"><span class="pre">BoxNet</span></code> that we retrained to mask gold fiducials <a class="reference external" href="https://doi.org/10.5281/zenodo.4486376">is available here</a> under the name <code class="docutils literal notranslate"><span class="pre">GoldNet</span></code>.</p>
-<div class="margin sidebar">
-<p class="card-title sidebar-title"></p>
+<input id="001348b6-4765-4b12-a7aa-17b3da6006b3" name="469756ba-a712-496e-a280-bb97cf5c03f8" type="radio">
+</input><label class="sd-tab-label" for="001348b6-4765-4b12-a7aa-17b3da6006b3">
+Fiducials</label><div class="sd-tab-content docutils">
+<p class="sd-card-text">While gold fiducials are useful for the accurate alignment of tilt series, their high contrast will have negative effects on the final tomographic reconstruction. For this reason, we use Warp to mask out any beads prior to tomographic reconstruction.</p>
+<p class="sd-card-text">The <code class="docutils literal notranslate"><span class="pre">Pick</span> <span class="pre">Particles</span></code> panel gives access to <code class="docutils literal notranslate"><span class="pre">BoxNet</span></code>, a deep convolutional neural network designed to pick particles and mask out unwanted subregions in single-particle cryo-EM. A version of <code class="docutils literal notranslate"><span class="pre">BoxNet</span></code> that we retrained to mask gold fiducials <a class="reference external" href="https://doi.org/10.5281/zenodo.4486376">is available here</a> under the name <code class="docutils literal notranslate"><span class="pre">GoldNet</span></code>.</p>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
 <div class="admonition attention">
 <p class="admonition-title">Attention</p>
-<p class="card-text">GoldNet was retrained on 3 tilt series from a high magnification dataset (1.7 <span class="math notranslate nohighlight">\(Å/px\)</span>) containing 10 <span class="math notranslate nohighlight">\(nm\)</span> gold beads. We have succesfully used it on a variety of datasets, but there is no guaranteee it will work on yours. To learn more about retraining BoxNet, <a class="reference external" href="http://www.multiparticle.com/warp/?page_id=137">see this page</a>.</p>
+<p class="sd-card-text">GoldNet was retrained on 3 tilt series from a high magnification dataset (1.7 <span class="math notranslate nohighlight">\(Å/px\)</span>) containing 10 <span class="math notranslate nohighlight">\(nm\)</span> gold beads. We have succesfully used it on a variety of datasets, but there is no guaranteee it will work on yours. To learn more about retraining BoxNet, <a class="reference external" href="http://www.multiparticle.com/warp/?page_id=137">see this page</a>.</p>
 </div>
-</div>
-<p class="card-text">In order to access it from Warp, extract the <code class="docutils literal notranslate"><span class="pre">GoldNet</span></code> directory and place it in the Warp installation folder under the <code class="docutils literal notranslate"><span class="pre">boxnet2models</span></code> directory. Then, to select the pretrained model in Warp, click on the currently selected BoxNet model and select the <code class="docutils literal notranslate"><span class="pre">GoldNet</span></code> model.</p>
+</aside>
+<p class="sd-card-text">In order to access it from Warp, extract the <code class="docutils literal notranslate"><span class="pre">GoldNet</span></code> directory and place it in the Warp installation folder under the <code class="docutils literal notranslate"><span class="pre">boxnet2models</span></code> directory. Then, to select the pretrained model in Warp, click on the currently selected BoxNet model and select the <code class="docutils literal notranslate"><span class="pre">GoldNet</span></code> model.</p>
 <a class="reference internal image-reference" href="../../_images/boxnet-params.png"><img alt="../../_images/boxnet-params.png" src="../../_images/boxnet-params.png" style="width: 400px;" /></a>
-<p class="card-text">As we are only using this model for particle picking, the parameters relating to particle picking can be safely ignored.</p>
+<p class="sd-card-text">As we are only using this model for particle picking, the parameters relating to particle picking can be safely ignored.</p>
 </div>
-<input id="0a5ed79e-67e3-4758-89e3-139314d0f1ae" name="f1142418-e5a9-408d-8fe6-ef21de840f48" type="radio">
-</input><label class="tabbed-label" for="0a5ed79e-67e3-4758-89e3-139314d0f1ae">
-Start Processing!</label><div class="tabbed-content docutils">
+<input id="65dda9d7-b6cb-476e-a5d7-b7e68a0101c9" name="469756ba-a712-496e-a280-bb97cf5c03f8" type="radio">
+</input><label class="sd-tab-label" for="65dda9d7-b6cb-476e-a5d7-b7e68a0101c9">
+Start Processing!</label><div class="sd-tab-content docutils">
 <a class="reference internal image-reference" href="../../_images/output-params.png"><img alt="../../_images/output-params.png" src="../../_images/output-params.png" style="width: 400px;" /></a>
-<p class="card-text">In the <code class="docutils literal notranslate"><span class="pre">Output</span></code> panel, we can choose not to include frames at the beginning and end of a movie. The first frames from a multi-frame micrograph of a given exposure often display increased translational motion. In this case, we chose to include all frames from the micrograph to maximise the signal present in the final images.</p>
-<p class="card-text">By selecting <code class="docutils literal notranslate"><span class="pre">Average</span></code>, we ensure the output of one 2D image per multi-frame micrograph in which the inter-frame motion has been corrected according to the motion model</p>
-<p class="card-text"><code class="docutils literal notranslate"><span class="pre">Odd/even</span></code> frame averages can be generated to facilitate Noise2Noise based denoising, this is not covered in this guide but we recommend playing with it.</p>
-<p class="card-text"><code class="docutils literal notranslate"><span class="pre">Aligned</span> <span class="pre">stack</span></code>s of frames can also be generated; this can be useful in single-particle analysis of frame series data to enable the use of RELION’s Bayesian polishing. In our case, we leave it blank.</p>
-<p class="card-text">We are now ready to press <strong>START PROCESSING</strong>. This will:</p>
+<p class="sd-card-text">In the <code class="docutils literal notranslate"><span class="pre">Output</span></code> panel, we can choose not to include frames at the beginning and end of a movie. The first frames from a multi-frame micrograph of a given exposure often display increased translational motion. In this case, we chose to include all frames from the micrograph to maximise the signal present in the final images.</p>
+<p class="sd-card-text">By selecting <code class="docutils literal notranslate"><span class="pre">Average</span></code>, we ensure the output of one 2D image per multi-frame micrograph in which the inter-frame motion has been corrected according to the motion model</p>
+<p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">Odd/even</span></code> frame averages can be generated to facilitate Noise2Noise based denoising, this is not covered in this guide but we recommend playing with it.</p>
+<p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">Aligned</span> <span class="pre">stack</span></code>s of frames can also be generated; this can be useful in single-particle analysis of frame series data to enable the use of RELION’s Bayesian polishing. In our case, we leave it blank.</p>
+<p class="sd-card-text">We are now ready to press <strong>START PROCESSING</strong>. This will:</p>
 <ul class="simple">
-<li><p class="card-text">Estimate CTF and inter-frame motion parameters according to the spatiotemporal model</p></li>
-<li><p class="card-text">Generate one micrograph per tilt in which the motion has been corrected according to the motion model</p></li>
-<li><p class="card-text">Generate masks around gold fiducials in each image using the provided BoxNet model</p></li>
+<li><p class="sd-card-text">Estimate CTF and inter-frame motion parameters according to the spatiotemporal model</p></li>
+<li><p class="sd-card-text">Generate one micrograph per tilt in which the motion has been corrected according to the motion model</p></li>
+<li><p class="sd-card-text">Generate masks around gold fiducials in each image using the provided BoxNet model</p></li>
 </ul>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p class="card-text">During processing, you can check the results by switching to the <code class="docutils literal notranslate"><span class="pre">Real</span> <span class="pre">Space</span></code> and <code class="docutils literal notranslate"><span class="pre">Fourier</span> <span class="pre">Space</span></code> tabs at the top of the Warp interface. Explore these sections, checking that the CTF model matches the experimental curve, the defocus estimates appear to change as expected with tilt angle and that beads masks seem appropriate.</p>
+<p class="sd-card-text">During processing, you can check the results by switching to the <code class="docutils literal notranslate"><span class="pre">Real</span> <span class="pre">Space</span></code> and <code class="docutils literal notranslate"><span class="pre">Fourier</span> <span class="pre">Space</span></code> tabs at the top of the Warp interface. Explore these sections, checking that the CTF model matches the experimental curve, the defocus estimates appear to change as expected with tilt angle and that beads masks seem appropriate.</p>
 </div>
 </div>
 </div>
 </div>
 </div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="deselect-bad-images">
-<h2>Deselect bad images<a class="headerlink" href="#deselect-bad-images" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="deselect-bad-images">
+<h2>Deselect bad images<a class="headerlink" href="#deselect-bad-images" title="Permalink to this headline">#</a></h2>
 <p>Images in each tilt-series must be assembled into an <code class="docutils literal notranslate"><span class="pre">IMOD</span></code> stack in order to use <code class="docutils literal notranslate"><span class="pre">Dynamo</span></code> for the tilt-series alignment, but before doing so we should discard any bad images in our dataset. To do so, switch to the <code class="docutils literal notranslate"><span class="pre">Real</span> <span class="pre">Space</span></code> tab at the top and manually inspect all the tilt images.</p>
-<div class="margin sidebar">
+<aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>With larger datasets, quickly scanning images in this way can be inconvenient. To make this a bit easier, use the search bar to display only a subset of the dataset (For HIV-5-TS we could search <code class="docutils literal notranslate"><span class="pre">TS_01</span></code>, <code class="docutils literal notranslate"><span class="pre">TS_02</span></code>…)</p>
 </div>
-</div>
+</aside>
 <p>To quickly check the images, hover your mouse over the selection bar at the bottom of the screen and move it along its length to inspect the thumbnails. To inspect an image in more detail, click on the bar and the image will be enlarged.</p>
 <p>If an image is heavily contaminated, black, blurred, a grid bar blocks a significant part of it or you otherwise deem it unsuitable, deselect the image by clicking the checkbox next to its name. The bar should turn grey once an image is deselected.</p>
 <p>For this dataset we only have to discard two bad images: <code class="docutils literal notranslate"><span class="pre">TS_01_039</span></code> and <code class="docutils literal notranslate"><span class="pre">TS_03_039</span></code>.</p>
 <a class="reference internal image-reference" href="../../_images/deselect-bad-image.png"><img alt="../../_images/deselect-bad-image.png" src="../../_images/deselect-bad-image.png" style="width: 400px;" /></a>
-</div>
-<div class="section" id="stack-generation">
-<h2>Stack generation<a class="headerlink" href="#stack-generation" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="stack-generation">
+<h2>Stack generation<a class="headerlink" href="#stack-generation" title="Permalink to this headline">#</a></h2>
 <p>To generate the image stack, we first have to put Warp into <code class="docutils literal notranslate"><span class="pre">tomostar</span></code> mode. We do this by clicking on the <code class="docutils literal notranslate"><span class="pre">*.mrc</span></code> extension on the top left, and selecting the <code class="docutils literal notranslate"><span class="pre">*.tomostar</span></code> extension.</p>
 <p>Then, click on the (slightly misnamed) <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">tilt</span> <span class="pre">series</span> <span class="pre">from</span> <span class="pre">IMOD</span></code> button at the top of the screen.
 In the newly opened window, we should now select the <code class="docutils literal notranslate"><span class="pre">Folder</span> <span class="pre">with</span> <span class="pre">original</span> <span class="pre">movies</span></code> and the <code class="docutils literal notranslate"><span class="pre">Folder</span> <span class="pre">with</span> <span class="pre">.mdoc</span> <span class="pre">files</span></code>.
 In this case, they are the <code class="docutils literal notranslate"><span class="pre">frames</span></code> and <code class="docutils literal notranslate"><span class="pre">mdoc</span></code> folders, respectively.</p>
-<div class="margin sidebar">
+<aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>For now, we don’t need to set the pixel size and electron dose per tilt, nor we need to worry about inverting tilt angles. We will set all these parameters at a later stage.</p>
 </div>
-</div>
+</aside>
 <p>Click on <code class="docutils literal notranslate"><span class="pre">Create</span> <span class="pre">stacks</span> <span class="pre">for</span> <span class="pre">IMOD</span></code> to start exporting the data. We can immediately move on to the next step without having to wait for the stack generation to finish, thanks to <code class="docutils literal notranslate"><span class="pre">autoalign_dynamo</span></code>’s on-the-fly processing.</p>
 <a class="reference internal image-reference" href="../../_images/create-stack.png"><img alt="../../_images/create-stack.png" src="../../_images/create-stack.png" style="width: 600px;" /></a>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1002,34 +1149,48 @@ In this case, they are the <code class="docutils literal notranslate"><span clas
 
               </div>
               
-        
-        <div class='prev-next-bottom'>
-            
-    <a class='left-prev' id="prev-link" href="preparation.html" title="previous page">Download the data</a>
-    <a class='right-next' id="next-link" href="tilt-series-to-tomograms.html" title="next page">Tilt-series to tomograms</a>
-
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="preparation.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Download the data</p>
         </div>
-        
+    </a>
+    <a class='right-next' id="next-link" href="tilt-series-to-tomograms.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Tilt-series to tomograms</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
-    <div class="container">
-      <p>
-        
-          By the teamtomo.org contributors<br/>
-        
-            &copy; Copyright 2021.<br/>
-      </p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By the teamtomo.org contributors<br/>
+  
+      &copy; Copyright 2021.<br/>
+</p>
+        </footer>
     </div>
-  </footer>
-</main>
+    
+</div>
 
 
       </div>
     </div>
   
-  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
 
-  
+
   </body>
 </html>

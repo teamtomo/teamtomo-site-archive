@@ -4,11 +4,13 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Multi-particle refinement</title>
     
-  <link href="../../_static/css/theme.css" rel="stylesheet" />
-  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,38 +20,37 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/sphinx-book-theme.5f77b4aec8189eecf79907ce328c390d.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
-    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <script src="../../_static/tabs.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -57,10 +58,27 @@
     <link rel="next" title="Dynamo" href="../../mini-tutorials/dynamo/index.html" />
     <link rel="prev" title="Particle pose optimisation" href="relion.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="en">
+    
+
+    <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -69,10 +87,15 @@
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
       
       <img src="../../_static/logo.svg" class="logo" alt="logo">
       
@@ -81,9 +104,9 @@
 </div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <p class="caption">
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   teamtomo.org
  </span>
@@ -122,7 +145,7 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Theory
  </span>
@@ -205,7 +228,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Walkthroughs
  </span>
@@ -264,7 +287,7 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   mini-tutorials
  </span>
@@ -313,7 +336,7 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   computing
  </span>
@@ -406,7 +429,7 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Resources
  </span>
@@ -634,6 +657,11 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="../../resources/cryoet-software/peet/peet.html">
+     PEET
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../../resources/cryoet-software/pytom/pytom.html">
      PyTom
     </a>
@@ -646,6 +674,11 @@
    <li class="toctree-l2">
     <a class="reference internal" href="../../resources/cryoet-software/stopgap/stopgap.html">
      STOPGAP
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../resources/cryoet-software/topaz_denoise_3d/topaz_denoise_3d.html">
+     Topaz Denoise 3D
     </a>
    </li>
    <li class="toctree-l2 has-children">
@@ -670,92 +703,197 @@
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/walkthroughs/EMPIAR-10164/m.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/teamtomo/teamtomo.github.io"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/teamtomo/teamtomo.github.io/issues/new?title=Issue%20on%20page%20%2Fwalkthroughs/EMPIAR-10164/m.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/teamtomo/teamtomo.github.io/edit/master/./walkthroughs/EMPIAR-10164/m.md"><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/teamtomo/teamtomo.github.io"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/teamtomo/teamtomo.github.io/issues/new?title=Issue%20on%20page%20%2Fwalkthroughs/EMPIAR-10164/m.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/teamtomo/teamtomo.github.io/edit/master/./walkthroughs/EMPIAR-10164/m.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/walkthroughs/EMPIAR-10164/m.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#create-population-and-species">
    Create Population and Species
@@ -773,47 +911,80 @@
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Multi-particle refinement</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#create-population-and-species">
+   Create Population and Species
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#refinement-parameters">
+   Refinement Parameters
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#end-result">
+   End Result!
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="section" id="multi-particle-refinement">
-<h1>Multi-particle refinement<a class="headerlink" href="#multi-particle-refinement" title="Permalink to this headline">¶</a></h1>
-<div class="margin sidebar">
+  <section class="tex2jax_ignore mathjax_ignore" id="multi-particle-refinement">
+<h1>Multi-particle refinement<a class="headerlink" href="#multi-particle-refinement" title="Permalink to this headline">#</a></h1>
+<aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <p>We highly recommend <a class="reference external" href="https://doi.org/10.1101/2020.06.05.136341">the <code class="docutils literal notranslate"><span class="pre">M</span></code> paper</a> to better understand what this software does and is capable of.</p>
 </div>
-</div>
+</aside>
 <p>Now that our particle poses are mostly correct and we have a good estimate of the reconstructed density, there are several parameters that can be tweaked <em>a posteriori</em> to further refine our result. We will perform these optimisations in <code class="docutils literal notranslate"><span class="pre">M</span></code>.</p>
-<div class="section" id="create-population-and-species">
-<h2>Create Population and Species<a class="headerlink" href="#create-population-and-species" title="Permalink to this headline">¶</a></h2>
+<section id="create-population-and-species">
+<h2>Create Population and Species<a class="headerlink" href="#create-population-and-species" title="Permalink to this headline">#</a></h2>
 <p>A project in <code class="docutils literal notranslate"><span class="pre">M</span></code> is referred to as a <code class="docutils literal notranslate"><span class="pre">population</span></code>. To create a new one press the big <code class="docutils literal notranslate"><span class="pre">+</span></code> button in the center of the window, and provide a directory. Here, we put it in <code class="docutils literal notranslate"><span class="pre">root/M/1.6Apx/</span></code>.</p>
 <p>We then need to add a data source. Click on <code class="docutils literal notranslate"><span class="pre">Manage</span> <span class="pre">data</span> <span class="pre">sources</span></code> to add a local source, and select the <code class="docutils literal notranslate"><span class="pre">*.settings</span></code> file inside the <code class="docutils literal notranslate"><span class="pre">frames</span></code> directory. Make sure to <code class="docutils literal notranslate"><span class="pre">Include</span> <span class="pre">items</span> <span class="pre">outside</span> <span class="pre">of</span> <span class="pre">filter</span> <span class="pre">ranges</span></code> (since we did not use the filters for this project), give it a name such as <code class="docutils literal notranslate"><span class="pre">HIV</span></code> and press <code class="docutils literal notranslate"><span class="pre">CREATE</span></code>. We also only want to <code class="docutils literal notranslate"><span class="pre">Use</span> <span class="pre">only</span> <span class="pre">first</span> <span class="pre">15</span> <span class="pre">frames/tilts</span></code> in order to refine only based on the high resolution information.</p>
 <p>We can then create a Species by pressing the next big ‘+’, selecting <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">scratch</span></code> and filling in the parameters as follows:</p>
 <p><img alt="new_species" src="../../_images/new_species.png" /></p>
 <p>Afterwards, select the two last halfmaps generated by the <code class="docutils literal notranslate"><span class="pre">RELION</span></code> refinements at 1.6Å/px. For the mask, we will generate a binary mask around the central hexamer (160 Å diameter).</p>
-<div class="margin sidebar">
+<aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Note that this time we are not adding a soft edge: <code class="docutils literal notranslate"><span class="pre">M</span></code> wants a binary mask!</p>
 </div>
-</div>
+</aside>
 <p>Mask one of the halfmaps to include only the central hexamer in <code class="docutils literal notranslate"><span class="pre">Dynamo</span></code> then use your favourite program and determine an appropriate threshold for binarisation. Use this as the <code class="docutils literal notranslate"><span class="pre">--ini_threshold</span></code> parameter in the following <code class="docutils literal notranslate"><span class="pre">relion_mask_create</span></code> command, replacing <code class="docutils literal notranslate"><span class="pre">&lt;latest_halfmap&gt;</span></code> as appropriate:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>relion_mask_create --i &lt;latest_halfmap&gt;.mrc --angpix <span class="m">1</span>.6 --extend_inimask <span class="m">5</span> --o mask_1.6Apx.mrc --ini_threshold <span class="m">0</span>.05
 </pre></div>
 </div>
 <p>Provide this mask to <code class="docutils literal notranslate"><span class="pre">M</span></code>, and then select the final particle positions (e.g: <code class="docutils literal notranslate"><span class="pre">run_it019_data.star</span></code>) as the input for particle poses. Click <code class="docutils literal notranslate"><span class="pre">FINISH</span></code> to generate the new species.</p>
-</div>
-<div class="section" id="refinement-parameters">
-<h2>Refinement Parameters<a class="headerlink" href="#refinement-parameters" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="refinement-parameters">
+<h2>Refinement Parameters<a class="headerlink" href="#refinement-parameters" title="Permalink to this headline">#</a></h2>
 <p>To start the refinement, click on the <code class="docutils literal notranslate"><span class="pre">REFINE</span></code> button and fill in the parameters as follows.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -824,16 +995,16 @@ We chose to first optimise a smaller number of parameters to avoid falling into 
 <img alt="refinement1" src="../../_images/refinement1.png" /></p>
 <p>Afterwards, three iterations as follows:
 <img alt="refinement2" src="../../_images/refinement2.png" /></p>
-</div>
-<div class="section" id="end-result">
-<h2>End Result!<a class="headerlink" href="#end-result" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="end-result">
+<h2>End Result!<a class="headerlink" href="#end-result" title="Permalink to this headline">#</a></h2>
 <p>If everything went well, after the second round of refinements you should be able to get to something like this:</p>
 <a class="reference internal image-reference" href="../../_images/result1.png"><img alt="../../_images/result1.png" src="../../_images/result1.png" style="width: 500px;" /></a>
 <p>Here’s a closer look to the map compared to the available structures:</p>
 <p><img alt="result2" src="../../_images/result2.png" /></p>
 <p>Congratulations with your reconstruction!</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -857,34 +1028,48 @@ We chose to first optimise a smaller number of parameters to avoid falling into 
 
               </div>
               
-        
-        <div class='prev-next-bottom'>
-            
-    <a class='left-prev' id="prev-link" href="relion.html" title="previous page">Particle pose optimisation</a>
-    <a class='right-next' id="next-link" href="../../mini-tutorials/dynamo/index.html" title="next page">Dynamo</a>
-
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="relion.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Particle pose optimisation</p>
         </div>
-        
+    </a>
+    <a class='right-next' id="next-link" href="../../mini-tutorials/dynamo/index.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Dynamo</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
-    <div class="container">
-      <p>
-        
-          By the teamtomo.org contributors<br/>
-        
-            &copy; Copyright 2021.<br/>
-      </p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By the teamtomo.org contributors<br/>
+  
+      &copy; Copyright 2021.<br/>
+</p>
+        </footer>
     </div>
-  </footer>
-</main>
+    
+</div>
 
 
       </div>
     </div>
   
-  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
 
-  
+
   </body>
 </html>

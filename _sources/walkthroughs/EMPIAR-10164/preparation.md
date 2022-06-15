@@ -11,7 +11,8 @@ Downloading the data may take a few hours. Start this early!
 
 `download.sh` organises files according to the directory structure expected by the rest of the guide.
 
-````{tabbed} shell script
+`````{tab-set}
+````{tab-item} shell script
 ```bash
 echo "Downloading the raw data. This may take a couple of hours!"
 echo
@@ -26,7 +27,7 @@ done
 ```
 ````
 
-````{tabbed} directory structure
+````{tab-item} directory structure
 ```bash
 .
 ├── frames
@@ -40,7 +41,7 @@ done
 ```
 ````
 
-````{tabbed} file extensions
+````{tab-item} file extensions
 Files with the `.mrc` extension are multi-frame micrographs for each tilt angle in a tilt series. 
 
 They are in the [MRC2014](https://www.ccpem.ac.uk/mrc_format/mrc2014.php) file format.
@@ -49,3 +50,4 @@ Files with the `.mdoc` extension are [SerialEM](https://bio3d.colorado.edu/Seria
 
 They are plain text files containing metadata about images in a tilt-series.
 ````
+`````

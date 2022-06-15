@@ -14,10 +14,9 @@ We will use `Warp` for the initial processing of the raw data. This will let us:
 ```{seealso}
 The following tabs detail the parameter settings as appropriate for this application. If you seek additional information, check out the [Warp User Guide](http://www.warpem.com/warp/?page_id=51).
 ```
-``````{panels}
-:column: col-20
-:card: border-2
-`````{tabbed} Import
+```````{card}
+``````{tab-set}
+`````{tab-item} Import
 To import new data into Warp, click on the path next to `Input` and select the `frames` directory. For the HIV-5-TS data, make sure that the selected format is `*.mrc`.
 
 We then set the parameters as shown below.
@@ -44,7 +43,7 @@ Make sure that the orientation of the reference and the images correspond!
 The EMPIAR entry for EMPIAR-10164 indicates that the images were already gain corrected. We can skip gain correction by leaving this section unchecked.
 `````
 
-`````{tabbed} CTF and Motion
+`````{tab-item} CTF and Motion
 
 ````{margin}
 ```{note}
@@ -61,9 +60,7 @@ Accurate estimation of Contrast Transfer Function (CTF) parameters is essential 
 
 The following parameters depend entirely on the microscope setup used for data collection, for HIV-5-TS:
 
-```{panels}
-:column: col-20
-:card: border-2
+```{card}
 Voltage
 : The acceleration voltage used in the electron microscope
 
@@ -75,10 +72,7 @@ Phase Shift
 ```
 
 The remaining parameters should be set depending on the dataset:
-```{panels}
-:column: col-20
-:card: border-2
-
+```{card}
 Defocus
 : The upper and lower limits for defocus estimation. When a dataset is expected to have higher or lower defoci, this range should be expanded.
 
@@ -90,10 +84,7 @@ Amplitude
 ```
 
 Some computational parameters can also be adjusted:
-```{panels}
-:column: col-20
-:card: border-2
-
+```{card}
 Window
 : The size of power spectra used for CTF estimation.
 
@@ -111,7 +102,7 @@ In this case, we leave the motion correction parameters as defaults.
 ```
 `````
 
-`````{tabbed} Spatiotemporal models
+`````{tab-item} Spatiotemporal models
 Warp allows us to estimate how CTF and inter-frame translational motion parameters change in both space and time.
 
 ```{image} preprocessing.assets/spatiotemporal-models.png
@@ -127,7 +118,7 @@ A motion model of 1x1xn where n is the number of frames typically ensures that a
 For HIV-5-TS, EMPIAR indicates that we have 8 frames per image, so we set the resolution of the motion model to 1x1x8
 `````
 
-`````{tabbed} Fiducials
+`````{tab-item} Fiducials
 While gold fiducials are useful for the accurate alignment of tilt series, their high contrast will have negative effects on the final tomographic reconstruction. For this reason, we use Warp to mask out any beads prior to tomographic reconstruction.
 
 The `Pick Particles` panel gives access to `BoxNet`, a deep convolutional neural network designed to pick particles and mask out unwanted subregions in single-particle cryo-EM. A version of `BoxNet` that we retrained to mask gold fiducials [is available here](https://doi.org/10.5281/zenodo.4486376) under the name `GoldNet`.
@@ -147,7 +138,7 @@ In order to access it from Warp, extract the `GoldNet` directory and place it in
 As we are only using this model for particle picking, the parameters relating to particle picking can be safely ignored.
 `````
 
-`````{tabbed} Start Processing!
+`````{tab-item} Start Processing!
 
 ```{image} preprocessing.assets/output-params.png
 :width: 400px
@@ -172,6 +163,7 @@ During processing, you can check the results by switching to the `Real Space` an
 
 `````
 ``````
+```````
 
 ## Deselect bad images
 
