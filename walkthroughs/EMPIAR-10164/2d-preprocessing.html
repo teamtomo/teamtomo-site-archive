@@ -974,8 +974,8 @@ title="Print to PDF"
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
 <div class="sd-tab-set docutils">
-<input checked="checked" id="2547bb06-8404-495d-90ff-30686b9148ef" name="469756ba-a712-496e-a280-bb97cf5c03f8" type="radio">
-</input><label class="sd-tab-label" for="2547bb06-8404-495d-90ff-30686b9148ef">
+<input checked="checked" id="55501460-9537-4d0e-8128-081573739be5" name="f49fc8c3-dd58-4fc2-b66c-8c887997e428" type="radio">
+</input><label class="sd-tab-label" for="55501460-9537-4d0e-8128-081573739be5">
 Import</label><div class="sd-tab-content docutils">
 <p class="sd-card-text">To import new data into Warp, click on the path next to <code class="docutils literal notranslate"><span class="pre">Input</span></code> and select the <code class="docutils literal notranslate"><span class="pre">frames</span></code> directory. For the HIV-5-TS data, make sure that the selected format is <code class="docutils literal notranslate"><span class="pre">*.mrc</span></code>.</p>
 <p class="sd-card-text">We then set the parameters as shown below.</p>
@@ -996,8 +996,8 @@ Make sure that the orientation of the reference and the images correspond!</p>
 </div>
 <p class="sd-card-text">The EMPIAR entry for EMPIAR-10164 indicates that the images were already gain corrected. We can skip gain correction by leaving this section unchecked.</p>
 </div>
-<input id="aac6e42d-0ef4-4998-9925-e6294b971b10" name="469756ba-a712-496e-a280-bb97cf5c03f8" type="radio">
-</input><label class="sd-tab-label" for="aac6e42d-0ef4-4998-9925-e6294b971b10">
+<input id="733f8b07-7e89-4cc6-9cf2-1954c321081a" name="f49fc8c3-dd58-4fc2-b66c-8c887997e428" type="radio">
+</input><label class="sd-tab-label" for="733f8b07-7e89-4cc6-9cf2-1954c321081a">
 CTF and Motion</label><div class="sd-tab-content docutils">
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
@@ -1045,8 +1045,8 @@ we estimate and correct for the inter-frame motion present in the image.
 In this case, we leave the motion correction parameters as defaults.</p>
 <a class="reference internal image-reference" href="../../_images/motion-params.png"><img alt="../../_images/motion-params.png" src="../../_images/motion-params.png" style="width: 400px;" /></a>
 </div>
-<input id="45b0c0c3-7983-425d-a007-8eab7634d20d" name="469756ba-a712-496e-a280-bb97cf5c03f8" type="radio">
-</input><label class="sd-tab-label" for="45b0c0c3-7983-425d-a007-8eab7634d20d">
+<input id="ddbfbcab-1f0a-4105-8fad-617fe2a8aa04" name="f49fc8c3-dd58-4fc2-b66c-8c887997e428" type="radio">
+</input><label class="sd-tab-label" for="ddbfbcab-1f0a-4105-8fad-617fe2a8aa04">
 Spatiotemporal models</label><div class="sd-tab-content docutils">
 <p class="sd-card-text">Warp allows us to estimate how CTF and inter-frame translational motion parameters change in both space and time.</p>
 <a class="reference internal image-reference" href="../../_images/spatiotemporal-models.png"><img alt="../../_images/spatiotemporal-models.png" src="../../_images/spatiotemporal-models.png" style="width: 400px;" /></a>
@@ -1055,8 +1055,8 @@ Spatiotemporal models</label><div class="sd-tab-content docutils">
 <p class="sd-card-text">A motion model of 1x1xn where n is the number of frames typically ensures that accurate estimates can be obtained from low-dose data. The alignment of individual frames can be improved once a high SNR reference has been obtained, this is performed in the multi-particle refinement step of the workflow.</p>
 <p class="sd-card-text">For HIV-5-TS, EMPIAR indicates that we have 8 frames per image, so we set the resolution of the motion model to 1x1x8</p>
 </div>
-<input id="001348b6-4765-4b12-a7aa-17b3da6006b3" name="469756ba-a712-496e-a280-bb97cf5c03f8" type="radio">
-</input><label class="sd-tab-label" for="001348b6-4765-4b12-a7aa-17b3da6006b3">
+<input id="83df4d18-b657-4a89-b995-58df68c977e3" name="f49fc8c3-dd58-4fc2-b66c-8c887997e428" type="radio">
+</input><label class="sd-tab-label" for="83df4d18-b657-4a89-b995-58df68c977e3">
 Fiducials</label><div class="sd-tab-content docutils">
 <p class="sd-card-text">While gold fiducials are useful for the accurate alignment of tilt series, their high contrast will have negative effects on the final tomographic reconstruction. For this reason, we use Warp to mask out any beads prior to tomographic reconstruction.</p>
 <p class="sd-card-text">The <code class="docutils literal notranslate"><span class="pre">Pick</span> <span class="pre">Particles</span></code> panel gives access to <code class="docutils literal notranslate"><span class="pre">BoxNet</span></code>, a deep convolutional neural network designed to pick particles and mask out unwanted subregions in single-particle cryo-EM. A version of <code class="docutils literal notranslate"><span class="pre">BoxNet</span></code> that we retrained to mask gold fiducials <a class="reference external" href="https://doi.org/10.5281/zenodo.4486376">is available here</a> under the name <code class="docutils literal notranslate"><span class="pre">GoldNet</span></code>.</p>
@@ -1071,8 +1071,8 @@ Fiducials</label><div class="sd-tab-content docutils">
 <a class="reference internal image-reference" href="../../_images/boxnet-params.png"><img alt="../../_images/boxnet-params.png" src="../../_images/boxnet-params.png" style="width: 400px;" /></a>
 <p class="sd-card-text">As we are only using this model for particle picking, the parameters relating to particle picking can be safely ignored.</p>
 </div>
-<input id="65dda9d7-b6cb-476e-a5d7-b7e68a0101c9" name="469756ba-a712-496e-a280-bb97cf5c03f8" type="radio">
-</input><label class="sd-tab-label" for="65dda9d7-b6cb-476e-a5d7-b7e68a0101c9">
+<input id="6da425af-19df-40af-a024-17a6e4ce4ff9" name="f49fc8c3-dd58-4fc2-b66c-8c887997e428" type="radio">
+</input><label class="sd-tab-label" for="6da425af-19df-40af-a024-17a6e4ce4ff9">
 Start Processing!</label><div class="sd-tab-content docutils">
 <a class="reference internal image-reference" href="../../_images/output-params.png"><img alt="../../_images/output-params.png" src="../../_images/output-params.png" style="width: 400px;" /></a>
 <p class="sd-card-text">In the <code class="docutils literal notranslate"><span class="pre">Output</span></code> panel, we can choose not to include frames at the beginning and end of a movie. The first frames from a multi-frame micrograph of a given exposure often display increased translational motion. In this case, we chose to include all frames from the micrograph to maximise the signal present in the final images.</p>
