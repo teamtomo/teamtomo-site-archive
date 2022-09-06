@@ -977,7 +977,7 @@ title="Print to PDF"
 </div>
 </aside>
 <p>With data of such good quality and so many particles per VLP, two of our vesicle models should be more than enough for generating a good initial model of the underlying lattice structure.</p>
-<p>When choosing an initial subset, it can be a good idea to choose VLPs with different defoci. This ensures that nodes of the CTF are at different spatial frequencies within the subset and thus no region of Fourier space should be particularly undersampled. The Jiang lab at Purdue University have a CTF simulation <a class="reference external" href="https://ctf-simulation.herokuapp.com/">web app</a> which is useful for visualising the effect of defocus on the CTF.</p>
+<p>When choosing an initial subset, it can be a good idea to choose VLPs with different defoci. This ensures that nodes of the CTF are at different spatial frequencies within the subset and thus no region of Fourier space should be particularly undersampled. The RELION team put together a useful <a class="reference external" href="https://3dem.github.io/relion/ctf.html">web app</a> which can be used to visualising the effect of changing CTF model parameters.</p>
 <p>Choosing a subset which contains all available views of the particle is also important, ensuring maximum coverage of Fourier space in a resulting reconstruction</p>
 <p>From the <code class="docutils literal notranslate"><span class="pre">Overview</span></code> tab in Warp, we quickly see that <code class="docutils literal notranslate"><span class="pre">TS_01</span></code> and <code class="docutils literal notranslate"><span class="pre">TS_03</span></code> have significantly different defoci, so we choose to use one vescicle from each of these tomograms.</p>
 <section id="extracting-a-subset-of-particles">
@@ -1070,15 +1070,15 @@ title="Print to PDF"
 <p>In order to take advantage of the symmetry present in the structure during refinement we first need to recenter the average on its 6-fold symmetry axis and align that axis along the z axis of our volume.</p>
 <p>To center and align the 6-fold symmetry axis, we will use a script provided with this tutorial, <a class="reference external" href="https://github.com/teamtomo/teamtomo.github.io/blob/master/walkthroughs/EMPIAR-10164/scripts/align_symmetry_axis.m"><code class="docutils literal notranslate"><span class="pre">align_symmetry_axis.m</span></code></a>. The script generates a synthetic template of a lattice with a 6-fold symmetry axis centered and aligned along the z-axis. The volume from our first subtomogram averaging experiment is then aligned to this synthetic template and C6 symmetry is applied. This produces an initial model with the symmetry axis correctly aligned for further experiments.</p>
 <div class="sd-tab-set docutils">
-<input checked="checked" id="cbf1140f-cbce-42da-885b-078573503cfd" name="a2e229af-a7ae-4167-b27b-081a9e4c87d5" type="radio">
-</input><label class="sd-tab-label" for="cbf1140f-cbce-42da-885b-078573503cfd">
+<input checked="checked" id="a7f8c0e7-7764-48ee-b625-3ab936f3e563" name="3d8c34b1-ae91-4eaa-9e41-31ca6164cbf8" type="radio">
+</input><label class="sd-tab-label" for="a7f8c0e7-7764-48ee-b625-3ab936f3e563">
 command</label><div class="sd-tab-content docutils">
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">align_symmetry_axis</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
-<input id="e0471c44-5e76-4370-a24f-9a2a479d98c8" name="a2e229af-a7ae-4167-b27b-081a9e4c87d5" type="radio">
-</input><label class="sd-tab-label" for="e0471c44-5e76-4370-a24f-9a2a479d98c8">
+<input id="ab26d76f-2e21-45df-9f33-e0ec77c5ea6f" name="3d8c34b1-ae91-4eaa-9e41-31ca6164cbf8" type="radio">
+</input><label class="sd-tab-label" for="ab26d76f-2e21-45df-9f33-e0ec77c5ea6f">
 source code</label><div class="sd-tab-content docutils">
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">v</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">dread</span><span class="p">(</span><span class="s">&#39;average_ref_001_ite_0008.em&#39;</span><span class="p">);</span><span class="w"></span>
 
