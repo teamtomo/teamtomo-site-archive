@@ -117,7 +117,7 @@ dwrite(nodup, 'result_10Apx_nodup.tbl');
 
 This will create a new table called `result_10Apx_nodup.tbl`, reducing clusters of multiple particles within 4 pixels (half the distance we measured earlier) to a single particle.
 
-The next step is to remove particles that don't belong to the lattice. To do so, we use [`check_radial_distribution.m`](https://github.com/teamtomo/teamtomo.github.io/tree/master/walkthroughs/EMPIAR-10164/scripts/check_radial_distribution.m).
+The next step is to remove particles that don't belong to the lattice. To do so, we use [`check_radial_distribution.m`](https://github.com/teamtomo/teamtomo.github.io/tree/master/walkthroughs/EMPIAR-10164/scripts/check_radial_distribution.m) (which requires [`dtneighbours_in_range.m`](https://github.com/teamtomo/teamtomo.github.io/tree/master/walkthroughs/EMPIAR-10164/scripts/dtneighbours_in_range.m)).
 
 Once again, in the same directory, simply run:
 `````{tab-set}
@@ -164,7 +164,7 @@ If you are wondering why the second peak has two sub-peaks: it's the honeycomb p
 
 ![radial distribution](particle-picking.assets/radial-distance-profile.png)
 
-This confirms the previously measured interparticle distance and the fact that most particles slid into ordered positions in the lattice. We can use the first peak to select against particles that don't conform to this distribution. The next script, [`subset_table_based_on_neighbours.m`](https://github.com/teamtomo/teamtomo.github.io/tree/master/walkthroughs/EMPIAR-10164/scripts/subset_table_based_on_neighbours.m) (which requires [`dtneighbours_in_range.m`](https://github.com/teamtomo/teamtomo.github.io/tree/master/walkthroughs/EMPIAR-10164/scripts/dtneighbours_in_range.m)), removes all particles that don't have at least 3 neighbours in the radial shell at distance 7.5 px. To use it, run:
+This confirms the previously measured interparticle distance and the fact that most particles slid into ordered positions in the lattice. We can use the first peak to select against particles that don't conform to this distribution. The next script, [`subset_table_based_on_neighbours.m`](https://github.com/teamtomo/teamtomo.github.io/tree/master/walkthroughs/EMPIAR-10164/scripts/subset_table_based_on_neighbours.m), removes all particles that don't have at least 3 neighbours in the radial shell at distance 7.5 px. To use it, run:
 
 `````{tab-set}
 ````{tab-item} Command
