@@ -72,7 +72,7 @@ To keep read/write times low, we recommend a Solid State Drive (SSD).
 - [Dynamo](https://wiki.dynamo.biozentrum.unibas.ch/w/index.php/Main_Page) 1.1.478 or later
 - [dynamo2m](https://github.com/alisterburt/dynamo2m)
 - [autoalign_dynamo](https://github.com/alisterburt/autoalign_dynamo)
-- [scripts](https://github.com/teamtomo/teamtomo.github.io/tree/master/guides/EMPIAR-10164/scripts) provided with this guide
+- [scripts](https://github.com/teamtomo/teamtomo.github.io/tree/master/walkthroughs/EMPIAR-10164/scripts) provided with this guide
 
 If you need help with setting up any of these tools, follow the link to the respective documentation, or check out the [software packages](../../resources/cryoet-software/cryoet-software.md) and [computing](../../computing/matlab/index.md) sections.
 ```
