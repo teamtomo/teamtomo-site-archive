@@ -32,7 +32,7 @@ Mask one of the halfmaps to include only the central hexamer in `Dynamo` then us
 relion_mask_create --i <latest_halfmap>.mrc --angpix 1.6 --extend_inimask 5 --o mask_1.6Apx.mrc --ini_threshold 0.05
 ```
 
-Provide this mask to `M`, and then we need to reformat the final particle positions `.star` file using `relion_star_downgrade` to the Relion3.0 specification (Warp does not support Relion 3.1+): 
+If using Relion3.1+, we need to reformat the final particle positions `.star` file using `relion_star_downgrade` to the Relion3.0 specification (Warp does not support Relion 3.1+): 
 
 ```bash
 relion_star_downgrade -s run_it019_data.star
