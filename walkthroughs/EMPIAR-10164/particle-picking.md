@@ -39,7 +39,7 @@ The provided scripts are just a few lines long, and are given for convenience an
 
 We can now take a look at the resulting particle positions, written in the output file `dynamo/findparticles/results/ite_0001/averages/refined_table_ref_001_ite_0001.tbl`.
 
-We can use [`view_particles.m`](https://github.com/teamtomo/teamtomo.github.io/tree/master/walkthroughs/EMPIAR-10164/scripts/view_particles.m)  to open a 3D viewer and examine them. Open matlab in `dynamo/findparticles/results/ite_0001/` and run:
+We can use [`view_particles.m`](https://github.com/teamtomo/teamtomo.github.io/tree/master/walkthroughs/EMPIAR-10164/scripts/view_particles.m)  to open a 3D viewer and examine them. Open matlab in `dynamo/findparticles/results/ite_0001/averages/` and run:
 
 `````{tab-set}
 ````{tab-item} Command
@@ -117,7 +117,7 @@ dwrite(nodup, 'result_10Apx_nodup.tbl');
 
 This will create a new table called `result_10Apx_nodup.tbl`, reducing clusters of multiple particles within 4 pixels (half the distance we measured earlier) to a single particle.
 
-The next step is to remove particles that don't belong to the lattice. To do so, we use [`check_radial_distribution.m`](https://github.com/teamtomo/teamtomo.github.io/tree/master/walkthroughs/EMPIAR-10164/scripts/check_radial_distribution.m).
+The next step is to remove particles that don't belong to the lattice. To do so, we use [`check_radial_distribution.m`](https://github.com/teamtomo/teamtomo.github.io/tree/master/walkthroughs/EMPIAR-10164/scripts/check_radial_distribution.m) (which requires [`dtneighbours_in_range.m`](https://github.com/teamtomo/teamtomo.github.io/tree/master/walkthroughs/EMPIAR-10164/scripts/dtneighbours_in_range.m)).
 
 Once again, in the same directory, simply run:
 `````{tab-set}

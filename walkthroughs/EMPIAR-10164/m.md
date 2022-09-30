@@ -32,7 +32,13 @@ Mask one of the halfmaps to include only the central hexamer in `Dynamo` then us
 relion_mask_create --i <latest_halfmap>.mrc --angpix 1.6 --extend_inimask 5 --o mask_1.6Apx.mrc --ini_threshold 0.05
 ```
 
-Provide this mask to `M`, and then select the final particle positions (e.g: `run_it019_data.star`) as the input for particle poses. Click `FINISH` to generate the new species.
+If using Relion3.1+, we need to reformat the final particle positions `.star` file using `relion_star_downgrade` to the Relion3.0 specification (Warp does not support Relion 3.1+): 
+
+```bash
+relion_star_downgrade -s run_it019_data.star
+```
+
+M will only look for file names with the pattern `*_data.star`, so we need to rename the output from `relion_star_downgrade` (e.g., from `run_it019_data_rln3.0.star` to `rln3.0_run_it019_data.star`). Now, select this reformatted `.star` file containing the final particle positions from Relion as the input for particle poses in M. Click `FINISH` to generate the new species.
 
 ## Refinement Parameters
 
