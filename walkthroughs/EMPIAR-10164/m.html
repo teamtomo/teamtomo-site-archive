@@ -981,7 +981,11 @@ title="Print to PDF"
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>relion_mask_create --i &lt;latest_halfmap&gt;.mrc --angpix <span class="m">1</span>.6 --extend_inimask <span class="m">5</span> --o mask_1.6Apx.mrc --ini_threshold <span class="m">0</span>.05
 </pre></div>
 </div>
-<p>Provide this mask to <code class="docutils literal notranslate"><span class="pre">M</span></code>, and then select the final particle positions (e.g: <code class="docutils literal notranslate"><span class="pre">run_it019_data.star</span></code>) as the input for particle poses. Click <code class="docutils literal notranslate"><span class="pre">FINISH</span></code> to generate the new species.</p>
+<p>If using Relion3.1+, we need to reformat the final particle positions <code class="docutils literal notranslate"><span class="pre">.star</span></code> file using <code class="docutils literal notranslate"><span class="pre">relion_star_downgrade</span></code> to the Relion3.0 specification (Warp does not support Relion 3.1+):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>relion_star_downgrade -s run_it019_data.star
+</pre></div>
+</div>
+<p>M will only look for file names with the pattern <code class="docutils literal notranslate"><span class="pre">*_data.star</span></code>, so we need to rename the output from <code class="docutils literal notranslate"><span class="pre">relion_star_downgrade</span></code> (e.g., from <code class="docutils literal notranslate"><span class="pre">run_it019_data_rln3.0.star</span></code> to <code class="docutils literal notranslate"><span class="pre">rln3.0_run_it019_data.star</span></code>). Now, select this reformatted <code class="docutils literal notranslate"><span class="pre">.star</span></code> file containing the final particle positions from Relion as the input for particle poses in M. Click <code class="docutils literal notranslate"><span class="pre">FINISH</span></code> to generate the new species.</p>
 </section>
 <section id="refinement-parameters">
 <h2>Refinement Parameters<a class="headerlink" href="#refinement-parameters" title="Permalink to this headline">#</a></h2>
