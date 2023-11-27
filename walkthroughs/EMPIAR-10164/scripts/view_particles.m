@@ -11,7 +11,7 @@ function gui = view_particles(table)
     for key_idx = 1:size(keys)
         key = keys(key_idx);
         % extract the table corresponding to this volume
-        idx = table(:, 20) == key_idx;
+        idx = table(:, 20) == key;
         subtable = table(idx, :);
         % draw the particles as points and lines
         ax = gui.gca;
